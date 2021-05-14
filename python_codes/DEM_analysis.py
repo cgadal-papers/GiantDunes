@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.signal import fftconvolve, find_peaks, correlate
+from scipy.signal import find_peaks, correlate
 from scipy.ndimage import map_coordinates
 from python_codes.general import cosd, sind
 
@@ -43,14 +43,6 @@ def array_transect(A, p0, p1, type='cubic', num=100):
         return A[x_ok.astype(np.int), y_ok.astype(np.int)]
     else:
         print('wrong type')
-
-
-def autocorr2D(A, mode='normalized'):
-    if mode == 'normalized':
-        A_norm = (A - A.mean())/(A.std()*np.sqrt(A.size))   # normalisation du tableau
-    else:
-        A_norm = A - A.mean()
-    return fftconvolve(A_norm, A_norm[::-1, ::-1])
 
 
 def polyfit2d(X, Y, Z, kx, ky, order_max=None):
@@ -97,6 +89,25 @@ def polyfit2d(X, Y, Z, kx, ky, order_max=None):
 
 
 def find_first_max(a, type='first', min_pos=0, max_pos=-1):
+    """Find the first maximum of an autocorrelation profile.
+
+    Parameters
+    ----------
+    a : array_like, shape (N, )
+        Input array.
+    type : str
+        If 'first', the returned peak is the first peak detected by `scipy.signal.find_peaks`. If 'max', the returned peak is the one with the largest height (the default is 'first').
+    min_pos : int
+        Minimum index above which the peak is searched (the default is 0).
+    max_pos : int
+        Minimum index below which the peak is searched (the default is -1).
+
+    Returns
+    -------
+    int
+        Return the position of the first peak.
+
+    """
     peaks = find_peaks(a)[0]
     if max_pos == -1:
         max_pos = a.size
@@ -120,6 +131,39 @@ def find_first_max(a, type='first', min_pos=0, max_pos=-1):
 
 
 def periodicity_2d(A, rad, type='first'):
+    r"""Calculate the properties (orientation, wavelength, amplitude) of a 2-dimensional pattern.
+
+    - The orientation is calculated by computed the integration over `rad` of the autocorrelation matrix around its maximum in each direction. The pattern orientation is then taken as where the maximum is.
+    - The wavelength is taken at the position of the first maximum of the autocorrelation profile in the direction perpendicular to the orientation.
+    - The amplitude is linked to the maximum of the autocorrelation matrix as :math:`A = \sqrt{2*C(0, 0)}`.
+
+    Parameters
+    ----------
+    A : array_like
+        Input array.
+    rad : int
+        Distance over wich the integration for the cauclation of the orientation is computed.
+    type : str
+        Type of the detection of the peak of the autocorrelation for finding the wavelength. It can be 'first' or 'max'. See `python_codes.DEM_analysis.find_first_max for details.`
+
+    Returns
+    -------
+    orientation: float
+        Orientation of the pattern in degress.
+    wavelength: float
+        Wavelength of the pattern in pixels.
+    amplitude: float
+        Amplitude of the pattern in the input array unit.
+    p0: array_like, shape (2,)
+        Coordinates of the maximum of the autocorrelation matrix.
+    p1: array_like, shape (2,)
+        Coordinates of the end of the profile used for the calculation of the wavelength.
+    transect: array_like
+        Profile used for the calculation of the wavelength.
+    C: array_like
+        Autocorrelation matrix.
+
+    """
     C = correlate(A, A)/A.size
     alpha = list(np.linspace(0, 179, 181))
     grad = np.zeros((len(alpha),))
@@ -147,10 +191,3 @@ def periodicity_2d(A, rad, type='first'):
     wavelength = find_first_max(transect)
     amplitude = np.sqrt(2*transect[0])
     return orientation, wavelength, amplitude, p0, p1, transect, C
-
-    # if valmax:
-    #     lambda_2d, valmax, upbound = find_first_max(squeeze, valmax, fit = fit)
-    #     return lambda_2d, orientation, valmax, upbound
-    # else:
-    #     lambda_2d = find_first_max(transect)
-    #     return lambda_2d, orientation
