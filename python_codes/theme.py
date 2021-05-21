@@ -2,40 +2,12 @@ import matplotlib
 import matplotlib.pyplot as plt
 from General.Other import truncate_colormap
 import cmocean
-
-############### fonts properties
-
-matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.family'] = 'STIXGeneral'
-matplotlib.rcParams['text.usetex'] = True
-#matplotlib.rcParams['text.latex.unicode'] = True
-matplotlib.rcParams['text.latex.preamble']=r"\usepackage{amsmath}"
-matplotlib.rcParams['font.size'] = 10 # default 12
+import os
 
 
-############### formatting axis
-
-#matplotlib.rcParams['xtick.major.size'] = 1.75 ## default is 3.5
-#matplotlib.rcParams['xtick.major.width'] = 0.4  ## default is 0.8
-#matplotlib.rcParams['ytick.major.size'] = 1.75 ## default is 3.5
-#matplotlib.rcParams['ytick.major.width'] = 0.4  ## default is 0.8
-matplotlib.rcParams['xtick.direction'] = 'in'  #### ticks pointing insid the figure
-matplotlib.rcParams['ytick.direction'] = 'in'
-matplotlib.rcParams['ytick.right'] = 'True'  ####
-matplotlib.rcParams['xtick.top'] = 'True'
-
-matplotlib.rcParams['xtick.major.size'] = 3.5 ## default is 3.5
-matplotlib.rcParams['xtick.major.width'] = 0.8  ## default is 0.8
-matplotlib.rcParams['ytick.major.size'] = 3.5 ## default is 3.5
-matplotlib.rcParams['ytick.major.width'] = 0.8  ## default is 0.8
-
-#matplotlib.rcParams['axes.linewidth'] = 0.4 # default 0.8
-matplotlib.rcParams['axes.linewidth'] = 0.8
-
-############# other general options
-##### contour plots
-matplotlib.rcParams['contour.negative_linestyle'] = 'solid' #### negative contour in contour plot set to solid lines
-
+def load_style():
+# Loading style sheet
+    plt.style.use(os.path.join(os.path.dirname(__file__), '_static/style.mplstyle'))
 
 ############################################################################ figure properties
 ######################## sizes

@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>python_codes.theme &#8212; python_codes  documentation</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/numpy.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/numpy.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1e043a052b0af929e4d8.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+<link rel="stylesheet" href="../../_static/numpy.css" type="text/css" />
+
+    <!-- PR #17220: This is added via javascript in versionwarning.js  -->
+    <!-- link rel="canonical" href="http://numpy.org/doc/stable/_modules/python_codes/theme.html" / -->
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+    <a class="navbar-brand" href="../../index.html">
+      <p class="title">python_codes</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../index.html">
+  Home page
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../auto_examples/index.html">
+  Analysis
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../_autosummary/python_codes.html">
+  python_codes
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for python_codes.theme</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">General.Other</span> <span class="kn">import</span> <span class="n">truncate_colormap</span>
+<span class="kn">import</span> <span class="nn">cmocean</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<div class="viewcode-block" id="load_style"><a class="viewcode-back" href="../../_autosummary/python_codes.theme.load_style.html#python_codes.theme.load_style">[docs]</a><span class="k">def</span> <span class="nf">load_style</span><span class="p">():</span>
+<span class="c1"># Loading style sheet</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;_static/style.mplstyle&#39;</span><span class="p">))</span></div>
+
+<span class="c1">############################################################################ figure properties</span>
+<span class="c1">######################## sizes</span>
+<span class="n">text_width</span> <span class="o">=</span> <span class="mf">426.79</span> <span class="c1">#en pt</span>
+<span class="n">fig_width</span> <span class="o">=</span> <span class="n">text_width</span><span class="o">*</span><span class="mf">0.35136</span><span class="o">*</span><span class="mf">0.1</span> <span class="c1"># en cm</span>
+<span class="n">fig_width</span> <span class="o">=</span> <span class="n">fig_width</span><span class="o">*</span><span class="mf">0.39</span> <span class="c1">### inches</span>
+
+<span class="n">fig_width_small</span> <span class="o">=</span> <span class="mf">0.75</span><span class="o">*</span><span class="n">fig_width</span>
+<span class="c1">#</span>
+<span class="c1"># fig_width_standard = 13.3 # cm</span>
+<span class="c1"># fig_width_standard = fig_width_standard * 0.39 # inches</span>
+<span class="c1">#</span>
+<span class="c1"># fig_width_half = 5.1 ###cm</span>
+<span class="c1"># fig_width_half = fig_width_half *0.39 ## cm</span>
+
+
+<span class="c1">####################### line width</span>
+
+<span class="n">linewidth_small</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">linewidth_contourplot</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">linewidth_barscale</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">linewidth_errorbar</span> <span class="o">=</span> <span class="mf">0.8</span>
+
+<span class="c1">###################### Markers</span>
+<span class="n">markersize</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">markersize_small</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1">###################### Cmaps</span>
+<span class="n">copper_t</span> <span class="o">=</span> <span class="n">truncate_colormap</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;copper&quot;</span><span class="p">),</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># copper_t.set_under((0.4392156862745098, 0.5019607843137255, 0.5647058823529412, 0.7))</span>
+<span class="n">copper_t</span><span class="o">.</span><span class="n">set_under</span><span class="p">((</span><span class="mf">0.6074509803921568</span><span class="p">,</span> <span class="mf">0.6513725490196078</span><span class="p">,</span> <span class="mf">0.6952941176470588</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+
+<span class="c1">####################### Stability maps</span>
+<span class="c1"># cmap_growth_rate = plt.cm.get_cmap(&#39;BrBG_r&#39;)</span>
+<span class="n">cmap_growth_rate</span> <span class="o">=</span> <span class="n">truncate_colormap</span><span class="p">(</span><span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">delta_r</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
+<span class="c1"># cmap_growth_rate = truncate_colormap(cmocean.cm.delta_r, 0, 1)</span>
+<span class="n">color_max</span> <span class="o">=</span> <span class="s1">&#39;#ff7f0e&#39;</span>
+
+<span class="c1">##################### Windrose color</span>
+<span class="n">wind_grid_color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span>
+<span class="n">flux_cmap</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ListedColormap</span><span class="p">(</span><span class="s1">&#39;navajowhite&#39;</span><span class="p">)</span>
+
+<span class="n">wind_color</span> <span class="o">=</span> <span class="s1">&#39;blanchedalmond&#39;</span>
+<span class="n">color_rose</span> <span class="o">=</span> <span class="s1">&#39;peru&#39;</span>
+<span class="n">color_point</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span>
+<span class="n">alpha_bg</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">color_resultant_flux</span> <span class="o">=</span> <span class="s1">&#39;saddlebrown&#39;</span>
+
+<span class="c1">##################### line colors</span>
+<span class="c1"># color_BI = &#39;darkviolet&#39;</span>
+<span class="n">color_BI</span> <span class="o">=</span> <span class="s1">&#39;mediumblue&#39;</span>
+<span class="c1"># color_F = &#39;deeppink&#39;</span>
+<span class="n">color_F</span> <span class="o">=</span> <span class="s1">&#39;crimson&#39;</span>
+<span class="n">color_point</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span>
+<span class="n">color_ava_slope</span> <span class="o">=</span> <span class="s1">&#39;lime&#39;</span>
+<span class="n">color_th</span> <span class="o">=</span> <span class="s1">&#39;crimson&#39;</span>
+
+
+<span class="c1">#################### Sketch colors</span>
+<span class="n">color_dune</span> <span class="o">=</span> <span class="s1">&#39;#D2691E&#39;</span>
+<span class="n">alpha_dune</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">flow_color</span> <span class="o">=</span> <span class="s1">&#39;powderblue&#39;</span>
+
+<span class="c1">##### Arrow properties</span>
+<span class="n">lw_arrow</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="c1">#### font properties</span>
+<span class="n">fontsize_small</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">fontsize_usual</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span>
+
+<span class="c1">#### color Rescal</span>
+<span class="n">Color_rescal</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;DUM&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">127</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">127</span><span class="p">),</span> <span class="s1">&#39;GR&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;IN&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="s1">&#39;OUT&#39;</span><span class="p">:</span> <span class="p">(),</span> <span class="s1">&#39;AIR&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)}</span>
+</pre></div>
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.1e043a052b0af929e4d8.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, Cyril Gadal.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

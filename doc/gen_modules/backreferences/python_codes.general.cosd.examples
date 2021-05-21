@@ -1,0 +1,23 @@
+
+
+Examples using ``python_codes.general.cosd``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Analyzing DEMs to extract average orientation, wavelength and amplitude of the dune pattern.">
+
+.. only:: html
+
+ .. figure:: /auto_examples/images/thumb/sphx_glr_plot_DEM_analysis_thumb.png
+     :alt: DEM analysis
+
+     :ref:`sphx_glr_auto_examples_plot_DEM_analysis.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_plot_DEM_analysis.py`
