@@ -9,10 +9,10 @@ Examples using ``python_codes.DEM_analysis.polyfit2d``
 
 .. only:: html
 
- .. figure:: /auto_examples/images/thumb/sphx_glr_plot_DEM_analysis_thumb.png
+ .. figure:: /auto_examples/data_analysis/images/thumb/sphx_glr_DEM_analysis_plot_thumb.png
      :alt: DEM analysis
 
-     :ref:`sphx_glr_auto_examples_plot_DEM_analysis.py`
+     :ref:`sphx_glr_auto_examples_data_analysis_DEM_analysis_plot.py`
 
 .. raw:: html
 
@@ -20,4 +20,4 @@ Examples using ``python_codes.DEM_analysis.polyfit2d``
 
 .. only:: not html
 
- * :ref:`sphx_glr_auto_examples_plot_DEM_analysis.py`
+ * :ref:`sphx_glr_auto_examples_data_analysis_DEM_analysis_plot.py`

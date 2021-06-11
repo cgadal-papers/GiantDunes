@@ -23,12 +23,11 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/numpy.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/numpy.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.1e043a052b0af929e4d8.js">
 
@@ -38,15 +37,8 @@
     <script src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-<link rel="stylesheet" href="../../_static/numpy.css" type="text/css" />
-
-    <!-- PR #17220: This is added via javascript in versionwarning.js  -->
-    <!-- link rel="canonical" href="http://numpy.org/doc/stable/_modules/python_codes/DEM_analysis.html" / -->
-
-
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -74,7 +66,7 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../auto_examples/index.html">
-  Analysis
+  This is my gallery
  </a>
 </li>
 
@@ -151,9 +143,9 @@
 <span class="sd">        Pixel coordinates of the starting point.</span>
 <span class="sd">    p1 : array_like, shape(2,)</span>
 <span class="sd">        Pixel coordinates of the ending point.</span>
-<span class="sd">    type : str</span>
+<span class="sd">    type : str, optional</span>
 <span class="sd">        Type of the interpolation: &#39;nearest&#39; or &#39;cubic&#39; (the default is &#39;nearest&#39;).</span>
-<span class="sd">    num : int</span>
+<span class="sd">    num : int, optional</span>
 <span class="sd">        Size of the output interpolated transect (the default is 100).</span>
 
 <span class="sd">    Returns</span>
@@ -197,15 +189,14 @@
 <span class="sd">        Degree in the first coordinate.</span>
 <span class="sd">    ky : int</span>
 <span class="sd">        Degree in the second coordinate.</span>
-<span class="sd">    order_max : int or None</span>
+<span class="sd">    order_max : int or None, optional</span>
 <span class="sd">        If None, all coefficients up to maxiumum kx, ky, ie. up to and including x^kx*y^ky, are considered.</span>
 <span class="sd">        If int, coefficients up to a maximum of kx+ky &lt;= order_max are considered (the default is None).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">        Return paramters from `np.linalg.lstsq.``</span>
 <span class="sd">    p: ndarray</span>
-<span class="sd">        Least-squares solution.</span>
+<span class="sd">        Least-squares solution from</span>
 <span class="sd">    residuals: ndarray</span>
 <span class="sd">        Sums of squared residuals.</span>
 <span class="sd">    rank: int</span>
@@ -271,7 +262,7 @@
 
 <span class="sd">    - The orientation is calculated by computed the integration over `rad` of the autocorrelation matrix around its maximum in each direction. The pattern orientation is then taken as where the maximum is.</span>
 <span class="sd">    - The wavelength is taken at the position of the first maximum of the autocorrelation profile in the direction perpendicular to the orientation.</span>
-<span class="sd">    - The amplitude is linked to the maximum of the autocorrelation matrix as :math:`A = \sqrt{2*C(0, 0)}`.</span>
+<span class="sd">    - The amplitude is linked to the maximum of the autocorrelation matrix as :math:`A = \sqrt{2 C(0, 0)}`.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -285,7 +276,7 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    orientation: float</span>
-<span class="sd">        Orientation of the pattern in degress.</span>
+<span class="sd">        Orientation of the pattern in degrees.</span>
 <span class="sd">    wavelength: float</span>
 <span class="sd">        Wavelength of the pattern in pixels.</span>
 <span class="sd">    amplitude: float</span>

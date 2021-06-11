@@ -23,12 +23,11 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/numpy.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/numpy.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1e043a052b0af929e4d8.js">
 
@@ -38,17 +37,10 @@
     <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Temporal coverage of the data" href="plot_temporal_coverage.html" />
+    <link rel="next" title="Preprocessing of the data" href="data_preprocessing/data_preprocessing_plot.html" />
     <link rel="prev" title="Welcome to python_codes’s documentation!" href="../index.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-<link rel="stylesheet" href="../_static/numpy.css" type="text/css" />
-
-    <!-- PR #17220: This is added via javascript in versionwarning.js  -->
-    <!-- link rel="canonical" href="http://numpy.org/doc/stable/auto_examples/index.html" / -->
-
-
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -76,7 +68,7 @@
 
 <li class="toctree-l1 current active nav-item">
  <a class="current reference internal nav-link" href="#">
-  Analysis
+  This is my gallery
  </a>
 </li>
 
@@ -107,18 +99,7 @@
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    <ul class="nav bd-sidenav">
- <li class="toctree-l2">
-  <a class="reference internal" href="plot_temporal_coverage.html">
-   Temporal coverage of the data
-  </a>
- </li>
- <li class="toctree-l2">
-  <a class="reference internal" href="plot_DEM_analysis.html">
-   DEM analysis
-  </a>
- </li>
-</ul>
+    
   </div>
 </nav>
             </div>
@@ -128,9 +109,47 @@
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
               
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
-    
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   This is my gallery
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-pre-processing">
+   Data pre-processing
+  </a>
+  <ul class="visible nav section-nav flex-column">
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-analysis">
+   Data analysis
+  </a>
+  <ul class="visible nav section-nav flex-column">
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-theory">
+   Linear theory
+  </a>
+  <ul class="visible nav section-nav flex-column">
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-plotting">
+   Data plotting
+  </a>
+  <ul class="visible nav section-nav flex-column">
+  </ul>
+ </li>
+</ul>
+
 </nav>
 
 
@@ -149,15 +168,80 @@
   <div class="section" id="this-is-my-gallery">
 <span id="sphx-glr-auto-examples"></span><h1>This is my gallery<a class="headerlink" href="#this-is-my-gallery" title="Permalink to this headline">¶</a></h1>
 <p>Below is a gallery of examples</p>
-<div class="sphx-glr-thumbcontainer" tooltip="Plot the temporal coverage of the two different sets of data for each station using a Gantt cha..."><div class="figure align-default" id="id1">
-<img alt="Temporal coverage of the data" src="../_images/sphx_glr_plot_temporal_coverage_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_temporal_coverage.html#sphx-glr-auto-examples-plot-temporal-coverage-py"><span class="std std-ref">Temporal coverage of the data</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<div class="sphx-glr-clear"></div></div>
+<div class="section" id="data-pre-processing">
+<span id="sphx-glr-auto-examples-data-preprocessing"></span><h1>Data pre-processing<a class="headerlink" href="#data-pre-processing" title="Permalink to this headline">¶</a></h1>
+<p>Below are the scripts used to pre-process and clean the data.</p>
+<div class="sphx-glr-thumbcontainer" tooltip="For each station, we follow these preprocessing steps:     - correction for constant shifts in ..."><div class="figure align-default" id="id1">
+<img alt="Preprocessing of the data" src="../_images/sphx_glr_data_preprocessing_plot_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="data_preprocessing/data_preprocessing_plot.html#sphx-glr-auto-examples-data-preprocessing-data-preprocessing-plot-py"><span class="std std-ref">Preprocessing of the data</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Analyzing DEMs to extract average orientation, wavelength and amplitude of the dune pattern."><div class="figure align-default" id="id2">
-<img alt="DEM analysis" src="../_images/sphx_glr_plot_DEM_analysis_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_DEM_analysis.html#sphx-glr-auto-examples-plot-dem-analysis-py"><span class="std std-ref">DEM analysis</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<div class="sphx-glr-thumbcontainer" tooltip="For each station, the hydrodynamic roughness is calibrated by finding the one that minimizes th..."><div class="figure align-default" id="id2">
+<img alt="Calibration of the hydrodynamic roughness" src="../_images/sphx_glr_roughness_calibration_plot_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="data_preprocessing/roughness_calibration_plot.html#sphx-glr-auto-examples-data-preprocessing-roughness-calibration-plot-py"><span class="std std-ref">Calibration of the hydrodynamic roughness</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-clear"></div></div>
+<div class="section" id="data-analysis">
+<span id="sphx-glr-auto-examples-data-analysis"></span><h1>Data analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">¶</a></h1>
+<p>Below are the scripts used to process the different data, and plot the figures.</p>
+<div class="sphx-glr-thumbcontainer" tooltip="Analyzing DEMs to extract average orientation, wavelength and amplitude of the dune pattern."><div class="figure align-default" id="id3">
+<img alt="DEM analysis" src="../_images/sphx_glr_DEM_analysis_plot_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="data_analysis/DEM_analysis_plot.html#sphx-glr-auto-examples-data-analysis-dem-analysis-plot-py"><span class="std std-ref">DEM analysis</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="Processing the meteorological data"><div class="figure align-default" id="id4">
+<img alt="Processing the meteorological data" src="../_images/sphx_glr_meteo_data_analysis_plot_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="data_analysis/meteo_data_analysis_plot.html#sphx-glr-auto-examples-data-analysis-meteo-data-analysis-plot-py"><span class="std std-ref">Processing the meteorological data</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-clear"></div></div>
+<div class="section" id="linear-theory">
+<span id="sphx-glr-auto-examples-linear-theory"></span><h1>Linear theory<a class="headerlink" href="#linear-theory" title="Permalink to this headline">¶</a></h1>
+<p>Here we show our results for calculating the basal shear stress in the model of
+a convective atmospheric boundary layer, over which lies the stratified free atmosphere.</p>
+<div class="sphx-glr-thumbcontainer" tooltip="Theoretical flow redirection"><div class="figure align-default" id="id5">
+<img alt="Theoretical flow redirection" src="../_images/sphx_glr_flow_redirection_plot_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="linear_theory/flow_redirection_plot.html#sphx-glr-auto-examples-linear-theory-flow-redirection-plot-py"><span class="std std-ref">Theoretical flow redirection</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="Here, we calculate the time series of the hydrodynamic coefficients from the time series of the..."><div class="figure align-default" id="id6">
+<img alt="Time series of the hydrodyanmic coefficients" src="../_images/sphx_glr_hydro_coeff_time_series_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="linear_theory/hydro_coeff_time_series.html#sphx-glr-auto-examples-linear-theory-hydro-coeff-time-series-py"><span class="std std-ref">Time series of the hydrodyanmic coefficients</span></a></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="Plotting the regime diagrams from the sime series of the hydrodynamic coefficients"><div class="figure align-default" id="id7">
+<img alt="Plotting the regime diagrams from the sime series of the hydrodynamic coefficients" src="../_images/sphx_glr_regime_diagram_hydro_coeff_plot_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="linear_theory/regime_diagram_hydro_coeff_plot.html#sphx-glr-auto-examples-linear-theory-regime-diagram-hydro-coeff-plot-py"><span class="std std-ref">Plotting the regime diagrams from the sime series of the hydrodynamic coefficients</span></a></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-clear"></div></div>
+<div class="section" id="data-plotting">
+<span id="sphx-glr-auto-examples-data-presentation"></span><h1>Data plotting<a class="headerlink" href="#data-plotting" title="Permalink to this headline">¶</a></h1>
+<p>Below are the scripts used to make plot the data/make the figures.</p>
+<div class="sphx-glr-thumbcontainer" tooltip="Plotting the different diagram regime for both stations"><div class="figure align-default" id="id8">
+<img alt="Plotting the different diagram regime for both stations" src="../_images/sphx_glr_regime_diagram_plot_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="data_presentation/regime_diagram_plot.html#sphx-glr-auto-examples-data-presentation-regime-diagram-plot-py"><span class="std std-ref">Plotting the different diagram regime for both stations</span></a></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="Plot the temporal coverage of the two different sets of data for each station using a Gantt cha..."><div class="figure align-default" id="id9">
+<img alt="Temporal coverage of the data" src="../_images/sphx_glr_temporal_coverage_plot_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="data_presentation/temporal_coverage_plot.html#sphx-glr-auto-examples-data-presentation-temporal-coverage-plot-py"><span class="std std-ref">Temporal coverage of the data</span></a></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="Comparison between the Era5Land and the in situ datasets"><div class="figure align-default" id="id10">
+<img alt="Comparison between the Era5Land and the in situ datasets" src="../_images/sphx_glr_wind_regime_comparison_plot_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="data_presentation/wind_regime_comparison_plot.html#sphx-glr-auto-examples-data-presentation-wind-regime-comparison-plot-py"><span class="std std-ref">Comparison between the Era5Land and the in situ datasets</span></a></span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>

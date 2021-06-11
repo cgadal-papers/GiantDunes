@@ -23,12 +23,11 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/numpy.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/numpy.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1e043a052b0af929e4d8.js">
 
@@ -41,15 +40,8 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="python_codes.linear_theory.Bx" href="python_codes.linear_theory.Bx.html" />
     <link rel="prev" title="python_codes.linear_theory.Ax" href="python_codes.linear_theory.Ax.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-<link rel="stylesheet" href="../_static/numpy.css" type="text/css" />
-
-    <!-- PR #17220: This is added via javascript in versionwarning.js  -->
-    <!-- link rel="canonical" href="http://numpy.org/doc/stable/_autosummary/python_codes.linear_theory.Ay.html" / -->
-
-
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -77,7 +69,7 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../auto_examples/index.html">
-  Analysis
+  This is my gallery
  </a>
 </li>
 
@@ -149,7 +141,22 @@
      python_codes.linear_theory.Cisaillement_basal
     </a>
    </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.linear_theory.calculate_solution.html">
+     python_codes.linear_theory.calculate_solution
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.meteo_analysis.html">
+   python_codes.meteo_analysis
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.plot_functions.html">
+   python_codes.plot_functions
+  </a>
  </li>
  <li class="toctree-l2">
   <a class="reference internal" href="python_codes.theme.html">
@@ -189,10 +196,9 @@
 <dl class="py function">
 <dt id="python_codes.linear_theory.Ay">
 <code class="sig-name descname"><span class="pre">Ay</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_codes/linear_theory.html#Ay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_codes.linear_theory.Ay" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="simple">
-<dt>Calculate the hydrodynamic coefficient <span class="math notranslate nohighlight">\(\mathcal{A}_{y}\)</span> using the geometrical model:</dt><dd><p>..:math:<cite>mathcal{A}_{y} = 0.5mathcal{A}_{0}cosalphasinalpha</cite></p>
-</dd>
-</dl>
+<dd><p>Calculate the hydrodynamic coefficient <span class="math notranslate nohighlight">\(\mathcal{A}_{y}\)</span> using the geometrical model:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{A}_{y} = 0.5\mathcal{A}_{0}\cos\alpha\sin\alpha.\]</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -201,7 +207,7 @@
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the Hydrodynamic coefficient.</p>
+<dd class="field-even"><p>the hydrodynamic coefficient.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>array, scalar</p>

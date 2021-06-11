@@ -1,0 +1,23 @@
+
+
+Examples using ``python_codes.linear_theory.Cisaillement_basal``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Theoretical flow redirection">
+
+.. only:: html
+
+ .. figure:: /auto_examples/linear_theory/images/thumb/sphx_glr_flow_redirection_plot_thumb.png
+     :alt: Theoretical flow redirection
+
+     :ref:`sphx_glr_auto_examples_linear_theory_flow_redirection_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_linear_theory_flow_redirection_plot.py`

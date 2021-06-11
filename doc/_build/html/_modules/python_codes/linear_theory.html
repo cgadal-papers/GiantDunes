@@ -23,12 +23,11 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/numpy.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/numpy.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.1e043a052b0af929e4d8.js">
 
@@ -38,15 +37,8 @@
     <script src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-<link rel="stylesheet" href="../../_static/numpy.css" type="text/css" />
-
-    <!-- PR #17220: This is added via javascript in versionwarning.js  -->
-    <!-- link rel="canonical" href="http://numpy.org/doc/stable/_modules/python_codes/linear_theory.html" / -->
-
-
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -74,7 +66,7 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../auto_examples/index.html">
-  Analysis
+  This is my gallery
  </a>
 </li>
 
@@ -134,18 +126,27 @@
               <div>
                 
   <h1>Source code for python_codes.linear_theory</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Linear theory of a turbulent flow over a sinusoidal bottom.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
 <span class="kn">from</span> <span class="nn">python_codes.general</span> <span class="kn">import</span> <span class="n">cosd</span><span class="p">,</span> <span class="n">sind</span>
+<span class="kn">from</span> <span class="nn">python_codes.meteo_analysis</span> <span class="kn">import</span> <span class="n">mu</span>
 
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Geometrical model for linear theory of turbulent flow over sinusoidal bottom</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1"># %%</span>
+<span class="c1"># Geometrical model</span>
+<span class="c1"># -----------------</span>
+<span class="c1"># Geometrical model for the scaling of the coefficient as the function of the orientation of the bottom perturbation</span>
 
 
 <div class="viewcode-block" id="Ax"><a class="viewcode-back" href="../../_autosummary/python_codes.linear_theory.Ax.html#python_codes.linear_theory.Ax">[docs]</a><span class="k">def</span> <span class="nf">Ax</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">A0</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Calculate the hydrodynamic coefficient :math:`\mathcal{A}_{x}` using the geometrical model:</span>
-<span class="sd">        ..:math:`\mathcal{A}_{x} = \mathcal{A}_{0}\cos^{2}\alpha`</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \mathcal{A}_{x} = \mathcal{A}_{0}\cos^{2}\alpha.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -157,14 +158,17 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    array, scalar</span>
-<span class="sd">         the Hydrodynamic coefficient.</span>
+<span class="sd">         the hydrodynamic coefficient.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">A0</span><span class="o">*</span><span class="n">cosd</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span></div>
 
 
 <div class="viewcode-block" id="Ay"><a class="viewcode-back" href="../../_autosummary/python_codes.linear_theory.Ay.html#python_codes.linear_theory.Ay">[docs]</a><span class="k">def</span> <span class="nf">Ay</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">A0</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Calculate the hydrodynamic coefficient :math:`\mathcal{A}_{y}` using the geometrical model:</span>
-<span class="sd">        ..:math:`\mathcal{A}_{y} = 0.5\mathcal{A}_{0}\cos\alpha\sin\alpha`</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \mathcal{A}_{y} = 0.5\mathcal{A}_{0}\cos\alpha\sin\alpha.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -176,14 +180,17 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    array, scalar</span>
-<span class="sd">         the Hydrodynamic coefficient.</span>
+<span class="sd">         the hydrodynamic coefficient.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">A0</span><span class="o">*</span><span class="n">cosd</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="n">sind</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span></div>
 
 
 <div class="viewcode-block" id="Bx"><a class="viewcode-back" href="../../_autosummary/python_codes.linear_theory.Bx.html#python_codes.linear_theory.Bx">[docs]</a><span class="k">def</span> <span class="nf">Bx</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">B0</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Calculate the hydrodynamic coefficient :math:`\mathcal{B}_{x}` using the geometrical model:</span>
-<span class="sd">        ..:math:`\mathcal{B}_{x} = \mathcal{B}_{0}\cos^{2}\alpha`</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \mathcal{B}_{x} = \mathcal{B}_{0}\cos^{2}\alpha.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -195,14 +202,17 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    array, scalar</span>
-<span class="sd">         the Hydrodynamic coefficient.</span>
+<span class="sd">         the hydrodynamic coefficient.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">B0</span><span class="o">*</span><span class="n">cosd</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span></div>
 
 
 <div class="viewcode-block" id="By"><a class="viewcode-back" href="../../_autosummary/python_codes.linear_theory.By.html#python_codes.linear_theory.By">[docs]</a><span class="k">def</span> <span class="nf">By</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">B0</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Calculate the hydrodynamic coefficient :math:`\mathcal{A}_{y}` using the geometrical model:</span>
-<span class="sd">        ..:math:`\mathcal{B}_{y} = \mathcal{B}_{0}\cos\alpha\sin\alpha`</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Calculate the hydrodynamic coefficient :math:`\mathcal{B}_{y}` using the geometrical model:</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \mathcal{B}_{y} = 0.5*\mathcal{B}_{0}\cos\alpha\sin\alpha</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -214,7 +224,7 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    array, scalar</span>
-<span class="sd">         the Hydrodynamic coefficient.</span>
+<span class="sd">         the hydrodynamic coefficient.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">B0</span><span class="o">*</span><span class="n">cosd</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="n">sind</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span></div>
 
@@ -230,6 +240,207 @@
     <span class="n">Taux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">Ax</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">A0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">Bx</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">B0</span><span class="p">))</span><span class="o">*</span><span class="n">AR</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">cosd</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">sind</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">))))</span>
     <span class="n">Tauy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="o">+</span> <span class="p">(</span><span class="n">Ay</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">A0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">By</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">B0</span><span class="p">))</span><span class="o">*</span><span class="n">AR</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">cosd</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">sind</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">)))</span>
     <span class="k">return</span> <span class="n">Taux</span><span class="p">,</span> <span class="n">Tauy</span></div>
+
+
+<span class="c1"># %%</span>
+<span class="c1"># Convective boundary layer -- stratified free atmosphere model</span>
+<span class="c1"># -----------------</span>
+
+
+<span class="k">def</span> <span class="nf">_mu_prime</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="o">=</span><span class="mf">0.4</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot; derivative of the ratio :math:`U(z)/u_{*}` following the law of the wall:</span>
+
+<span class="sd">    ..:math::</span>
+
+<span class="sd">        \frac{1}{u_{*}}\frac{\textup{d}U(z)}{\textup{d}z} = \frac{1}{\kappa}\frac{1}{(z + z_{0}}.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    eta : scalar, np.array</span>
+<span class="sd">        height</span>
+<span class="sd">    eta_0 : scalar, np.array</span>
+<span class="sd">        hydrodyamic roughness</span>
+<span class="sd">    Kappa : float, optional</span>
+<span class="sd">        Von Karmàn constant (the default is 0.4).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    scalar, np.array</span>
+<span class="sd">        Array of the ratio defined above.</span>
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">Kappa</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">eta</span> <span class="o">+</span> <span class="n">eta_0</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_P</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;:math:`P` matrix.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    eta : scalar, np.array</span>
+<span class="sd">        Non dimensional height :math:`k z`.</span>
+<span class="sd">    eta_H : scalar, np.array</span>
+<span class="sd">        Non dimensional boundary layer height :math:`k H`.</span>
+<span class="sd">    eta_0 : scalar, np.array</span>
+<span class="sd">        Non dimensional hydrodyamic roughness :math:`k z_{0}`.</span>
+<span class="sd">    Kappa : float</span>
+<span class="sd">        Von Karmàn constant.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.array</span>
+<span class="sd">        The :math:`P` matrix built from the input parameters.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">tp</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">eta</span><span class="o">/</span><span class="n">eta_H</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="n">P1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="n">_mu_prime</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">tp</span><span class="p">),</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">P2</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">P3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">mu</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">tp</span><span class="o">/</span><span class="n">_mu_prime</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">),</span> <span class="n">_mu_prime</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="n">j</span><span class="p">]</span>
+    <span class="n">P4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">mu</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">),</span> <span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="c1">#</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">P1</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">P3</span><span class="p">,</span> <span class="n">P4</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">P</span>
+
+
+<span class="k">def</span> <span class="nf">_S</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;:math:`S` vector.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    eta : scalar, np.array</span>
+<span class="sd">        Non dimensional height :math:`k z`.</span>
+<span class="sd">    eta_H : scalar, np.array</span>
+<span class="sd">        Non dimensional boundary layer height :math:`k H`.</span>
+<span class="sd">    eta_0 : scalar, np.array</span>
+<span class="sd">        Non dimensional hydrodyamic roughness :math:`k z_{0}`.</span>
+<span class="sd">    Kappa : float</span>
+<span class="sd">        Von Karmàn constant.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.array</span>
+<span class="sd">        The :math:`S` vector built from the input parameters.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">Kappa</span><span class="o">*</span><span class="n">_mu_prime</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">_mu_prime</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">eta_H</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">_S_delta</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;:math:`S_{\delta}` vector.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    eta : scalar, np.array</span>
+<span class="sd">        Non dimensional height :math:`k z`.</span>
+<span class="sd">    eta_H : scalar, np.array</span>
+<span class="sd">        Non dimensional boundary layer height :math:`k H`.</span>
+<span class="sd">    eta_0 : scalar, np.array</span>
+<span class="sd">        Non dimensional hydrodyamic roughness :math:`k z_{0}`.</span>
+<span class="sd">    Kappa : float</span>
+<span class="sd">        Von Karmàn constant.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.array</span>
+<span class="sd">        The :math:`S_{\delta}` vector built from the input parameters.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tp</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">eta</span><span class="o">/</span><span class="n">eta_H</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">eta</span><span class="o">*</span><span class="n">_mu_prime</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">eta_H</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">tp</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">_q1</span><span class="p">(</span><span class="n">eta_B</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">piecewise</span><span class="p">(</span><span class="n">eta_B</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span><span class="p">,</span> <span class="p">[</span><span class="n">eta_B</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="n">eta_B</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">],</span>
+                        <span class="p">[</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">eta_B</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)])</span>
+
+
+<span class="k">def</span> <span class="nf">_func</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">):</span>
+    <span class="c1"># print(X.shape)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">_P</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_P</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_func1</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">):</span>
+    <span class="c1"># print(X.shape)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">_P</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="o">+</span> <span class="n">_S</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_P</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">_S</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">),</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)))</span>
+
+
+<span class="k">def</span> <span class="nf">_func_delta</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">):</span>
+    <span class="c1"># print(X.shape)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">_P</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="o">+</span> <span class="n">_S_delta</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_P</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">_S_delta</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">),</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)))</span>
+
+
+<span class="k">def</span> <span class="nf">_solve_system</span><span class="p">(</span><span class="n">eta_0</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">Kappa</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">eta_span</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;DOP853&#39;</span><span class="p">,</span> <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">eta_span_tp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">]</span> <span class="k">if</span> <span class="n">eta_span</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">eta_span</span>
+    <span class="c1"># eta_val = np.linspace(0, eta_H, 100)</span>
+    <span class="n">X0_vec</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">_mu_prime</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">),</span> <span class="mi">0</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;complex_&#39;</span><span class="p">),</span>
+              <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;complex_&#39;</span><span class="p">),</span>
+              <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;complex_&#39;</span><span class="p">),</span>
+              <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;complex_&#39;</span><span class="p">)]</span>
+    <span class="n">Results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">X0</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">X0_vec</span><span class="p">):</span>
+        <span class="c1"># print(i)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">test</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">_func1</span><span class="p">,</span> <span class="n">eta_span_tp</span><span class="p">,</span> <span class="n">X0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">dense_output</span><span class="o">=</span><span class="n">dense_output</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="n">test</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">_func_delta</span><span class="p">,</span> <span class="n">eta_span_tp</span><span class="p">,</span> <span class="n">X0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">dense_output</span><span class="o">=</span><span class="n">dense_output</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">test</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">_func</span><span class="p">,</span> <span class="n">eta_span_tp</span><span class="p">,</span> <span class="n">X0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">dense_output</span><span class="o">=</span><span class="n">dense_output</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">Results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Results</span>
+
+
+<div class="viewcode-block" id="calculate_solution"><a class="viewcode-back" href="../../_autosummary/python_codes.linear_theory.calculate_solution.html#python_codes.linear_theory.calculate_solution">[docs]</a><span class="k">def</span> <span class="nf">calculate_solution</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">eta_B</span><span class="p">,</span> <span class="n">Fr</span><span class="p">,</span> <span class="n">max_z</span><span class="p">,</span> <span class="n">Kappa</span><span class="o">=</span><span class="mf">0.4</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Solve the system and apply the boundary conditions.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    eta : scalar, numpy.array</span>
+<span class="sd">        vector of vertical non dimensional positions :math:`k z` where to calculate the solutions.</span>
+<span class="sd">    eta_H : scalar, np.array</span>
+<span class="sd">        Non dimensional boundary layer height :math:`k H`.</span>
+<span class="sd">    eta_0 : scalar, np.array</span>
+<span class="sd">        Non dimensional hydrodyamic roughness :math:`k z_{0}`.</span>
+<span class="sd">    eta_B :  scalar, np.array</span>
+<span class="sd">        Non dimensional stratification length :math:`k L_{B}`.</span>
+<span class="sd">    Fr : scalar, np.array</span>
+<span class="sd">        Froude number</span>
+<span class="sd">    max_z : scalar, np.array</span>
+<span class="sd">        Maximum vertical position where the system is solved, and also where the boundary conditons are applied. Usually set to something slightly smaller than `eta_H` to avoid the very slow resolution close to the top of the boundary layer. Usefull when investigating the solution close to the bottom.</span>
+<span class="sd">    Kappa : float, optional</span>
+<span class="sd">        Von Karmàn constant (the default is 0.4).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.array</span>
+<span class="sd">        The solution in every vertical step specified by `eta`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Results</span> <span class="o">=</span> <span class="n">_solve_system</span><span class="p">(</span><span class="n">eta_0</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">Kappa</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">eta_span</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_z</span><span class="p">],</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+    <span class="c1"># Defining boundary conditions</span>
+    <span class="n">To_apply</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="o">.</span><span class="n">sol</span><span class="p">(</span><span class="n">max_z</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Results</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+    <span class="c1">#</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">mu</span><span class="p">(</span><span class="n">max_z</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">),</span>  <span class="c1"># W(eta_H) = i*mu(eta_H)*delta</span>
+                  <span class="mi">1</span><span class="o">/</span><span class="n">max_z</span><span class="p">,</span>                     <span class="c1"># St(eta_H) = delta/eta_H</span>
+                  <span class="n">mu</span><span class="p">(</span><span class="n">max_z</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">Kappa</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="nb">complex</span><span class="p">(</span><span class="n">_q1</span><span class="p">(</span><span class="n">eta_B</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">eta_H</span><span class="o">*</span><span class="n">Fr</span><span class="o">**</span><span class="mi">2</span><span class="p">))])</span>  <span class="c1"># Sn(eta_H) = mu(eta_H)**2*(q1 - 1/(eta_H*Fr**2))*delta</span>
+    <span class="c1"># Applying boundary condition</span>
+    <span class="n">pars</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">To_apply</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">b</span> <span class="o">-</span> <span class="n">To_apply</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">coeffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">pars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">pars</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pars</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">pars</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="o">/</span><span class="n">pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="c1"># returning solutions in eta</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="o">.</span><span class="n">sol</span><span class="p">(</span><span class="n">eta</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">Results</span><span class="p">])</span><span class="o">*</span><span class="n">coeffs</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
 </pre></div>
 
               </div>

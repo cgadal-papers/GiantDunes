@@ -5,14 +5,14 @@ Examples using ``python_codes.theme.fig_width``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plot the temporal coverage of the two different sets of data for each station using a Gantt cha...">
+    <div class="sphx-glr-thumbcontainer" tooltip="For each station, we follow these preprocessing steps:     - correction for constant shifts in ...">
 
 .. only:: html
 
- .. figure:: /auto_examples/images/thumb/sphx_glr_plot_temporal_coverage_thumb.png
-     :alt: Temporal coverage of the data
+ .. figure:: /auto_examples/data_preprocessing/images/thumb/sphx_glr_data_preprocessing_plot_thumb.png
+     :alt: Preprocessing of the data
 
-     :ref:`sphx_glr_auto_examples_plot_temporal_coverage.py`
+     :ref:`sphx_glr_auto_examples_data_preprocessing_data_preprocessing_plot.py`
 
 .. raw:: html
 
@@ -20,7 +20,26 @@ Examples using ``python_codes.theme.fig_width``
 
 .. only:: not html
 
- * :ref:`sphx_glr_auto_examples_plot_temporal_coverage.py`
+ * :ref:`sphx_glr_auto_examples_data_preprocessing_data_preprocessing_plot.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="For each station, the hydrodynamic roughness is calibrated by finding the one that minimizes th...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/data_preprocessing/images/thumb/sphx_glr_roughness_calibration_plot_thumb.png
+     :alt: Calibration of the hydrodynamic roughness
+
+     :ref:`sphx_glr_auto_examples_data_preprocessing_roughness_calibration_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_data_preprocessing_roughness_calibration_plot.py`
 
 .. raw:: html
 
@@ -28,10 +47,10 @@ Examples using ``python_codes.theme.fig_width``
 
 .. only:: html
 
- .. figure:: /auto_examples/images/thumb/sphx_glr_plot_DEM_analysis_thumb.png
+ .. figure:: /auto_examples/data_analysis/images/thumb/sphx_glr_DEM_analysis_plot_thumb.png
      :alt: DEM analysis
 
-     :ref:`sphx_glr_auto_examples_plot_DEM_analysis.py`
+     :ref:`sphx_glr_auto_examples_data_analysis_DEM_analysis_plot.py`
 
 .. raw:: html
 
@@ -39,4 +58,118 @@ Examples using ``python_codes.theme.fig_width``
 
 .. only:: not html
 
- * :ref:`sphx_glr_auto_examples_plot_DEM_analysis.py`
+ * :ref:`sphx_glr_auto_examples_data_analysis_DEM_analysis_plot.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Processing the meteorological data">
+
+.. only:: html
+
+ .. figure:: /auto_examples/data_analysis/images/thumb/sphx_glr_meteo_data_analysis_plot_thumb.png
+     :alt: Processing the meteorological data
+
+     :ref:`sphx_glr_auto_examples_data_analysis_meteo_data_analysis_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_data_analysis_meteo_data_analysis_plot.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Theoretical flow redirection">
+
+.. only:: html
+
+ .. figure:: /auto_examples/linear_theory/images/thumb/sphx_glr_flow_redirection_plot_thumb.png
+     :alt: Theoretical flow redirection
+
+     :ref:`sphx_glr_auto_examples_linear_theory_flow_redirection_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_linear_theory_flow_redirection_plot.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plotting the regime diagrams from the sime series of the hydrodynamic coefficients">
+
+.. only:: html
+
+ .. figure:: /auto_examples/linear_theory/images/thumb/sphx_glr_regime_diagram_hydro_coeff_plot_thumb.png
+     :alt: Plotting the regime diagrams from the sime series of the hydrodynamic coefficients
+
+     :ref:`sphx_glr_auto_examples_linear_theory_regime_diagram_hydro_coeff_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_linear_theory_regime_diagram_hydro_coeff_plot.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plotting the different diagram regime for both stations">
+
+.. only:: html
+
+ .. figure:: /auto_examples/data_presentation/images/thumb/sphx_glr_regime_diagram_plot_thumb.png
+     :alt: Plotting the different diagram regime for both stations
+
+     :ref:`sphx_glr_auto_examples_data_presentation_regime_diagram_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_data_presentation_regime_diagram_plot.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot the temporal coverage of the two different sets of data for each station using a Gantt cha...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/data_presentation/images/thumb/sphx_glr_temporal_coverage_plot_thumb.png
+     :alt: Temporal coverage of the data
+
+     :ref:`sphx_glr_auto_examples_data_presentation_temporal_coverage_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_data_presentation_temporal_coverage_plot.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Comparison between the Era5Land and the in situ datasets">
+
+.. only:: html
+
+ .. figure:: /auto_examples/data_presentation/images/thumb/sphx_glr_wind_regime_comparison_plot_thumb.png
+     :alt: Comparison between the Era5Land and the in situ datasets
+
+     :ref:`sphx_glr_auto_examples_data_presentation_wind_regime_comparison_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_data_presentation_wind_regime_comparison_plot.py`

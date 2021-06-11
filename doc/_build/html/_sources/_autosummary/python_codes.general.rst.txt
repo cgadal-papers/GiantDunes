@@ -15,23 +15,10 @@ python\_codes.general
       :toctree:
    
       cosd
-
-         .. _sphx_glr_backref_python_codes.general.cosd:
-
-         .. minigallery:: python_codes.general.cosd
-             :add-heading:
+      find_mode_distribution
       sind
-
-         .. _sphx_glr_backref_python_codes.general.sind:
-
-         .. minigallery:: python_codes.general.sind
-             :add-heading:
+      smallestSignedAngleBetween
       tand
-
-         .. _sphx_glr_backref_python_codes.general.tand:
-
-         .. minigallery:: python_codes.general.tand
-             :add-heading:
 
 
 

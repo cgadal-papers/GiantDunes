@@ -15,9 +15,9 @@ def array_transect(A, p0, p1, type='cubic', num=100):
         Pixel coordinates of the starting point.
     p1 : array_like, shape(2,)
         Pixel coordinates of the ending point.
-    type : str
+    type : str, optional
         Type of the interpolation: 'nearest' or 'cubic' (the default is 'nearest').
-    num : int
+    num : int, optional
         Size of the output interpolated transect (the default is 100).
 
     Returns
@@ -61,15 +61,14 @@ def polyfit2d(X, Y, Z, kx, ky, order_max=None):
         Degree in the first coordinate.
     ky : int
         Degree in the second coordinate.
-    order_max : int or None
+    order_max : int or None, optional
         If None, all coefficients up to maxiumum kx, ky, ie. up to and including x^kx*y^ky, are considered.
         If int, coefficients up to a maximum of kx+ky <= order_max are considered (the default is None).
 
     Returns
     -------
-        Return paramters from `np.linalg.lstsq.``
     p: ndarray
-        Least-squares solution.
+        Least-squares solution from
     residuals: ndarray
         Sums of squared residuals.
     rank: int
@@ -135,7 +134,7 @@ def periodicity_2d(A, rad, type='first'):
 
     - The orientation is calculated by computed the integration over `rad` of the autocorrelation matrix around its maximum in each direction. The pattern orientation is then taken as where the maximum is.
     - The wavelength is taken at the position of the first maximum of the autocorrelation profile in the direction perpendicular to the orientation.
-    - The amplitude is linked to the maximum of the autocorrelation matrix as :math:`A = \sqrt{2*C(0, 0)}`.
+    - The amplitude is linked to the maximum of the autocorrelation matrix as :math:`A = \sqrt{2 C(0, 0)}`.
 
     Parameters
     ----------
@@ -149,7 +148,7 @@ def periodicity_2d(A, rad, type='first'):
     Returns
     -------
     orientation: float
-        Orientation of the pattern in degress.
+        Orientation of the pattern in degrees.
     wavelength: float
         Wavelength of the pattern in pixels.
     amplitude: float

@@ -23,12 +23,11 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/numpy.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/numpy.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1e043a052b0af929e4d8.js">
 
@@ -41,15 +40,8 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="python_codes.linear_theory.Ax" href="python_codes.linear_theory.Ax.html" />
     <link rel="prev" title="python_codes.general.tand" href="python_codes.general.tand.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-<link rel="stylesheet" href="../_static/numpy.css" type="text/css" />
-
-    <!-- PR #17220: This is added via javascript in versionwarning.js  -->
-    <!-- link rel="canonical" href="http://numpy.org/doc/stable/_autosummary/python_codes.linear_theory.html" / -->
-
-
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -77,7 +69,7 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../auto_examples/index.html">
-  Analysis
+  This is my gallery
  </a>
 </li>
 
@@ -149,7 +141,22 @@
      python_codes.linear_theory.Cisaillement_basal
     </a>
    </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.linear_theory.calculate_solution.html">
+     python_codes.linear_theory.calculate_solution
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.meteo_analysis.html">
+   python_codes.meteo_analysis
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.plot_functions.html">
+   python_codes.plot_functions
+  </a>
  </li>
  <li class="toctree-l2">
   <a class="reference internal" href="python_codes.theme.html">
@@ -186,6 +193,7 @@
                 
   <div class="section" id="module-python_codes.linear_theory">
 <span id="python-codes-linear-theory"></span><h1>python_codes.linear_theory<a class="headerlink" href="#module-python_codes.linear_theory" title="Permalink to this headline">¶</a></h1>
+<p>Linear theory of a turbulent flow over a sinusoidal bottom.</p>
 <p class="rubric">Functions</p>
 <table class="longtable table autosummary">
 <colgroup>
@@ -203,10 +211,13 @@
 <td><p>Calculate the hydrodynamic coefficient <span class="math notranslate nohighlight">\(\mathcal{B}_{x}\)</span> using the geometrical model:</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="python_codes.linear_theory.By.html#python_codes.linear_theory.By" title="python_codes.linear_theory.By"><code class="xref py py-obj docutils literal notranslate"><span class="pre">By</span></code></a>(alpha, B0)</p></td>
-<td><p>Calculate the hydrodynamic coefficient <span class="math notranslate nohighlight">\(\mathcal{A}_{y}\)</span> using the geometrical model:</p></td>
+<td><p>Calculate the hydrodynamic coefficient <span class="math notranslate nohighlight">\(\mathcal{B}_{y}\)</span> using the geometrical model:</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="python_codes.linear_theory.Cisaillement_basal.html#python_codes.linear_theory.Cisaillement_basal" title="python_codes.linear_theory.Cisaillement_basal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cisaillement_basal</span></code></a>(x, y, alpha, A0, B0, AR)</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="python_codes.linear_theory.calculate_solution.html#python_codes.linear_theory.calculate_solution" title="python_codes.linear_theory.calculate_solution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_solution</span></code></a>(eta, eta_H, eta_0, eta_B, …)</p></td>
+<td><p>Solve the system and apply the boundary conditions.</p></td>
 </tr>
 </tbody>
 </table>

@@ -23,12 +23,11 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/numpy.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/numpy.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.1e043a052b0af929e4d8.js">
 
@@ -38,15 +37,8 @@
     <script src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-<link rel="stylesheet" href="../../_static/numpy.css" type="text/css" />
-
-    <!-- PR #17220: This is added via javascript in versionwarning.js  -->
-    <!-- link rel="canonical" href="http://numpy.org/doc/stable/_modules/python_codes/general.html" / -->
-
-
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -74,7 +66,7 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../auto_examples/index.html">
-  Analysis
+  This is my gallery
  </a>
 </li>
 
@@ -147,6 +139,48 @@
 
 <div class="viewcode-block" id="tand"><a class="viewcode-back" href="../../_autosummary/python_codes.general.tand.html#python_codes.general.tand">[docs]</a><span class="k">def</span> <span class="nf">tand</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">theta</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="smallestSignedAngleBetween"><a class="viewcode-back" href="../../_autosummary/python_codes.general.smallestSignedAngleBetween.html#python_codes.general.smallestSignedAngleBetween">[docs]</a><span class="k">def</span> <span class="nf">smallestSignedAngleBetween</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the smallest angle between two angle arrays.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : array_like</span>
+<span class="sd">        First angle.</span>
+<span class="sd">    y : array_like</span>
+<span class="sd">        Second angle.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    array_like</span>
+<span class="sd">        return the smallest angle between `y` and `x`, elementwise.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">,</span> <span class="o">-</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="find_mode_distribution"><a class="viewcode-back" href="../../_autosummary/python_codes.general.find_mode_distribution.html#python_codes.general.find_mode_distribution">[docs]</a><span class="k">def</span> <span class="nf">find_mode_distribution</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bin_number</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Find de mode of a distribution from a serie of realisations of the random variable.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data : array_like</span>
+<span class="sd">        serie of realisation of the random variable</span>
+<span class="sd">    bin_number : int</span>
+<span class="sd">        number of bins used is the calculation of the histogram.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        return the mode of the distribution.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">counts</span><span class="p">,</span> <span class="n">bins_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bin_number</span><span class="p">)</span>
+    <span class="n">bin_centers</span> <span class="o">=</span> <span class="n">bins_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">bins_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">bins_edges</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">bin_centers</span><span class="p">[</span><span class="n">counts</span><span class="o">.</span><span class="n">argmax</span><span class="p">()]</span></div>
 </pre></div>
 
               </div>

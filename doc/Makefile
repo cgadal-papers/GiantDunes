@@ -24,3 +24,5 @@ clean:
 	rm -rf $(BUILDDIR)/*
 	rm -rf auto_examples/
 	rm -rf _autosummary
+	# rm -rf ../static/output_data/data/*
+	rm -rf ../static/output_data/figures/*

@@ -5,6 +5,8 @@
 # @Last modified time: 2021-03-07T18:38:40+01:00
 
 import sphinx_gallery
+from sphinx_gallery.sorting import ExplicitOrder
+from sphinx_gallery.sorting import FileNameSortKey
 import glob
 
 # Configuration file for the Sphinx documentation builder.
@@ -60,7 +62,7 @@ nbsphinx_allow_errors = True  # Continue through Jupyter errors
 add_module_names = False  # Remove namespaces from class/method signatures
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates', '_templates/autosummary']
+templates_path = ['_static/autosummary', '_static']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -85,18 +87,25 @@ examples_dirs = os.path.join('..', 'Analysis')
 gallery_dirs = ['auto_examples']
 
 sphinx_gallery_conf = {
-     'examples_dirs': examples_dirs,   # path to your example scripts
-     'gallery_dirs': gallery_dirs,  # path to where to save gallery generated output
-     'backreferences_dir': 'gen_modules/backreferences',  # directory where function/class granular galleries are stored
-     'doc_module': ('python_codes'),  # Modules for which function/class level galleries are created.
-     'reference_url': {'python_codes': None,  # The module you locally document uses None
-                       'numpy': 'https://docs.scipy.org/doc/numpy/',
-                       'scipy': 'https://docs.scipy.org/doc/scipy/reference/',
-                       'matplotlib': 'https://matplotlib.org/stable'},
-     'matplotlib_animations': True,
-     'plot_gallery': True,
-     'ignore_pattern': '/_',
-     'filename_pattern': '/plot_',
+    'examples_dirs': examples_dirs,   # path to your example scripts
+    'gallery_dirs': gallery_dirs,  # path to where to save gallery generated output
+    'backreferences_dir': 'gen_modules/backreferences',  # directory where function/class granular galleries are stored
+    'doc_module': ('python_codes'),  # Modules for which function/class level galleries are created.
+    'reference_url': {'python_codes': None,  # The module you locally document uses None
+                      'numpy': 'https://docs.scipy.org/doc/numpy/',
+                      'scipy': 'https://docs.scipy.org/doc/scipy/reference/',
+                      'matplotlib': 'https://matplotlib.org/stable'},
+    'matplotlib_animations': True,
+    'plot_gallery': True,
+    'ignore_pattern': '/_',
+    'filename_pattern': '/*_plot',
+    'subsection_order': ExplicitOrder([
+                                       '../Analysis/data_preprocessing/',
+                                       '../Analysis/data_analysis/',
+                                       '../Analysis/linear_theory/',
+                                       '../Analysis/data_presentation/'
+                                       ]),
+    'within_subsection_order': FileNameSortKey,
      }
 
 # -- Options for HTML output -------------------------------------------------
@@ -112,10 +121,7 @@ sphinx_gallery_conf = {
 
 # Pydata theme
 html_theme = "pydata_sphinx_theme"
-# html_logo = "_static/logo-company.png"
 html_theme_options = {"show_prev_next": False}
-html_css_files = ['numpy.css']
-html_style = 'numpy.css'
 
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -126,4 +132,6 @@ html_style = 'numpy.css'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+# html_static_path = ['_static/css']
+# html_css_files = ['numpy.css']
+# html_style = 'numpy.css'

@@ -23,12 +23,11 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/numpy.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/numpy.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1e043a052b0af929e4d8.js">
 
@@ -41,15 +40,8 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="python_codes.DEM_analysis.polyfit2d" href="python_codes.DEM_analysis.polyfit2d.html" />
     <link rel="prev" title="python_codes.DEM_analysis.find_first_max" href="python_codes.DEM_analysis.find_first_max.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-<link rel="stylesheet" href="../_static/numpy.css" type="text/css" />
-
-    <!-- PR #17220: This is added via javascript in versionwarning.js  -->
-    <!-- link rel="canonical" href="http://numpy.org/doc/stable/_autosummary/python_codes.DEM_analysis.periodicity_2d.html" / -->
-
-
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -77,7 +69,7 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../auto_examples/index.html">
-  Analysis
+  This is my gallery
  </a>
 </li>
 
@@ -147,6 +139,16 @@
   </a>
  </li>
  <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.meteo_analysis.html">
+   python_codes.meteo_analysis
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.plot_functions.html">
+   python_codes.plot_functions
+  </a>
+ </li>
+ <li class="toctree-l2">
   <a class="reference internal" href="python_codes.theme.html">
    python_codes.theme
   </a>
@@ -188,7 +190,7 @@
 <ul class="simple">
 <li><p>The orientation is calculated by computed the integration over <cite>rad</cite> of the autocorrelation matrix around its maximum in each direction. The pattern orientation is then taken as where the maximum is.</p></li>
 <li><p>The wavelength is taken at the position of the first maximum of the autocorrelation profile in the direction perpendicular to the orientation.</p></li>
-<li><p>The amplitude is linked to the maximum of the autocorrelation matrix as <span class="math notranslate nohighlight">\(A = \sqrt{2*C(0, 0)}\)</span>.</p></li>
+<li><p>The amplitude is linked to the maximum of the autocorrelation matrix as <span class="math notranslate nohighlight">\(A = \sqrt{2 C(0, 0)}\)</span>.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -200,7 +202,7 @@
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><strong>orientation</strong> (<em>float</em>) – Orientation of the pattern in degress.</p></li>
+<li><p><strong>orientation</strong> (<em>float</em>) – Orientation of the pattern in degrees.</p></li>
 <li><p><strong>wavelength</strong> (<em>float</em>) – Wavelength of the pattern in pixels.</p></li>
 <li><p><strong>amplitude</strong> (<em>float</em>) – Amplitude of the pattern in the input array unit.</p></li>
 <li><p><strong>p0</strong> (<em>array_like, shape (2,)</em>) – Coordinates of the maximum of the autocorrelation matrix.</p></li>
