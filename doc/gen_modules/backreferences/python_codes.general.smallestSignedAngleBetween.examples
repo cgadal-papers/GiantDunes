@@ -1,0 +1,42 @@
+
+
+Examples using ``python_codes.general.smallestSignedAngleBetween``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="For each station, the hydrodynamic roughness is calibrated by finding the one that minimizes th...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/data_preprocessing/images/thumb/sphx_glr_roughness_calibration_plot_thumb.png
+     :alt: Calibration of the hydrodynamic roughness
+
+     :ref:`sphx_glr_auto_examples_data_preprocessing_roughness_calibration_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_data_preprocessing_roughness_calibration_plot.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plotting the different diagram regime for both stations">
+
+.. only:: html
+
+ .. figure:: /auto_examples/data_presentation/images/thumb/sphx_glr_regime_diagram_plot_thumb.png
+     :alt: Plotting the different diagram regime for both stations
+
+     :ref:`sphx_glr_auto_examples_data_presentation_regime_diagram_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_data_presentation_regime_diagram_plot.py`

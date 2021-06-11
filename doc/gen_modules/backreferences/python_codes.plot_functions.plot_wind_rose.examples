@@ -1,0 +1,23 @@
+
+
+Examples using ``python_codes.plot_functions.plot_wind_rose``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Comparison between the Era5Land and the in situ datasets">
+
+.. only:: html
+
+ .. figure:: /auto_examples/data_presentation/images/thumb/sphx_glr_wind_regime_comparison_plot_thumb.png
+     :alt: Comparison between the Era5Land and the in situ datasets
+
+     :ref:`sphx_glr_auto_examples_data_presentation_wind_regime_comparison_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_auto_examples_data_presentation_wind_regime_comparison_plot.py`
