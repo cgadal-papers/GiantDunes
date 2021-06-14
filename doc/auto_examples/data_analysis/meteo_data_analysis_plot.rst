@@ -255,7 +255,7 @@ Plotting the distributions of the non dimensional parameters for both stations
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  8.351 seconds)
+   **Total running time of the script:** ( 0 minutes  9.902 seconds)
 
 
 .. _sphx_glr_download_auto_examples_data_analysis_meteo_data_analysis_plot.py:

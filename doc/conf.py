@@ -46,10 +46,11 @@ extensions = [
     'sphinx_autodoc_typehints',  # Automatically document param types (less noise in class signature)
     # 'nbsphinx',  # Integrate Jupyter Notebooks and Sphinx
     'sphinx.ext.napoleon',
-    # 'numpydoc',
+    'numpydoc',
     'sphinx.ext.doctest',
     'sphinx.ext.mathjax',
     'sphinx_gallery.gen_gallery',
+    'sphinx.ext.coverage'
 ]
 
 autosummary_generate = True  # Turn on sphinx.ext.autosummary
@@ -62,7 +63,7 @@ nbsphinx_allow_errors = True  # Continue through Jupyter errors
 add_module_names = False  # Remove namespaces from class/method signatures
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_static/autosummary', '_static']
+templates_path = ['_template']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -123,15 +124,12 @@ sphinx_gallery_conf = {
 html_theme = "pydata_sphinx_theme"
 html_theme_options = {"show_prev_next": False}
 
-
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
-#
-# html_theme = 'alabaster'
-
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-# html_static_path = ['_static/css']
-# html_css_files = ['numpy.css']
-# html_style = 'numpy.css'
+html_static_path = ['_static']
+html_css_files = ['mne_style.css']
+
+# If true, links to the reST sources are added to the pages.
+html_show_sourcelink = False
+html_copy_source = False

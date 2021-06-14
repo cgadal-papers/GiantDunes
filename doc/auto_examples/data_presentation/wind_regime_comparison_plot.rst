@@ -22,7 +22,7 @@
 Comparison between the Era5Land and the in situ datasets
 ===========
 
-.. GENERATED FROM PYTHON SOURCE LINES 6-33
+.. GENERATED FROM PYTHON SOURCE LINES 6-35
 
 .. code-block:: default
 
@@ -37,6 +37,8 @@ Comparison between the Era5Land and the in situ datasets
     import python_codes.theme as theme
     from python_codes.plot_functions import plot_scatter_surrounded, plot_wind_rose
     from python_codes.meteo_analysis import compute_circadian_annual_cycle
+    from python_codes.general import smallestSignedAngleBetween, find_mode_distribution, cosd, sind
+    from scipy.stats import binned_statistic_2d
     theme.load_style()
 
     # paths
@@ -60,12 +62,12 @@ Comparison between the Era5Land and the in situ datasets
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-36
+.. GENERATED FROM PYTHON SOURCE LINES 36-38
 
 Wind roses
 ------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-79
+.. GENERATED FROM PYTHON SOURCE LINES 38-81
 
 .. code-block:: default
 
@@ -123,12 +125,12 @@ Wind roses
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-82
+.. GENERATED FROM PYTHON SOURCE LINES 82-84
 
 Circadian/annual wind cycle
 ------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-134
+.. GENERATED FROM PYTHON SOURCE LINES 84-136
 
 .. code-block:: default
 
@@ -218,12 +220,12 @@ Circadian/annual wind cycle
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 135-137
+.. GENERATED FROM PYTHON SOURCE LINES 137-139
 
 Scatter plots -- Orientation
 ------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 137-215
+.. GENERATED FROM PYTHON SOURCE LINES 139-217
 
 .. code-block:: default
 
@@ -302,9 +304,9 @@ Scatter plots -- Orientation
     ax.text(-0.07, 1, r'\textbf{' + label[0] + r'\textbf', ha='center', va='center', transform=ax.transAxes)
     ax.set_xlabel(r'$\theta_{\rm Era5Land}$ [deg.]')
 
-
     plt.savefig(os.path.join(path_savefig, 'scatter_orientation.pdf'))
     plt.show()
+
 
 
 
@@ -316,10 +318,76 @@ Scatter plots -- Orientation
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 218-220
+
+Relative difference between the wind vectors
+--------------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 220-266
+
+.. code-block:: default
+
+
+    Orientation_era = np.concatenate([Data[station]['Orientation_era'] - Data_pattern[station]['orientation'] for station in Stations])
+    Orientation_station = np.concatenate([Data[station]['Orientation_station'] - Data_pattern[station]['orientation'] for station in Stations])
+    U_era = np.concatenate([Data[station]['U_star_era'] for station in Stations])
+    U_station = np.concatenate([Data[station]['U_star_station'] for station in Stations])
+    time = np.concatenate([Data[station]['time'] for station in Stations])
+    hrs = np.array([i.hour for i in time])
+    #
+    # Delta = smallestSignedAngleBetween(Orientation_era, Orientation_station)
+    # mode_delta = np.array([find_mode_distribution(Delta, i) for i in np.arange(150, 350)]).mean()
+    # delta = np.abs(Delta - mode_delta)
+    #
+    U_station_cart = U_station*np.array([cosd(Orientation_station), sind(Orientation_station)])
+    U_era_cart = U_era*np.array([cosd(Orientation_era), sind(Orientation_era)])
+    delta = np.linalg.norm(U_era_cart - U_station_cart, axis=0)/U_era
+    #
+    plot_idx = np.random.permutation(np.arange(delta.size))  # to plot the points of the scatter plot in random order
+    # bin_delta = np.linspace(0, 90, 20)
+    bin_delta = np.linspace(0, 2, 20)
+    bin_U_era = np.linspace(0, 0.5, 30)
+    bin_hr = np.arange(-0.5, 24.5, 1)
+
+    fig, axs = plt.subplots(2, 1, figsize=(theme.fig_width, 0.93*theme.fig_width), constrained_layout=True)
+    #
+    counts, x_edge, y_edge, _ = binned_statistic_2d(hrs, delta, delta, statistic='count', bins=[bin_hr, bin_delta])
+    x_center = x_edge[:-1] + (x_edge[1] - x_edge[0])/2
+    y_center = y_edge[:-1] + (y_edge[1] - y_edge[0])/2
+    X, Y = np.meshgrid(x_center, y_center)
+    a = axs[0].pcolormesh(x_edge, y_edge, counts.T, snap=True)
+    fig.colorbar(a, ax=axs[0], label=r'$N_{\textup{points}}$')
+    axs[0].set_xlabel(r'Hour of the day')
+    axs[0].set_ylabel(r'$\delta_{\boldsymbol{u}}$')
+    axs[0].set_xlim(-0.5, 23.5)
+    #
+    counts, x_edge, y_edge, _ = binned_statistic_2d(U_era, delta, delta, statistic='count', bins=[bin_U_era, bin_delta])
+    x_center = x_edge[:-1] + (x_edge[1] - x_edge[0])/2
+    y_center = y_edge[:-1] + (y_edge[1] - y_edge[0])/2
+    X, Y = np.meshgrid(x_center, y_center)
+    a = axs[1].pcolormesh(x_edge, y_edge, counts.T, snap=True, vmax=650)
+    fig.colorbar(a, ax=axs[1], label=r'$N_{\textup{points}}$')
+    axs[1].set_xlabel(r'$u_{*, \textup{Era5Land}}$')
+    axs[1].set_ylabel(r'$\delta_{\boldsymbol{u}}$')
+    axs[1].set_xlim(0, 0.5)
+    #
+    plt.savefig(os.path.join(path_savefig, 'deltaU__hr_velocity_diagrams.pdf'))
+    plt.show()
+
+
+
+.. image:: /auto_examples/data_presentation/images/sphx_glr_wind_regime_comparison_plot_007.png
+    :alt: wind regime comparison plot
+    :class: sphx-glr-single-img
+
+
+
+
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  9.612 seconds)
+   **Total running time of the script:** ( 0 minutes  14.044 seconds)
 
 
 .. _sphx_glr_download_auto_examples_data_presentation_wind_regime_comparison_plot.py:

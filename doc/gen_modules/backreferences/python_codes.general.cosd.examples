@@ -5,14 +5,14 @@ Examples using ``python_codes.general.cosd``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="For each station, we follow these preprocessing steps:     - correction for constant shifts in ...">
+    <div class="sphx-glr-thumbcontainer" tooltip="Comparison between the Era5Land and the in situ datasets">
 
 .. only:: html
 
- .. figure:: /auto_examples/data_preprocessing/images/thumb/sphx_glr_data_preprocessing_plot_thumb.png
-     :alt: Preprocessing of the data
+ .. figure:: /auto_examples/data_presentation/images/thumb/sphx_glr_wind_regime_comparison_plot_thumb.png
+     :alt: Comparison between the Era5Land and the in situ datasets
 
-     :ref:`sphx_glr_auto_examples_data_preprocessing_data_preprocessing_plot.py`
+     :ref:`sphx_glr_auto_examples_data_presentation_wind_regime_comparison_plot.py`
 
 .. raw:: html
 
@@ -20,61 +20,4 @@ Examples using ``python_codes.general.cosd``
 
 .. only:: not html
 
- * :ref:`sphx_glr_auto_examples_data_preprocessing_data_preprocessing_plot.py`
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="For each station, the hydrodynamic roughness is calibrated by finding the one that minimizes th...">
-
-.. only:: html
-
- .. figure:: /auto_examples/data_preprocessing/images/thumb/sphx_glr_roughness_calibration_plot_thumb.png
-     :alt: Calibration of the hydrodynamic roughness
-
-     :ref:`sphx_glr_auto_examples_data_preprocessing_roughness_calibration_plot.py`
-
-.. raw:: html
-
-    </div>
-
-.. only:: not html
-
- * :ref:`sphx_glr_auto_examples_data_preprocessing_roughness_calibration_plot.py`
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Analyzing DEMs to extract average orientation, wavelength and amplitude of the dune pattern.">
-
-.. only:: html
-
- .. figure:: /auto_examples/data_analysis/images/thumb/sphx_glr_DEM_analysis_plot_thumb.png
-     :alt: DEM analysis
-
-     :ref:`sphx_glr_auto_examples_data_analysis_DEM_analysis_plot.py`
-
-.. raw:: html
-
-    </div>
-
-.. only:: not html
-
- * :ref:`sphx_glr_auto_examples_data_analysis_DEM_analysis_plot.py`
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Theoretical flow redirection">
-
-.. only:: html
-
- .. figure:: /auto_examples/linear_theory/images/thumb/sphx_glr_flow_redirection_plot_thumb.png
-     :alt: Theoretical flow redirection
-
-     :ref:`sphx_glr_auto_examples_linear_theory_flow_redirection_plot.py`
-
-.. raw:: html
-
-    </div>
-
-.. only:: not html
-
- * :ref:`sphx_glr_auto_examples_linear_theory_flow_redirection_plot.py`
+ * :ref:`sphx_glr_auto_examples_data_presentation_wind_regime_comparison_plot.py`

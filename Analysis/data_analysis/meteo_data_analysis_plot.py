@@ -138,15 +138,18 @@ plt.show()
 # Plotting the distributions of the non dimensional parameters for both stations
 # ------------------------
 
-def make_nice_histogram(data, nbins, ax, vmin=None, vmax=None, **kwargs):
+def make_nice_histogram(data, nbins, ax, vmin=None, vmax=None, scale_bins='log', density=True, **kwargs):
     min = data.min() if vmin is None else vmin
     max = data.max() if vmax is None else vmax
-    logbins = np.logspace(np.log10(min), np.log10(max), nbins)
-    a = ax.hist(Data[station]['Froude'], bins=logbins, histtype='stepfilled', density=True, **kwargs)
-    ax.hist(Data[station]['Froude'], bins=logbins, histtype='step', color=a[-1][0].get_fc(), lw=2, density=True)
+    if scale_bins == 'log':
+        bins = np.logspace(np.log10(min), np.log10(max), nbins)
+    else:
+        bins = np.linspace(min, max, nbins)
+    a = ax.hist(Data[station]['Froude'], bins=bins, histtype='stepfilled', density=density, **kwargs)
+    ax.hist(Data[station]['Froude'], bins=bins, histtype='step', color=a[-1][0].get_fc(), lw=2, density=density)
 
 
-fig, axs = plt.subplots(3, 1, figsize=(theme.fig_width, 0.9*theme.fig_width))
+fig, axs = plt.subplots(3, 1, figsize=(theme.fig_width, 0.9*theme.fig_width), constrained_layout=True)
 for station in Stations:
     make_nice_histogram(Data[station]['Froude'], 150, axs[0], alpha=0.5, vmin=0.06, vmax=50, label=' '.join(station.split('_')[:-1]))
     make_nice_histogram(Data[station]['kH'], 150, axs[1], alpha=0.5, vmin=0.07, label=' '.join(station.split('_')[:-1]))
@@ -161,6 +164,22 @@ for ax in axs:
 axs[0].set_xlabel(r'Froude number, $Fr$')
 axs[1].set_xlabel(r'$k H$')
 axs[2].set_xlabel(r'$k L_{\textup{B}}$')
-plt.tight_layout()
 plt.savefig(os.path.join(path_savefig, 'distributions_non_dimensional_parameters.pdf'))
+plt.show()
+
+
+# %%
+# Temporal distributions of ill-processed vertical profiles
+# ---------------------------------------------------------
+fig, axs = plt.subplots(1, 1, figsize=(theme.fig_width, 0.6*theme.fig_width), constrained_layout=True)
+for station in Stations:
+    hr = np.array([i.hour for i in Data[station]['time']])
+    make_nice_histogram(hr[np.isnan(Data[station]['Froude'])], 24, axs, alpha=0.5, vmin=0, vmax=23, label=' '.join(station.split('_')[:-1]), scale_bins='lin', density=False)
+axs.set_xlabel('Hours of the day')
+axs.set_ylabel(r'$N_{\textup{points}}$')
+axs.set_yscale('log')
+plt.sca(axs)
+plt.xlim(0, 23)
+plt.legend()
+plt.savefig(os.path.join(path_savefig, 'distributions_failed_meteo_analysis.pdf'))
 plt.show()

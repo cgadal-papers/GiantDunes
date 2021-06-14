@@ -15,7 +15,7 @@ import os
 import sys
 sys.path.append('../../')
 import python_codes.theme as theme
-from python_codes.general import smallestSignedAngleBetween, find_mode_distribution
+from python_codes.general import smallestSignedAngleBetween, find_mode_distribution, cosd, sind
 from python_codes.plot_functions import log_tick_formatter, rgba_to_rgb
 theme.load_style()
 
@@ -30,25 +30,23 @@ Stations = ['South_Namib_Station', 'Deep_Sea_Station']
 # Stations = ['South_Namib_Station']
 
 # %%
-# Plotting the 3 possible regime diagrams -- scatter plots
+# Plotting the regime diagrams -- scatter plots
 # ------------------------
 
 Orientation_era = np.concatenate([Data[station]['Orientation_era'] for station in Stations])
 Orientation_station = np.concatenate([Data[station]['Orientation_station'] for station in Stations])
+U_era = np.concatenate([Data[station]['U_star_era'] for station in Stations])
+U_station = np.concatenate([Data[station]['U_star_station'] for station in Stations])
 numbers = {key: np.concatenate([Data[station][key] for station in Stations]) for key in ('Froude', 'kH', 'kLB')}
 #
 Delta = smallestSignedAngleBetween(Orientation_era, Orientation_station)
 mode_delta = np.array([find_mode_distribution(Delta, i) for i in np.arange(150, 350)]).mean()
 delta = np.abs(Delta - mode_delta)
 #
-colors = np.array(['tab:blue' for i in Delta]).astype('<U18')
-colors[(delta > 20) & (delta < 40)] = 'tab:orange'
-colors[(delta >= 40)] = 'tab:green'
-#
 ax_labels = {'Froude': r'Froude number, $\rho U/\sqrt{\Delta\rho g H}$', 'kH': '$k H$', 'kLB': r'$k L_{\textup{B}}$'}
 lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
 mask = ~np.isnan(numbers['Froude'])
-plot_idx = np.random.permutation(np.arange(Delta[mask].size))  # to plot the points of the scatter plot in random order
+plot_idx = np.random.permutation(np.arange(delta[mask].size))  # to plot the points of the scatter plot in random order
 couples = [('Froude', 'kH'), ('kLB', 'kH'), ('Froude', 'kLB')]
 #
 fig = plt.figure(figsize=(theme.fig_width, theme.fig_width))
@@ -60,7 +58,7 @@ for i, (var1, var2) in enumerate(couples):
     ax = plt.subplot(gs_plots[i])
     ax.set_xscale('log')
     ax.set_yscale('log')
-    a = plt.scatter(numbers[var1][plot_idx], numbers[var2][plot_idx], s=5, c=delta[plot_idx], lw=0, rasterized=True, vmin=0, vmax=70, cmap='plasma')
+    a = plt.scatter(numbers[var1][plot_idx], numbers[var2][plot_idx], s=5, c=delta[plot_idx], lw=0, rasterized=True, vmin=0, vmax=1.4, cmap='plasma')
     # a = plt.scatter(numbers[var1][plot_idx], numbers[var2][plot_idx], s=5, color=colors[plot_idx], lw=0, rasterized=True, vmin=0, vmax=30, cmap='plasma')
     ax.set_xlim(lims[var1])
     ax.set_ylim(lims[var2])
@@ -106,7 +104,7 @@ for i, (var1, var2) in enumerate(couples):
     y_center = y_edge[:-1] + (y_edge[1] - y_edge[0])/2
     # #### making plot
     X, Y = np.meshgrid(x_center, y_center)
-    a = plt.pcolormesh(x_edge, y_edge, average.T, vmax=70, snap=True)
+    a = plt.pcolormesh(x_edge, y_edge, average.T, vmax=1.4, snap=True)
     #
     # #### updating transparency
     log_counts = np.log10(counts)
@@ -132,7 +130,7 @@ for i, (var1, var2) in enumerate(couples):
 # #### colorbars color
 gs_colorbars = gs[0].subgridspec(4, 1, hspace=0.3)
 # colorbar color
-norm = mpcolors.Normalize(vmin=0, vmax=70)
+norm = mpcolors.Normalize(vmin=0, vmax=1.4)
 sm = plt.cm.ScalarMappable(cmap='viridis', norm=norm)
 cb = fig.colorbar(sm, cax=plt.subplot(gs_colorbars[0]), orientation='horizontal')
 cb.set_label(r'$\theta_{\textup{Era5Land}} - \theta_{\textup{station}}$ [deg.]')
@@ -169,7 +167,7 @@ plt.show()
 
 fig = plt.figure(figsize=(theme.fig_width, theme.fig_width))
 ax = fig.add_subplot(projection='3d')
-ax.scatter(np.log10(numbers['Froude'][plot_idx]), np.log10(numbers['kH'][plot_idx]), np.log10(numbers['kLB'][plot_idx]), s=5, c=delta[plot_idx], lw=0, rasterized=True, vmin=0, vmax=70, cmap='plasma')
+ax.scatter(np.log10(numbers['Froude'][plot_idx]), np.log10(numbers['kH'][plot_idx]), np.log10(numbers['kLB'][plot_idx]), s=5, c=delta[plot_idx], lw=0, rasterized=True, vmin=0, vmax=1.4, cmap='plasma')
 ax.set_xlabel(ax_labels['Froude'][15:])
 ax.set_ylabel(ax_labels['kH'])
 ax.set_zlabel(ax_labels['kLB'])

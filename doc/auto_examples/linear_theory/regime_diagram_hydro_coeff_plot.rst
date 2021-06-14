@@ -270,7 +270,7 @@ Plotting the 3D scatter plot
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.708 seconds)
+   **Total running time of the script:** ( 0 minutes  7.543 seconds)
 
 
 .. _sphx_glr_download_auto_examples_linear_theory_regime_diagram_hydro_coeff_plot.py:

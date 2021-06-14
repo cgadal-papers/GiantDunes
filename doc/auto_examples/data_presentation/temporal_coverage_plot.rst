@@ -109,7 +109,7 @@ Plot the temporal coverage of the two different sets of data for each station us
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.576 seconds)
+   **Total running time of the script:** ( 0 minutes  0.800 seconds)
 
 
 .. _sphx_glr_download_auto_examples_data_presentation_temporal_coverage_plot.py:

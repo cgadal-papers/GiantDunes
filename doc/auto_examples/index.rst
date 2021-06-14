@@ -182,6 +182,27 @@ a convective atmospheric boundary layer, over which lies the stratified free atm
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="In this script, we derive the basal shear stress coefficients across the entire 3D space of non...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/linear_theory/images/thumb/sphx_glr_parameter_space_exploration_thumb.png
+     :alt: Parameter space exploration for the hydrodyanmic coefficients
+
+     :ref:`sphx_glr_auto_examples_linear_theory_parameter_space_exploration.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/linear_theory/parameter_space_exploration
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Plotting the regime diagrams from the sime series of the hydrodynamic coefficients">
 
 .. only:: html
