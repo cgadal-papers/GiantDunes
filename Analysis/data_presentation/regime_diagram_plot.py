@@ -96,9 +96,9 @@ plt.show()
 
 log_counts_max = np.log10(2230)
 
-fig = plt.figure(figsize=(np.round(theme.fig_width, 3), np.round(1.25*theme.fig_width, 3)))
-gs = gridspec.GridSpec(2, 1, height_ratios=[0.3, 1], figure=fig)
-gs.update(left=0.09, right=0.98, bottom=0.07, top=0.95, hspace=0.13)
+fig = plt.figure(figsize=(theme.fig_width, theme.fig_width))
+gs = gridspec.GridSpec(2, 1, height_ratios=[0.08, 1], figure=fig)
+gs.update(left=0.09, right=0.98, bottom=0.07, top=0.94, hspace=0.17)
 gs_plots = gs[1].subgridspec(2, 2, hspace=0.05, wspace=0.05)
 #
 for i, (quantity, cmap, norm) in enumerate(zip(quantities, cmaps, norms)):
@@ -116,16 +116,6 @@ for i, (quantity, cmap, norm) in enumerate(zip(quantities, cmaps, norms)):
         y_center = y_edge[:-1] + (y_edge[1] - y_edge[0])/2
         # #### making plot
         a = plt.pcolormesh(x_edge, y_edge, average.T, norm=norm, snap=True, cmap=cmap)
-        #
-        # #### updating transparency
-        log_counts = np.log10(counts)
-        log_counts[np.abs(log_counts) == np.inf] = 0
-        alpha_array = (log_counts/log_counts_max)
-        fig.canvas.draw()
-        colors = a.get_facecolor()
-        colors[:, 3] = alpha_array.T.flatten()
-        a.set_facecolor(rgba_to_rgb(colors))
-        fig.canvas.draw()
         #
         ax.set_xlim(lims[var1])
         ax.set_ylim(lims[var2])
@@ -151,27 +141,6 @@ for i, (norm, label, cmap) in enumerate(zip(norms, cbar_labels, cmaps)):
     if i == 0:
         cb.ax.xaxis.set_ticks_position('top')
         cb.ax.xaxis.set_label_position('top')
-
-# colorbar transparency
-ncolors = 100
-for i, perc in enumerate([0, 0.99]):
-    color_array = np.zeros((ncolors, 4))
-    color_array[:, -1] = np.linspace(0, 1, ncolors)
-    color_array[:, :-1] = plt.get_cmap('viridis')(perc)[:-1]
-    color_array = rgba_to_rgb(color_array)
-    #
-    map_object = mpcolors.LinearSegmentedColormap.from_list(name='cmap_alpha', colors=color_array)
-    norm = mpcolors.Normalize(vmin=0, vmax=log_counts_max)
-    sm = plt.cm.ScalarMappable(cmap=map_object, norm=norm)
-    sm.set_array([])
-    cb = plt.colorbar(sm, cax=plt.subplot(gs_colorbars_bottom[i]), orientation='horizontal', ticks=[0, 1, 2, 3])
-    cb.solids.set_edgecolor("face")
-    if i < 1:
-        cb.set_ticklabels([])
-    else:
-        cb.ax.xaxis.set_major_formatter(mticker.FuncFormatter(log_tick_formatter))
-        cb.ax.xaxis.set_major_locator(mticker.MaxNLocator(integer=True))
-        cb.set_label(r'$\textup{N}_{\textup{points}}$', labelpad=0)
 
 plt.savefig(os.path.join(path_savefig, 'regime_diagrams_binned.pdf'))
 plt.show()
