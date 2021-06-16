@@ -14,7 +14,7 @@ sys.path.append('../../')
 import python_codes.theme as theme
 from python_codes.plot_functions import plot_scatter_surrounded, plot_wind_rose
 from python_codes.meteo_analysis import compute_circadian_annual_cycle
-from python_codes.general import smallestSignedAngleBetween, find_mode_distribution, cosd, sind
+from python_codes.general import smallestSignedAngleBetween, find_mode_distribution
 from scipy.stats import binned_statistic_2d
 theme.load_style()
 
@@ -225,41 +225,39 @@ U_station = np.concatenate([Data[station]['U_star_station'] for station in Stati
 time = np.concatenate([Data[station]['time'] for station in Stations])
 hrs = np.array([i.hour for i in time])
 #
-# Delta = smallestSignedAngleBetween(Orientation_era, Orientation_station)
-# mode_delta = np.array([find_mode_distribution(Delta, i) for i in np.arange(150, 350)]).mean()
-# delta = np.abs(Delta - mode_delta)
+Delta = smallestSignedAngleBetween(Orientation_era, Orientation_station)
+mode_delta = np.array([find_mode_distribution(Delta, i) for i in np.arange(150, 350)]).mean()
+delta_angle = np.abs(Delta)
+delta_u = np.abs(U_era - U_station)/U_era
 #
-U_station_cart = U_station*np.array([cosd(Orientation_station), sind(Orientation_station)])
-U_era_cart = U_era*np.array([cosd(Orientation_era), sind(Orientation_era)])
-delta = np.linalg.norm(U_era_cart - U_station_cart, axis=0)/U_era
-#
-plot_idx = np.random.permutation(np.arange(delta.size))  # to plot the points of the scatter plot in random order
-# bin_delta = np.linspace(0, 90, 20)
-bin_delta = np.linspace(0, 2, 20)
-bin_U_era = np.linspace(0, 0.5, 30)
+bin_delta_u = np.linspace(0, 1, 20)
+bin_delta_angle = np.linspace(0, 90, 17)
+bin_U_era = np.linspace(0, 0.475, 30)
 bin_hr = np.arange(-0.5, 24.5, 1)
+#
+label_x = [r'Hour of the day', r'$u_{*, \textup{Era5Land}}$']
+label_y = [r'$\delta_{\theta}$ [deg.]', r'$\delta_{u}$']
 
-fig, axs = plt.subplots(2, 1, figsize=(theme.fig_width, 0.93*theme.fig_width), constrained_layout=True)
+fig, axs = plt.subplots(2, 2, figsize=(theme.fig_width, 0.8*theme.fig_width), constrained_layout=True)
 #
-counts, x_edge, y_edge, _ = binned_statistic_2d(hrs, delta, delta, statistic='count', bins=[bin_hr, bin_delta])
-x_center = x_edge[:-1] + (x_edge[1] - x_edge[0])/2
-y_center = y_edge[:-1] + (y_edge[1] - y_edge[0])/2
-X, Y = np.meshgrid(x_center, y_center)
-a = axs[0].pcolormesh(x_edge, y_edge, counts.T, snap=True)
-fig.colorbar(a, ax=axs[0], label=r'$N_{\textup{points}}$')
-axs[0].set_xlabel(r'Hour of the day')
-axs[0].set_ylabel(r'$\delta_{\boldsymbol{u}}$')
-axs[0].set_xlim(-0.5, 23.5)
-#
-counts, x_edge, y_edge, _ = binned_statistic_2d(U_era, delta, delta, statistic='count', bins=[bin_U_era, bin_delta])
-x_center = x_edge[:-1] + (x_edge[1] - x_edge[0])/2
-y_center = y_edge[:-1] + (y_edge[1] - y_edge[0])/2
-X, Y = np.meshgrid(x_center, y_center)
-a = axs[1].pcolormesh(x_edge, y_edge, counts.T, snap=True, vmax=650)
-fig.colorbar(a, ax=axs[1], label=r'$N_{\textup{points}}$')
-axs[1].set_xlabel(r'$u_{*, \textup{Era5Land}}$')
-axs[1].set_ylabel(r'$\delta_{\boldsymbol{u}}$')
-axs[1].set_xlim(0, 0.5)
-#
+for i, (bin_quantity, quantity) in enumerate(zip([bin_delta_angle, bin_delta_u], [delta_angle, delta_u])):
+    for j, (bin_var, var) in enumerate(zip([bin_hr, bin_U_era], [hrs, U_era])):
+        counts, x_edge, y_edge, _ = binned_statistic_2d(var, quantity, quantity, statistic='count', bins=[bin_var, bin_quantity])
+        x_center = x_edge[:-1] + (x_edge[1] - x_edge[0])/2
+        y_center = y_edge[:-1] + (y_edge[1] - y_edge[0])/2
+        X, Y = np.meshgrid(x_center, y_center)
+        vmax = 550 if i == 0 else 450
+        a = axs[i, j].pcolormesh(x_edge, y_edge, counts.T, snap=True, vmax=vmax)
+        if i > 0:
+            axs[i, j].set_xlabel(label_x[j])
+        else:
+            axs[i, j].set_xticklabels([])
+        #
+        if j == 0:
+            axs[i, j].set_ylabel(label_y[i])
+        else:
+            axs[i, j].set_yticklabels([])
+            cbar = fig.colorbar(a, ax=axs[i, j], label=r'$N_{\textup{points}}$', location='right')
+
 plt.savefig(os.path.join(path_savefig, 'deltaU__hr_velocity_diagrams.pdf'))
 plt.show()

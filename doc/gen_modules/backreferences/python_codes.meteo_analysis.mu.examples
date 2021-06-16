@@ -5,25 +5,6 @@ Examples using ``python_codes.meteo_analysis.mu``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="For each station, the hydrodynamic roughness is calibrated by finding the one that minimizes th...">
-
-.. only:: html
-
- .. figure:: /auto_examples/data_preprocessing/images/thumb/sphx_glr_roughness_calibration_plot_thumb.png
-     :alt: Calibration of the hydrodynamic roughness
-
-     :ref:`sphx_glr_auto_examples_data_preprocessing_roughness_calibration_plot.py`
-
-.. raw:: html
-
-    </div>
-
-.. only:: not html
-
- * :ref:`sphx_glr_auto_examples_data_preprocessing_roughness_calibration_plot.py`
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="Processing the meteorological data">
 
 .. only:: html

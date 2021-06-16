@@ -5,25 +5,6 @@ Examples using ``python_codes.plot_functions.rgba_to_rgb``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plotting the regime diagrams from the sime series of the hydrodynamic coefficients">
-
-.. only:: html
-
- .. figure:: /auto_examples/linear_theory/images/thumb/sphx_glr_regime_diagram_hydro_coeff_plot_thumb.png
-     :alt: Plotting the regime diagrams from the sime series of the hydrodynamic coefficients
-
-     :ref:`sphx_glr_auto_examples_linear_theory_regime_diagram_hydro_coeff_plot.py`
-
-.. raw:: html
-
-    </div>
-
-.. only:: not html
-
- * :ref:`sphx_glr_auto_examples_linear_theory_regime_diagram_hydro_coeff_plot.py`
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="Plotting the different diagram regime for both stations">
 
 .. only:: html

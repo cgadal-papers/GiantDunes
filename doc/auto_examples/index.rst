@@ -221,6 +221,27 @@ a convective atmospheric boundary layer, over which lies the stratified free atm
    :hidden:
 
    /auto_examples/linear_theory/regime_diagram_hydro_coeff_plot
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot the parameter space exploration of the hydrodyanamic coefficients">
+
+.. only:: html
+
+ .. figure:: /auto_examples/linear_theory/images/thumb/sphx_glr_regime_diagrams_theoretical_plot_thumb.png
+     :alt: Plot the parameter space exploration of the hydrodyanamic coefficients
+
+     :ref:`sphx_glr_auto_examples_linear_theory_regime_diagrams_theoretical_plot.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/linear_theory/regime_diagrams_theoretical_plot
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
