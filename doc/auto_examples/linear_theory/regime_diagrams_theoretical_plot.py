@@ -1,7 +1,7 @@
 r"""
-======================================================================
-Plot the parameter space exploration of the hydrodyanamic coefficients
-======================================================================
+=================================================================
+Plot theoretical regime diagrams from parameter space exploration
+=================================================================
 
 """
 
@@ -19,14 +19,21 @@ theme.load_style()
 
 # Paths
 path_outputdata = '../../static/output_data/data/'
+path_savefig = '../../static/output_data/figures/'
 
 # Loading parameter space exploration
 Dic = np.load(os.path.join(path_outputdata, 'parameter_exploration_hydro_coeff_3D.npy'), allow_pickle=True).item()
+#
+axes_av = [3, 2]  # axes over which selecting/averaging is perform for plane representation
+index = [60, 48]  # when selection, selecting these indexes in the relevant `axes_av`
+#
+hydro_coeffs_3D = Dic[('Froude', 'kH', 'kLB')]['hydro_coeffs'].swapaxes(1, 2)
+# axes are now (A/B, kH, Froude, kLB)
 
 # %%
 # Plane (Froude - kH)
 # ------------------------
-hydro_coeffs = Dic[('Froude', 'kH', 'kLB')]['hydro_coeffs'].mean(axis=-1).swapaxes(1, 2)
+hydro_coeffs = hydro_coeffs_3D.take(index[0], axis=axes_av[0])
 
 # #### figure
 quantities = [hydro_coeffs[0, :, :], hydro_coeffs[1, :, :],
@@ -62,7 +69,7 @@ plt.show()
 # %%
 # Plane (kLB - kH)
 # ------------------------
-hydro_coeffs = Dic[('Froude', 'kH', 'kLB')]['hydro_coeffs'].mean(axis=1)
+hydro_coeffs = hydro_coeffs_3D.take(index[1], axis=axes_av[1])
 
 # #### figure
 quantities = [hydro_coeffs[0, :, :], hydro_coeffs[1, :, :],
@@ -98,19 +105,16 @@ plt.show()
 # %%
 # Computing theoretical regime diagrams
 # -------------------------------------
-hydro_coeffs = Dic[('Froude', 'kH', 'kLB')]['hydro_coeffs'].swapaxes(1, 2)
-# axes are now (A/B, kH, Froude, kLB)
-axes_av = [3, 2]  # axes over which averaging is perform for plane representation
 # fixing dune properties
 alpha = 45
-aspect_ratio = 1/np.linalg.norm(hydro_coeffs, axis=0).max()
+# aspect_ratio = 1/np.linalg.norm(hydro_coeffs_3D, axis=0).max()
+aspect_ratio = 0.05
 # #### Plot properties
-cmaps = ['plasma', 'seismic']
-# norms = [Normalize(vmin=0, vmax=70), TwoSlopeNorm(vmin=-1, vcenter=0, vmax=1)]
-norms = [None, TwoSlopeNorm(vcenter=0)]
+cmaps = [theme.cmap_delta_theta, theme.cmap_delta_u]
+norms = [Normalize(vmin=0, vmax=95), TwoSlopeNorm(vmin=-3.5, vcenter=0, vmax=1)]
+# norms = [None, TwoSlopeNorm(vcenter=0)]
 cbar_labels = [r'$\delta_{\theta}$ [deg.]', r'$\delta_{u}$']
-x_labels = [r'Froude number, $ U/\sqrt{(\Delta\rho/\rho) g H}$', r'$k L_{\textup{B}}$']
-index = [60, 48]
+x_labels = [r'Froude number, $ U/\sqrt{(\Delta\rho/\rho) g H}$', r'$k U/N$']
 #
 fig = plt.figure(figsize=(theme.fig_width, theme.fig_width))
 gs = gridspec.GridSpec(2, 1, height_ratios=[0.08, 1], figure=fig)
@@ -118,12 +122,12 @@ gs.update(left=0.09, right=0.98, bottom=0.07, top=0.94, hspace=0.17)
 gs_plots = gs[1].subgridspec(2, 2, hspace=0.05, wspace=0.05)
 #
 for i, (axis, label) in enumerate(zip(axes_av, x_labels)):
-    A0 = hydro_coeffs.take(index[i], axis=axis)[0, :, :]
-    B0 = hydro_coeffs.take(index[i], axis=axis)[1, :, :]
+    A0 = hydro_coeffs_3D.take(index[i], axis=axis)[0, :, :]
+    B0 = hydro_coeffs_3D.take(index[i], axis=axis)[1, :, :]
     #
     x = 0
-    y = np.pi/np.sin(alpha*180/np.pi) - np.arctan2(B0, A0)
-    # y = np.pi/np.sin(alpha*180/np.pi)
+    y = np.pi/np.sin(alpha*180/np.pi)
+    # y = np.pi/np.sin(alpha*180/np.pi) - np.arctan2(B0, A0)
     # Calculating basal shear stress
     TAU = Cisaillement_basal(x, y, alpha,
                              A0, B0, aspect_ratio)
@@ -141,6 +145,7 @@ for i, (axis, label) in enumerate(zip(axes_av, x_labels)):
         ax.set_yscale('log')
         x_vals = Dic['Froude_vals'] if i == 0 else Dic['kLB_vals']
         a = plt.pcolormesh(x_vals, Dic['kH_vals'], quantity, norm=norm, snap=True, cmap=cmap)
+        a.set_edgecolor('face')
         #
         if j > 0:
             plt.xlabel(label)
@@ -162,5 +167,5 @@ for i, (norm, label, cmap) in enumerate(zip(norms, cbar_labels, cmaps)):
         cb.ax.xaxis.set_ticks_position('top')
         cb.ax.xaxis.set_label_position('top')
 
-# plt.savefig(os.path.join(path_savefig, 'regime_diagrams.pdf'))
+plt.savefig(os.path.join(path_savefig, 'regime_diagrams_theoretical_' + '{:.4f}'.format(aspect_ratio) + '.pdf'))
 plt.show()

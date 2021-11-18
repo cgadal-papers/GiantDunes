@@ -92,6 +92,10 @@ for station in sorted(Data.keys()):
     Data[station]['z_station'] = z_station[station]
 
 np.save(os.path.join(path_ouputdata, 'Data_final.npy'), Data)
+np.save(os.path.join(path_ouputdata, 'Data_calib_roughness.npy'),
+        {'Metrics': Metrics, 'Pvals': Pvals, 'z0_era_vals': z0_era_vals,
+         'z0_station_vals': z0_station_vals, 'Stations': sorted(Data.keys())})
+
 # ########### Making figure
 plt.figure(figsize=(theme.fig_width, 0.9*theme.fig_width))
 for i, (p, metric, station) in enumerate(zip(Pvals, Metrics, sorted(Data.keys()))):

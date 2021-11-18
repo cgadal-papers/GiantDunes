@@ -203,14 +203,14 @@ a convective atmospheric boundary layer, over which lies the stratified free atm
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plotting the regime diagrams from the sime series of the hydrodynamic coefficients">
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot theoretical regime diagrams from the time series">
 
 .. only:: html
 
- .. figure:: /auto_examples/linear_theory/images/thumb/sphx_glr_regime_diagram_hydro_coeff_plot_thumb.png
-     :alt: Plotting the regime diagrams from the sime series of the hydrodynamic coefficients
+ .. figure:: /auto_examples/linear_theory/images/thumb/sphx_glr_regime_diagram_hydro_coeff_time_series_plot_thumb.png
+     :alt: Plot theoretical regime diagrams from the time series
 
-     :ref:`sphx_glr_auto_examples_linear_theory_regime_diagram_hydro_coeff_plot.py`
+     :ref:`sphx_glr_auto_examples_linear_theory_regime_diagram_hydro_coeff_time_series_plot.py`
 
 .. raw:: html
 
@@ -220,16 +220,16 @@ a convective atmospheric boundary layer, over which lies the stratified free atm
 .. toctree::
    :hidden:
 
-   /auto_examples/linear_theory/regime_diagram_hydro_coeff_plot
+   /auto_examples/linear_theory/regime_diagram_hydro_coeff_time_series_plot
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plot the parameter space exploration of the hydrodyanamic coefficients">
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot theoretical regime diagrams from parameter space exploration">
 
 .. only:: html
 
  .. figure:: /auto_examples/linear_theory/images/thumb/sphx_glr_regime_diagrams_theoretical_plot_thumb.png
-     :alt: Plot the parameter space exploration of the hydrodyanamic coefficients
+     :alt: Plot theoretical regime diagrams from parameter space exploration
 
      :ref:`sphx_glr_auto_examples_linear_theory_regime_diagrams_theoretical_plot.py`
 
@@ -259,12 +259,12 @@ Below are the scripts used to make plot the data/make the figures.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plotting the different diagram regime for both stations">
+    <div class="sphx-glr-thumbcontainer" tooltip="Plotting regime diagrams">
 
 .. only:: html
 
  .. figure:: /auto_examples/data_presentation/images/thumb/sphx_glr_regime_diagram_plot_thumb.png
-     :alt: Plotting the different diagram regime for both stations
+     :alt: Plotting regime diagrams
 
      :ref:`sphx_glr_auto_examples_data_presentation_regime_diagram_plot.py`
 

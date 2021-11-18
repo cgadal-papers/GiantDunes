@@ -5,14 +5,14 @@ Examples using ``python_codes.theme.fig_width``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Processing the meteorological data">
+    <div class="sphx-glr-thumbcontainer" tooltip="Plot theoretical regime diagrams from the time series">
 
 .. only:: html
 
- .. figure:: /auto_examples/data_analysis/images/thumb/sphx_glr_meteo_data_analysis_plot_thumb.png
-     :alt: Processing the meteorological data
+ .. figure:: /auto_examples/linear_theory/images/thumb/sphx_glr_regime_diagram_hydro_coeff_time_series_plot_thumb.png
+     :alt: Plot theoretical regime diagrams from the time series
 
-     :ref:`sphx_glr_auto_examples_data_analysis_meteo_data_analysis_plot.py`
+     :ref:`sphx_glr_auto_examples_linear_theory_regime_diagram_hydro_coeff_time_series_plot.py`
 
 .. raw:: html
 
@@ -20,35 +20,16 @@ Examples using ``python_codes.theme.fig_width``
 
 .. only:: not html
 
- * :ref:`sphx_glr_auto_examples_data_analysis_meteo_data_analysis_plot.py`
+ * :ref:`sphx_glr_auto_examples_linear_theory_regime_diagram_hydro_coeff_time_series_plot.py`
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plot the parameter space exploration of the hydrodyanamic coefficients">
-
-.. only:: html
-
- .. figure:: /auto_examples/linear_theory/images/thumb/sphx_glr_regime_diagrams_theoretical_plot_thumb.png
-     :alt: Plot the parameter space exploration of the hydrodyanamic coefficients
-
-     :ref:`sphx_glr_auto_examples_linear_theory_regime_diagrams_theoretical_plot.py`
-
-.. raw:: html
-
-    </div>
-
-.. only:: not html
-
- * :ref:`sphx_glr_auto_examples_linear_theory_regime_diagrams_theoretical_plot.py`
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Plotting the different diagram regime for both stations">
+    <div class="sphx-glr-thumbcontainer" tooltip="Plotting regime diagrams">
 
 .. only:: html
 
  .. figure:: /auto_examples/data_presentation/images/thumb/sphx_glr_regime_diagram_plot_thumb.png
-     :alt: Plotting the different diagram regime for both stations
+     :alt: Plotting regime diagrams
 
      :ref:`sphx_glr_auto_examples_data_presentation_regime_diagram_plot.py`
 

@@ -1,0 +1,68 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: spbasic_updated.bst
+Database file #1: biblio.bib
+Warning--I didn't find a database entry for "refs"
+Warning--I didn't find a database entry for "Cour14"
+Warning--I didn't find a database entry for "Charru2013"
+Warning--I didn't find a database entry for "Sherman2007"
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
+while executing---line 1543 of file spbasic_updated.bst
+Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
+while executing---line 1543 of file spbasic_updated.bst
+Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
+while executing---line 1543 of file spbasic_updated.bst
+Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
+while executing---line 1543 of file spbasic_updated.bst
+Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
+while executing---line 1622 of file spbasic_updated.bst
+Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
+while executing---line 1622 of file spbasic_updated.bst
+Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
+while executing---line 1622 of file spbasic_updated.bst
+Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
+while executing---line 1622 of file spbasic_updated.bst
+You've used 18 entries,
+            3214 wiz_defined-function locations,
+            806 strings with 8527 characters,
+and the built_in function-call counts, 31232 in all, are:
+= -- 3548
+> -- 690
+< -- 10
++ -- 337
+- -- 222
+* -- 2371
+:= -- 3553
+add.period$ -- 18
+call.type$ -- 18
+change.case$ -- 159
+chr.to.int$ -- 18
+cite$ -- 18
+duplicate$ -- 3171
+empty$ -- 2315
+format.name$ -- 268
+if$ -- 6483
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 213
+newline$ -- 64
+num.names$ -- 72
+pop$ -- 746
+preamble$ -- 1
+purify$ -- 143
+quote$ -- 0
+skip$ -- 1134
+stack$ -- 0
+substring$ -- 3483
+swap$ -- 1626
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 156
+warning$ -- 0
+while$ -- 185
+width$ -- 0
+write$ -- 206
+(There were 8 error messages)

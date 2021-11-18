@@ -237,7 +237,10 @@ bin_hr = np.arange(-0.5, 24.5, 1)
 #
 label_x = [r'Hour of the day', r'$u_{*, \textup{Era5Land}}$']
 label_y = [r'$\delta_{\theta}$ [deg.]', r'$\delta_{u}$']
-
+#
+vlines_x = [[14, 19], [0.23]]
+vlines_y = [(55, 90), (0.5, 1)]
+#
 fig, axs = plt.subplots(2, 2, figsize=(theme.fig_width, 0.8*theme.fig_width), constrained_layout=True)
 #
 for i, (bin_quantity, quantity) in enumerate(zip([bin_delta_angle, bin_delta_u], [delta_angle, delta_u])):
@@ -248,6 +251,10 @@ for i, (bin_quantity, quantity) in enumerate(zip([bin_delta_angle, bin_delta_u],
         X, Y = np.meshgrid(x_center, y_center)
         vmax = 550 if i == 0 else 450
         a = axs[i, j].pcolormesh(x_edge, y_edge, counts.T, snap=True, vmax=vmax)
+        a.set_edgecolor('face')
+        #
+        for x_line in vlines_x[j]:
+            axs[i, j].vlines(x_line, vlines_y[i][0], vlines_y[i][1], linestyle='--', color='tab:orange')
         if i > 0:
             axs[i, j].set_xlabel(label_x[j])
         else:
@@ -260,4 +267,50 @@ for i, (bin_quantity, quantity) in enumerate(zip([bin_delta_angle, bin_delta_u],
             cbar = fig.colorbar(a, ax=axs[i, j], label=r'$N_{\textup{points}}$', location='right')
 
 plt.savefig(os.path.join(path_savefig, 'deltaU__hr_velocity_diagrams.pdf'))
+plt.show()
+
+# %%
+# Relative difference between the wind vectors
+# --------------------------------------------
+Stations = ['Adamax_Station', 'Huab_Station']
+
+Orientation_era = np.concatenate([Data[station]['Orientation_era'] for station in Stations])
+Orientation_station = np.concatenate([Data[station]['Orientation_station'] for station in Stations])
+U_era = np.concatenate([Data[station]['U_star_era'] for station in Stations])
+U_station = np.concatenate([Data[station]['U_star_station'] for station in Stations])
+time = np.concatenate([Data[station]['time'] for station in Stations])
+hrs = np.array([i.hour for i in time])
+#
+Delta = smallestSignedAngleBetween(Orientation_era, Orientation_station)
+mode_delta = np.array([find_mode_distribution(Delta, i) for i in np.arange(150, 350)]).mean()
+delta_angle = np.abs(Delta)
+delta_u = (U_era - U_station)/U_era
+
+
+fig, axs = plt.subplots(2, 2, figsize=(theme.fig_width, 0.8*theme.fig_width), constrained_layout=True)
+#
+for i, (bin_quantity, quantity) in enumerate(zip([bin_delta_angle, bin_delta_u], [delta_angle, delta_u])):
+    for j, (bin_var, var) in enumerate(zip([bin_hr, bin_U_era], [hrs, U_era])):
+        counts, x_edge, y_edge, _ = binned_statistic_2d(var, quantity, quantity, statistic='count', bins=[bin_var, bin_quantity])
+        x_center = x_edge[:-1] + (x_edge[1] - x_edge[0])/2
+        y_center = y_edge[:-1] + (y_edge[1] - y_edge[0])/2
+        X, Y = np.meshgrid(x_center, y_center)
+        vmax = 550 if i == 0 else 450
+        a = axs[i, j].pcolormesh(x_edge, y_edge, counts.T, snap=True, vmax=vmax)
+        a.set_edgecolor('face')
+        #
+        for x_line in vlines_x[j]:
+            axs[i, j].vlines(x_line, vlines_y[i][0], vlines_y[i][1], linestyle='--', color='tab:orange')
+        if i > 0:
+            axs[i, j].set_xlabel(label_x[j])
+        else:
+            axs[i, j].set_xticklabels([])
+        #
+        if j == 0:
+            axs[i, j].set_ylabel(label_y[i])
+        else:
+            axs[i, j].set_yticklabels([])
+            cbar = fig.colorbar(a, ax=axs[i, j], label=r'$N_{\textup{points}}$', location='right')
+
+plt.savefig(os.path.join(path_savefig, 'deltaU__hr_velocity_diagrams_flat.pdf'))
 plt.show()

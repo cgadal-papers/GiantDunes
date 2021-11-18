@@ -109,13 +109,12 @@ np.save(os.path.join(path_outputdata, 'Data_final.npy'), Data)
 # Plotting a few vertical profiles for the Deep Sea station
 # ------------------------
 
-def plot_fitprofile(t):
-    grad, theta, blh = gradient_free_atm[t], theta_free_atm[t], BLH[t]
-    mask_H = (height_sort[:, t] >= blh) & (height_sort[:, t] <= Hmax_fit)
+def plot_fitprofile(height, Virtual_potential_temperature, grad_free_atm, theta_free_atm, blh, theta_ground, Hmax_fit):
+    mask_H = (height >= blh) & (height <= Hmax_fit)
     #
-    plt.plot(Virtual_potential_temperature_sort[:, t], height_sort[:, t]/1e3, '+', label='data', zorder=-1)
-    plt.vlines(theta_ground[t], 0, blh/1e3, linewidth=2, label='boundary layer', zorder=0, color='tab:orange')
-    plt.plot(np.poly1d([grad, theta])(height_sort[:, t][mask_H]), height_sort[:, t][mask_H]/1e3, linewidth=2, label='free atm.', color='tab:green')
+    plt.plot(Virtual_potential_temperature, height/1e3, '+', label='data', zorder=-1)
+    plt.vlines(theta_ground, 0, blh/1e3, linewidth=2, label='boundary layer', zorder=0, color='tab:orange')
+    plt.plot(np.poly1d([grad_free_atm, theta_free_atm])(height[mask_H]), height[mask_H]/1e3, linewidth=2, label='free atm.', color='tab:green')
     plt.xlabel('Virtual potential temp. [K]')
     plt.ylabel('Height [km]')
     plt.gca().set_ylim(0, top=0.7*Hmax_fit/1e3)
@@ -124,12 +123,12 @@ def plot_fitprofile(t):
 
 
 times = [2012, 30254, 2024, 30266]
-plt.figure(figsize=(theme.fig_width, 0.9*theme.fig_width))
+plt.figure(figsize=(theme.fig_width, 0.9*theme.fig_width), constrained_layout=True)
 for i, t in enumerate(times):
     ax = plt.subplot(2, 2, i+1)
-    plot_fitprofile(t)
+    plot_fitprofile(height_sort[:, t], Virtual_potential_temperature_sort[:, t], gradient_free_atm[t],
+                    theta_free_atm[t], BLH[t], theta_ground[t], Hmax_fit)
     ax.set_title(Data[station]['time'][t])
-plt.tight_layout()
 plt.savefig(os.path.join(path_savefig, 'fit_virtual_potential_temperature.pdf'))
 plt.show()
 
@@ -145,8 +144,8 @@ def make_nice_histogram(data, nbins, ax, vmin=None, vmax=None, scale_bins='log',
         bins = np.logspace(np.log10(min), np.log10(max), nbins)
     else:
         bins = np.linspace(min, max, nbins)
-    a = ax.hist(Data[station]['Froude'], bins=bins, histtype='stepfilled', density=density, **kwargs)
-    ax.hist(Data[station]['Froude'], bins=bins, histtype='step', color=a[-1][0].get_fc(), lw=2, density=density)
+    a = ax.hist(data, bins=bins, histtype='stepfilled', density=density, **kwargs)
+    ax.hist(data, bins=bins, histtype='step', color=a[-1][0].get_fc(), lw=2, density=density)
 
 
 fig, axs = plt.subplots(3, 1, figsize=(theme.fig_width, 0.9*theme.fig_width), constrained_layout=True)
@@ -177,7 +176,6 @@ for station in Stations:
     make_nice_histogram(hr[np.isnan(Data[station]['Froude'])], 24, axs, alpha=0.5, vmin=0, vmax=23, label=' '.join(station.split('_')[:-1]), scale_bins='lin', density=False)
 axs.set_xlabel('Hours of the day')
 axs.set_ylabel(r'$N_{\textup{points}}$')
-axs.set_yscale('log')
 plt.sca(axs)
 plt.xlim(0, 23)
 plt.legend()

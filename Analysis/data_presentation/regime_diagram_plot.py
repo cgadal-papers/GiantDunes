@@ -1,7 +1,7 @@
 """
-=======================================================
-Plotting the different diagram regime for both stations
-=======================================================
+========================
+Plotting regime diagrams
+========================
 
 """
 
@@ -10,13 +10,12 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import matplotlib.ticker as mticker
 import matplotlib.colors as mpcolors
-from scipy.stats import binned_statistic_2d
 import os
 import sys
 sys.path.append('../../')
 import python_codes.theme as theme
 from python_codes.general import smallestSignedAngleBetween, find_mode_distribution
-from python_codes.plot_functions import log_tick_formatter, rgba_to_rgb
+from python_codes.plot_functions import log_tick_formatter, plot_regime_diagram
 theme.load_style()
 
 
@@ -43,13 +42,12 @@ mode_delta = np.array([find_mode_distribution(Delta, i) for i in np.arange(150, 
 delta_angle = np.abs(Delta)
 delta_u = (U_era - U_station)/U_era
 #
-ax_labels = {'Froude': r'Froude number, $ U/\sqrt{(\Delta\rho/\rho) g H}$', 'kH': '$k H$', 'kLB': r'$k U/N$'}
+ax_labels = {'Froude': r'$Fr_{\textup{surface}} =  U/\sqrt{(\Delta\rho/\rho) g H}$', 'kH': '$k H$', 'kLB': r'$Fr_{\textup{internal}} = k U/N$'}
 lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
-mask = ~np.isnan(numbers['Froude'])
-plot_idx = np.random.permutation(np.arange(delta_angle[mask].size))  # to plot the points of the scatter plot in random order
+plot_idx = np.random.permutation(np.arange(delta_angle.size))  # to plot the points of the scatter plot in random order
 couples = [('Froude', 'kH'), ('kLB', 'kH')]
-cmaps = ['plasma', theme.diverging_cmap]
-norms = [mpcolors.Normalize(vmin=0, vmax=70),
+cmaps = [theme.cmap_delta_theta, theme.cmap_delta_u]
+norms = [mpcolors.Normalize(vmin=0, vmax=95),
          mpcolors.TwoSlopeNorm(vmin=-3.5, vcenter=0, vmax=1.2)]
 cbar_labels = [r'$\delta_{\theta}$ [deg.]', r'$\delta_{u}$']
 quantities = [delta_angle, delta_u]
@@ -62,20 +60,11 @@ gs_plots = gs[1].subgridspec(2, 2, hspace=0.05, wspace=0.05)
 for i, (quantity, cmap, norm) in enumerate(zip(quantities, cmaps, norms)):
     for j, (var1, var2) in enumerate(couples):
         ax = plt.subplot(gs_plots[i, j])
-        ax.set_xscale('log')
-        ax.set_yscale('log')
-        a = plt.scatter(numbers[var1][plot_idx], numbers[var2][plot_idx], s=5, c=quantity[plot_idx], lw=0, rasterized=True, norm=norm, cmap=cmap)
-        ax.set_xlim(lims[var1])
-        ax.set_ylim(lims[var2])
-        if i > 0:
-            plt.xlabel(ax_labels[var1])
-        else:
-            ax.set_xticklabels([])
-        #
-        if j == 0:
-            plt.ylabel(ax_labels[var2])
-        else:
-            ax.set_yticklabels([])
+        vars = [numbers[var1][plot_idx], numbers[var2][plot_idx]]
+        lims_list = [lims[var1], lims[var2]]
+        xlabel = ax_labels[var1] if i > 0 else None
+        ylabel = ax_labels[var2] if j == 0 else None
+        a = plot_regime_diagram(ax, quantity[plot_idx], vars, lims_list, xlabel, ylabel, norm=norm, cmap=cmap)
 
 # #### colorbars
 gs_colorbars = gs[0].subgridspec(2, 1, hspace=0.3)
@@ -93,7 +82,7 @@ plt.show()
 # %%
 # Plotting the 3 possible regime diagrams -- binned
 # ------------------------
-
+mask = ~np.isnan(numbers['Froude'])
 log_counts_max = np.log10(2230)
 
 fig = plt.figure(figsize=(theme.fig_width, theme.fig_width))
@@ -104,39 +93,21 @@ gs_plots = gs[1].subgridspec(2, 2, hspace=0.05, wspace=0.05)
 for i, (quantity, cmap, norm) in enumerate(zip(quantities, cmaps, norms)):
     for j, (var1, var2) in enumerate(couples):
         ax = plt.subplot(gs_plots[i, j])
-        ax.set_xscale('log')
-        ax.set_yscale('log')
+        vars = [numbers[var1][mask], numbers[var2][mask]]
+        lims_list = [lims[var1], lims[var2]]
+        xlabel = ax_labels[var1] if i > 0 else None
+        ylabel = ax_labels[var2] if j == 0 else None
         #
-        # #### binning data
         bin1 = np.logspace(np.floor(np.log10(numbers[var1][mask].min())), np.ceil(np.log10(numbers[var1][mask].max())), 50)
         bin2 = np.logspace(np.floor(np.log10(numbers[var2][mask].min())), np.ceil(np.log10(numbers[var2][mask].max())), 50)
-        counts, x_edge, y_edge, _ = binned_statistic_2d(numbers[var1][mask], numbers[var2][mask], quantity[mask], statistic='count', bins=[bin1, bin2])
-        average, x_edge, y_edge, _ = binned_statistic_2d(numbers[var1][mask], numbers[var2][mask], quantity[mask], statistic='mean', bins=[bin1, bin2])
-        x_center = x_edge[:-1] + (x_edge[1] - x_edge[0])/2
-        y_center = y_edge[:-1] + (y_edge[1] - y_edge[0])/2
-        # #### making plot
-        a = plt.pcolormesh(x_edge, y_edge, average.T, norm=norm, snap=True, cmap=cmap)
-        #
-        ax.set_xlim(lims[var1])
-        ax.set_ylim(lims[var2])
-        if i > 0:
-            plt.xlabel(ax_labels[var1])
-        else:
-            ax.set_xticklabels([])
-        #
-        if j == 0:
-            plt.ylabel(ax_labels[var2])
-        else:
-            ax.set_yticklabels([])
+        bins = [bin1, bin2]
+        a = plot_regime_diagram(ax, quantity[mask], vars, lims_list, xlabel, ylabel, bins=bins, norm=norm, cmap=cmap, type='binned')
 
 # #### colorbars
-gs_colorbars = gs[0].subgridspec(2, 1, hspace=1)
-gs_colorbars_top = gs_colorbars[0].subgridspec(2, 1, hspace=0.3)
-gs_colorbars_bottom = gs_colorbars[1].subgridspec(2, 1, hspace=0.3)
-# colorbar color
+gs_colorbars = gs[0].subgridspec(2, 1, hspace=0.3)
 for i, (norm, label, cmap) in enumerate(zip(norms, cbar_labels, cmaps)):
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
-    cb = fig.colorbar(sm, cax=plt.subplot(gs_colorbars_top[i]), orientation='horizontal')
+    cb = fig.colorbar(sm, cax=plt.subplot(gs_colorbars[i]), orientation='horizontal')
     cb.set_label(label)
     if i == 0:
         cb.ax.xaxis.set_ticks_position('top')
@@ -147,15 +118,15 @@ plt.show()
 
 
 # %%
-# Plotting the 3D scatter plot
+# Plotting the 3D scatter plot for the deviation
 # ------------------------
 
 fig = plt.figure(figsize=(theme.fig_width, theme.fig_width))
 ax = fig.add_subplot(projection='3d')
-ax.scatter(np.log10(numbers['Froude'][plot_idx]), np.log10(numbers['kH'][plot_idx]), np.log10(numbers['kLB'][plot_idx]), s=5, c=delta_angle[plot_idx], lw=0, rasterized=True, vmin=0, vmax=70, cmap='plasma')
-ax.set_xlabel(ax_labels['Froude'][15:])
-ax.set_ylabel(ax_labels['kH'])
-ax.set_zlabel(ax_labels['kLB'])
+ax.scatter(np.log10(numbers['Froude'][plot_idx]), np.log10(numbers['kLB'][plot_idx]), np.log10(numbers['kH'][plot_idx]), s=5, c=delta_angle[plot_idx], lw=0, rasterized=True, cmap=cmaps[0], norm=norms[0])
+ax.set_xlabel(ax_labels['Froude'])
+ax.set_ylabel(ax_labels['kLB'])
+ax.set_zlabel(ax_labels['kH'])
 #
 ax.xaxis.set_major_formatter(mticker.FuncFormatter(log_tick_formatter))
 ax.xaxis.set_major_locator(mticker.MaxNLocator(integer=True))
@@ -166,5 +137,85 @@ ax.zaxis.set_major_locator(mticker.MaxNLocator(integer=True))
 #
 ax.view_init(elev=34, azim=-108)
 plt.subplots_adjust(left=0.05, right=1, bottom=0.05, top=1)
-plt.savefig(os.path.join(path_savefig, 'regime_diagram_3d.pdf'))
+plt.savefig(os.path.join(path_savefig, 'regime_diagram_3d_angle.pdf'))
+plt.show()
+
+# %%
+# Plotting the 3D scatter plot for the attenuation
+# ------------------------
+
+fig = plt.figure(figsize=(theme.fig_width, theme.fig_width))
+ax = fig.add_subplot(projection='3d')
+ax.scatter(np.log10(numbers['Froude'][plot_idx]), np.log10(numbers['kLB'][plot_idx]), np.log10(numbers['kH'][plot_idx]), s=5, c=delta_u[plot_idx], lw=0, rasterized=True, cmap=cmaps[1], norm=norms[1])
+ax.set_xlabel(ax_labels['Froude'])
+ax.set_ylabel(ax_labels['kLB'])
+ax.set_zlabel(ax_labels['kH'])
+#
+ax.xaxis.set_major_formatter(mticker.FuncFormatter(log_tick_formatter))
+ax.xaxis.set_major_locator(mticker.MaxNLocator(integer=True))
+ax.yaxis.set_major_formatter(mticker.FuncFormatter(log_tick_formatter))
+ax.yaxis.set_major_locator(mticker.MaxNLocator(integer=True))
+ax.zaxis.set_major_formatter(mticker.FuncFormatter(log_tick_formatter))
+ax.zaxis.set_major_locator(mticker.MaxNLocator(integer=True))
+#
+ax.view_init(elev=34, azim=-108)
+plt.subplots_adjust(left=0.05, right=1, bottom=0.05, top=1)
+plt.savefig(os.path.join(path_savefig, 'regime_diagram_3d_velocity.pdf'))
+plt.show()
+
+
+def planeFit(points):
+    """
+    p, n = planeFit(points)
+
+    Given an array, points, of shape (d,...)
+    representing points in d-dimensional space,
+    fit an d-dimensional plane to the points.
+    Return a point, p, on the plane (the point-cloud centroid),
+    and the normal, n.
+    """
+    import numpy as np
+    from numpy.linalg import svd
+    points = np.reshape(points, (np.shape(points)[0], -1))  # Collapse trialing dimensions
+    assert points.shape[0] <= points.shape[1], "There are only {} points in {} dimensions.".format(points.shape[1], points.shape[0])
+    ctr = points.mean(axis=1)
+    x = points - ctr[:, np.newaxis]
+    M = np.dot(x, x.T)  # Could also use np.cov(x) here.
+    return ctr, svd(M)[0][:, -1]
+
+
+mask = np.isnan(numbers['Froude'])
+pts = np.array([np.log10(numbers['Froude'][~mask]), np.log10(numbers['kLB'][~mask]), np.log10(numbers['kH'][~mask])])
+p, n = planeFit(pts)
+
+x = np.linspace(np.log10(numbers['Froude'][~mask]).min(), np.log10(numbers['Froude'][~mask]).max(), 30)
+y = np.linspace(np.log10(numbers['kLB'][~mask]).min(), np.log10(numbers['kLB'][~mask]).max(), 30)
+X, Y = np.meshgrid(x, y)
+Z = p[2] - ((X - p[0])*n[0] + (Y - p[1])*n[1])/n[2]
+
+fig = plt.figure(figsize=(theme.fig_width, theme.fig_width))
+ax = fig.add_subplot(projection='3d')
+ax.scatter(np.log10(numbers['Froude'][plot_idx]), np.log10(numbers['kLB'][plot_idx]), np.log10(numbers['kH'][plot_idx]), s=5, c=delta_angle[plot_idx], lw=0, rasterized=True, cmap=cmaps[0], norm=norms[0])
+xlims = ax.get_xlim()
+ylims = ax.get_ylim()
+zlims = ax.get_zlim()
+ax.plot_surface(X, Y, Z, alpha=0.5)
+#
+ax.set_xlim(xlims)
+ax.set_ylim(ylims)
+ax.set_zlim(zlims)
+#
+ax.set_xlabel(ax_labels['Froude'])
+ax.set_ylabel(ax_labels['kLB'])
+ax.set_zlabel(ax_labels['kH'])
+#
+ax.xaxis.set_major_formatter(mticker.FuncFormatter(log_tick_formatter))
+ax.xaxis.set_major_locator(mticker.MaxNLocator(integer=True))
+ax.yaxis.set_major_formatter(mticker.FuncFormatter(log_tick_formatter))
+ax.yaxis.set_major_locator(mticker.MaxNLocator(integer=True))
+ax.zaxis.set_major_formatter(mticker.FuncFormatter(log_tick_formatter))
+ax.zaxis.set_major_locator(mticker.MaxNLocator(integer=True))
+#
+ax.view_init(elev=34, azim=-108)
+plt.subplots_adjust(left=0.05, right=1, bottom=0.05, top=1)
 plt.show()

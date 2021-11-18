@@ -1,0 +1,65 @@
+\begin{thebibliography}{11}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{DOI~\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{DOI~\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{Batchvarova and Gryning(2003)}]{Batchvarova+2003}
+Batchvarova E, Gryning SE (2003) Use of {R}ichardson number methods in regional
+  models to calculate the mixed-layer height. In: {NATO advanced workshop on
+  air pollution processes in regional scale, 13--15 June 2003, Kallithea.
+  Halkidiki, Greece, pp 21--29}
+
+\bibitem[{Beljaars and Holtslag(1990)}]{Beljaars+1990}
+Beljaars ACM, Holtslag AAM (1990) A software library for the calculation of
+  surface fluxes over land and sea. Environ Softw 5(2):60--68
+
+\bibitem[{Beljaars and Holtslag(1991)}]{Beljaars+1991}
+Beljaars ACM, Holtslag AAM (1991) Flux parameterization over land surfaces for
+  atmospheric models. J Appl Meteorol 30(3):327--341
+
+\bibitem[{Fedorovich(1986)}]{Fedorovich1986}
+Fedorovich E (1986) Numerical modelling of atmospheric boundary layer flow over
+  topography elements. PhD thesis, Voeikov Main Geophysical Observatory,
+  Leningrad, USSR
+
+\bibitem[{Garratt(1994)}]{Garratt1994}
+Garratt JR (1994) The atmospheric boundary layer. Cambridge University Press,
+  Cambridge, UK
+
+\bibitem[{Kaimal(1979)}]{Kaimal1979}
+Kaimal JC (1979) Sonic anemometer measurement of atmospheric turbulence. In:
+  Proceedings of the dynamic flow conference, Skovlunde. DISA Electronic A/S,
+  pp 551--565
+
+\bibitem[{Marusic et~al.(2011)Marusic, Mathis, and Hutchins}]{Marusic++2011}
+Marusic I, Mathis R, Hutchins N (2011) A wall-shear stress predictive model.
+  In: Journal of Physics conference series. Proceedings of the 13th European
+  turbulence conference, Warsaw, Poland 318:012003
+
+\bibitem[{Mason and Thomson(1987)}]{Mason+1987}
+Mason PJ, Thomson DJ (1987) Large-eddy simulations of the
+  neutral-static-stability planetary boundary layer. Q J R Meteorol Soc
+  113:413--433
+
+\bibitem[{Newsom et~al.(2015)Newsom, Sivaraman, Shippert, and
+  Riihimaki}]{Newsom++2015}
+Newsom RK, Sivaraman C, Shippert T, Riihimaki LD (2015) Doppler lidar vertical
+  velocity statistics value-added product. DOE ARM Climate Research Facility,
+  Tech Rep DOE/SC-ARM/TR-149
+
+\bibitem[{Salesky(2014)}]{Salesky2014}
+Salesky ST (2014) Monin--{O}bukhov similarity and convective organization in
+  the unstable atmospheric boundary layer. PhD thesis, The Pennsylvania State
+  University, Pennsylvania, USA
+
+\bibitem[{Wyngaard(2004)}]{Wyngaard2004}
+Wyngaard JC (2004) Changing the face of small-scale meteorology. In: Fedorovich
+  E, Rotunno R, Stevens B (eds) Atmospheric turbulence and mesoscale
+  meteorology, Cambridge University Press, Cambridge, pp 17--34
+
+\end{thebibliography}

@@ -102,16 +102,97 @@ def By(alpha, B0):
 
 
 def Cisaillement_basal(x, y, alpha, A0, B0, AR):
-    # for a cosine topography and a wind blowing along x-axis
-    # adim: lenght by 1/K, shear by Tau_0
-    # x = K*x
-    # y = K*y
-    # alpha: dune orientation
-    # A0, B0: hydrydynamic coeff.
-    # AR = K*xi0 avec xi0 amplitude en dim. of the cosine
+    r"""Calculate the basal shear stress over a two dimensional sinusoidal topography for a wind from left to right (along the :math:`x`-direction):
+
+        .. math::
+
+            \Tau_{x} = \Re\left(1 + (\mathcal{A}_{x}(\alpha, \mathcal{A}_{0}) + i\mathcal{B}_{x}(\alpha, \mathcal{B}_{0}))k\xi\exp^{i\cos\alpha x + \sin\alpha y}\right)
+            \Tau_{y} = \Re\left((\mathcal{A}_{y}(\alpha, \mathcal{A}_{0}) + i\mathcal{B}_{y}(\alpha, \mathcal{B}_{0}))k\xi\exp^{i\cos\alpha x + \sin\alpha y}\right)
+
+    Parameters
+    ----------
+    x : array, scalar
+        Streamwise coordinate, non-dimensional (:math:`kx`).
+    y : array, scalar
+        Spanwise coordinate, non-dimensional (:math:`ky`).
+    alpha : array, scalar
+        Dune orientation with respect to the perpendicular to the flow direction (in degree).
+    A0 : array, scalar
+        value of the in-phase hydrodynamic coefficient for :math:`\alpha = 0`, i.e. for a dune orientation perpendicular to the flow direction.
+    B0 : array, scalar
+        value of the in-quadrature hydrodynamic coefficient for :math:`\alpha = 0`, i.e. for a dune orientation perpendicular to the flow direction.
+    AR : array, scalar
+        dune aspect ratio, :math:`k\xi`.
+
+    Returns
+    -------
+    Taux : array, scalar
+        Streamwise component of the non-dimensional shear stress.
+    Tauy : array, scalar
+        Spanwise component of the non-dimensional shear stress
+
+    """
+
     Taux = np.real(+ (1 + (Ax(alpha, A0) + 1j*Bx(alpha, B0))*AR*np.exp(1j*(cosd(alpha)*x + sind(alpha)*y))))
     Tauy = np.real(+ (Ay(alpha, A0) + 1j*By(alpha, B0))*AR*np.exp(1j*(cosd(alpha)*x + sind(alpha)*y)))
     return Taux, Tauy
+
+
+def Cisaillement_basal_rotated_wind(x, y, alpha, A0, B0, AR, theta):
+    r"""Calculate the basal shear stress over a two dimensional sinusoidal topography for an arbitrary wind direction.
+
+    Parameters
+    ----------
+    x : array, scalar
+        Streamwise coordinate, non-dimensional (:math:`kx`).
+    y : array, scalar
+        Spanwise coordinate, non-dimensional (:math:`ky`).
+    alpha : array, scalar
+        Dune orientation with respect to the perpendicular to the flow direction (in degree).
+    A0 : array, scalar
+        value of the hydrodynamic coefficient for :math:`\alpha = 0`, i.e. for a dune orientation perpendicular to the flow direction.
+    B0 : array, scalar
+        value of the hydrodynamic coefficient for :math:`\alpha = 0`, i.e. for a dune orientation perpendicular to the flow direction.
+    AR : array, scalar
+        dune aspect ratio, :math:`k\xi`.
+    theta : array, scalar
+        Wind direction, in degree, in the trigonometric convention.
+
+    Returns
+    -------
+    Taux : array, scalar
+        Streamwise component of the non-dimensional shear stress.
+    Tauy : array, scalar
+        Spanwise component of the non-dimensional shear stress
+
+    """
+    # same but for an arbitrary wind direction oriented by theta
+    xrot = x*cosd(theta) + y*sind(theta)
+    yrot = y*cosd(theta) - x*sind(theta)
+    alpha_rot = ((alpha - theta + 90) % 180) - 90
+    # alpha_rot = alpha - theta
+    Taux, Tauy = Cisaillement_basal(xrot, yrot, alpha_rot, A0, B0, AR)
+    return cosd(theta)*Taux - sind(theta)*Tauy,  Taux*sind(theta) + Tauy*cosd(theta)
+
+
+# %%
+# Hydrodynamic coefficients approximation Fourriere 2011
+# -----------------
+
+def function_coeff(R, a):
+    return a[0] + (a[1] + a[2]*R + a[3]*R**2 + a[4]*R**3)/(1 + a[5]*R**2 + a[6]*R**4)
+
+
+def coeffA0(eta_0):
+    R = np.log(2*np.pi/eta_0)
+    a = [2, 1.0702, 0.093069, 0.10838, 0.024835, 0.041603, 0.0010625]
+    return function_coeff(R, a)
+
+
+def coeffB0(eta_0):
+    R = np.log(2*np.pi/eta_0)
+    b = [0, 0.036989, 0.15765, 0.11518, 0.0020249, 0.0028725, 0.00053483]
+    return function_coeff(R, b)
 
 
 # %%
@@ -255,8 +336,8 @@ def _func_delta(eta, X, eta_H, eta_0, Kappa):
         return _P(eta, eta_H, eta_0, Kappa).dot(X) + np.transpose(np.tile(_S_delta(eta, eta_H, eta_0, Kappa), (X.shape[1], 1)))
 
 
-def _solve_system(eta_0, eta_H, Kappa=0.4, eta_span=None, method='DOP853', dense_output=True, **kwargs):
-    eta_span_tp = [0, eta_H] if eta_span is None else eta_span
+def _solve_system(eta_0, eta_H, Kappa=0.4, max_z=None, method='DOP853', dense_output=True, **kwargs):
+    eta_span_tp = [0, eta_H] if max_z is None else [0, max_z]
     # eta_val = np.linspace(0, eta_H, 100)
     X0_vec = [np.array([-_mu_prime(0, eta_0, Kappa), 0*1j, 0, 0], dtype='complex_'),
               np.array([0, 0*1j, 1, 0], dtype='complex_'),
@@ -275,7 +356,7 @@ def _solve_system(eta_0, eta_H, Kappa=0.4, eta_span=None, method='DOP853', dense
     return Results
 
 
-def calculate_solution(eta, eta_H, eta_0, eta_B, Fr, max_z, Kappa=0.4):
+def calculate_solution(eta, eta_H, eta_0, eta_B, Fr, max_z, Kappa=0.4, output='simple', **kwargs):
     r"""Solve the system and apply the boundary conditions.
 
     Parameters
@@ -294,14 +375,19 @@ def calculate_solution(eta, eta_H, eta_0, eta_B, Fr, max_z, Kappa=0.4):
         Maximum vertical position where the system is solved, and also where the boundary conditons are applied. Usually set to something slightly smaller than `eta_H` to avoid the very slow resolution close to the top of the boundary layer. Usefull when investigating the solution close to the bottom.
     Kappa : float, optional
         Von Karmàn constant (the default is 0.4).
+    output : string, optional
+        changes what returns the function (default is 'simple').
 
     Returns
     -------
-    np.array
-        The solution in every vertical step specified by `eta`.
+    np.array, list
+        If `output` is 'simple', return an array with the solution in every vertical step specified by `eta`. If `output` is 'full', return a list whose elements are:
+        - the array with the solution in every vertical step specified by `eta`.
+        - the output of `_solve_system`.
+        - the coefficients of the linear decomposition of the solution.
 
     """
-    Results = _solve_system(eta_0, eta_H, Kappa=0.4, eta_span=[0, max_z], atol=1e-10, rtol=1e-10)
+    Results = _solve_system(eta_0, eta_H, Kappa=0.4, max_z=max_z, atol=1e-10, rtol=1e-10, **kwargs)
     # Defining boundary conditions
     To_apply = np.array([X.sol(max_z)[1:] for X in Results]).T
     #
@@ -311,5 +397,11 @@ def calculate_solution(eta, eta_H, eta_0, eta_B, Fr, max_z, Kappa=0.4):
     # Applying boundary condition
     pars = np.dot(np.linalg.inv(To_apply[:, :-1]), b - To_apply[:, -1])
     coeffs = np.array([1, pars[1]/pars[0], pars[2]/pars[0], 1/pars[0]])
+    coeffs_expanded = np.expand_dims(coeffs, (1, ) + tuple(np.arange(len(np.array(eta).shape)) + 2))
     # returning solutions in eta
-    return np.sum(np.array([X.sol(eta) for X in Results])*coeffs[:, None], axis=0)
+    if output == 'simple':
+        return np.sum(np.array([X.sol(eta) for X in Results])*coeffs_expanded, axis=0)
+    elif output == 'full':
+        return [np.sum(np.array([X.sol(eta) for X in Results])*coeffs_expanded, axis=0),
+                Results,
+                coeffs]

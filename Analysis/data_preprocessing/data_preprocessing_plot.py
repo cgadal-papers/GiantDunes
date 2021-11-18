@@ -4,7 +4,7 @@ Preprocessing of the data
 =========================
 
 For each station, we follow these preprocessing steps:
-    - correction for constant shifts in some data (time, orientation).
+    - put the wind orientation angles in the trigonometric referential.
     - averaging of the in situ data in 1-hr bins centered on the time stamps of the Era5Land dataset.
     - filtering unusued data (NaNs, 0 velocity)
 

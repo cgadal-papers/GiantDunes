@@ -18,11 +18,11 @@
 .. _sphx_glr_auto_examples_linear_theory_regime_diagrams_theoretical_plot.py:
 
 
-======================================================================
-Plot the parameter space exploration of the hydrodyanamic coefficients
-======================================================================
+=================================================================
+Plot theoretical regime diagrams from parameter space exploration
+=================================================================
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-26
+.. GENERATED FROM PYTHON SOURCE LINES 7-33
 
 .. code-block:: default
 
@@ -41,9 +41,16 @@ Plot the parameter space exploration of the hydrodyanamic coefficients
 
     # Paths
     path_outputdata = '../../static/output_data/data/'
+    path_savefig = '../../static/output_data/figures/'
 
     # Loading parameter space exploration
     Dic = np.load(os.path.join(path_outputdata, 'parameter_exploration_hydro_coeff_3D.npy'), allow_pickle=True).item()
+    #
+    axes_av = [3, 2]  # axes over which selecting/averaging is perform for plane representation
+    index = [60, 48]  # when selection, selecting these indexes in the relevant `axes_av`
+    #
+    hydro_coeffs_3D = Dic[('Froude', 'kH', 'kLB')]['hydro_coeffs'].swapaxes(1, 2)
+    # axes are now (A/B, kH, Froude, kLB)
 
 
 
@@ -52,16 +59,16 @@ Plot the parameter space exploration of the hydrodyanamic coefficients
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-29
+.. GENERATED FROM PYTHON SOURCE LINES 34-36
 
 Plane (Froude - kH)
 ------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-62
+.. GENERATED FROM PYTHON SOURCE LINES 36-69
 
 .. code-block:: default
 
-    hydro_coeffs = Dic[('Froude', 'kH', 'kLB')]['hydro_coeffs'].mean(axis=-1).swapaxes(1, 2)
+    hydro_coeffs = hydro_coeffs_3D.take(index[0], axis=axes_av[0])
 
     # #### figure
     quantities = [hydro_coeffs[0, :, :], hydro_coeffs[1, :, :],
@@ -105,16 +112,16 @@ Plane (Froude - kH)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-65
+.. GENERATED FROM PYTHON SOURCE LINES 70-72
 
 Plane (kLB - kH)
 ------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-98
+.. GENERATED FROM PYTHON SOURCE LINES 72-105
 
 .. code-block:: default
 
-    hydro_coeffs = Dic[('Froude', 'kH', 'kLB')]['hydro_coeffs'].mean(axis=1)
+    hydro_coeffs = hydro_coeffs_3D.take(index[1], axis=axes_av[1])
 
     # #### figure
     quantities = [hydro_coeffs[0, :, :], hydro_coeffs[1, :, :],
@@ -158,28 +165,25 @@ Plane (kLB - kH)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-101
+.. GENERATED FROM PYTHON SOURCE LINES 106-109
 
 Computing theoretical regime diagrams
 -------------------------------------
+fixing dune properties
 
-.. GENERATED FROM PYTHON SOURCE LINES 101-167
+.. GENERATED FROM PYTHON SOURCE LINES 109-172
 
 .. code-block:: default
 
-    hydro_coeffs = Dic[('Froude', 'kH', 'kLB')]['hydro_coeffs'].swapaxes(1, 2)
-    # axes are now (A/B, kH, Froude, kLB)
-    axes_av = [3, 2]  # axes over which averaging is perform for plane representation
-    # fixing dune properties
     alpha = 45
-    aspect_ratio = 1/np.linalg.norm(hydro_coeffs, axis=0).max()
+    # aspect_ratio = 1/np.linalg.norm(hydro_coeffs_3D, axis=0).max()
+    aspect_ratio = 0.05
     # #### Plot properties
-    cmaps = ['plasma', 'seismic']
-    # norms = [Normalize(vmin=0, vmax=70), TwoSlopeNorm(vmin=-1, vcenter=0, vmax=1)]
-    norms = [None, TwoSlopeNorm(vcenter=0)]
+    cmaps = [theme.cmap_delta_theta, theme.cmap_delta_u]
+    norms = [Normalize(vmin=0, vmax=95), TwoSlopeNorm(vmin=-3.5, vcenter=0, vmax=1)]
+    # norms = [None, TwoSlopeNorm(vcenter=0)]
     cbar_labels = [r'$\delta_{\theta}$ [deg.]', r'$\delta_{u}$']
-    x_labels = [r'Froude number, $ U/\sqrt{(\Delta\rho/\rho) g H}$', r'$k L_{\textup{B}}$']
-    index = [60, 48]
+    x_labels = [r'Froude number, $ U/\sqrt{(\Delta\rho/\rho) g H}$', r'$k U/N$']
     #
     fig = plt.figure(figsize=(theme.fig_width, theme.fig_width))
     gs = gridspec.GridSpec(2, 1, height_ratios=[0.08, 1], figure=fig)
@@ -187,12 +191,12 @@ Computing theoretical regime diagrams
     gs_plots = gs[1].subgridspec(2, 2, hspace=0.05, wspace=0.05)
     #
     for i, (axis, label) in enumerate(zip(axes_av, x_labels)):
-        A0 = hydro_coeffs.take(index[i], axis=axis)[0, :, :]
-        B0 = hydro_coeffs.take(index[i], axis=axis)[1, :, :]
+        A0 = hydro_coeffs_3D.take(index[i], axis=axis)[0, :, :]
+        B0 = hydro_coeffs_3D.take(index[i], axis=axis)[1, :, :]
         #
         x = 0
-        y = np.pi/np.sin(alpha*180/np.pi) - np.arctan2(B0, A0)
-        # y = np.pi/np.sin(alpha*180/np.pi)
+        y = np.pi/np.sin(alpha*180/np.pi)
+        # y = np.pi/np.sin(alpha*180/np.pi) - np.arctan2(B0, A0)
         # Calculating basal shear stress
         TAU = Cisaillement_basal(x, y, alpha,
                                  A0, B0, aspect_ratio)
@@ -210,6 +214,7 @@ Computing theoretical regime diagrams
             ax.set_yscale('log')
             x_vals = Dic['Froude_vals'] if i == 0 else Dic['kLB_vals']
             a = plt.pcolormesh(x_vals, Dic['kH_vals'], quantity, norm=norm, snap=True, cmap=cmap)
+            a.set_edgecolor('face')
             #
             if j > 0:
                 plt.xlabel(label)
@@ -231,7 +236,7 @@ Computing theoretical regime diagrams
             cb.ax.xaxis.set_ticks_position('top')
             cb.ax.xaxis.set_label_position('top')
 
-    # plt.savefig(os.path.join(path_savefig, 'regime_diagrams.pdf'))
+    plt.savefig(os.path.join(path_savefig, 'regime_diagrams_theoretical_' + '{:.4f}'.format(aspect_ratio) + '.pdf'))
     plt.show()
 
 
@@ -247,7 +252,7 @@ Computing theoretical regime diagrams
 
  .. code-block:: none
 
-    /home/gadal/Documents/Work/Research/DUNE/PhD_Parts/Part5_Winds/Giant_dune_retroaction_regional_wind_regime/Analysis/linear_theory/regime_diagrams_theoretical_plot.py:143: MatplotlibDeprecationWarning: shading='flat' when X and Y have the same dimensions as C is deprecated since 3.3.  Either specify the corners of the quadrilaterals with X and Y, or pass shading='auto', 'nearest' or 'gouraud', or set rcParams['pcolor.shading'].  This will become an error two minor releases later.
+    /home/gadal/Documents/Work/Research/DUNE/PhD_Parts/Part5_Winds/Giant_dune_retroaction_regional_wind_regime/Analysis/linear_theory/regime_diagrams_theoretical_plot.py:147: MatplotlibDeprecationWarning: shading='flat' when X and Y have the same dimensions as C is deprecated since 3.3.  Either specify the corners of the quadrilaterals with X and Y, or pass shading='auto', 'nearest' or 'gouraud', or set rcParams['pcolor.shading'].  This will become an error two minor releases later.
       a = plt.pcolormesh(x_vals, Dic['kH_vals'], quantity, norm=norm, snap=True, cmap=cmap)
 
 
@@ -256,7 +261,7 @@ Computing theoretical regime diagrams
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.149 seconds)
+   **Total running time of the script:** ( 0 minutes  8.513 seconds)
 
 
 .. _sphx_glr_download_auto_examples_linear_theory_regime_diagrams_theoretical_plot.py:

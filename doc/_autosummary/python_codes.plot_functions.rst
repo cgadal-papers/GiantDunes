@@ -15,6 +15,7 @@ python\_codes.plot\_functions
       :toctree:
    
       log_tick_formatter
+      plot_regime_diagram
       plot_scatter_surrounded
       plot_wind_rose
       rgba_to_rgb

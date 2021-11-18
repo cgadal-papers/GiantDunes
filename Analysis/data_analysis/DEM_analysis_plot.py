@@ -34,6 +34,7 @@ def DEM_analysis(file):
 
 
 Stations = ['Deep_Sea_Station', 'South_Namib_Station']
+Data_DEM = {}
 #
 # Paths
 path_savefig = '../../static/output_data/figures/'
@@ -43,6 +44,11 @@ path_inputdata = '../../static/input_data/'
 for i, station in enumerate(Stations):
     file = os.path.join(path_inputdata, station, 'DEM_' + station + '.npy')
     orientation, wavelength, amplitude, p0, p1, transect, C, topo, lon, lat, km_step = DEM_analysis(file)
+    Data_DEM[station] = {'orientation': orientation, 'wavelength': wavelength,
+                         'amplitude': amplitude, 'p0': p0, 'p1': p1,
+                         'transect': transect, 'C': C, 'topo': topo, 'lat': lat,
+                         'lon': lon, 'km_step': km_step}
+
     fig_width = theme.fig_width
     fig_height = 0.6*fig_width
     fig = plt.figure(figsize=(fig_width, fig_height), tight_layout=True)
@@ -82,3 +88,6 @@ for i, station in enumerate(Stations):
         plt.show()
     else:
         plt.close()
+
+
+np.save(os.path.join(path_outputdata, 'Data_DEM.npy'), Data_DEM)

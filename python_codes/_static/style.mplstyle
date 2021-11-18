@@ -1,11 +1,15 @@
+# Figure properties
+
+figure.figsize: 4.68504, 4.68504
+
 # Font properties
 
 mathtext.fontset: stix
 font.family: STIXGeneral
 text.usetex: True
-text.latex.preamble : \usepackage{amsmath}
+text.latex.preamble : \usepackage{amsmath} \usepackage{amssymb}
 font.size: 10
-
+axes.titlesize: medium
 
 # Plot layout
 
@@ -16,3 +20,9 @@ xtick.top: True
 
 # contour plots
 contour.negative_linestyle: solid
+
+# layout properties
+figure.constrained_layout.h_pad: 0.015
+figure.constrained_layout.hspace: 0.05
+figure.constrained_layout.wspace: 0.05
+figure.constrained_layout.w_pad: 0.015

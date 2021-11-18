@@ -1,0 +1,106 @@
+\begin{thebibliography}{18}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{DOI~\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{DOI~\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{Andreotti et~al.(2009)Andreotti, Fourriere, Ould-Kaddour, Murray, and
+  Claudin}]{andreotti2009}
+Andreotti B, Fourriere A, Ould-Kaddour F, Murray B, Claudin P (2009) Giant
+  aeolian dune size determined by the average depth of the atmospheric boundary
+  layer. Nature 457(7233):1120--1123
+
+\bibitem[{Andreotti et~al.(2012)Andreotti, Claudin, Devauchelle, Dur{\'a}n, and
+  Fourri{\`e}re}]{Andreotti2012}
+Andreotti B, Claudin P, Devauchelle O, Dur{\'a}n O, Fourri{\`e}re A (2012)
+  Bedforms in a turbulent stream: ripples, chevrons and antidunes. Journal of
+  Fluid Mechanics 690:94--128
+
+\bibitem[{{Courrech du Pont} et~al.(2014){Courrech du Pont}, Narteau, and
+  Gao}]{Courrech2014}
+{Courrech du Pont} S, Narteau C, Gao X (2014) Two modes for dune orientation.
+  Geology 42(9):743--746
+
+\bibitem[{Farr et~al.(2007)Farr, Rosen, Caro, Crippen, Duren, Hensley, Kobrick,
+  Paller, Rodriguez, Roth et~al.}]{Farr2007}
+Farr TG, Rosen PA, Caro E, Crippen R, Duren R, Hensley S, Kobrick M, Paller M,
+  Rodriguez E, Roth L, et~al. (2007) The shuttle radar topography mission.
+  Reviews of geophysics 45(2)
+
+\bibitem[{Fourriere et~al.(2010)Fourriere, Claudin, and
+  Andreotti}]{Fourriere2010}
+Fourriere A, Claudin P, Andreotti B (2010) Bedforms in a turbulent stream:
+  formation of ripples by primary linear instability and of dunes by nonlinear
+  pattern coarsening. Journal of Fluid Mechanics 649:287--328
+
+\bibitem[{Gunn et~al.(2021)Gunn, Wanker, Lancaster, Edmonds, Ewing, and
+  Jerolmack}]{gunn2021}
+Gunn A, Wanker M, Lancaster N, Edmonds DA, Ewing RC, Jerolmack DJ (2021)
+  Circadian rhythm of dune-field activity. Geophysical Research Letters
+  48(5):e2020GL090,924
+
+\bibitem[{Hersbach et~al.(2020)Hersbach, Bell, Berrisford, Hirahara,
+  Hor{\'a}nyi, Mu{\~n}oz-Sabater, Nicolas, Peubey, Radu, Schepers
+  et~al.}]{Hersbach2020}
+Hersbach H, Bell B, Berrisford P, Hirahara S, Hor{\'a}nyi A, Mu{\~n}oz-Sabater
+  J, Nicolas J, Peubey C, Radu R, Schepers D, et~al. (2020) The era5 global
+  reanalysis. Quarterly Journal of the Royal Meteorological Society
+  146(730):1999--2049
+
+\bibitem[{Hunt et~al.(2006)Hunt, Vilenski, and Johnson}]{Hunt2006}
+Hunt JCR, Vilenski GG, Johnson ER (2006) Stratified separated flow around a
+  mountain with an inversion layer below the mountain top. Journal of Fluid
+  Mechanics 556:105--119
+
+\bibitem[{Jiang(2014)}]{Jiang2014}
+Jiang Q (2014) Applicability of reduced-gravity shallow-water theory to
+  atmospheric flow over topography. Journal of the Atmospheric Sciences
+  71(4):1460--1479
+
+\bibitem[{Lancaster(1984)}]{lancaster1984}
+Lancaster LNSM J (1984) Climate of the central namib desert. Madoqua
+  1984(1):5--61
+
+\bibitem[{Lancaster(1985)}]{lancaster1985}
+Lancaster N (1985) Winds and sand movements in the namib sand sea. Earth
+  Surface Processes and Landforms 10(6):607--619
+
+\bibitem[{Mu{\~n}oz-Sabater et~al.(2021)Mu{\~n}oz-Sabater, Dutra,
+  Agust{\'\i}-Panareda, Albergel, Arduini, Balsamo, Boussetta, Choulga,
+  Harrigan, Hersbach et~al.}]{munoz2021}
+Mu{\~n}oz-Sabater J, Dutra E, Agust{\'\i}-Panareda A, Albergel C, Arduini G,
+  Balsamo G, Boussetta S, Choulga M, Harrigan S, Hersbach H, et~al. (2021)
+  Era5-land: A state-of-the-art global reanalysis dataset for land
+  applications. Earth System Science Data Discussions pp 1--50
+
+\bibitem[{P{\"a}htz and Dur{\'a}n(2020)}]{Pahtz2020}
+P{\"a}htz T, Dur{\'a}n O (2020) Unification of aeolian and fluvial sediment
+  transport rate from granular physics. Physical review letters 124(16):168,001
+
+\bibitem[{Seidel et~al.(2012)Seidel, Zhang, Beljaars, Golaz, Jacobson, and
+  Medeiros}]{seidel2012}
+Seidel DJ, Zhang Y, Beljaars A, Golaz JC, Jacobson AR, Medeiros B (2012)
+  Climatology of the planetary boundary layer over the continental united
+  states and europe. Journal of Geophysical Research: Atmospheres 117(D17)
+
+\bibitem[{Sheridan and Vosper(2006)}]{Sheridan2006}
+Sheridan PF, Vosper SB (2006) A flow regime diagram for forecasting lee waves,
+  rotors and downslope winds. Meteorological Applications 13(2):179--195
+
+\bibitem[{Stull(1988)}]{Stull1988}
+Stull RB (1988) An introduction to boundary layer meteorology, vol~13. Springer
+  Science \& Business Media
+
+\bibitem[{Tritton(2012)}]{Tritton2012}
+Tritton D (2012) Physical fluid dynamics. Springer Science \& Business Media
+
+\bibitem[{Vosper(2004)}]{Vosper2004}
+Vosper SB (2004) Inversion effects on mountain lee waves. Quarterly Journal of
+  the Royal Meteorological Society: A journal of the atmospheric sciences,
+  applied meteorology and physical oceanography 130(600):1723--1748
+
+\end{thebibliography}
