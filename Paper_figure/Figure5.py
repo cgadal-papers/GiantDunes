@@ -33,56 +33,46 @@ mode_delta = np.array([find_mode_distribution(Delta, i) for i in np.arange(150, 
 delta_angle = np.abs(Delta)
 delta_u = (U_era - U_station)/U_era
 
-# #### Figure properties
+# #### Figure parameters
 
-quantities = [delta_angle, delta_u]
-couples = [('Froude', 'kH'), ('kLB', 'kH')]
-labels = [(r'\textbf{a}', r'\textbf{b}'), (r'\textbf{c}', r'\textbf{d}')]
-#
-ax_labels = {'Froude': r'$Fr_{\textup{surface}} =  U/\sqrt{(\Delta\rho/\rho) g H}$', 'kH': '$k H$', 'kLB': r'$Fr_{\textup{internal}} = k U/N$'}
 lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
-#
-regime_line_color = 'tab:blue'
 cmaps = [theme.cmap_delta_theta, theme.cmap_delta_u]
-norms = [mpcolors.Normalize(vmin=0, vmax=95),
-         mpcolors.TwoSlopeNorm(vmin=-3.5, vcenter=0, vmax=1.2)]
+norms = [mpcolors.Normalize(vmin=0, vmax=99),
+         mpcolors.TwoSlopeNorm(vmin=-3, vcenter=0, vmax=3)]
 cbar_labels = [r'$\delta_{\theta}$ [deg.]', r'$\delta_{u}$']
-#
+quantities = [delta_angle, delta_u]
+labels = [r'\textbf{a}', r'\textbf{b}']
 
 mask = ~np.isnan(numbers['Froude'])
 log_counts_max = np.log10(2230)
+regime_line_color = 'tab:blue'
+
+
+var1, var2 = 'Froude', 'kH'
+xlabel = r'$Fr_{\textup{surface}} =  U/\sqrt{(\Delta\rho/\rho) g H}$'
 
 # #### Figure
+fig, axarr = plt.subplots(1, 2, figsize=(theme.fig_width, 0.375*theme.fig_height_max),
+                          constrained_layout=True, sharey=True)
 
-fig, axarr = plt.subplots(2, 2, figsize=(theme.fig_width, 0.525*theme.fig_height_max),
-                          constrained_layout=True)
-#
-for i, (quantity, cmap, norm) in enumerate(zip(quantities, cmaps, norms)):
-    for j, (var1, var2) in enumerate(couples):
-        ax = axarr[i, j]
-        vars = [numbers[var1][mask], numbers[var2][mask]]
-        lims_list = [lims[var1], lims[var2]]
-        xlabel = ax_labels[var1] if i > 0 else None
-        ylabel = ax_labels[var2] if j == 0 else None
-        #
-        bin1 = np.logspace(np.floor(np.log10(numbers[var1][mask].min())), np.ceil(np.log10(numbers[var1][mask].max())), 50)
-        bin2 = np.logspace(np.floor(np.log10(numbers[var2][mask].min())), np.ceil(np.log10(numbers[var2][mask].max())), 50)
-        bins = [bin1, bin2]
-        a = plot_regime_diagram(ax, quantity[mask], vars, lims_list, xlabel, ylabel, bins=bins, norm=norm, cmap=cmap, type='binned')
-        #
-        ax.text(0.04, 0.94, labels[i][j], transform=ax.transAxes, ha='left', va='center')
+for i, (ax, quantity, cmap, norm) in enumerate(zip(axarr.flatten(), quantities, cmaps, norms)):
+    ylabel = '$k H$' if i == 0 else None
+    #
+    vars = [numbers[var1][mask], numbers[var2][mask]]
+    lims_list = [lims[var1], lims[var2]]
+    #
+    bin1 = np.logspace(np.floor(np.log10(numbers[var1][mask].min())), np.ceil(np.log10(numbers[var1][mask].max())), 50)
+    bin2 = np.logspace(np.floor(np.log10(numbers[var2][mask].min())), np.ceil(np.log10(numbers[var2][mask].max())), 50)
+    bins = [bin1, bin2]
+    a = plot_regime_diagram(ax, quantity[mask], vars, lims_list, xlabel, ylabel, bins=bins, norm=norm, cmap=cmap, type='binned')
+    #
+    ax.text(0.04, 0.94, labels[i], transform=ax.transAxes, ha='left', va='center')
 
-        # regime lines
-        ax.axvline(0.4, color=regime_line_color, linestyle='--', lw=2)
-        ax.axhline(0.32, color=regime_line_color, linestyle='--', lw=2)
+    # regime lines
+    ax.axvline(0.4, color=regime_line_color, linestyle='--', lw=2)
+    ax.axhline(0.32, color=regime_line_color, linestyle='--', lw=2)
 
     # colorbar
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
-    cb = fig.colorbar(sm, ax=axarr[i, :], orientation='vertical')
+    cb = fig.colorbar(sm, ax=ax, location='top')
     cb.set_label(cbar_labels[i])
-    if i == 0:
-        cb.ax.xaxis.set_ticks_position('top')
-        cb.ax.xaxis.set_label_position('top')
-
-plt.savefig(os.path.join(path_savefig, 'Figure5.pdf'))
-plt.show()
