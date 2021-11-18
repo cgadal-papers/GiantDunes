@@ -12,13 +12,13 @@ def perturb(x, amp, lamb, shift):
     return np.cos(2*np.pi*x/lamb)*amp + shift
 
 
-def plot_vertical_profile(ax, height, Virtual_potential_temperature, grad_free_atm, theta_free_atm, blh, theta_ground, Hmax_fit, color='tab:blue', label=None):
+def plot_vertical_profile(ax, height, Virtual_potential_temperature, grad_free_atm, theta_free_atm, blh, theta_ground, Hmax_fit, color='tab:blue', label=None, alpha_pt=1):
     Hfit = np.linspace(blh, Hmax_fit, 100)
     #
-    line = ax.vlines(theta_ground, 0, blh/1e3, color=color, label=label, zorder=-3)
+    line = ax.vlines(theta_ground, 0, blh/1e3, color=color, label=label, zorder=-3, lw=1)
     ax.axhline(blh/1e3, color=color, ls='--')
-    ax.plot(np.poly1d([grad_free_atm, theta_free_atm])(Hfit), Hfit/1e3, color=line.get_color(), zorder=-2)
-    ax.plot(Virtual_potential_temperature, height/1e3, '.', color=line.get_color(), zorder=-1)
+    ax.plot(np.poly1d([grad_free_atm, theta_free_atm])(Hfit), Hfit/1e3, color=line.get_color(), zorder=-2, lw=1)
+    ax.plot(Virtual_potential_temperature, height/1e3, '.', color=line.get_color(), zorder=-1, alpha=alpha_pt)
     # ax.scatter(theta_ground, blh/1e3, s=30, facecolors=line.get_color(), edgecolors='k', linewidth=2, zorder=0)
 
 
@@ -50,11 +50,11 @@ color_dune = '#D2691E'
 alpha_dune = 0.2
 #
 lambda_dune = 2.5
-mult = 1.5
+mult = 1.7
 hdune = 0.05*lambda_dune*mult
 lw_capping_layer = 3
 #
-n_dunes = 2
+n_dunes = 3
 xlims = [0, n_dunes*lambda_dune]
 x = np.linspace(xlims[0], xlims[1], 500)
 dunes = perturb(x, hdune, lambda_dune, 0.75*hdune)
@@ -66,56 +66,47 @@ dz = lambda_dune/5
 
 # ## vertical profiles parameters
 station = 'Deep_Sea_Station'
-time_steps = [30302, 2012, 2012]
-colors = ['tab:red', 'tab:blue', 'tab:blue']
+time_steps = [30302, 30302, 2012, 2012]
+colors = ['tab:red', 'tab:red', 'tab:blue', 'tab:blue']
 Hmax_fit = 10000  # [m]
 
 zmax = 0.55*Hmax_fit/1e3
 
-# xlabels = [r'$H \gg \lambda$',
-#            r'$H \leq \lambda$' '\n' r'$U \gg \sqrt{(\Delta\rho/\rho)g H}$' '\n' r'and/or $U \gg N\lambda$',
-#            r'$H \leq \lambda$' '\n' r'$U \ll \sqrt{(\Delta\rho/\rho)g H}$' '\n' r'and/or $U \ll N\lambda$']
+# ## labels
+titles = [r'Day - large $u_{*}$', 'Day - small $u_{*}$', 'Night - large $u_{*}$', 'Night - small $u_{*}$']
+labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}', r'\textbf{e}', r'\textbf{f}', r'\textbf{g}']
+xlabels = [r'$k H \gtrsim 1$' '\n' r'$\mathcal{F}r_{\textup{S}} \, \textup{and/or} \, \mathcal{F}r_{\textup{I}} < 1$',
+           r'$k H \gtrsim 1$' '\n' r'$\mathcal{F}r_{\textup{S}} \, \textup{and/or} \, \mathcal{F}r_{\textup{I}} > 1$',
+           r'$k H \lesssim 1$' '\n' r'$\mathcal{F}r_{\textup{S}} \, \textup{and/or} \, \mathcal{F}r_{\textup{I}} < 1$',
+           r'$k H \lesssim 1$' '\n' r'$\mathcal{F}r_{\textup{S}} \, \textup{and/or} \, \mathcal{F}r_{\textup{I}} > 1$']
 
-# xlabels = [r'$k H \gg 1$',
-#            r'$k H \leq 1$' '\n' r'$\mathcal{F}r_{\textup{S}}, \, \mathcal{F}r_{\textup{I}} \gg 1$',
-#            r'$k H \leq 1$' '\n' r'$\mathcal{F}r_{\textup{S}}, \, \mathcal{F}r_{\textup{I}} \ll 1$']
-
-xlabels = [r'$k H \gg 1$',
-           r'$k H \lesssim 1$' '\n' r'$\mathcal{F}r_{\textup{S}} \, \textup{and/or} \, \mathcal{F}r_{\textup{I}} > 1$',
-           r'$k H \lesssim 1$' '\n' r'$\mathcal{F}r_{\textup{S}} \, \textup{and/or} \, \mathcal{F}r_{\textup{I}} < 1$']
-
-# xlabels = [r'$k H \gg 1$',
-#            r'$k H \leq 1$' '\n' r'$\mathcal{F}r_{\textup{S}} \gg 1$' '\n' r'and/or $\mathcal{F}r_{\textup{I}} \gg 1$',
-#            r'$k H \leq 1$' '\n' r'$\mathcal{F}r_{\textup{S}} \ll 1$' '\n' r'and/or $\mathcal{F}r_{\textup{I}} \ll 1$']
-
-titles = [r'Day', 'Night - large $u_{*}$', 'Night - small $u_{*}$']
-
-labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}', r'\textbf{e}']
-props = dict(boxstyle='round, pad=0', color='white', alpha=1)
+props = dict(boxstyle='square, pad=0.1', color='white', alpha=1)
 
 # #### Figure
-fig, axrr = plt.subplots(2, 4, figsize=(theme.fig_width, 0.9*theme.fig_width),
+fig, axrr = plt.subplots(4, 3, figsize=(theme.fig_width, 1.2*theme.fig_width),
                          constrained_layout=True,
-                         gridspec_kw={'width_ratios': [0.5, 1, 1, 1], 'height_ratios': [1, 1.2], 'hspace': 0.13})
+                         gridspec_kw={'width_ratios': [0.5, 1, 1], 'height_ratios': [1, 1, 0.005, 1.3]})
+
+for ax in axrr[2, :]:
+    ax.set_axis_off()
 
 # #### Plot vertical profiles
-ax = axrr[0, 0]
-ax.set_title(r' ')
-ax.text(0.04, 0.92, labels[0], ha='left', va='center', transform=ax.transAxes, bbox=props)
-for i, t in enumerate(time_steps[:-1]):
+for i, (t, ax) in enumerate(zip(time_steps[::2], axrr[:2, 0].flatten())):
+    ax.set_title(r' ')
+    ax.text(0.04, 0.91, labels[i*3], ha='left', va='center', transform=ax.transAxes, bbox=props)
     ax.set_ylim(0, top=zmax)
     ax.set_xlim(305, 325)
     ax.set_ylabel('Height [km]')
-    ax.set_xlabel(r'$\Theta$ [K]')
+    ax.set_xlabel(r'$T_{\textup{vp}}$ [K]')
     #
     plot_vertical_profile(ax, Data[station]['height'][:, t], Data[station]['Virtual_potential_temperature'][:, t],
                           Data[station]['gradient_free_atm'][t], Data[station]['theta_free_atm'][t],
                           Data[station]['Boundary layer height'][t], Data[station]['theta_ground'][t], Hmax_fit,
-                          color=colors[i])
+                          color=colors[2*i], alpha_pt=0.5)
 
 # #### Sketches
-for i, t in enumerate(time_steps):
-    ax = axrr[0, i + 1]
+amplitudes = [0, 0.5, 0, 1]
+for i, (t, ax) in enumerate(zip(time_steps, axrr[:2, 1:].flatten())):
     ax.set_xticks([])
     ax.set_yticks([])
     ax.set_ylim(0, top=zmax)
@@ -125,7 +116,7 @@ for i, t in enumerate(time_steps):
     a, = ax.plot(x, dunes, color=color_dune)
     ax.fill_between(x, dunes, color=a.get_color(), alpha=alpha_dune)
     # FA
-    amp = 0 if i < 2 else hdune
+    amp = amplitudes[i]*hdune
     z_pos = np.arange(Data[station]['Boundary layer height'][t]/1e3, zmax, dz)
     plot_streamlines(ax, z_pos[1:], x, 0.5*amp, lambda_dune, color=colors[i], alpha=0.5)
     # capping layer
@@ -134,10 +125,10 @@ for i, t in enumerate(time_steps):
     #
     ax.set_xlabel(xlabels[i])
     ax.set_title(titles[i])
-    ax.text(0.017, 0.92, labels[i+1], ha='left', va='center', transform=ax.transAxes, bbox=props)
+    ax.text(0.0176, 0.91, labels[i + 1 + i // 2], ha='left', va='center', transform=ax.transAxes, bbox=props)
 
-axrr[0, 1].annotate('', xy=[lambda_dune/2, 3*hdune], xytext=[3*lambda_dune/2, 3*hdune], transform=axrr[0, 1].transData, arrowprops=dict(arrowstyle="<->", color='k', shrinkA=0, shrinkB=0))
-axrr[0, 1].text(lambda_dune + 0.03, 3*hdune + 0.35, r'$\lambda=2\pi/k$', ha='center', va='center')
+axrr[0, 1].annotate('', xy=[lambda_dune, 3*hdune], xytext=[2*lambda_dune, 3*hdune], transform=axrr[0, 1].transData, arrowprops=dict(arrowstyle="<->", color='k', shrinkA=0, shrinkB=0))
+axrr[0, 1].text(1.5*lambda_dune + 0.03, 3*hdune + 0.4, r'$\lambda=2\pi/k$', ha='center', va='center')
 hflow = Data[station]['Boundary layer height'][time_steps[0]]/1e3
 axrr[0, 1].annotate('', xy=[lambda_dune/2, 0], xytext=[lambda_dune/2, hflow], transform=axrr[0, 1].transData, arrowprops=dict(arrowstyle="<->", color='k', shrinkA=0, shrinkB=0))
 axrr[0, 1].text(lambda_dune/2 - 0.15, hflow/2, r'$H$', ha='right', va='center')
@@ -145,9 +136,9 @@ axrr[0, 1].text(lambda_dune/2 - 0.15, hflow/2, r'$H$', ha='right', va='center')
 # #### Horizontal view
 # merging axes
 gs = axrr[0, 0].get_gridspec()
-for ax in axrr[1, :]:
+for ax in axrr[-1, :]:
     ax.remove()
-ax = fig.add_subplot(gs[1, :])
+ax = fig.add_subplot(gs[-1, :])
 
 # ## streamline parameters
 station = Stations[1]
@@ -159,7 +150,6 @@ AR = 0.1
 skip = (slice(None, None, 50), slice(None, None, 50))
 eta_0 = 2.5e-6
 
-#
 # horizontal space
 x = np.linspace(-12, 12, 1000)
 y = np.linspace(-3, 3, 1000)

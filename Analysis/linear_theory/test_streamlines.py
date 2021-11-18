@@ -3,7 +3,7 @@ import os
 import sys
 import matplotlib.pyplot as plt
 sys.path.append('../../')
-from python_codes.linear_theory_old import calculate_solution, _mu_prime
+from python_codes.linear_theory import calculate_solution, _mu_prime
 from python_codes.meteo_analysis import mu
 
 
@@ -11,9 +11,10 @@ def focus_point(eta_0, Uho_Ustar, Kappa=0.4):
     return eta_0*np.exp(Kappa*Uho_Ustar)
 
 
-eta_H = 0.5
+eta_H = 1.5
+# eta_H = 0.5
 eta_0 = (2*np.pi*1e-3)/2.5e3
-eta_B = 0.1
+eta_B = 10
 Fr = 10
 
 max_z = 0.99*eta_H
@@ -44,9 +45,8 @@ plt.semilogy(np.imag(W), eta, '.')
 # plt.semilogy(Bx, eta, '.')
 plt.show()
 
+
 # #### Free atmosphere
-
-
 def q(eta_B):
     np.piecwise(eta_B, [eta_B >= 1, eta_B < 1],
                 [lambda eta_B: -np.sqrt(1 - 1/eta_B**2),
@@ -58,9 +58,9 @@ mu_H = mu(eta_H, eta_0)
 W = 1j*mu_H*coeffs[-1]
 Psi_b = mu_H*(eta_FA[:, None]/eta_H - 1)
 Psi1 = W/(-1j*eta_H)
-Psi = np.real(Psi_b + k_xi*np.exp(1j*k_x[None, :])*Psi1)
+Psi_FA = np.real(Psi_b + k_xi*np.exp(1j*k_x[None, :])*Psi1)
 
-plt.contour(k_x, eta_FA, Psi, levels=30)
+plt.contour(k_x, eta_FA, Psi_FA, levels=30)
 plt.plot(k_x, k_xi*(np.cos(k_x) + 0.8), 'k')
 plt.ylim(bottom=0)
 plt.show()
