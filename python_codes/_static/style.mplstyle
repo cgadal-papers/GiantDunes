@@ -1,6 +1,7 @@
 # Figure properties
 
 figure.figsize: 4.68504, 4.68504
+savefig.dpi: 300
 
 # Font properties
 

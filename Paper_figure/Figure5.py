@@ -49,11 +49,11 @@ regime_line_color = 'tab:blue'
 
 
 var1, var2 = 'Froude', 'kH'
-xlabel = r'$Fr_{\textup{surface}} =  U/\sqrt{(\Delta\rho/\rho) g H}$'
+xlabel = r'$\mathcal{F}r_{\textup{S}} =  U/\sqrt{(\Delta\rho/\rho) g H}$'
 
 # #### Figure
 fig, axarr = plt.subplots(1, 2, figsize=(theme.fig_width, 0.375*theme.fig_height_max),
-                          constrained_layout=True, sharey=True)
+                          constrained_layout=True)
 
 for i, (ax, quantity, cmap, norm) in enumerate(zip(axarr.flatten(), quantities, cmaps, norms)):
     ylabel = '$k H$' if i == 0 else None
@@ -74,5 +74,8 @@ for i, (ax, quantity, cmap, norm) in enumerate(zip(axarr.flatten(), quantities, 
 
     # colorbar
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
-    cb = fig.colorbar(sm, ax=ax, location='top')
+    cb = plt.colorbar(sm, ax=ax, location='top')
     cb.set_label(cbar_labels[i])
+
+plt.savefig(os.path.join(path_savefig, 'Figure5.pdf'))
+plt.show()
