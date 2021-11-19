@@ -5,14 +5,14 @@ Examples using ``python_codes.plot_functions.plot_scatter_surrounded``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Comparison between the Era5Land and the in situ datasets">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 5 -- SI">
 
 .. only:: html
 
- .. figure:: /auto_examples/data_presentation/images/thumb/sphx_glr_wind_regime_comparison_plot_thumb.png
-     :alt: Comparison between the Era5Land and the in situ datasets
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure5_supp_thumb.png
+     :alt: Figure 5 -- SI
 
-     :ref:`sphx_glr_auto_examples_data_presentation_wind_regime_comparison_plot.py`
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure5_supp.py`
 
 .. raw:: html
 
@@ -20,4 +20,42 @@ Examples using ``python_codes.plot_functions.plot_scatter_surrounded``
 
 .. only:: not html
 
- * :ref:`sphx_glr_auto_examples_data_presentation_wind_regime_comparison_plot.py`
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure5_supp.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 8 -- SI">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure8_supp_thumb.png
+     :alt: Figure 8 -- SI
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure8_supp.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure8_supp.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 7 -- SI">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure7_supp_thumb.png
+     :alt: Figure 7 -- SI
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure7_supp.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure7_supp.py`

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>python_codes.meteo_analysis &#8212; python_codes  documentation</title>
+    <title>python_codes.meteo_analysis &#8212; Giant dunes feedback on wind  documentation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="python_codes.meteo_analysis.compute_circadian_annual_cycle" href="python_codes.meteo_analysis.compute_circadian_annual_cycle.html" />
-    <link rel="prev" title="python_codes.linear_theory.calculate_solution" href="python_codes.linear_theory.calculate_solution.html" />
+    <link rel="prev" title="python_codes.linear_theory_focalpoint.calculate_solution" href="python_codes.linear_theory_focalpoint.calculate_solution.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -51,7 +51,7 @@
 
     
     <a class="navbar-brand" href="../index.html">
-      <p class="title">python_codes</p>
+      <p class="title">Giant dunes feedback on wind</p>
     </a>
     
 
@@ -69,8 +69,14 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../auto_examples/index.html">
-  This is my gallery
+ <a class="reference internal nav-link" href="../Paper_figure/index.html">
+  Paper figures
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../Processing/index.html">
+  Processing
  </a>
 </li>
 
@@ -103,6 +109,11 @@
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.CourrechDuPont2014.html">
+   python_codes.CourrechDuPont2014
+  </a>
+ </li>
+ <li class="toctree-l2">
   <a class="reference internal" href="python_codes.DEM_analysis.html">
    python_codes.DEM_analysis
   </a>
@@ -115,6 +126,16 @@
  <li class="toctree-l2">
   <a class="reference internal" href="python_codes.linear_theory.html">
    python_codes.linear_theory
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.linear_theory_asymptotic.html">
+   python_codes.linear_theory_asymptotic
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.linear_theory_focalpoint.html">
+   python_codes.linear_theory_focalpoint
   </a>
  </li>
  <li class="toctree-l2 current active">
@@ -130,6 +151,16 @@
    <li class="toctree-l3">
     <a class="reference internal" href="python_codes.meteo_analysis.mu.html">
      python_codes.meteo_analysis.mu
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.meteo_analysis.quadratic_transport_law.html">
+     python_codes.meteo_analysis.quadratic_transport_law
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.meteo_analysis.quartic_transport_law.html">
+     python_codes.meteo_analysis.quartic_transport_law
     </a>
    </li>
   </ul>
@@ -186,6 +217,12 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="python_codes.meteo_analysis.mu.html#python_codes.meteo_analysis.mu" title="python_codes.meteo_analysis.mu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mu</span></code></a>(z, z0[, Kappa])</p></td>
 <td><p>Calculate the ratio <span class="math notranslate nohighlight">\(U(z)/u_{*}\)</span> following the law of the wall:</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="python_codes.meteo_analysis.quadratic_transport_law.html#python_codes.meteo_analysis.quadratic_transport_law" title="python_codes.meteo_analysis.quadratic_transport_law"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quadratic_transport_law</span></code></a>(theta, theta_d, omega)</p></td>
+<td><p>Quadratic transport law <span class="math notranslate nohighlight">\(q_{\rm sat}/Q = \Omega \sqrt{\theta_{\rm th}}(\theta - \theta_{\rm th})\)</span>, from Duràn et al. 2011.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="python_codes.meteo_analysis.quartic_transport_law.html#python_codes.meteo_analysis.quartic_transport_law" title="python_codes.meteo_analysis.quartic_transport_law"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quartic_transport_law</span></code></a>(theta, theta_d[, …])</p></td>
+<td><p>Quartic transport law <span class="math notranslate nohighlight">\(q_{\rm sat}/Q = \frac{2\sqrt{\theta_{\rm th}}}{\kappa\mu}(\theta - \theta_{\rm th})\left[1 + \frac{C_{\rm M}}{\mu}(\theta - \theta_{\rm th})\right]\)</span> from Pähtz et al. 2020.</p></td>
 </tr>
 </tbody>
 </table>

@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>python_codes.linear_theory_focalpoint &#8212; Giant dunes feedback on wind  documentation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mne_style.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1e043a052b0af929e4d8.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="python_codes.linear_theory_focalpoint.Ax" href="python_codes.linear_theory_focalpoint.Ax.html" />
+    <link rel="prev" title="python_codes.linear_theory_asymptotic.calculate_solution" href="python_codes.linear_theory_asymptotic.calculate_solution.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+    <a class="navbar-brand" href="../index.html">
+      <p class="title">Giant dunes feedback on wind</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../index.html">
+  Home page
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../Paper_figure/index.html">
+  Paper figures
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../Processing/index.html">
+  Processing
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="python_codes.html">
+  python_codes
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.CourrechDuPont2014.html">
+   python_codes.CourrechDuPont2014
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.DEM_analysis.html">
+   python_codes.DEM_analysis
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.general.html">
+   python_codes.general
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.linear_theory.html">
+   python_codes.linear_theory
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.linear_theory_asymptotic.html">
+   python_codes.linear_theory_asymptotic
+  </a>
+ </li>
+ <li class="toctree-l2 current active">
+  <a class="current reference internal" href="#">
+   python_codes.linear_theory_focalpoint
+  </a>
+  <ul>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.linear_theory_focalpoint.Ax.html">
+     python_codes.linear_theory_focalpoint.Ax
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.linear_theory_focalpoint.Ay.html">
+     python_codes.linear_theory_focalpoint.Ay
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.linear_theory_focalpoint.Bx.html">
+     python_codes.linear_theory_focalpoint.Bx
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.linear_theory_focalpoint.By.html">
+     python_codes.linear_theory_focalpoint.By
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.linear_theory_focalpoint.Cisaillement_basal.html">
+     python_codes.linear_theory_focalpoint.Cisaillement_basal
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.linear_theory_focalpoint.Cisaillement_basal_rotated_wind.html">
+     python_codes.linear_theory_focalpoint.Cisaillement_basal_rotated_wind
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.linear_theory_focalpoint.calculate_solution.html">
+     python_codes.linear_theory_focalpoint.calculate_solution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.meteo_analysis.html">
+   python_codes.meteo_analysis
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.plot_functions.html">
+   python_codes.plot_functions
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.theme.html">
+   python_codes.theme
+  </a>
+ </li>
+</ul>
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="module-python_codes.linear_theory_focalpoint">
+<span id="python-codes-linear-theory-focalpoint"></span><h1>python_codes.linear_theory_focalpoint<a class="headerlink" href="#module-python_codes.linear_theory_focalpoint" title="Permalink to this headline">¶</a></h1>
+<p>Linear theory of a turbulent flow over a sinusoidal bottom.</p>
+<p class="rubric">Functions</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="python_codes.linear_theory_focalpoint.Ax.html#python_codes.linear_theory_focalpoint.Ax" title="python_codes.linear_theory_focalpoint.Ax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Ax</span></code></a>(alpha, A0)</p></td>
+<td><p>Calculate the hydrodynamic coefficient <span class="math notranslate nohighlight">\(\mathcal{A}_{x}\)</span> using the geometrical model:</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="python_codes.linear_theory_focalpoint.Ay.html#python_codes.linear_theory_focalpoint.Ay" title="python_codes.linear_theory_focalpoint.Ay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Ay</span></code></a>(alpha, A0)</p></td>
+<td><p>Calculate the hydrodynamic coefficient <span class="math notranslate nohighlight">\(\mathcal{A}_{y}\)</span> using the geometrical model:</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="python_codes.linear_theory_focalpoint.Bx.html#python_codes.linear_theory_focalpoint.Bx" title="python_codes.linear_theory_focalpoint.Bx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Bx</span></code></a>(alpha, B0)</p></td>
+<td><p>Calculate the hydrodynamic coefficient <span class="math notranslate nohighlight">\(\mathcal{B}_{x}\)</span> using the geometrical model:</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="python_codes.linear_theory_focalpoint.By.html#python_codes.linear_theory_focalpoint.By" title="python_codes.linear_theory_focalpoint.By"><code class="xref py py-obj docutils literal notranslate"><span class="pre">By</span></code></a>(alpha, B0)</p></td>
+<td><p>Calculate the hydrodynamic coefficient <span class="math notranslate nohighlight">\(\mathcal{B}_{y}\)</span> using the geometrical model:</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="python_codes.linear_theory_focalpoint.Cisaillement_basal.html#python_codes.linear_theory_focalpoint.Cisaillement_basal" title="python_codes.linear_theory_focalpoint.Cisaillement_basal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cisaillement_basal</span></code></a>(x, y, alpha, A0, B0, AR)</p></td>
+<td><p>Calculate the basal shear stress over a two dimensional sinusoidal topography for a wind from left to right (along the <span class="math notranslate nohighlight">\(x\)</span>-direction):</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="python_codes.linear_theory_focalpoint.Cisaillement_basal_rotated_wind.html#python_codes.linear_theory_focalpoint.Cisaillement_basal_rotated_wind" title="python_codes.linear_theory_focalpoint.Cisaillement_basal_rotated_wind"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cisaillement_basal_rotated_wind</span></code></a>(x, y, alpha, …)</p></td>
+<td><p>Calculate the basal shear stress over a two dimensional sinusoidal topography for an arbitrary wind direction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="python_codes.linear_theory_focalpoint.calculate_solution.html#python_codes.linear_theory_focalpoint.calculate_solution" title="python_codes.linear_theory_focalpoint.calculate_solution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_solution</span></code></a>(eta, eta_H, eta_h0, …)</p></td>
+<td><p>Solve the system and apply the boundary conditions.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.1e043a052b0af929e4d8.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, Cyril Gadal.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

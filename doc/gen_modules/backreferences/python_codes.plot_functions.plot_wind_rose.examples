@@ -5,14 +5,14 @@ Examples using ``python_codes.plot_functions.plot_wind_rose``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Comparison between the Era5Land and the in situ datasets">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 1">
 
 .. only:: html
 
- .. figure:: /auto_examples/data_presentation/images/thumb/sphx_glr_wind_regime_comparison_plot_thumb.png
-     :alt: Comparison between the Era5Land and the in situ datasets
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure1_thumb.png
+     :alt: Figure 1
 
-     :ref:`sphx_glr_auto_examples_data_presentation_wind_regime_comparison_plot.py`
+     :ref:`sphx_glr_Paper_figure_Figure1.py`
 
 .. raw:: html
 
@@ -20,4 +20,4 @@ Examples using ``python_codes.plot_functions.plot_wind_rose``
 
 .. only:: not html
 
- * :ref:`sphx_glr_auto_examples_data_presentation_wind_regime_comparison_plot.py`
+ * :ref:`sphx_glr_Paper_figure_Figure1.py`

@@ -19,7 +19,11 @@ python\_codes.linear\_theory
       Bx
       By
       Cisaillement_basal
+      Cisaillement_basal_rotated_wind
       calculate_solution
+      coeffA0
+      coeffB0
+      function_coeff
 
 
 

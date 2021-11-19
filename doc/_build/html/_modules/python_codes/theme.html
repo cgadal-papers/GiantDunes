@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>python_codes.theme &#8212; python_codes  documentation</title>
+    <title>python_codes.theme &#8212; Giant dunes feedback on wind  documentation</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
@@ -48,7 +48,7 @@
 
     
     <a class="navbar-brand" href="../../index.html">
-      <p class="title">python_codes</p>
+      <p class="title">Giant dunes feedback on wind</p>
     </a>
     
 
@@ -66,8 +66,14 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../auto_examples/index.html">
-  This is my gallery
+ <a class="reference internal nav-link" href="../../Paper_figure/index.html">
+  Paper figures
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../Processing/index.html">
+  Processing
  </a>
 </li>
 
@@ -147,6 +153,7 @@
 <span class="c1"># %%</span>
 <span class="c1"># Default parameters (matplotlib.rcParams)</span>
 <span class="c1"># -------------------------------------</span>
+<span class="n">load_style</span><span class="p">()</span>
 
 <span class="c1">#  Better to define these in the style.mplstyle file</span>
 
@@ -159,17 +166,13 @@
 <span class="n">fontsize_usual</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span>
 
 <span class="c1"># #### figure sizes</span>
-<span class="n">text_width</span> <span class="o">=</span> <span class="mf">426.79</span>  <span class="c1"># en pt</span>
-<span class="n">fig_width</span> <span class="o">=</span> <span class="n">text_width</span><span class="o">*</span><span class="mf">0.35136</span><span class="o">*</span><span class="mf">0.1</span>  <span class="c1"># en cm</span>
-<span class="n">fig_width</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">fig_width</span><span class="o">*</span><span class="mf">0.39</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># inches</span>
-<span class="n">fig_width_small</span> <span class="o">=</span> <span class="mf">0.75</span><span class="o">*</span><span class="n">fig_width</span>
+<span class="n">mm_to_inch</span> <span class="o">=</span> <span class="mf">0.0393701</span>
+<span class="n">fig_width</span><span class="p">,</span> <span class="n">fig_height</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span>
+<span class="n">fig_height_max</span> <span class="o">=</span> <span class="mi">195</span><span class="o">*</span><span class="n">mm_to_inch</span>
 
 
 <span class="c1"># #### line widths</span>
-<span class="n">linewidth_small</span> <span class="o">=</span> <span class="mf">0.8</span>
-<span class="n">linewidth_contourplot</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="n">linewidth_barscale</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">linewidth_errorbar</span> <span class="o">=</span> <span class="mf">0.8</span>
 
 <span class="c1"># #### marker sizes</span>
 <span class="n">markersize</span> <span class="o">=</span> <span class="mi">5</span>
@@ -178,6 +181,11 @@
 <span class="c1"># #### colormaps</span>
 <span class="n">cmap_delta_u</span> <span class="o">=</span> <span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">curl_r</span>
 <span class="n">cmap_delta_theta</span> <span class="o">=</span> <span class="s1">&#39;plasma&#39;</span>
+<span class="n">cmap_topo</span> <span class="o">=</span> <span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">turbid_r</span>
+
+<span class="c1"># #### colors</span>
+<span class="n">color_dune_orientation</span> <span class="o">=</span> <span class="s1">&#39;grey&#39;</span>
+<span class="n">flux_color</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ListedColormap</span><span class="p">(</span><span class="s1">&#39;navajowhite&#39;</span><span class="p">)</span>
 </pre></div>
 
               </div>

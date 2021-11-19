@@ -15,6 +15,8 @@ python\_codes.plot\_functions
       :toctree:
    
       log_tick_formatter
+      make_nice_histogram
+      plot_flux_rose
       plot_regime_diagram
       plot_scatter_surrounded
       plot_wind_rose

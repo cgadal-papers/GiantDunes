@@ -5,14 +5,14 @@ Examples using ``python_codes.general.smallestSignedAngleBetween``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Plotting regime diagrams">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 5">
 
 .. only:: html
 
- .. figure:: /auto_examples/data_presentation/images/thumb/sphx_glr_regime_diagram_plot_thumb.png
-     :alt: Plotting regime diagrams
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure5_thumb.png
+     :alt: Figure 5
 
-     :ref:`sphx_glr_auto_examples_data_presentation_regime_diagram_plot.py`
+     :ref:`sphx_glr_Paper_figure_Figure5.py`
 
 .. raw:: html
 
@@ -20,18 +20,18 @@ Examples using ``python_codes.general.smallestSignedAngleBetween``
 
 .. only:: not html
 
- * :ref:`sphx_glr_auto_examples_data_presentation_regime_diagram_plot.py`
+ * :ref:`sphx_glr_Paper_figure_Figure5.py`
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Comparison between the Era5Land and the in situ datasets">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 12 -- SI">
 
 .. only:: html
 
- .. figure:: /auto_examples/data_presentation/images/thumb/sphx_glr_wind_regime_comparison_plot_thumb.png
-     :alt: Comparison between the Era5Land and the in situ datasets
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure12_supp_thumb.png
+     :alt: Figure 12 -- SI
 
-     :ref:`sphx_glr_auto_examples_data_presentation_wind_regime_comparison_plot.py`
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure12_supp.py`
 
 .. raw:: html
 
@@ -39,4 +39,4 @@ Examples using ``python_codes.general.smallestSignedAngleBetween``
 
 .. only:: not html
 
- * :ref:`sphx_glr_auto_examples_data_presentation_wind_regime_comparison_plot.py`
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure12_supp.py`

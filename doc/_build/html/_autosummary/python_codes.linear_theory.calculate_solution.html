@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>python_codes.linear_theory.calculate_solution &#8212; python_codes  documentation</title>
+    <title>python_codes.linear_theory.calculate_solution &#8212; Giant dunes feedback on wind  documentation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
@@ -39,8 +39,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="python_codes.meteo_analysis" href="python_codes.meteo_analysis.html" />
-    <link rel="prev" title="python_codes.linear_theory.Cisaillement_basal" href="python_codes.linear_theory.Cisaillement_basal.html" />
+    <link rel="next" title="python_codes.linear_theory.coeffA0" href="python_codes.linear_theory.coeffA0.html" />
+    <link rel="prev" title="python_codes.linear_theory.Cisaillement_basal_rotated_wind" href="python_codes.linear_theory.Cisaillement_basal_rotated_wind.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -51,7 +51,7 @@
 
     
     <a class="navbar-brand" href="../index.html">
-      <p class="title">python_codes</p>
+      <p class="title">Giant dunes feedback on wind</p>
     </a>
     
 
@@ -69,8 +69,14 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../auto_examples/index.html">
-  This is my gallery
+ <a class="reference internal nav-link" href="../Paper_figure/index.html">
+  Paper figures
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../Processing/index.html">
+  Processing
  </a>
 </li>
 
@@ -102,6 +108,11 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.CourrechDuPont2014.html">
+   python_codes.CourrechDuPont2014
+  </a>
+ </li>
  <li class="toctree-l2">
   <a class="reference internal" href="python_codes.DEM_analysis.html">
    python_codes.DEM_analysis
@@ -142,12 +153,42 @@
      python_codes.linear_theory.Cisaillement_basal
     </a>
    </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.linear_theory.Cisaillement_basal_rotated_wind.html">
+     python_codes.linear_theory.Cisaillement_basal_rotated_wind
+    </a>
+   </li>
    <li class="toctree-l3 current active">
     <a class="current reference internal" href="#">
      python_codes.linear_theory.calculate_solution
     </a>
    </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.linear_theory.coeffA0.html">
+     python_codes.linear_theory.coeffA0
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.linear_theory.coeffB0.html">
+     python_codes.linear_theory.coeffB0
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.linear_theory.function_coeff.html">
+     python_codes.linear_theory.function_coeff
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.linear_theory_asymptotic.html">
+   python_codes.linear_theory_asymptotic
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.linear_theory_focalpoint.html">
+   python_codes.linear_theory_focalpoint
+  </a>
  </li>
  <li class="toctree-l2">
   <a class="reference internal" href="python_codes.meteo_analysis.html">
@@ -211,7 +252,7 @@
 <h1>python_codes.linear_theory.calculate_solution<a class="headerlink" href="#python-codes-linear-theory-calculate-solution" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="python_codes.linear_theory.calculate_solution">
-<code class="sig-name descname"><span class="pre">calculate_solution</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_H</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Fr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kappa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_codes/linear_theory.html#calculate_solution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_codes.linear_theory.calculate_solution" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">calculate_solution</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_H</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta_B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Fr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kappa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'simple'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_codes/linear_theory.html#calculate_solution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_codes.linear_theory.calculate_solution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solve the system and apply the boundary conditions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -222,14 +263,18 @@
 <li><p><strong>eta_B</strong> (<em>scalar</em><em>, </em><em>np.array</em>) – Non dimensional stratification length <span class="math notranslate nohighlight">\(k L_{B}\)</span>.</p></li>
 <li><p><strong>Fr</strong> (<em>scalar</em><em>, </em><em>np.array</em>) – Froude number</p></li>
 <li><p><strong>max_z</strong> (<em>scalar</em><em>, </em><em>np.array</em>) – Maximum vertical position where the system is solved, and also where the boundary conditons are applied. Usually set to something slightly smaller than <cite>eta_H</cite> to avoid the very slow resolution close to the top of the boundary layer. Usefull when investigating the solution close to the bottom.</p></li>
-<li><p><strong>Kappa</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em>) – Von Karmàn constant (the default is 0.4).</p></li>
+<li><p><strong>Kappa</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em>) – Von Karmàn constant (the default is 0.4).</p></li>
+<li><p><strong>output</strong> (<em>string</em><em>, </em><em>optional</em>) – changes what returns the function (default is ‘simple’).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The solution in every vertical step specified by <cite>eta</cite>.</p>
+<dd class="field-even"><p>If <cite>output</cite> is ‘simple’, return an array with the solution in every vertical step specified by <cite>eta</cite>. If <cite>output</cite> is ‘full’, return a list whose elements are:
+- the array with the solution in every vertical step specified by <cite>eta</cite>.
+- the output of <cite>_solve_system</cite>.
+- the coefficients of the linear decomposition of the solution.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>np.array</p>
+<dd class="field-odd"><p>np.array, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -237,12 +282,12 @@
 <div class="section" id="examples-using-python-codes-linear-theory-calculate-solution">
 <span id="sphx-glr-backreferences-python-codes-linear-theory-calculate-solution"></span><h2>Examples using <code class="docutils literal notranslate"><span class="pre">python_codes.linear_theory.calculate_solution</span></code><a class="headerlink" href="#examples-using-python-codes-linear-theory-calculate-solution" title="Permalink to this headline">¶</a></h2>
 <div class="sphx-glr-thumbcontainer" tooltip="Here, we calculate the time series of the hydrodynamic coefficients from the time series of the..."><div class="figure align-default" id="id1">
-<img alt="Time series of the hydrodyanmic coefficients" src="../_images/sphx_glr_hydro_coeff_time_series_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../auto_examples/linear_theory/hydro_coeff_time_series.html#sphx-glr-auto-examples-linear-theory-hydro-coeff-time-series-py"><span class="std std-ref">Time series of the hydrodyanmic coefficients</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<img alt="Time series of the hydrodyanmic coefficients" src="auto_examples/linear_theory/images/thumb/sphx_glr_hydro_coeff_time_series_thumb.png" />
+<p class="caption"><span class="caption-text"><span class="xref std std-ref">sphx_glr_auto_examples_linear_theory_hydro_coeff_time_series.py</span></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="In this script, we derive the basal shear stress coefficients across the entire 3D space of non..."><div class="figure align-default" id="id2">
-<img alt="Parameter space exploration for the hydrodyanmic coefficients" src="../_images/sphx_glr_parameter_space_exploration_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../auto_examples/linear_theory/parameter_space_exploration.html#sphx-glr-auto-examples-linear-theory-parameter-space-exploration-py"><span class="std std-ref">Parameter space exploration for the hydrodyanmic coefficients</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<img alt="Parameter space exploration for the hydrodyanmic coefficients" src="auto_examples/linear_theory/images/thumb/sphx_glr_parameter_space_exploration_thumb.png" />
+<p class="caption"><span class="caption-text"><span class="xref std std-ref">sphx_glr_auto_examples_linear_theory_parameter_space_exploration.py</span></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="sphx-glr-clear"></div></div>
 </div>

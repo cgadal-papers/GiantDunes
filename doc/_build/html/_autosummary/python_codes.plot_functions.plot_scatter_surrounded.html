@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>python_codes.plot_functions.plot_scatter_surrounded &#8212; python_codes  documentation</title>
+    <title>python_codes.plot_functions.plot_scatter_surrounded &#8212; Giant dunes feedback on wind  documentation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
@@ -50,7 +50,7 @@
 
     
     <a class="navbar-brand" href="../index.html">
-      <p class="title">python_codes</p>
+      <p class="title">Giant dunes feedback on wind</p>
     </a>
     
 
@@ -68,8 +68,14 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../auto_examples/index.html">
-  This is my gallery
+ <a class="reference internal nav-link" href="../Paper_figure/index.html">
+  Paper figures
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../Processing/index.html">
+  Processing
  </a>
 </li>
 
@@ -102,6 +108,11 @@
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.CourrechDuPont2014.html">
+   python_codes.CourrechDuPont2014
+  </a>
+ </li>
+ <li class="toctree-l2">
   <a class="reference internal" href="python_codes.DEM_analysis.html">
    python_codes.DEM_analysis
   </a>
@@ -117,6 +128,16 @@
   </a>
  </li>
  <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.linear_theory_asymptotic.html">
+   python_codes.linear_theory_asymptotic
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.linear_theory_focalpoint.html">
+   python_codes.linear_theory_focalpoint
+  </a>
+ </li>
+ <li class="toctree-l2">
   <a class="reference internal" href="python_codes.meteo_analysis.html">
    python_codes.meteo_analysis
   </a>
@@ -129,6 +150,16 @@
    <li class="toctree-l3">
     <a class="reference internal" href="python_codes.plot_functions.log_tick_formatter.html">
      python_codes.plot_functions.log_tick_formatter
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.plot_functions.make_nice_histogram.html">
+     python_codes.plot_functions.make_nice_histogram
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.plot_functions.plot_flux_rose.html">
+     python_codes.plot_functions.plot_flux_rose
     </a>
    </li>
    <li class="toctree-l3">
@@ -212,24 +243,32 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>array_like</em>) – <cite>x</cite> vector.</p></li>
 <li><p><strong>y</strong> (<em>array_like</em>) – <cite>x</cite> vector, same shape as <cite>y</cite>.</p></li>
-<li><p><strong>color</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – color passed to <cite>plt.scatter</cite>.</p></li>
-<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – alpha passed to <cite>plt.scatter</cite>.</p></li>
+<li><p><strong>color</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>array_like</em>) – color passed to <cite>c</cite> argument of <cite>plt.scatter</cite>.</p></li>
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – alpha passed to <cite>plt.scatter</cite>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Nothing, it just updates the plot.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)">None</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <div class="section" id="examples-using-python-codes-plot-functions-plot-scatter-surrounded">
 <span id="sphx-glr-backreferences-python-codes-plot-functions-plot-scatter-surrounded"></span><h2>Examples using <code class="docutils literal notranslate"><span class="pre">python_codes.plot_functions.plot_scatter_surrounded</span></code><a class="headerlink" href="#examples-using-python-codes-plot-functions-plot-scatter-surrounded" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="Comparison between the Era5Land and the in situ datasets"><div class="figure align-default" id="id1">
-<img alt="Comparison between the Era5Land and the in situ datasets" src="../_images/sphx_glr_wind_regime_comparison_plot_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../auto_examples/data_presentation/wind_regime_comparison_plot.html#sphx-glr-auto-examples-data-presentation-wind-regime-comparison-plot-py"><span class="std std-ref">Comparison between the Era5Land and the in situ datasets</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<div class="sphx-glr-thumbcontainer" tooltip="Figure 5 -- SI"><div class="figure align-default" id="id1">
+<img alt="Figure 5 -- SI" src="../_images/sphx_glr_Figure5_supp_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../Paper_figure/Supplementary_Figures/Figure5_supp.html#sphx-glr-paper-figure-supplementary-figures-figure5-supp-py"><span class="std std-ref">Figure 5 – SI</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Figure 8 -- SI"><div class="figure align-default" id="id2">
+<img alt="Figure 8 -- SI" src="../_images/sphx_glr_Figure8_supp_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../Paper_figure/Supplementary_Figures/Figure8_supp.html#sphx-glr-paper-figure-supplementary-figures-figure8-supp-py"><span class="std std-ref">Figure 8 – SI</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Figure 7 -- SI"><div class="figure align-default" id="id3">
+<img alt="Figure 7 -- SI" src="../_images/sphx_glr_Figure7_supp_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../Paper_figure/Supplementary_Figures/Figure7_supp.html#sphx-glr-paper-figure-supplementary-figures-figure7-supp-py"><span class="std std-ref">Figure 7 – SI</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="sphx-glr-clear"></div></div>
 </div>

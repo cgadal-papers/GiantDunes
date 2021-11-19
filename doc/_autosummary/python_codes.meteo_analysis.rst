@@ -16,6 +16,8 @@ python\_codes.meteo\_analysis
    
       compute_circadian_annual_cycle
       mu
+      quadratic_transport_law
+      quartic_transport_law
 
 
 

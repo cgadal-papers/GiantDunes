@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>python_codes.meteo_analysis.mu &#8212; python_codes  documentation</title>
+    <title>python_codes.meteo_analysis.mu &#8212; Giant dunes feedback on wind  documentation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
@@ -39,7 +39,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="python_codes.plot_functions" href="python_codes.plot_functions.html" />
+    <link rel="next" title="python_codes.meteo_analysis.quadratic_transport_law" href="python_codes.meteo_analysis.quadratic_transport_law.html" />
     <link rel="prev" title="python_codes.meteo_analysis.compute_circadian_annual_cycle" href="python_codes.meteo_analysis.compute_circadian_annual_cycle.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -51,7 +51,7 @@
 
     
     <a class="navbar-brand" href="../index.html">
-      <p class="title">python_codes</p>
+      <p class="title">Giant dunes feedback on wind</p>
     </a>
     
 
@@ -69,8 +69,14 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../auto_examples/index.html">
-  This is my gallery
+ <a class="reference internal nav-link" href="../Paper_figure/index.html">
+  Paper figures
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../Processing/index.html">
+  Processing
  </a>
 </li>
 
@@ -103,6 +109,11 @@
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.CourrechDuPont2014.html">
+   python_codes.CourrechDuPont2014
+  </a>
+ </li>
+ <li class="toctree-l2">
   <a class="reference internal" href="python_codes.DEM_analysis.html">
    python_codes.DEM_analysis
   </a>
@@ -115,6 +126,16 @@
  <li class="toctree-l2">
   <a class="reference internal" href="python_codes.linear_theory.html">
    python_codes.linear_theory
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.linear_theory_asymptotic.html">
+   python_codes.linear_theory_asymptotic
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="python_codes.linear_theory_focalpoint.html">
+   python_codes.linear_theory_focalpoint
   </a>
  </li>
  <li class="toctree-l2 current active">
@@ -130,6 +151,16 @@
    <li class="toctree-l3 current active">
     <a class="current reference internal" href="#">
      python_codes.meteo_analysis.mu
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.meteo_analysis.quadratic_transport_law.html">
+     python_codes.meteo_analysis.quadratic_transport_law
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="python_codes.meteo_analysis.quartic_transport_law.html">
+     python_codes.meteo_analysis.quartic_transport_law
     </a>
    </li>
   </ul>
@@ -202,7 +233,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>z</strong> (<em>array_like</em>) – height</p></li>
 <li><p><strong>z0</strong> (<em>array_like</em>) – hydrodyamic roughness</p></li>
-<li><p><strong>Kappa</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em>) – Von Karman constant (the default is 0.4).</p></li>
+<li><p><strong>Kappa</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em>) – Von Karman constant (the default is 0.4).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -216,13 +247,9 @@
 
 <div class="section" id="examples-using-python-codes-meteo-analysis-mu">
 <span id="sphx-glr-backreferences-python-codes-meteo-analysis-mu"></span><h2>Examples using <code class="docutils literal notranslate"><span class="pre">python_codes.meteo_analysis.mu</span></code><a class="headerlink" href="#examples-using-python-codes-meteo-analysis-mu" title="Permalink to this headline">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="For each station, the hydrodynamic roughness is calibrated by finding the one that minimizes th..."><div class="figure align-default" id="id1">
-<img alt="Calibration of the hydrodynamic roughness" src="../_images/sphx_glr_roughness_calibration_plot_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../auto_examples/data_preprocessing/roughness_calibration_plot.html#sphx-glr-auto-examples-data-preprocessing-roughness-calibration-plot-py"><span class="std std-ref">Calibration of the hydrodynamic roughness</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Processing the meteorological data"><div class="figure align-default" id="id2">
-<img alt="Processing the meteorological data" src="../_images/sphx_glr_meteo_data_analysis_plot_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="../auto_examples/data_analysis/meteo_data_analysis_plot.html#sphx-glr-auto-examples-data-analysis-meteo-data-analysis-plot-py"><span class="std std-ref">Processing the meteorological data</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<div class="sphx-glr-thumbcontainer" tooltip="Figure 10 -- SI"><div class="figure align-default" id="id1">
+<img alt="Figure 10 -- SI" src="../_images/sphx_glr_Figure10_supp_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="../Paper_figure/Supplementary_Figures/Figure10_supp.html#sphx-glr-paper-figure-supplementary-figures-figure10-supp-py"><span class="std std-ref">Figure 10 – SI</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="sphx-glr-clear"></div></div>
 </div>

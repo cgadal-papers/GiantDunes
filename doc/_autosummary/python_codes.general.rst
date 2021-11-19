@@ -14,6 +14,8 @@ python\_codes.general
    .. autosummary::
       :toctree:
    
+      Make_angular_PDF
+      Vector_average
       cosd
       find_mode_distribution
       sind

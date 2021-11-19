@@ -5,9 +5,9 @@
 # @Last modified time: 2021-03-07T18:38:40+01:00
 
 import sphinx_gallery
-from sphinx_gallery.sorting import ExplicitOrder
-from sphinx_gallery.sorting import FileNameSortKey
 import glob
+from sphinx_gallery.sorting import ExampleTitleSortKey
+
 
 # Configuration file for the Sphinx documentation builder.
 #
@@ -28,7 +28,7 @@ sys.path.insert(0, os.path.abspath('../'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'python_codes'
+project = 'Giant dunes feedback on wind'
 copyright = '2021, Cyril Gadal'
 author = 'Cyril Gadal'
 
@@ -84,8 +84,8 @@ intersphinx_mapping = {
 }
 
 # examples_dirs = ['../Analysis/Data_analysis', '../Analysis/Linear_theory']
-examples_dirs = os.path.join('..', 'Analysis')
-gallery_dirs = ['auto_examples']
+examples_dirs = ['../Paper_figure', '../Processing']
+gallery_dirs = ['Paper_figure', 'Processing']
 
 sphinx_gallery_conf = {
     'examples_dirs': examples_dirs,   # path to your example scripts
@@ -99,14 +99,8 @@ sphinx_gallery_conf = {
     'matplotlib_animations': True,
     'plot_gallery': True,
     'ignore_pattern': '/_',
-    'filename_pattern': '/*_plot',
-    'subsection_order': ExplicitOrder([
-                                       '../Analysis/data_preprocessing/',
-                                       '../Analysis/data_analysis/',
-                                       '../Analysis/linear_theory/',
-                                       '../Analysis/data_presentation/'
-                                       ]),
-    'within_subsection_order': FileNameSortKey,
+    'filename_pattern': '/*.py',
+    'within_subsection_order': ExampleTitleSortKey,
      }
 
 # -- Options for HTML output -------------------------------------------------

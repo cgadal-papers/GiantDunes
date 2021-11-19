@@ -5,14 +5,14 @@ Examples using ``python_codes.general.cosd``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="For each station, we follow these preprocessing steps:     - correction for constant shifts in ...">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 4">
 
 .. only:: html
 
- .. figure:: /auto_examples/data_preprocessing/images/thumb/sphx_glr_data_preprocessing_plot_thumb.png
-     :alt: Preprocessing of the data
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure4_thumb.png
+     :alt: Figure 4
 
-     :ref:`sphx_glr_auto_examples_data_preprocessing_data_preprocessing_plot.py`
+     :ref:`sphx_glr_Paper_figure_Figure4.py`
 
 .. raw:: html
 
@@ -20,18 +20,18 @@ Examples using ``python_codes.general.cosd``
 
 .. only:: not html
 
- * :ref:`sphx_glr_auto_examples_data_preprocessing_data_preprocessing_plot.py`
+ * :ref:`sphx_glr_Paper_figure_Figure4.py`
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="For each station, the hydrodynamic roughness is calibrated by finding the one that minimizes th...">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 6">
 
 .. only:: html
 
- .. figure:: /auto_examples/data_preprocessing/images/thumb/sphx_glr_roughness_calibration_plot_thumb.png
-     :alt: Calibration of the hydrodynamic roughness
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure6_thumb.png
+     :alt: Figure 6
 
-     :ref:`sphx_glr_auto_examples_data_preprocessing_roughness_calibration_plot.py`
+     :ref:`sphx_glr_Paper_figure_Figure6.py`
 
 .. raw:: html
 
@@ -39,18 +39,18 @@ Examples using ``python_codes.general.cosd``
 
 .. only:: not html
 
- * :ref:`sphx_glr_auto_examples_data_preprocessing_roughness_calibration_plot.py`
+ * :ref:`sphx_glr_Paper_figure_Figure6.py`
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Analyzing DEMs to extract average orientation, wavelength and amplitude of the dune pattern.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 4 -- SI">
 
 .. only:: html
 
- .. figure:: /auto_examples/data_analysis/images/thumb/sphx_glr_DEM_analysis_plot_thumb.png
-     :alt: DEM analysis
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure4_supp_thumb.png
+     :alt: Figure 4 -- SI
 
-     :ref:`sphx_glr_auto_examples_data_analysis_DEM_analysis_plot.py`
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure4_supp.py`
 
 .. raw:: html
 
@@ -58,18 +58,18 @@ Examples using ``python_codes.general.cosd``
 
 .. only:: not html
 
- * :ref:`sphx_glr_auto_examples_data_analysis_DEM_analysis_plot.py`
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure4_supp.py`
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Theoretical flow redirection">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 13 -- SI">
 
 .. only:: html
 
- .. figure:: /auto_examples/linear_theory/images/thumb/sphx_glr_flow_redirection_plot_thumb.png
-     :alt: Theoretical flow redirection
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure13_supp_thumb.png
+     :alt: Figure 13 -- SI
 
-     :ref:`sphx_glr_auto_examples_linear_theory_flow_redirection_plot.py`
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure13_supp.py`
 
 .. raw:: html
 
@@ -77,4 +77,4 @@ Examples using ``python_codes.general.cosd``
 
 .. only:: not html
 
- * :ref:`sphx_glr_auto_examples_linear_theory_flow_redirection_plot.py`
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure13_supp.py`

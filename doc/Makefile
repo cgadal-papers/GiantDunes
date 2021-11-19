@@ -22,7 +22,13 @@ help:
 # cleaning directories form auto summary and sphinx-gallery
 clean:
 	rm -rf $(BUILDDIR)/*
-	rm -rf auto_examples/
+	rm -rf _autosummary
+
+# cleaning directories form auto summary and sphinx-gallery
+clean_hard:
+	rm -rf $(BUILDDIR)/*
+	rm -rf Paper_figure/
+	rm -rf Processing/
 	rm -rf _autosummary
 	# rm -rf ../static/output_data/data/*
 	rm -rf ../static/output_data/figures/*

@@ -11,7 +11,8 @@ Welcome to python_codes's documentation!
     :caption: Contents:
 
     Home page <self>
-    Analysis <auto_examples/index.rst>
+    Paper figures <Paper_figure/index.rst>
+    Processing <Processing/index.rst>
     API reference <api.rst>
 
 
