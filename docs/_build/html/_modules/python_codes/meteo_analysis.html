@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>python_codes.meteo_analysis &#8212; Giant dunes feedback on wind  documentation</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mne_style.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../index.html">
+<p class="title">Giant dunes feedback on wind</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../index.html">
+  Home page
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../Paper_figure/index.html">
+  Paper figures
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../Processing/index.html">
+  Processing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../_autosummary/python_codes.html">
+  API reference
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for python_codes.meteo_analysis</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binned_statistic_2d</span>
+<span class="kn">from</span> <span class="nn">python_codes.general</span> <span class="kn">import</span> <span class="n">cosd</span><span class="p">,</span> <span class="n">sind</span>
+
+
+<div class="viewcode-block" id="compute_circadian_annual_cycle"><a class="viewcode-back" href="../../_autosummary/python_codes.meteo_analysis.compute_circadian_annual_cycle.html#python_codes.meteo_analysis.compute_circadian_annual_cycle">[docs]</a><span class="k">def</span> <span class="nf">compute_circadian_annual_cycle</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Average the wind data into bins of &#39;time of day&#39; and &#39;day of year&#39;.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    theta : array_like</span>
+<span class="sd">        wind orientation in degrees.</span>
+<span class="sd">    U : array_like</span>
+<span class="sd">        wind velocity, same shape as `theta`.</span>
+<span class="sd">    time : array_like</span>
+<span class="sd">        numpy array of `datetime.datetime` objects, same shape as `theta`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.array, shape (366, 24)</span>
+<span class="sd">        the wind orientation averaged into bins of &#39;time of day&#39; and &#39;day of year&#39;.</span>
+<span class="sd">    np.array, shape (366, 24)</span>
+<span class="sd">        the wind velocity averaged into bins of &#39;time of day&#39; and &#39;day of year&#39;.</span>
+<span class="sd">    np.array, shape (366,)</span>
+<span class="sd">        the days corresponding to the first dimension of the averaged two dimensional arrays.</span>
+<span class="sd">    np.array, shape (24,)</span>
+<span class="sd">        the hours corresponding to the first dimension of the averaged two dimensional arrays.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">days</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span><span class="o">.</span><span class="n">timetuple</span><span class="p">()</span><span class="o">.</span><span class="n">tm_yday</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">time</span><span class="p">])</span>
+    <span class="n">hours</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span><span class="o">.</span><span class="n">hour</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">time</span><span class="p">])</span>
+    <span class="n">possible_days</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">days</span><span class="p">)))[::</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">possible_hours</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">hours</span><span class="p">)))</span>
+    <span class="c1">#</span>
+    <span class="n">days_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">possible_days</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">possible_days</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">possible_days</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">hours_bin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">possible_hours</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">possible_hours</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">possible_hours</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+    <span class="c1">#</span>
+    <span class="n">Ux_av</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">binned_statistic_2d</span><span class="p">(</span><span class="n">days</span><span class="p">,</span> <span class="n">hours</span><span class="p">,</span> <span class="n">U</span><span class="o">*</span><span class="n">cosd</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="n">days_bins</span><span class="p">,</span> <span class="n">hours_bin</span><span class="p">],</span> <span class="n">statistic</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">)</span>
+    <span class="n">Uy_av</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">binned_statistic_2d</span><span class="p">(</span><span class="n">days</span><span class="p">,</span> <span class="n">hours</span><span class="p">,</span> <span class="n">U</span><span class="o">*</span><span class="n">sind</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="n">days_bins</span><span class="p">,</span> <span class="n">hours_bin</span><span class="p">],</span> <span class="n">statistic</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="n">U_binned</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Ux_av</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Uy_av</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">Orientation_binned</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">Uy_av</span><span class="p">,</span> <span class="n">Ux_av</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span>
+    <span class="k">return</span> <span class="n">Orientation_binned</span><span class="p">,</span> <span class="n">U_binned</span><span class="p">,</span> <span class="n">possible_days</span><span class="p">,</span> <span class="n">possible_hours</span></div>
+
+
+<div class="viewcode-block" id="mu"><a class="viewcode-back" href="../../_autosummary/python_codes.meteo_analysis.mu.html#python_codes.meteo_analysis.mu">[docs]</a><span class="k">def</span> <span class="nf">mu</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">Kappa</span><span class="o">=</span><span class="mf">0.4</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot; Calculate the ratio :math:`U(z)/u_{*}` following the law of the wall:</span>
+
+<span class="sd">    ..:math::</span>
+
+<span class="sd">        \frac{U(z)}{u_{*}} = \frac{1}{\kappa}\log\left(1 +\frac{z}{z_{0}}\right).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    z : array_like</span>
+<span class="sd">        height</span>
+<span class="sd">    z0 : array_like</span>
+<span class="sd">        hydrodyamic roughness</span>
+<span class="sd">    Kappa : float, optional</span>
+<span class="sd">        Von Karman constant (the default is 0.4).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    array_like</span>
+<span class="sd">        return the ratio :math:`U(z)/u_{*}` following the law of the wall.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">Kappa</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">z</span><span class="o">/</span><span class="n">z0</span><span class="p">)</span></div>
+
+
+<span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Sediment transport laws. Here, sediment fluxes are made non dimensional</span>
+<span class="sd">by the characteristic flux :math:`Q = \sqrt{\displaystyle\frac{(\rho_{\rm p} - \rho_{\rm f}) g d}{\rho_{\rm f}}}d`.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="quadratic_transport_law"><a class="viewcode-back" href="../../_autosummary/python_codes.meteo_analysis.quadratic_transport_law.html#python_codes.meteo_analysis.quadratic_transport_law">[docs]</a><span class="k">def</span> <span class="nf">quadratic_transport_law</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">theta_d</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Quadratic transport law :math:`q_{\rm sat}/Q = \Omega \sqrt{\theta_{\rm th}}(\theta - \theta_{\rm th})`, from Duràn et al. 2011.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    theta : scalar, numpy array</span>
+<span class="sd">        Shield number.</span>
+<span class="sd">    theta_d : scalar, numpy array</span>
+<span class="sd">        Threshold Shield number.</span>
+<span class="sd">    omega : scalar, numpy array</span>
+<span class="sd">        Prefactor of the transport law.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    scalar, numpy array</span>
+<span class="sd">        Sediment fluxes calculated elementwise using the quadratic transport law.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; theta = np.random.random((2000, ))</span>
+<span class="sd">    &gt;&gt;&gt; theta_d, omega = 0.0053, 7.8</span>
+<span class="sd">    &gt;&gt;&gt; qsat = quadratic_transport_law(theta, theta_d, omega)</span>
+
+<span class="sd">    References</span>
+<span class="sd">    --------</span>
+<span class="sd">    [1] Durán, O., Claudin, P., &amp; Andreotti, B. (2011). On aeolian transport: Grain-scale interactions,</span>
+<span class="sd">    dynamical mechanisms and scaling laws. Aeolian Research, 3(3), 243-270.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">piecewise</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="p">[</span><span class="n">theta</span> <span class="o">&gt;</span> <span class="n">theta_d</span><span class="p">,</span> <span class="n">theta</span> <span class="o">&lt;=</span> <span class="n">theta_d</span><span class="p">],</span>
+                        <span class="p">[</span><span class="k">lambda</span> <span class="n">theta</span><span class="p">:</span> <span class="n">omega</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">theta_d</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">theta</span> <span class="o">-</span> <span class="n">theta_d</span><span class="p">),</span> <span class="k">lambda</span> <span class="n">theta</span><span class="p">:</span> <span class="mi">0</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="quartic_transport_law"><a class="viewcode-back" href="../../_autosummary/python_codes.meteo_analysis.quartic_transport_law.html#python_codes.meteo_analysis.quartic_transport_law">[docs]</a><span class="k">def</span> <span class="nf">quartic_transport_law</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">theta_d</span><span class="p">,</span> <span class="n">Kappa</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mf">0.63</span><span class="p">,</span> <span class="n">cm</span><span class="o">=</span><span class="mf">1.7</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Quartic transport law :math:`q_{\rm sat}/Q = \frac{2\sqrt{\theta_{\rm th}}}{\kappa\mu}(\theta - \theta_{\rm th})\left[1 + \frac{C_{\rm M}}{\mu}(\theta - \theta_{\rm th})\right]` from Pähtz et al. 2020.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    theta : scalar, numpy array</span>
+<span class="sd">        Shield number.</span>
+<span class="sd">    theta_d : scalar, numpy array</span>
+<span class="sd">        Threshold Shield number.</span>
+<span class="sd">    Kappa : scalar, numpy array</span>
+<span class="sd">        von Kármán constant (the default is 0.4).</span>
+<span class="sd">    mu : scalar, numpy array</span>
+<span class="sd">        Friction coefficient (the default is 0.63).</span>
+<span class="sd">    cm : scalar, numpy array</span>
+<span class="sd">        Transport law coefficient (the default is 1.7).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    scalar, numpy array</span>
+<span class="sd">        Sediment fluxes calculated elementwise using the quartic transport law.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; theta = np.random.random((2000, ))</span>
+<span class="sd">    &gt;&gt;&gt; theta_d = 0.0035</span>
+<span class="sd">    &gt;&gt;&gt; qsat = quartic_transport_law(theta, theta_d)</span>
+
+<span class="sd">    References</span>
+<span class="sd">    --------</span>
+<span class="sd">    [1] Pähtz, T., &amp; Durán, O. (2020). Unification of aeolian and fluvial sediment transport rate from granular physics. Physical review letters, 124(16), 168001.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">piecewise</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="p">[</span><span class="n">theta</span> <span class="o">&gt;</span> <span class="n">theta_d</span><span class="p">,</span> <span class="n">theta</span> <span class="o">&lt;=</span> <span class="n">theta_d</span><span class="p">],</span>
+                        <span class="p">[</span><span class="k">lambda</span> <span class="n">theta</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">Kappa</span><span class="o">*</span><span class="n">mu</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">theta_d</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">theta</span> <span class="o">-</span> <span class="n">theta_d</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">cm</span><span class="o">/</span><span class="n">mu</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">theta</span> <span class="o">-</span> <span class="n">theta_d</span><span class="p">)),</span> <span class="k">lambda</span> <span class="n">theta</span><span class="p">:</span> <span class="mi">0</span><span class="p">])</span></div>
+</pre></div>
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Cyril Gadal.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
