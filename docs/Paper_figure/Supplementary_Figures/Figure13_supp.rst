@@ -22,7 +22,7 @@
 Figure 13 -- SI
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-133
+.. GENERATED FROM PYTHON SOURCE LINES 7-134
 
 
 
@@ -98,7 +98,8 @@ Figure 13 -- SI
 
     # ## streamline parameters
     station = Stations[1]
-    Data_DEM = np.load(os.path.join(path_outputdata, 'Analysis_DEM_' + station + '.npy'), allow_pickle=True).item()
+    Data_DEM = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]
+
     #
     alpha = Data_DEM['orientation'] - 90  # dune orientation, degrees
     k = 1  # non dimensional wavenumber
@@ -181,7 +182,7 @@ Figure 13 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.878 seconds)
+   **Total running time of the script:** ( 0 minutes  6.813 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure13_supp.py:

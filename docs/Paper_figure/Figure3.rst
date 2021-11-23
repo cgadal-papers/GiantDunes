@@ -22,7 +22,7 @@
 Figure 3
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-84
+.. GENERATED FROM PYTHON SOURCE LINES 7-78
 
 
 
@@ -58,17 +58,11 @@ Figure 3
     Stations = sorted(Data.keys())
 
     # Figure properties
-    # station = 'South_Namib_Station'
-    # #
-    # theta_bins = [[0, 130], [150, 250]]
-    # velocity_bins = [[0.05, 0.2], [0.3, 10]]
-    # Data_pattern = np.load(os.path.join(path_ouputdata, 'Analysis_DEM_' + station + '.npy'), allow_pickle=True).item()
-    #
     station = 'Deep_Sea_Station'
     #
     theta_bins = [[0, 90], [150, 230]]
     velocity_bins = [[0.05, 0.25], [0.3, 10]]
-    Data_pattern = np.load(os.path.join(path_outputdata, 'Analysis_DEM_' + station + '.npy'), allow_pickle=True).item()
+    Data_pattern = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]
 
 
     color_ax = 'purple'
@@ -117,7 +111,7 @@ Figure 3
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.997 seconds)
+   **Total running time of the script:** ( 0 minutes  1.286 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure3.py:

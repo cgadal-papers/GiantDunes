@@ -29,7 +29,7 @@ labels = [r'\textbf{a}', r'\textbf{b}']
 # preparing data
 Stations = ['South_Namib_Station', 'Deep_Sea_Station']
 
-Dune_orientations = [np.load(os.path.join(path_outputdata, 'Analysis_DEM_' + station + '.npy'), allow_pickle=True).item()['orientation']
+Dune_orientations = [np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]['orientation']
                      for station in Stations]
 
 velocity_thresholds = [0.1, 0.25]

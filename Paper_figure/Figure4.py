@@ -149,7 +149,8 @@ ax = fig.add_subplot(gs[-1, :])
 
 # ## streamline parameters
 station = Stations[1]
-Data_DEM = np.load(os.path.join(path_outputdata, 'Analysis_DEM_' + station + '.npy'), allow_pickle=True).item()
+Data_DEM = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]
+
 #
 alpha = Data_DEM['orientation'] - 90  # dune orientation, degrees
 k = 1  # non dimensional wavenumber

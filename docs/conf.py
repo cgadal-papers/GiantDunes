@@ -93,7 +93,7 @@ sphinx_gallery_conf = {
     'matplotlib_animations': True,
     'plot_gallery': True,
     'ignore_pattern': '/_',
-    'filename_pattern': '/*.py',
+    'filename_pattern': '(?!norun_)*.py',
     'within_subsection_order': ExampleTitleSortKey,
      }
 

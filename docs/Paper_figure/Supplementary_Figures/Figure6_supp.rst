@@ -22,7 +22,7 @@
 Figure 6 -- SI
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-77
+.. GENERATED FROM PYTHON SOURCE LINES 7-76
 
 
 
@@ -62,8 +62,7 @@ Figure 6 -- SI
     #
     theta_bins = [[0, 140], [150, 260]]
     velocity_bins = [[0.05, 0.2], [0.2, 10]]
-    Data_pattern = np.load(os.path.join(path_outputdata, 'Analysis_DEM_' + station + '.npy'), allow_pickle=True).item()
-
+    Data_pattern = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]
 
     color_ax = 'purple'
 
@@ -110,7 +109,7 @@ Figure 6 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.981 seconds)
+   **Total running time of the script:** ( 0 minutes  0.951 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure6_supp.py:

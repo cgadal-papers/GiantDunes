@@ -30,8 +30,7 @@ station = 'South_Namib_Station'
 #
 theta_bins = [[0, 140], [150, 260]]
 velocity_bins = [[0.05, 0.2], [0.2, 10]]
-Data_pattern = np.load(os.path.join(path_outputdata, 'Analysis_DEM_' + station + '.npy'), allow_pickle=True).item()
-
+Data_pattern = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]
 
 color_ax = 'purple'
 

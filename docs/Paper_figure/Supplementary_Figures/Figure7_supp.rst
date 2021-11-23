@@ -61,7 +61,7 @@ Figure 7 -- SI
     # preparing data
     Stations = ['South_Namib_Station', 'Deep_Sea_Station']
 
-    Dune_orientations = [np.load(os.path.join(path_outputdata, 'Analysis_DEM_' + station + '.npy'), allow_pickle=True).item()['orientation']
+    Dune_orientations = [np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]['orientation']
                          for station in Stations]
 
     velocity_thresholds = [0.1, 0.25]
@@ -115,7 +115,7 @@ Figure 7 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.830 seconds)
+   **Total running time of the script:** ( 0 minutes  2.804 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure7_supp.py:
