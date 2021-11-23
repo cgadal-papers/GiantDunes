@@ -13,6 +13,7 @@ python\_codes.CourrechDuPont2014
 
    .. autosummary::
       :toctree:
+      :template: custom-function-template.rst
       :nosignatures:
    
       Bed_Instability_Orientation

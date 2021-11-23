@@ -13,6 +13,7 @@ python\_codes.general
 
    .. autosummary::
       :toctree:
+      :template: custom-function-template.rst
       :nosignatures:
    
       Make_angular_PDF

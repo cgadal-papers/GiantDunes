@@ -13,6 +13,7 @@ python\_codes.theme
 
    .. autosummary::
       :toctree:
+      :template: custom-function-template.rst
       :nosignatures:
    
       load_style

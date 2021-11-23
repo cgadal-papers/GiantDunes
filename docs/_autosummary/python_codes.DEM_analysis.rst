@@ -13,6 +13,7 @@ python\_codes.DEM\_analysis
 
    .. autosummary::
       :toctree:
+      :template: custom-function-template.rst
       :nosignatures:
    
       array_transect

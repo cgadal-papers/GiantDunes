@@ -13,6 +13,7 @@ python\_codes.meteo\_analysis
 
    .. autosummary::
       :toctree:
+      :template: custom-function-template.rst
       :nosignatures:
    
       compute_circadian_annual_cycle

@@ -13,6 +13,7 @@ python\_codes.plot\_functions
 
    .. autosummary::
       :toctree:
+      :template: custom-function-template.rst
       :nosignatures:
    
       log_tick_formatter

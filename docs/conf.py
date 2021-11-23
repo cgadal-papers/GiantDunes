@@ -1,9 +1,3 @@
-# @Author: gadal
-# @Date:   2021-03-04T14:09:06+01:00
-# @Email:  gadal@ipgp.fr
-# @Last modified by:   gadal
-# @Last modified time: 2021-03-07T18:38:40+01:00
-
 import sphinx_gallery
 import glob
 from sphinx_gallery.sorting import ExampleTitleSortKey
@@ -23,7 +17,7 @@ from sphinx_gallery.sorting import ExampleTitleSortKey
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath('../'))
 
 
 # -- Project information -----------------------------------------------------
@@ -108,15 +102,16 @@ sphinx_gallery_conf = {
 
 # Pydata theme
 html_theme = "pydata_sphinx_theme"
-html_logo = "_static/logo-company.png"
 html_theme_options = {"show_prev_next": False}
-html_css_files = ['pydata-custom.css']
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-html_css_files = ['mne_style.css']
+# html_css_files = ['mne_style.css']
+html_css_files = ['pydata-custom.css']
+# html_css_files = ['numpy.css']
+
 
 # If true, links to the reST sources are added to the pages.
 html_show_sourcelink = False

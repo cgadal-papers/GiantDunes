@@ -13,6 +13,7 @@ python\_codes.linear\_theory\_asymptotic
 
    .. autosummary::
       :toctree:
+      :template: custom-function-template.rst
       :nosignatures:
    
       Ax
