@@ -4,10 +4,10 @@
 
 .. _sphx_glr_Processing:
 
-Processing
+Paper figures
 ==================
 
-Below is the gallery presenting the scripts used to process the data, i.e the steps before making the paper and supporting information figures.
+Below is the gallery presenting the scripts used to make the figures of the paper
 
 
 .. raw:: html
