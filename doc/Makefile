@@ -23,6 +23,7 @@ help:
 clean:
 	rm -rf $(BUILDDIR)/*
 	rm -rf _autosummary
+	rm -rf gen_modules
 
 # cleaning directories form auto summary and sphinx-gallery
 clean_hard:
@@ -30,5 +31,6 @@ clean_hard:
 	rm -rf Paper_figure/
 	rm -rf Processing/
 	rm -rf _autosummary
+	rm -rf gen_modules	
 	# rm -rf ../static/output_data/data/*
 	rm -rf ../static/output_data/figures/*
