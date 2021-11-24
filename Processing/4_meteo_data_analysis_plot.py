@@ -23,9 +23,7 @@ Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=Tru
 Stations = ['South_Namib_Station', 'Deep_Sea_Station']
 
 # ##### Loading pattern characteristics
-Data_pattern = {}
-for station in ['Deep_Sea_Station', 'South_Namib_Station']:
-    Data_pattern[station] = np.load(os.path.join(path_outputdata, 'Analysis_DEM_' + station + '.npy'), allow_pickle=True).item()
+Data_pattern = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()
 
 
 # %%

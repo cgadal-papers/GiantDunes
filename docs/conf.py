@@ -77,8 +77,10 @@ intersphinx_mapping = {
     'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None)
 }
 
-examples_dirs = ['../Paper_figure', '../Processing']
-gallery_dirs = ['Paper_figure', 'Processing']
+# examples_dirs = ['../Paper_figure', '../Processing']
+# gallery_dirs = ['Paper_figure', 'Processing']
+examples_dirs = ['../Paper_figure']
+gallery_dirs = ['Paper_figure']
 
 sphinx_gallery_conf = {
     'examples_dirs': examples_dirs,   # path to your example scripts
