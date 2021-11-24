@@ -1,6 +1,6 @@
 import sphinx_gallery
 import glob
-from sphinx_gallery.sorting import ExampleTitleSortKey
+from sphinx_gallery.sorting import FileNameSortKey, ExplicitOrder
 
 
 # Configuration file for the Sphinx documentation builder.
@@ -77,7 +77,6 @@ intersphinx_mapping = {
     'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None)
 }
 
-# examples_dirs = ['../Analysis/Data_analysis', '../Analysis/Linear_theory']
 examples_dirs = ['../Paper_figure', '../Processing']
 gallery_dirs = ['Paper_figure', 'Processing']
 
@@ -86,15 +85,22 @@ sphinx_gallery_conf = {
     'gallery_dirs': gallery_dirs,  # path to where to save gallery generated output
     'backreferences_dir': 'gen_modules/backreferences',  # directory where function/class granular galleries are stored
     'doc_module': ('python_codes'),  # Modules for which function/class level galleries are created.
-    'reference_url': {'python_codes': None,  # The module you locally document uses None
-                      'numpy': 'https://docs.scipy.org/doc/numpy/',
-                      'scipy': 'https://docs.scipy.org/doc/scipy/reference/',
-                      'matplotlib': 'https://matplotlib.org/stable'},
+    'reference_url': {
+                     # 'python_codes': None,  # The module you locally document uses None
+                     'numpy': 'https://docs.scipy.org/doc/numpy/',
+                     'scipy': 'https://docs.scipy.org/doc/scipy/reference/',
+                     'matplotlib': 'https://matplotlib.org/stable'
+                     },
     'matplotlib_animations': True,
     'plot_gallery': True,
     'ignore_pattern': '/_',
-    'filename_pattern': '(?!norun_)*.py',
-    'within_subsection_order': ExampleTitleSortKey,
+    'filename_pattern': '^(?!.*norun_)',
+    'subsection_order': ExplicitOrder([
+                                       '../Processing',
+                                       '../Paper_figure/',
+                                       '../Paper_figure/Supplementary_Figures/',
+                                       ]),
+    'within_subsection_order': FileNameSortKey,
      }
 
 # -- Options for HTML output -------------------------------------------------

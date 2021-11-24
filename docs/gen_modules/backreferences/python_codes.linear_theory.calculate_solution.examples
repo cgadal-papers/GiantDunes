@@ -9,10 +9,10 @@ Examples using ``python_codes.linear_theory.calculate_solution``
 
 .. only:: html
 
- .. figure:: /Processing/images/thumb/sphx_glr_norun_hydro_coeff_time_series_thumb.png
+ .. figure:: /Processing/images/thumb/sphx_glr_5_norun_hydro_coeff_time_series_thumb.png
      :alt: Time series of the hydrodyanmic coefficients
 
-     :ref:`sphx_glr_Processing_norun_hydro_coeff_time_series.py`
+     :ref:`sphx_glr_Processing_5_norun_hydro_coeff_time_series.py`
 
 .. raw:: html
 
@@ -20,4 +20,4 @@ Examples using ``python_codes.linear_theory.calculate_solution``
 
 .. only:: not html
 
- * :ref:`sphx_glr_Processing_norun_hydro_coeff_time_series.py`
+ * :ref:`sphx_glr_Processing_5_norun_hydro_coeff_time_series.py`

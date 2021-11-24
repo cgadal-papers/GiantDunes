@@ -17,10 +17,10 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 
 .. only:: html
 
- .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure1_thumb.png
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure01_thumb.png
      :alt: Figure 1
 
-     :ref:`sphx_glr_Paper_figure_Figure1.py`
+     :ref:`sphx_glr_Paper_figure_Figure01.py`
 
 .. raw:: html
 
@@ -30,7 +30,7 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 .. toctree::
    :hidden:
 
-   /Paper_figure/Figure1
+   /Paper_figure/Figure01
 
 .. raw:: html
 
@@ -38,10 +38,10 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 
 .. only:: html
 
- .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure2_thumb.png
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure02_thumb.png
      :alt: Figure 2
 
-     :ref:`sphx_glr_Paper_figure_Figure2.py`
+     :ref:`sphx_glr_Paper_figure_Figure02.py`
 
 .. raw:: html
 
@@ -51,7 +51,7 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 .. toctree::
    :hidden:
 
-   /Paper_figure/Figure2
+   /Paper_figure/Figure02
 
 .. raw:: html
 
@@ -59,10 +59,10 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 
 .. only:: html
 
- .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure3_thumb.png
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure03_thumb.png
      :alt: Figure 3
 
-     :ref:`sphx_glr_Paper_figure_Figure3.py`
+     :ref:`sphx_glr_Paper_figure_Figure03.py`
 
 .. raw:: html
 
@@ -72,7 +72,7 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 .. toctree::
    :hidden:
 
-   /Paper_figure/Figure3
+   /Paper_figure/Figure03
 
 .. raw:: html
 
@@ -80,10 +80,10 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 
 .. only:: html
 
- .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure4_thumb.png
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure04_thumb.png
      :alt: Figure 4
 
-     :ref:`sphx_glr_Paper_figure_Figure4.py`
+     :ref:`sphx_glr_Paper_figure_Figure04.py`
 
 .. raw:: html
 
@@ -93,7 +93,7 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 .. toctree::
    :hidden:
 
-   /Paper_figure/Figure4
+   /Paper_figure/Figure04
 
 .. raw:: html
 
@@ -101,10 +101,10 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 
 .. only:: html
 
- .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure5_thumb.png
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure05_thumb.png
      :alt: Figure 5
 
-     :ref:`sphx_glr_Paper_figure_Figure5.py`
+     :ref:`sphx_glr_Paper_figure_Figure05.py`
 
 .. raw:: html
 
@@ -114,7 +114,7 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 .. toctree::
    :hidden:
 
-   /Paper_figure/Figure5
+   /Paper_figure/Figure05
 
 .. raw:: html
 
@@ -122,10 +122,10 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 
 .. only:: html
 
- .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure6_thumb.png
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure06_thumb.png
      :alt: Figure 6
 
-     :ref:`sphx_glr_Paper_figure_Figure6.py`
+     :ref:`sphx_glr_Paper_figure_Figure06.py`
 
 .. raw:: html
 
@@ -135,7 +135,7 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 .. toctree::
    :hidden:
 
-   /Paper_figure/Figure6
+   /Paper_figure/Figure06
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
@@ -157,10 +157,10 @@ Below is the gallery presenting the scripts used to make the figures of the supp
 
 .. only:: html
 
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure1_supp_thumb.png
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure01_supp_thumb.png
      :alt: Figure 1 -- SI
 
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure1_supp.py`
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure01_supp.py`
 
 .. raw:: html
 
@@ -170,7 +170,175 @@ Below is the gallery presenting the scripts used to make the figures of the supp
 .. toctree::
    :hidden:
 
-   /Paper_figure/Supplementary_Figures/Figure1_supp
+   /Paper_figure/Supplementary_Figures/Figure01_supp
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 2 -- SI">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure02_supp_thumb.png
+     :alt: Figure 2 -- SI
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure02_supp.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /Paper_figure/Supplementary_Figures/Figure02_supp
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 3 -- SI">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure03_supp_thumb.png
+     :alt: Figure 3 -- SI
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure03_supp.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /Paper_figure/Supplementary_Figures/Figure03_supp
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 4 -- SI">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure04_supp_thumb.png
+     :alt: Figure 4 -- SI
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure04_supp.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /Paper_figure/Supplementary_Figures/Figure04_supp
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 5 -- SI">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure05_supp_thumb.png
+     :alt: Figure 5 -- SI
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure05_supp.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /Paper_figure/Supplementary_Figures/Figure05_supp
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 6 -- SI">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure06_supp_thumb.png
+     :alt: Figure 6 -- SI
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure06_supp.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /Paper_figure/Supplementary_Figures/Figure06_supp
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 7 -- SI">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure07_supp_thumb.png
+     :alt: Figure 7 -- SI
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure07_supp.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /Paper_figure/Supplementary_Figures/Figure07_supp
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 8 -- SI">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure08_supp_thumb.png
+     :alt: Figure 8 -- SI
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure08_supp.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /Paper_figure/Supplementary_Figures/Figure08_supp
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 9 -- SI">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure09_supp_thumb.png
+     :alt: Figure 9 -- SI
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure09_supp.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /Paper_figure/Supplementary_Figures/Figure09_supp
 
 .. raw:: html
 
@@ -255,174 +423,6 @@ Below is the gallery presenting the scripts used to make the figures of the supp
    :hidden:
 
    /Paper_figure/Supplementary_Figures/Figure13_supp
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 2 -- SI">
-
-.. only:: html
-
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure2_supp_thumb.png
-     :alt: Figure 2 -- SI
-
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure2_supp.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /Paper_figure/Supplementary_Figures/Figure2_supp
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 3 -- SI">
-
-.. only:: html
-
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure3_supp_thumb.png
-     :alt: Figure 3 -- SI
-
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure3_supp.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /Paper_figure/Supplementary_Figures/Figure3_supp
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 4 -- SI">
-
-.. only:: html
-
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure4_supp_thumb.png
-     :alt: Figure 4 -- SI
-
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure4_supp.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /Paper_figure/Supplementary_Figures/Figure4_supp
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 5 -- SI">
-
-.. only:: html
-
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure5_supp_thumb.png
-     :alt: Figure 5 -- SI
-
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure5_supp.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /Paper_figure/Supplementary_Figures/Figure5_supp
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 6 -- SI">
-
-.. only:: html
-
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure6_supp_thumb.png
-     :alt: Figure 6 -- SI
-
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure6_supp.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /Paper_figure/Supplementary_Figures/Figure6_supp
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 7 -- SI">
-
-.. only:: html
-
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure7_supp_thumb.png
-     :alt: Figure 7 -- SI
-
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure7_supp.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /Paper_figure/Supplementary_Figures/Figure7_supp
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 8 -- SI">
-
-.. only:: html
-
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure8_supp_thumb.png
-     :alt: Figure 8 -- SI
-
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure8_supp.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /Paper_figure/Supplementary_Figures/Figure8_supp
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 9 -- SI">
-
-.. only:: html
-
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure9_supp_thumb.png
-     :alt: Figure 9 -- SI
-
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure9_supp.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /Paper_figure/Supplementary_Figures/Figure9_supp
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>

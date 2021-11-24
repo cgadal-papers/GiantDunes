@@ -13,14 +13,14 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="For each station, the hydrodynamic roughness is calibrated by finding the one that minimizes th...">
+    <div class="sphx-glr-thumbcontainer" tooltip="For each station, we follow these preprocessing steps:     - put the wind orientation angles in...">
 
 .. only:: html
 
- .. figure:: /Processing/images/thumb/sphx_glr_roughness_calibration_plot_thumb.png
-     :alt: Calibration of the hydrodynamic roughness
+ .. figure:: /Processing/images/thumb/sphx_glr_1_data_preprocessing_plot_thumb.png
+     :alt: Preprocessing of the data
 
-     :ref:`sphx_glr_Processing_roughness_calibration_plot.py`
+     :ref:`sphx_glr_Processing_1_data_preprocessing_plot.py`
 
 .. raw:: html
 
@@ -30,7 +30,7 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 .. toctree::
    :hidden:
 
-   /Processing/roughness_calibration_plot
+   /Processing/1_data_preprocessing_plot
 
 .. raw:: html
 
@@ -38,10 +38,10 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 
 .. only:: html
 
- .. figure:: /Processing/images/thumb/sphx_glr_DEM_analysis_plot_thumb.png
+ .. figure:: /Processing/images/thumb/sphx_glr_2_DEM_analysis_plot_thumb.png
      :alt: DEM analysis
 
-     :ref:`sphx_glr_Processing_DEM_analysis_plot.py`
+     :ref:`sphx_glr_Processing_2_DEM_analysis_plot.py`
 
 .. raw:: html
 
@@ -51,18 +51,18 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 .. toctree::
    :hidden:
 
-   /Processing/DEM_analysis_plot
+   /Processing/2_DEM_analysis_plot
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="For each station, we follow these preprocessing steps:     - put the wind orientation angles in...">
+    <div class="sphx-glr-thumbcontainer" tooltip="For each station, the hydrodynamic roughness is calibrated by finding the one that minimizes th...">
 
 .. only:: html
 
- .. figure:: /Processing/images/thumb/sphx_glr_data_preprocessing_plot_thumb.png
-     :alt: Preprocessing of the data
+ .. figure:: /Processing/images/thumb/sphx_glr_3_roughness_calibration_plot_thumb.png
+     :alt: Calibration of the hydrodynamic roughness
 
-     :ref:`sphx_glr_Processing_data_preprocessing_plot.py`
+     :ref:`sphx_glr_Processing_3_roughness_calibration_plot.py`
 
 .. raw:: html
 
@@ -72,7 +72,7 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 .. toctree::
    :hidden:
 
-   /Processing/data_preprocessing_plot
+   /Processing/3_roughness_calibration_plot
 
 .. raw:: html
 
@@ -80,10 +80,10 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 
 .. only:: html
 
- .. figure:: /Processing/images/thumb/sphx_glr_meteo_data_analysis_plot_thumb.png
+ .. figure:: /Processing/images/thumb/sphx_glr_4_meteo_data_analysis_plot_thumb.png
      :alt: Processing the meteorological data
 
-     :ref:`sphx_glr_Processing_meteo_data_analysis_plot.py`
+     :ref:`sphx_glr_Processing_4_meteo_data_analysis_plot.py`
 
 .. raw:: html
 
@@ -93,7 +93,7 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 .. toctree::
    :hidden:
 
-   /Processing/meteo_data_analysis_plot
+   /Processing/4_meteo_data_analysis_plot
 
 .. raw:: html
 
@@ -101,10 +101,10 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 
 .. only:: html
 
- .. figure:: /Processing/images/thumb/sphx_glr_norun_hydro_coeff_time_series_thumb.png
+ .. figure:: /Processing/images/thumb/sphx_glr_5_norun_hydro_coeff_time_series_thumb.png
      :alt: Time series of the hydrodyanmic coefficients
 
-     :ref:`sphx_glr_Processing_norun_hydro_coeff_time_series.py`
+     :ref:`sphx_glr_Processing_5_norun_hydro_coeff_time_series.py`
 
 .. raw:: html
 
@@ -114,7 +114,7 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 .. toctree::
    :hidden:
 
-   /Processing/norun_hydro_coeff_time_series
+   /Processing/5_norun_hydro_coeff_time_series
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
