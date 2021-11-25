@@ -4,21 +4,32 @@
 
 .. _sphx_glr_Processing:
 
-Paper figures
+Processing
 ==================
 
-Below is the gallery presenting the scripts used to make the figures of the paper
+Below is the gallery presenting the scripts used to process the data. In each of them, the output data are saved,
+and then loaded by the figure scripts to generate the figures of the paper and supplementary information.
+
+.. note::
+  As (most) of the scripts store data into the same dictionary, they have to be run in the following order:
+    #. Preprocessing of the wind data
+    #. Analysis of the DEMs
+    #. Calibration of the hydrodynamic roughness
+    #. Processing the meteorological data
+    #. Time series of the hydrodynamic coefficients
+
+Note that this is automatically done when building the documentation.
 
 
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="For each station, we follow these preprocessing steps:     - put the wind orientation angles in...">
+    <div class="sphx-glr-thumbcontainer" tooltip="For each station, we follow these preprocessing steps:">
 
 .. only:: html
 
  .. figure:: /Processing/images/thumb/sphx_glr_1_data_preprocessing_plot_thumb.png
-     :alt: Preprocessing of the data
+     :alt: Preprocessing of the wind data
 
      :ref:`sphx_glr_Processing_1_data_preprocessing_plot.py`
 
@@ -34,12 +45,12 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Analyzing DEMs to extract average orientation, wavelength and amplitude of the dune pattern.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Here, we extract from each DEMs the average orientation, wavelength and amplitude of the dune p...">
 
 .. only:: html
 
  .. figure:: /Processing/images/thumb/sphx_glr_2_DEM_analysis_plot_thumb.png
-     :alt: DEM analysis
+     :alt: Analysis of the DEMs
 
      :ref:`sphx_glr_Processing_2_DEM_analysis_plot.py`
 

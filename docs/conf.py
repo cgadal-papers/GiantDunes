@@ -70,17 +70,11 @@ intersphinx_mapping = {
     'python': ('https://docs.python.org/{.major}'.format(sys.version_info), None),
     'numpy': ('https://numpy.org/doc/stable/', None),
     'matplotlib': ('https://matplotlib.org/stable', None),
-    'mayavi': ('http://docs.enthought.com/mayavi/mayavi', None),
-    'sklearn': ('https://scikit-learn.org/stable', None),
-    'sphinx': ('https://www.sphinx-doc.org/en/master', None),
-    'pandas': ('https://pandas.pydata.org/pandas-docs/stable/', None),
     'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None)
 }
 
-# examples_dirs = ['../Paper_figure', '../Processing']
-# gallery_dirs = ['Paper_figure', 'Processing']
-examples_dirs = ['../Paper_figure']
-gallery_dirs = ['Paper_figure']
+examples_dirs = ['../Paper_figure', '../Processing']
+gallery_dirs = ['Paper_figure', 'Processing']
 
 sphinx_gallery_conf = {
     'examples_dirs': examples_dirs,   # path to your example scripts
@@ -88,7 +82,7 @@ sphinx_gallery_conf = {
     'backreferences_dir': 'gen_modules/backreferences',  # directory where function/class granular galleries are stored
     'doc_module': ('python_codes'),  # Modules for which function/class level galleries are created.
     'reference_url': {
-                     # 'python_codes': None,  # The module you locally document uses None
+                     'python_codes': None,  # The module you locally document uses None
                      'numpy': 'https://docs.scipy.org/doc/numpy/',
                      'scipy': 'https://docs.scipy.org/doc/scipy/reference/',
                      'matplotlib': 'https://matplotlib.org/stable'

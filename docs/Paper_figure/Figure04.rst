@@ -26,9 +26,10 @@ Figure 4
 
 
 
-.. image:: /Paper_figure/images/sphx_glr_Figure04_001.png
-    :alt:  , Day - large $u_{*}$, Day - small $u_{*}$,  , Night - large $u_{*}$, Night - small $u_{*}$
-    :class: sphx-glr-single-img
+.. image-sg:: /Paper_figure/images/sphx_glr_Figure04_001.png
+   :alt:  , Day - large $u_{*}$, Day - small $u_{*}$,  , Night - large $u_{*}$, Night - small $u_{*}$
+   :srcset: /Paper_figure/images/sphx_glr_Figure04_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -228,7 +229,7 @@ Figure 4
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.046 seconds)
+   **Total running time of the script:** ( 0 minutes  5.035 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure04.py:

@@ -26,9 +26,10 @@ Figure 3
 
 
 
-.. image:: /Paper_figure/images/sphx_glr_Figure03_001.png
-    :alt: Figure03
-    :class: sphx-glr-single-img
+.. image-sg:: /Paper_figure/images/sphx_glr_Figure03_001.png
+   :alt: Figure03
+   :srcset: /Paper_figure/images/sphx_glr_Figure03_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -111,7 +112,7 @@ Figure 3
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.022 seconds)
+   **Total running time of the script:** ( 0 minutes  0.990 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure03.py:

@@ -18,13 +18,16 @@
 .. _sphx_glr_Processing_2_DEM_analysis_plot.py:
 
 
-============
-DEM analysis
-============
+====================
+Analysis of the DEMs
+====================
 
-Analyzing DEMs to extract average orientation, wavelength and amplitude of the dune pattern.
+Here, we extract from each DEMs the average orientation, wavelength and amplitude of the dune pattern:
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-51
+    - we remove the general trend by fitting a second order polynomial surface.
+    - we use autocorrelation of the residual topography to extract the three relevant quantities (see :func:`python_codes.DEM_analysis.periodicity_2d` for details).
+
+.. GENERATED FROM PYTHON SOURCE LINES 11-55
 
 
 
@@ -43,6 +46,7 @@ Analyzing DEMs to extract average orientation, wavelength and amplitude of the d
     sys.path.append('../')
     from python_codes.DEM_analysis import polyfit2d, periodicity_2d
     import python_codes.theme as theme
+
     theme.load_style()
 
 
@@ -81,7 +85,7 @@ Analyzing DEMs to extract average orientation, wavelength and amplitude of the d
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.082 seconds)
+   **Total running time of the script:** ( 0 minutes  0.958 seconds)
 
 
 .. _sphx_glr_download_Processing_2_DEM_analysis_plot.py:

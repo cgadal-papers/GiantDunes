@@ -22,7 +22,7 @@
 Processing the meteorological data
 ==================================
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-29
+.. GENERATED FROM PYTHON SOURCE LINES 8-30
 
 .. code-block:: default
 
@@ -33,6 +33,7 @@ Processing the meteorological data
     sys.path.append('../')
     import python_codes.theme as theme
     from python_codes.meteo_analysis import mu
+
     theme.load_style()
 
     # Paths
@@ -54,14 +55,14 @@ Processing the meteorological data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-34
+.. GENERATED FROM PYTHON SOURCE LINES 31-35
 
 Calculating the relevant meteorological quantities
 ------------------------
 
 We calculate the relevant meteorological quantities from the Era5 pressure levels data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-55
+.. GENERATED FROM PYTHON SOURCE LINES 35-56
 
 .. code-block:: default
 
@@ -93,12 +94,12 @@ We calculate the relevant meteorological quantities from the Era5 pressure level
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-58
+.. GENERATED FROM PYTHON SOURCE LINES 57-59
 
 Analyzing the vertical profiles of virtual potential temperature
 ------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-103
+.. GENERATED FROM PYTHON SOURCE LINES 59-104
 
 .. code-block:: default
 
@@ -157,7 +158,7 @@ Analyzing the vertical profiles of virtual potential temperature
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.240 seconds)
+   **Total running time of the script:** ( 0 minutes  6.194 seconds)
 
 
 .. _sphx_glr_download_Processing_4_meteo_data_analysis_plot.py:

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Paper figures &#8212; Giant dunes feedback on wind  documentation</title>
+    <title>Processing &#8212; Giant dunes feedback on wind  documentation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -24,10 +24,10 @@
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../_static/pydata-custom.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
@@ -38,7 +38,7 @@
     <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Preprocessing of the data" href="1_data_preprocessing_plot.html" />
+    <link rel="next" title="Preprocessing of the wind data" href="1_data_preprocessing_plot.html" />
     <link rel="prev" title="Figure 13 – SI" href="../Paper_figure/Supplementary_Figures/Figure13_supp.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -130,14 +130,14 @@
     <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="1_data_preprocessing_plot.html">
-   Preprocessing of the data
+   Preprocessing of the wind data
   </a>
  </li>
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2_DEM_analysis_plot.html">
-   DEM analysis
+   Analysis of the DEMs
   </a>
  </li>
 </ul>
@@ -197,18 +197,33 @@
               
               <div>
                 
-  <div class="section" id="paper-figures">
-<span id="sphx-glr-processing"></span><h1>Paper figures<a class="headerlink" href="#paper-figures" title="Permalink to this headline">¶</a></h1>
-<p>Below is the gallery presenting the scripts used to make the figures of the paper</p>
-<div class="sphx-glr-thumbcontainer" tooltip="For each station, we follow these preprocessing steps:     - put the wind orientation angles in..."><div class="figure align-default" id="id1">
-<img alt="Preprocessing of the data" src="../_images/sphx_glr_1_data_preprocessing_plot_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="1_data_preprocessing_plot.html#sphx-glr-processing-1-data-preprocessing-plot-py"><span class="std std-ref">Preprocessing of the data</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+  <div class="section" id="processing">
+<span id="sphx-glr-processing"></span><h1>Processing<a class="headerlink" href="#processing" title="Permalink to this headline">¶</a></h1>
+<p>Below is the gallery presenting the scripts used to process the data. In each of them, the output data are saved,
+and then loaded by the figure scripts to generate the figures of the paper and supplementary information.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<dl class="simple">
+<dt>As (most) of the scripts store data into the same dictionary, they have to be run in the following order:</dt><dd><ol class="arabic simple">
+<li><p>Preprocessing of the wind data</p></li>
+<li><p>Analysis of the DEMs</p></li>
+<li><p>Calibration of the hydrodynamic roughness</p></li>
+<li><p>Processing the meteorological data</p></li>
+<li><p>Time series of the hydrodynamic coefficients</p></li>
+</ol>
+</dd>
+</dl>
+</div>
+<p>Note that this is automatically done when building the documentation.</p>
+<div class="sphx-glr-thumbcontainer" tooltip="For each station, we follow these preprocessing steps:"><div class="figure align-default" id="id1">
+<img alt="Preprocessing of the wind data" src="../_images/sphx_glr_1_data_preprocessing_plot_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="1_data_preprocessing_plot.html#sphx-glr-processing-1-data-preprocessing-plot-py"><span class="std std-ref">Preprocessing of the wind data</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Analyzing DEMs to extract average orientation, wavelength and amplitude of the dune pattern."><div class="figure align-default" id="id2">
-<img alt="DEM analysis" src="../_images/sphx_glr_2_DEM_analysis_plot_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="2_DEM_analysis_plot.html#sphx-glr-processing-2-dem-analysis-plot-py"><span class="std std-ref">DEM analysis</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<div class="sphx-glr-thumbcontainer" tooltip="Here, we extract from each DEMs the average orientation, wavelength and amplitude of the dune p..."><div class="figure align-default" id="id2">
+<img alt="Analysis of the DEMs" src="../_images/sphx_glr_2_DEM_analysis_plot_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="2_DEM_analysis_plot.html#sphx-glr-processing-2-dem-analysis-plot-py"><span class="std std-ref">Analysis of the DEMs</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>

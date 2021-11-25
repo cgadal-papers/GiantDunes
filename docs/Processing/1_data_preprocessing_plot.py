@@ -1,10 +1,11 @@
 """
-=========================
-Preprocessing of the data
-=========================
+==============================
+Preprocessing of the wind data
+==============================
 
 For each station, we follow these preprocessing steps:
-    - put the wind orientation angles in the trigonometric referential.
+
+    - put the wind direction in the trigonometric referential (counter clockwise, 0 in the WE-direction).
     - averaging of the in situ data in 1-hr bins centered on the time stamps of the Era5Land dataset.
     - filtering unusued data (NaNs, 0 velocity)
 

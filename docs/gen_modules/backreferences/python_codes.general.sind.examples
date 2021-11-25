@@ -1,0 +1,42 @@
+
+
+Examples using ``python_codes.general.sind``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="For each station, we follow these preprocessing steps:">
+
+.. only:: html
+
+ .. figure:: /Processing/images/thumb/sphx_glr_1_data_preprocessing_plot_thumb.png
+     :alt: Preprocessing of the wind data
+
+     :ref:`sphx_glr_Processing_1_data_preprocessing_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Processing_1_data_preprocessing_plot.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="For each station, the hydrodynamic roughness is calibrated by finding the one that minimizes th...">
+
+.. only:: html
+
+ .. figure:: /Processing/images/thumb/sphx_glr_3_roughness_calibration_plot_thumb.png
+     :alt: Calibration of the hydrodynamic roughness
+
+     :ref:`sphx_glr_Processing_3_roughness_calibration_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Processing_3_roughness_calibration_plot.py`

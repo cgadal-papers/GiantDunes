@@ -1,9 +1,12 @@
 """
-============
-DEM analysis
-============
+====================
+Analysis of the DEMs
+====================
 
-Analyzing DEMs to extract average orientation, wavelength and amplitude of the dune pattern.
+Here, we extract from each DEMs the average orientation, wavelength and amplitude of the dune pattern:
+
+    - we remove the general trend by fitting a second order polynomial surface.
+    - we use autocorrelation of the residual topography to extract the three relevant quantities (see :func:`python_codes.DEM_analysis.periodicity_2d` for details).
 """
 
 
@@ -14,6 +17,7 @@ import sys
 sys.path.append('../')
 from python_codes.DEM_analysis import polyfit2d, periodicity_2d
 import python_codes.theme as theme
+
 theme.load_style()
 
 

@@ -34,7 +34,7 @@ The chosen metric for comparison is then:
 
     \delta = \frac{\sqrt{\langle\| \boldsymbol{u}_{*, \textrm{era}} - \boldsymbol{u}_{*, \textrm{station}} \|^{2}\rangle_{t}}}{\sqrt{ \langle \| \boldsymbol{u}_{*, \textrm{era}} \| \rangle_{t}\langle \| \boldsymbol{u}_{*, \textrm{station}} \| \rangle_{t}}}
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-97
+.. GENERATED FROM PYTHON SOURCE LINES 18-98
 
 
 
@@ -68,6 +68,7 @@ The chosen metric for comparison is then:
     import python_codes.theme as theme
     from python_codes.general import smallestSignedAngleBetween, cosd, sind, find_mode_distribution
     from python_codes.meteo_analysis import mu
+
     theme.load_style()
     #
     import warnings
@@ -142,7 +143,7 @@ The chosen metric for comparison is then:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.679 seconds)
+   **Total running time of the script:** ( 0 minutes  2.681 seconds)
 
 
 .. _sphx_glr_download_Processing_3_roughness_calibration_plot.py:

@@ -26,9 +26,10 @@ Figure 4 -- SI
 
 
 
-.. image:: /Paper_figure/Supplementary_Figures/images/sphx_glr_Figure04_supp_001.png
-    :alt: Figure04 supp
-    :class: sphx-glr-single-img
+.. image-sg:: /Paper_figure/Supplementary_Figures/images/sphx_glr_Figure04_supp_001.png
+   :alt: Figure04 supp
+   :srcset: /Paper_figure/Supplementary_Figures/images/sphx_glr_Figure04_supp_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -113,7 +114,7 @@ Figure 4 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  13.279 seconds)
+   **Total running time of the script:** ( 0 minutes  13.087 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure04_supp.py:

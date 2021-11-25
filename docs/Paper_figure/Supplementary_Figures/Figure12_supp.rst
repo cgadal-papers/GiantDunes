@@ -26,9 +26,10 @@ Figure 12 -- SI
 
 
 
-.. image:: /Paper_figure/Supplementary_Figures/images/sphx_glr_Figure12_supp_001.png
-    :alt: Figure12 supp
-    :class: sphx-glr-single-img
+.. image-sg:: /Paper_figure/Supplementary_Figures/images/sphx_glr_Figure12_supp_001.png
+   :alt: Figure12 supp
+   :srcset: /Paper_figure/Supplementary_Figures/images/sphx_glr_Figure12_supp_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -132,7 +133,7 @@ Figure 12 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.607 seconds)
+   **Total running time of the script:** ( 0 minutes  3.769 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure12_supp.py:

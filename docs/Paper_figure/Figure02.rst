@@ -26,9 +26,10 @@ Figure 2
 
 
 
-.. image:: /Paper_figure/images/sphx_glr_Figure02_001.png
-    :alt: Huab Station, Deep Sea Station
-    :class: sphx-glr-single-img
+.. image-sg:: /Paper_figure/images/sphx_glr_Figure02_001.png
+   :alt: Huab Station, Deep Sea Station
+   :srcset: /Paper_figure/images/sphx_glr_Figure02_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -154,7 +155,7 @@ Figure 2
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.261 seconds)
+   **Total running time of the script:** ( 0 minutes  1.232 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure02.py:
