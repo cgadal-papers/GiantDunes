@@ -63,9 +63,9 @@ for i, station in enumerate(Data_DEM.keys()):
     #
     x_transect = np.arange(n.transect.size)*n.km_step
     axrr[2, i].plot(x_transect, n.transect, color='tab:red')
-    axrr[2, i].plot(x_transect[n.wavelength], n.transect[n.wavelength], color='tab:blue', marker='.')
+    axrr[2, i].plot(x_transect[n.wavelength_indx], n.transect[n.wavelength_indx], color='tab:blue', marker='.')
     lims = axrr[2, i].get_ylim()
-    axrr[2, i].vlines(x_transect[n.wavelength], lims[0], n.transect[n.wavelength], color='tab:blue', linestyle='--')
+    axrr[2, i].vlines(x_transect[n.wavelength_indx], lims[0], n.transect[n.wavelength_indx], color='tab:blue', linestyle='--')
     axrr[2, i].set_xlabel('Distance along profile [km]')
     axrr[2, i].set_ylabel('Autocorrelation~[m$^{2}$]')
     axrr[2, i].set_xlim(0, x_transect.max())

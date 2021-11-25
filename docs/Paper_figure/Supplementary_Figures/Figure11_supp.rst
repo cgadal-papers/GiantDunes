@@ -120,7 +120,7 @@ Figure 11 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.012 seconds)
+   **Total running time of the script:** ( 0 minutes  3.035 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure11_supp.py:

@@ -1,0 +1,42 @@
+
+
+Examples using ``python_codes.theme.color_dune_orientation``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 3">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure03_thumb.png
+     :alt: Figure 3
+
+     :ref:`sphx_glr_Paper_figure_Figure03.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Figure03.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 6 -- SI">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure06_supp_thumb.png
+     :alt: Figure 6 -- SI
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure06_supp.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure06_supp.py`

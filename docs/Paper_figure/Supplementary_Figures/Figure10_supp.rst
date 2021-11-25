@@ -22,7 +22,7 @@
 Figure 10 -- SI
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-72
+.. GENERATED FROM PYTHON SOURCE LINES 7-71
 
 
 
@@ -58,7 +58,6 @@ Figure 10 -- SI
 
     # ##### Loading meteo data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
-    Stations = ['South_Namib_Station', 'Deep_Sea_Station']
 
     # ## histograms parameters
     Stations = ['South_Namib_Station', 'Deep_Sea_Station']
@@ -106,7 +105,7 @@ Figure 10 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.914 seconds)
+   **Total running time of the script:** ( 0 minutes  0.926 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure10_supp.py:

@@ -45,8 +45,10 @@ path_inputdata = '../static/input_data/'
 #
 for i, station in enumerate(Stations):
     file = os.path.join(path_inputdata, station, 'DEM_' + station + '.npy')
-    orientation, wavelength, amplitude, p0, p1, transect, C, topo, lon, lat, km_step = DEM_analysis(file)
-    Data_DEM[station] = {'orientation': orientation, 'wavelength': wavelength,
+    orientation, wavelength_indx, amplitude, p0, p1, transect, C, topo, lon, lat, km_step = DEM_analysis(file)
+    #
+    Data_DEM[station] = {'orientation': orientation, 'wavelength': wavelength_indx*km_step,
+                         'wavelength_indx': wavelength_indx,
                          'amplitude': amplitude, 'p0': p0, 'p1': p1,
                          'transect': transect, 'C': C, 'topo': topo, 'lat': lat,
                          'lon': lon, 'km_step': km_step}

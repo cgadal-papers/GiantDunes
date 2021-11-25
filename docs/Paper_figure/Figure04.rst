@@ -229,7 +229,7 @@ Figure 4
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.925 seconds)
+   **Total running time of the script:** ( 0 minutes  4.916 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure04.py:

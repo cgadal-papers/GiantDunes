@@ -5,18 +5,18 @@
 
 Computation times
 =================
-**00:26.924** total execution time for **Paper_figure** files:
+**00:27.324** total execution time for **Paper_figure** files:
 
 +------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_Paper_figure_Figure06.py` (``Figure06.py``) | 00:09.278 | 0.0 MB |
+| :ref:`sphx_glr_Paper_figure_Figure06.py` (``Figure06.py``) | 00:09.590 | 0.0 MB |
 +------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_Paper_figure_Figure01.py` (``Figure01.py``) | 00:08.784 | 0.0 MB |
+| :ref:`sphx_glr_Paper_figure_Figure01.py` (``Figure01.py``) | 00:08.826 | 0.0 MB |
 +------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_Paper_figure_Figure04.py` (``Figure04.py``) | 00:04.925 | 0.0 MB |
+| :ref:`sphx_glr_Paper_figure_Figure04.py` (``Figure04.py``) | 00:04.916 | 0.0 MB |
 +------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_Paper_figure_Figure05.py` (``Figure05.py``) | 00:01.732 | 0.0 MB |
+| :ref:`sphx_glr_Paper_figure_Figure05.py` (``Figure05.py``) | 00:01.758 | 0.0 MB |
 +------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_Paper_figure_Figure02.py` (``Figure02.py``) | 00:01.206 | 0.0 MB |
+| :ref:`sphx_glr_Paper_figure_Figure02.py` (``Figure02.py``) | 00:01.218 | 0.0 MB |
 +------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_Paper_figure_Figure03.py` (``Figure03.py``) | 00:00.997 | 0.0 MB |
+| :ref:`sphx_glr_Paper_figure_Figure03.py` (``Figure03.py``) | 00:01.016 | 0.0 MB |
 +------------------------------------------------------------+-----------+--------+

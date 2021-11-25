@@ -25,7 +25,6 @@ path_outputdata = '../../static/output_data/data/'
 
 # ##### Loading meteo data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
-Stations = ['South_Namib_Station', 'Deep_Sea_Station']
 
 # ## histograms parameters
 Stations = ['South_Namib_Station', 'Deep_Sea_Station']

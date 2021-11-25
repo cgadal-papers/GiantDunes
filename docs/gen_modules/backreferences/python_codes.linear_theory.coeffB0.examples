@@ -1,0 +1,23 @@
+
+
+Examples using ``python_codes.linear_theory.coeffB0``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 4">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure04_thumb.png
+     :alt: Figure 4
+
+     :ref:`sphx_glr_Paper_figure_Figure04.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Figure04.py`

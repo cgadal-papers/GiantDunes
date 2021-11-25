@@ -27,7 +27,7 @@ Here, we extract from each DEMs the average orientation, wavelength and amplitud
     - we remove the general trend by fitting a second order polynomial surface.
     - we use autocorrelation of the residual topography to extract the three relevant quantities (see :func:`periodicity_2d <python_codes.DEM_analysis.periodicity_2d>` for details).
 
-.. GENERATED FROM PYTHON SOURCE LINES 11-55
+.. GENERATED FROM PYTHON SOURCE LINES 11-57
 
 
 
@@ -74,8 +74,10 @@ Here, we extract from each DEMs the average orientation, wavelength and amplitud
     #
     for i, station in enumerate(Stations):
         file = os.path.join(path_inputdata, station, 'DEM_' + station + '.npy')
-        orientation, wavelength, amplitude, p0, p1, transect, C, topo, lon, lat, km_step = DEM_analysis(file)
-        Data_DEM[station] = {'orientation': orientation, 'wavelength': wavelength,
+        orientation, wavelength_indx, amplitude, p0, p1, transect, C, topo, lon, lat, km_step = DEM_analysis(file)
+        #
+        Data_DEM[station] = {'orientation': orientation, 'wavelength': wavelength_indx*km_step,
+                             'wavelength_indx': wavelength_indx,
                              'amplitude': amplitude, 'p0': p0, 'p1': p1,
                              'transect': transect, 'C': C, 'topo': topo, 'lat': lat,
                              'lon': lon, 'km_step': km_step}
@@ -85,7 +87,7 @@ Here, we extract from each DEMs the average orientation, wavelength and amplitud
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.013 seconds)
+   **Total running time of the script:** ( 0 minutes  0.990 seconds)
 
 
 .. _sphx_glr_download_Processing_2_DEM_analysis_plot.py:
