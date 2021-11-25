@@ -13,7 +13,7 @@ Welcome to python_codes's documentation!
     Home page <self>
     Paper figures <Paper_figure/index.rst>
     Processing <Processing/index.rst>
-    API reference <_autosummary/python_codes>
+    API reference <_autosummary/python_codes.rst>
 
 
 Indices and tables

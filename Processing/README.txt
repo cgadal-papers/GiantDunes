@@ -12,4 +12,4 @@ and then loaded by the figure scripts to generate the figures of the paper and s
     #. Processing the meteorological data
     #. Time series of the hydrodynamic coefficients
 
-Note that this is automatically done when building the documentation.
+  Note that this is automatically done when building the documentation.

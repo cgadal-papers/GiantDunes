@@ -1,6 +1,8 @@
 r"""
 Dune growth mechanism theory developped by Courrech du Pont et al. 2014.
 
+
+
 References
 ----------
 [1] Courrech du Pont, S., Narteau, C., & Gao, X. (2014). Two modes for dune orientation. Geology, 42(9), 743-746.
@@ -12,11 +14,6 @@ References
 
 import numpy as np
 from python_codes.general import Vector_average, cosd, sind
-
-
-############################################################################
-########################### Fluxes at the crest ############################
-############################################################################
 
 
 def Flux_at_crest(alpha, theta, Q0, gamma=1.6):
@@ -68,7 +65,7 @@ def Resultant_flux_at_crest(alpha, theta, Q0, gamma=1.6, **kwargs):
     gamma : scalar, numpy array
         Flux-up ratio :math:`\gamma` (the default is 1.6).
     **kwargs :
-        `kwargs` are passed to :func:`Vector_average <PyDune.General.Vector_average>`.
+        `kwargs` are passed to :func:`Vector_average <python_codes.general.Vector_average>`.
 
     Returns
     -------
@@ -86,11 +83,6 @@ def Resultant_flux_at_crest(alpha, theta, Q0, gamma=1.6, **kwargs):
     """
     th_crest, N_crest = Flux_at_crest(alpha, theta, Q0, gamma=gamma)
     return Vector_average(th_crest, N_crest, **kwargs)
-
-# def Resultant_flux_aligned_crest(alpha, gamma, theta, Q0):
-#     RDD, RDP = Flux_at_crest(alpha, gamma, theta, Q0)
-#     alpha = np.expand_dims(alpha, tuple(np.arange(1, len(theta.shape))))
-#     return RDP*(cosd(alpha)*cosd(RDD) + sind(alpha)*sind(RDD))
 
 
 def Resultant_flux_perp_crest_at_crest(alpha, theta, Q0, gamma=1.6, axis=-1):
@@ -143,12 +135,12 @@ def Elongation_direction(theta, Q0, gamma=1.6, alpha_bins=np.linspace(0, 360, 36
     alpha_bins : numpy array
         Bins in dune orientation used to calculate the resultant flux at the crest (the default is np.linspace(0, 360, 361)).
     **kwargs :
-        `kwargs` are optional parameters passed to :func:`CourrechDuPont2014.Resultant_flux_perp_crest_at_crest <PyDune.Physics.Dune.CourrechDuPont2014.Resultant_flux_perp_crest_at_crest>`.
+        `kwargs` are optional parameters passed to :func:`Resultant_flux_perp_crest_at_crest <python_codes.CourrechDuPont2014.Resultant_flux_perp_crest_at_crest>`.
 
     Returns
     -------
     scalar, numpy array
-        The elongation direction predicted from the model of Courrech du Pont et al. corresponding to the input sand flux distributions.
+        The elongation direction predicted from the model of Courrech du Pont et al., corresponding to the input sand flux distributions.
 
     Examples
     --------
@@ -233,7 +225,7 @@ def Bed_Instability_Orientation(theta, Q0, gamma=1.6, alpha_bins=np.linspace(0, 
     alpha_bins : numpy array
         Bins in dune orientation used to calculate the resultant flux at the crest (the default is np.linspace(0, 360, 361)).
     **kwargs :
-        `kwargs` are optional parameters passed to :func:`CourrechDuPont2014.Growth_rate <PyDune.Physics.Dune.CourrechDuPont2014.Growth_rate>`.
+        `kwargs` are optional parameters passed to :func:`Growth_rate <python_codes.CourrechDuPont2014.Growth_rate>`.
 
     Returns
     -------
