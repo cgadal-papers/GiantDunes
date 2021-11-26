@@ -4,7 +4,6 @@
   "biblio.bib" 1637167698 6086 87675d018821b27a29fc1d7056bb0487 ""
   "main.aux" 1637933001 17474 20111c94f60a44b9c83d1758985b19f3 "pdflatex"
   (generated)
-  "main.blg"
   "main.bbl"
 ["pdflatex"] 1637933001 "main.tex" "main.pdf" "main" 1637933002
   "/etc/texmf/web2c/texmf.cnf" 1603101920 475 c0e671620eb5563b2130f56340a5fde8 ""
@@ -124,3 +123,4 @@
   "main.aux"
   "main.log"
   "main.pdf"
+  "main.log"
