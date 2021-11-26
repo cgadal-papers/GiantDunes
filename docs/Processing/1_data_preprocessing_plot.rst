@@ -141,7 +141,7 @@ For each station, we follow these preprocessing steps:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  7.186 seconds)
+   **Total running time of the script:** ( 0 minutes  6.908 seconds)
 
 
 .. _sphx_glr_download_Processing_1_data_preprocessing_plot.py:

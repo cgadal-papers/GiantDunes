@@ -114,7 +114,7 @@ Figure 4 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  14.144 seconds)
+   **Total running time of the script:** ( 0 minutes  13.181 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure04_supp.py:
