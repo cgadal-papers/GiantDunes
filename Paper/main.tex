@@ -96,6 +96,10 @@ Here, we compare the wind predictions from the ERA5-Land dataset to local measur
 
 \section{Wind regimes across the Namib Sand Sea}
 
+In this study, we focus on four places across and nearby the Namib desert, highlighting different environments (see Fig.~\ref{Fig1}).
+%
+The Adamax station is located near the Adamax salt pan, in a highly vegetated area. The Huab station, located on the coast at the outlet of the Huab river is an arid environment exhibiting $60$-m scale barchan dunes. While these two stations are in environments with no mid-scale topography, this is not the case for the Deep Sea and South Namib stations. Both are located in the interdune between giant linear dunes with kilometric wavelengths and more than $40$-m high. In this section, we describe and compare the wind regimes resulting from the available datasets in each station.
+
   \begin{figure}
     \centering
     \includegraphics[scale=1]{Figures/Figure1.pdf}
@@ -105,13 +109,13 @@ Here, we compare the wind predictions from the ERA5-Land dataset to local measur
 
   \subsection{Datasets}
 
-  Two wind datasets are used in this study. First, local winds are provided by stations situated in different environments (see Fig.~\ref{Fig1}). The wind strength and direction are measured every 10 minutes by cup anemometers and wind vanes, at heights between $n$ and $n$ meters depending on the station. The available period of measurements ranges from 1 to 5 discontinuous years distributed between 2012 and 2020 (see Fig.~\ref{Fig1_supp}). We checked that at least one complete seasonal cycle is available at each station.
+  Two wind datasets are used in this study. First, local winds are provided by stations situated in the four different places (see Fig.~\ref{Fig1}). The wind strength and direction are measured every 10 minutes by cup anemometers and wind vanes, at heights between $2$~m and $3$~m depending on the station. The available period of measurements ranges from 1 to 5 discontinuous years distributed between 2012 and 2020 (see Fig.~\ref{Fig1_supp}). We checked that at least one complete seasonal cycle is available at each station.
   %
   Then, regional winds are extracted at the same locations and periods from the ERA5-Land dataset, which is a replay at a smaller spatial resolution of ERA5, the latest climate reanalysis from the ECMWWF \citep{Hersbach2020, munoz2021}. It provides hourly estimates of the 10-m wind velocity and direction at a spatial resolution of $\sim 9~\textup{km}$ ($0.1^\circ\times0.1^\circ$).
 
-  For comparison, the local measurements are averaged into 1-hr bins centered on the temporal scale of the ERA5-Land estimates (see Fig.~\ref{Fig2_supp}). As the wind velocities of both datasets are provided a different heights, we convert them into shear velocities (see SI section~\ref{}), characteristic of the whole turbulent wind profile within the atmospheric boundary layer, which are then used together with the wind direction for further analysis. The resulting wind data are shown on the wind roses of Fig.~\ref{Fig1}(b--e).
+  For comparison, the local measurements are averaged into 1-hr bins centered on the temporal scale of the ERA5-Land estimates (see Fig.~\ref{Fig2_supp}). As the wind velocities of both datasets are provided at different heights, we convert them into shear velocities (see SI section 1), characteristic of the whole turbulent wind profile within the atmospheric boundary layer, which are then used together with the wind direction for further analysis. The resulting wind data are shown on the wind roses of Fig.~\ref{Fig1}(b--e).
 
-  Finally, the dune properties are computed using an autocorrelation method from the 30-m Digital Elevation Models (DEMs) of the shuttle radar topography mission \citep{Farr2007}. For the South Namib and Deep Sea stations, we obtain respectively orientations of $85^\circ$ and $125^\circ$, wavelengths of $2.6~\textup{km}$ and $2.3~\textup{km}$ and amplitudes of $45~\textup{m}$ and $20~\textup{m}$ (see SI for additional details).
+  Finally, the dune properties are computed using an autocorrelation method from the 30-m Digital Elevation Models (DEMs) of the shuttle radar topography mission \citep{Farr2007}. For the South Namib and Deep Sea stations, we obtain respectively orientations of $85^\circ$ and $125^\circ$, wavelengths of $2.6~\textup{km}$ and $2.3~\textup{km}$ and amplitudes of $45~\textup{m}$ and $20~\textup{m}$ (see SI section 2 for additional details).
 
   \subsection{Agreement between local and regional winds}
 
@@ -305,7 +309,8 @@ The computed dune orientations, blue and red arrows in figure~\ref{Fig6}, are ho
   \label{Fig2_supp}
 \end{figure}
 
-\section*{1. Calibration of the hydrodynamical roughness}
+\section*{1. Shear velocity and calibration of the hydrodynamical roughness}
+\label{calib_z0}
 
 For each station, the hydrodynamic roughness is calibrated by finding the one that minimizes the relative difference $\delta$ between the wind vectors of both datasets:
 \begin{equation}
