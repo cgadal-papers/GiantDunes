@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -102,6 +102,10 @@ Mu{\~n}oz-Sabater J, Dutra E, Agust{\'\i}-Panareda A, Albergel C, Arduini G,
 P{\"a}htz T, Dur{\'a}n O (2020) Unification of aeolian and fluvial sediment
   transport rate from granular physics. Physical review letters 124(16):168,001
 
+\bibitem[{Rubin and Hunter(1987)}]{Rubin1987}
+Rubin DM, Hunter RE (1987) Bedform alignment in directionally varying flows.
+  Science 237:276--278, \doi{https://doi.org/10.1126/science.237.4812.276}
+
 \bibitem[{Seidel et~al.(2012)Seidel, Zhang, Beljaars, Golaz, Jacobson, and
   Medeiros}]{seidel2012}
 Seidel DJ, Zhang Y, Beljaars A, Golaz JC, Jacobson AR, Medeiros B (2012)
@@ -131,5 +135,13 @@ Tritton D (2012) Physical fluid dynamics. Springer Science \& Business Media
 Vosper SB (2004) Inversion effects on mountain lee waves. Quarterly Journal of
   the Royal Meteorological Society: A journal of the atmospheric sciences,
   applied meteorology and physical oceanography 130(600):1723--1748
+
+\bibitem[{Walker et~al.(2009)Walker, Hesp, Davidson-Arnott, Bauer, Namikas, and
+  Ollerhead}]{Walker2009}
+Walker IJ, Hesp PA, Davidson-Arnott RG, Bauer BO, Namikas SL, Ollerhead J
+  (2009) Responses of three-dimensional flow to variations in the angle of
+  incident wind and profile form of dunes: Greenwich dunes, prince edward
+  island, canada. Geomorphology 105:127--138,
+  \doi{10.1016/j.geomorph.2007.12.019}
 
 \end{thebibliography}
