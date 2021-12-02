@@ -112,7 +112,7 @@ for i, (t, ax) in enumerate(zip(time_steps[::2], axrr[:2, 0].flatten())):
                           color=colors[2*i], alpha_pt=0.5)
 
 # #### Sketches
-amplitudes = [0, 0.5, 0, 1]
+amplitudes = [0, 0.35, 0, 1.2]
 for i, (t, ax) in enumerate(zip(time_steps, axrr[:2, 1:].flatten())):
     ax.set_xticks([])
     ax.set_yticks([])
