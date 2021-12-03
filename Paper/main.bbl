@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{29}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -52,6 +52,12 @@ Farr TG, Rosen PA, Caro E, Crippen R, Duren R, Hensley S, Kobrick M, Paller M,
 Fourriere A, Claudin P, Andreotti B (2010) Bedforms in a turbulent stream:
   formation of ripples by primary linear instability and of dunes by nonlinear
   pattern coarsening. Journal of Fluid Mechanics 649:287--328
+
+\bibitem[{Gadal et~al.(2019)Gadal, Narteau, {Courrech Du Pont}, Rozier, and
+  Claudin}]{Gadal2019}
+Gadal C, Narteau C, {Courrech Du Pont} S, Rozier O, Claudin P (2019) Incipient
+  bedforms in a bidirectional wind regime. Journal of Fluid Mechanics
+  862:490--516
 
 \bibitem[{Gunn et~al.(2021)Gunn, Wanker, Lancaster, Edmonds, Ewing, and
   Jerolmack}]{gunn2021}
@@ -119,6 +125,12 @@ Sheridan PF, Vosper SB (2006) A flow regime diagram for forecasting lee waves,
 \bibitem[{Smith et~al.(2017)Smith, Jackson, and Cooper}]{Smith2017}
 Smith AB, Jackson DWT, Cooper JAG (2017) Three-dimensional airflow and sediment
   transport patterns over barchan dunes. Geomorphology 278:28--42
+
+\bibitem[{Stull(2006)}]{Stull2006}
+Stull R (2006) 9 - the atmospheric boundary layer. In: Wallace JM, Hobbs PV
+  (eds) Atmospheric Science (Second Edition), second edition edn, Academic
+  Press, San Diego, pp 375--417,
+  \doi{https://doi.org/10.1016/B978-0-12-732951-2.50014-4}
 
 \bibitem[{Stull(1988)}]{Stull1988}
 Stull RB (1988) An introduction to boundary layer meteorology, vol~13. Springer

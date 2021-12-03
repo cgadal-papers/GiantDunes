@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.19)  2 DEC 2021 18:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.19)  3 DEC 2021 17:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -137,7 +137,16 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 \mathdisplay@stack=\toks20
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
@@ -204,7 +213,8 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip59
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count286
-) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -219,8 +229,7 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 )) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
@@ -290,7 +299,14 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 SVJour3 warning: Missing \journalname
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 75.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 75.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
 Package natbib Warning: Citation `refs' on page 2 undefined on input line 88.
 
@@ -320,7 +336,7 @@ Overfull \hbox (0.58699pt too wide) in paragraph at lines 124--125
  []
 
 [4]
-Overfull \hbox (13.44511pt too wide) in paragraph at lines 137--138
+Overfull \hbox (13.44511pt too wide) in paragraph at lines 138--139
 \OT1/cmr/m/n/10 gional winds match only dur-ing the morn-ing, i.e when the southerly/southwesterly
  []
 
@@ -328,10 +344,10 @@ Overfull \hbox (13.44511pt too wide) in paragraph at lines 137--138
 <Figures/Figure3.pdf, id=88, 338.58783pt x 304.72906pt>
 File: Figures/Figure3.pdf Graphic file (type pdf)
 <use Figures/Figure3.pdf>
-Package pdftex.def Info: Figures/Figure3.pdf  used on input line 142.
+Package pdftex.def Info: Figures/Figure3.pdf  used on input line 143.
 (pdftex.def)             Requested size: 338.58699pt x 304.72832pt.
 
-Overfull \hbox (0.58699pt too wide) in paragraph at lines 142--143
+Overfull \hbox (0.58699pt too wide) in paragraph at lines 143--144
  [][] 
  []
 
@@ -351,155 +367,153 @@ Overfull \hbox (0.58699pt too wide) in paragraph at lines 159--160
 
 [7] [8 <./Figures/Figure4.pdf>]
 
-Package natbib Warning: Citation `refs' on page 9 undefined on input line 184.
+LaTeX Warning: Reference `Fig4b' on page 9 undefined on input line 181.
 
 
-Package natbib Warning: Citation `refs' on page 9 undefined on input line 184.
+LaTeX Warning: Reference `Fig4d--f' on page 9 undefined on input line 181.
 
 
-LaTeX Warning: Reference `?' on page 9 undefined on input line 188.
+LaTeX Warning: Reference `Fig4f' on page 9 undefined on input line 181.
 
-<Figures/Figure5.pdf, id=167, 338.58783pt x 208.06088pt>
+
+LaTeX Warning: Reference `?' on page 9 undefined on input line 185.
+
+[9]
+<Figures/Figure5.pdf, id=171, 338.58783pt x 208.06088pt>
 File: Figures/Figure5.pdf Graphic file (type pdf)
 <use Figures/Figure5.pdf>
-Package pdftex.def Info: Figures/Figure5.pdf  used on input line 210.
+Package pdftex.def Info: Figures/Figure5.pdf  used on input line 207.
 (pdftex.def)             Requested size: 338.58699pt x 208.06036pt.
 
-Overfull \hbox (0.58699pt too wide) in paragraph at lines 210--211
+Overfull \hbox (0.58699pt too wide) in paragraph at lines 207--208
  [][] 
  []
 
-[9]
-Underfull \vbox (badness 1024) has occurred while \output is active []
+[10 <./Figures/Figure5.pdf>]
 
- [10 <./Figures/Figure5.pdf>]
-
-Package natbib Warning: Citation `refs' on page 11 undefined on input line 221.
+Package natbib Warning: Citation `refs' on page 11 undefined on input line 218.
 
 <Figures/Figure6.pdf, id=210, 338.58783pt x 331.81607pt>
 File: Figures/Figure6.pdf Graphic file (type pdf)
 <use Figures/Figure6.pdf>
-Package pdftex.def Info: Figures/Figure6.pdf  used on input line 226.
+Package pdftex.def Info: Figures/Figure6.pdf  used on input line 223.
 (pdftex.def)             Requested size: 338.58699pt x 331.81526pt.
 
-Overfull \hbox (0.58699pt too wide) in paragraph at lines 226--227
+Overfull \hbox (0.58699pt too wide) in paragraph at lines 223--224
  [][] 
  []
 
 
-Package natbib Warning: Citation `Cour14' on page 11 undefined on input line 227.
+Package natbib Warning: Citation `Cour14' on page 11 undefined on input line 224.
 
 
-Package natbib Warning: Citation `Cour14' on page 11 undefined on input line 227.
+Package natbib Warning: Citation `Cour14' on page 11 undefined on input line 224.
 
-[11]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12 <./Figures/Figure6.pdf>] [13] [14] (./main.bbl
+[11] [12 <./Figures/Figure6.pdf>] [13] [14] (./main.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [15
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 106--108
+Underfull \hbox (badness 10000) in paragraph at lines 112--114
 []\OT1/cmr/m/n/10 Rubin DM, Hunter RE (1987) Bed-form align-ment in di-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--108
+Underfull \hbox (badness 10000) in paragraph at lines 112--114
 \OT1/cmr/m/n/10 rec-tion-ally vary-ing flows. Sci-ence 237:276--278, DOI 
  []
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 141--146
+Underfull \hbox (badness 2103) in paragraph at lines 153--158
 []\OT1/cmr/m/n/10 Walker IJ, Hesp PA, Davidson-Arnott RG, Bauer BO, Namikas SL,
  []
 
 ) [16]
-Underfull \hbox (badness 10000) in paragraph at lines 300--303
+Underfull \hbox (badness 10000) in paragraph at lines 297--300
 
  []
 
 <Figures/Figure1_supp.pdf, id=243, 338.58783pt x 152.36453pt>
 File: Figures/Figure1_supp.pdf Graphic file (type pdf)
 <use Figures/Figure1_supp.pdf>
-Package pdftex.def Info: Figures/Figure1_supp.pdf  used on input line 306.
+Package pdftex.def Info: Figures/Figure1_supp.pdf  used on input line 303.
 (pdftex.def)             Requested size: 338.58699pt x 152.36415pt.
 
-Overfull \hbox (0.58699pt too wide) in paragraph at lines 306--307
+Overfull \hbox (0.58699pt too wide) in paragraph at lines 303--304
  [][] 
  []
 
 <Figures/Figure2_supp.pdf, id=244, 338.58783pt x 287.79967pt>
 File: Figures/Figure2_supp.pdf Graphic file (type pdf)
 <use Figures/Figure2_supp.pdf>
-Package pdftex.def Info: Figures/Figure2_supp.pdf  used on input line 313.
+Package pdftex.def Info: Figures/Figure2_supp.pdf  used on input line 310.
 (pdftex.def)             Requested size: 338.58699pt x 287.79897pt.
 
-Overfull \hbox (0.58699pt too wide) in paragraph at lines 313--314
+Overfull \hbox (0.58699pt too wide) in paragraph at lines 310--311
  [][] 
  []
 
 
-Package natbib Warning: Citation `Sherman2007' on page 17 undefined on input line 329.
+Package natbib Warning: Citation `Sherman2007' on page 17 undefined on input line 326.
 
 <Figures/Figure3_supp.pdf, id=245, 338.58783pt x 372.44664pt>
 File: Figures/Figure3_supp.pdf Graphic file (type pdf)
 <use Figures/Figure3_supp.pdf>
-Package pdftex.def Info: Figures/Figure3_supp.pdf  used on input line 336.
+Package pdftex.def Info: Figures/Figure3_supp.pdf  used on input line 333.
 (pdftex.def)             Requested size: 338.58699pt x 372.44572pt.
 
-Overfull \hbox (0.58699pt too wide) in paragraph at lines 336--337
+Overfull \hbox (0.58699pt too wide) in paragraph at lines 333--334
  [][] 
  []
 
 <Figures/Figure4_supp.pdf, id=246, 338.58783pt x 416.12177pt>
 File: Figures/Figure4_supp.pdf Graphic file (type pdf)
 <use Figures/Figure4_supp.pdf>
-Package pdftex.def Info: Figures/Figure4_supp.pdf  used on input line 344.
+Package pdftex.def Info: Figures/Figure4_supp.pdf  used on input line 341.
 (pdftex.def)             Requested size: 338.58699pt x 416.12074pt.
 
-Overfull \hbox (0.58699pt too wide) in paragraph at lines 344--345
+Overfull \hbox (0.58699pt too wide) in paragraph at lines 341--342
  [][] 
  []
 
 <Figures/Figure5_supp.pdf, id=247, 338.58783pt x 169.29391pt>
 File: Figures/Figure5_supp.pdf Graphic file (type pdf)
 <use Figures/Figure5_supp.pdf>
-Package pdftex.def Info: Figures/Figure5_supp.pdf  used on input line 351.
+Package pdftex.def Info: Figures/Figure5_supp.pdf  used on input line 348.
 (pdftex.def)             Requested size: 338.58699pt x 169.29349pt.
 
-Overfull \hbox (0.58699pt too wide) in paragraph at lines 351--352
+Overfull \hbox (0.58699pt too wide) in paragraph at lines 348--349
  [][] 
  []
 
 <Figures/Figure6_supp.pdf, id=248, 338.58783pt x 304.72906pt>
 File: Figures/Figure6_supp.pdf Graphic file (type pdf)
 <use Figures/Figure6_supp.pdf>
-Package pdftex.def Info: Figures/Figure6_supp.pdf  used on input line 358.
+Package pdftex.def Info: Figures/Figure6_supp.pdf  used on input line 355.
 (pdftex.def)             Requested size: 338.58699pt x 304.72832pt.
 
-Overfull \hbox (0.58699pt too wide) in paragraph at lines 358--359
+Overfull \hbox (0.58699pt too wide) in paragraph at lines 355--356
  [][] 
  []
 
 <Figures/Figure7_supp.pdf, id=249, 338.58783pt x 440.1642pt>
 File: Figures/Figure7_supp.pdf Graphic file (type pdf)
 <use Figures/Figure7_supp.pdf>
-Package pdftex.def Info: Figures/Figure7_supp.pdf  used on input line 365.
+Package pdftex.def Info: Figures/Figure7_supp.pdf  used on input line 362.
 (pdftex.def)             Requested size: 338.58699pt x 440.16312pt.
 
-Overfull \hbox (0.58699pt too wide) in paragraph at lines 365--366
+Overfull \hbox (0.58699pt too wide) in paragraph at lines 362--363
  [][] 
  []
 
 <Figures/Figure8_supp.pdf, id=250, 338.58783pt x 179.45155pt>
 File: Figures/Figure8_supp.pdf Graphic file (type pdf)
 <use Figures/Figure8_supp.pdf>
-Package pdftex.def Info: Figures/Figure8_supp.pdf  used on input line 372.
+Package pdftex.def Info: Figures/Figure8_supp.pdf  used on input line 369.
 (pdftex.def)             Requested size: 338.58699pt x 179.45111pt.
 
-Overfull \hbox (0.58699pt too wide) in paragraph at lines 372--373
+Overfull \hbox (0.58699pt too wide) in paragraph at lines 369--370
  [][] 
  []
 
@@ -507,50 +521,50 @@ Overfull \hbox (0.58699pt too wide) in paragraph at lines 372--373
 <Figures/Figure9_supp.pdf, id=350, 338.58783pt x 338.58783pt>
 File: Figures/Figure9_supp.pdf Graphic file (type pdf)
 <use Figures/Figure9_supp.pdf>
-Package pdftex.def Info: Figures/Figure9_supp.pdf  used on input line 399.
+Package pdftex.def Info: Figures/Figure9_supp.pdf  used on input line 396.
 (pdftex.def)             Requested size: 338.58699pt x 338.58699pt.
 
-Overfull \hbox (0.58699pt too wide) in paragraph at lines 399--400
+Overfull \hbox (0.58699pt too wide) in paragraph at lines 396--397
  [][] 
  []
 
 <Figures/Figure10_supp.pdf, id=351, 338.58783pt x 304.72906pt>
 File: Figures/Figure10_supp.pdf Graphic file (type pdf)
 <use Figures/Figure10_supp.pdf>
-Package pdftex.def Info: Figures/Figure10_supp.pdf  used on input line 406.
+Package pdftex.def Info: Figures/Figure10_supp.pdf  used on input line 403.
 (pdftex.def)             Requested size: 338.58699pt x 304.72832pt.
 
-Overfull \hbox (0.58699pt too wide) in paragraph at lines 406--407
+Overfull \hbox (0.58699pt too wide) in paragraph at lines 403--404
  [][] 
  []
 
 <Figures/Figure11_supp.pdf, id=352, 338.58783pt x 270.87027pt>
 File: Figures/Figure11_supp.pdf Graphic file (type pdf)
 <use Figures/Figure11_supp.pdf>
-Package pdftex.def Info: Figures/Figure11_supp.pdf  used on input line 413.
+Package pdftex.def Info: Figures/Figure11_supp.pdf  used on input line 410.
 (pdftex.def)             Requested size: 338.58699pt x 270.8696pt.
 
-Overfull \hbox (0.58699pt too wide) in paragraph at lines 413--414
+Overfull \hbox (0.58699pt too wide) in paragraph at lines 410--411
  [][] 
  []
 
 <Figures/Figure12_supp.pdf, id=353, 338.58783pt x 332.89742pt>
 File: Figures/Figure12_supp.pdf Graphic file (type pdf)
 <use Figures/Figure12_supp.pdf>
-Package pdftex.def Info: Figures/Figure12_supp.pdf  used on input line 420.
+Package pdftex.def Info: Figures/Figure12_supp.pdf  used on input line 417.
 (pdftex.def)             Requested size: 338.58699pt x 332.8966pt.
 
-Overfull \hbox (0.58699pt too wide) in paragraph at lines 420--421
+Overfull \hbox (0.58699pt too wide) in paragraph at lines 417--418
  [][] 
  []
 
 <Figures/Figure13_supp.pdf, id=354, 338.58783pt x 410.57349pt>
 File: Figures/Figure13_supp.pdf Graphic file (type pdf)
 <use Figures/Figure13_supp.pdf>
-Package pdftex.def Info: Figures/Figure13_supp.pdf  used on input line 427.
+Package pdftex.def Info: Figures/Figure13_supp.pdf  used on input line 424.
 (pdftex.def)             Requested size: 338.58699pt x 410.57248pt.
 
-Overfull \hbox (0.58699pt too wide) in paragraph at lines 427--428
+Overfull \hbox (0.58699pt too wide) in paragraph at lines 424--425
  [][] 
  []
 
@@ -563,19 +577,19 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 4278 strings out of 481239
- 61748 string characters out of 5920376
- 317145 words of memory out of 5000000
- 19469 multiletter control sequences out of 15000+600000
- 539741 words of font info for 49 fonts, out of 8000000 for 9000
+ 4791 strings out of 481239
+ 67251 string characters out of 5920376
+ 317861 words of memory out of 5000000
+ 19964 multiletter control sequences out of 15000+600000
+ 541467 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,11n,37p,1324b,329s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,11n,37p,1324b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (29 pages, 19065293 bytes).
+ic/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on main.pdf (29 pages, 19054644 bytes).
 PDF statistics:
- 674 PDF objects out of 1000 (max. 8388607)
- 544 compressed objects within 6 object streams
+ 672 PDF objects out of 1000 (max. 8388607)
+ 543 compressed objects within 6 object streams
  0 named destinations out of 1000 (max. 500000)
  96 words of extra memory for PDF output out of 10000 (max. 10000000)
 

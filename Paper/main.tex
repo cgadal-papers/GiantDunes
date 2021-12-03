@@ -21,7 +21,7 @@
 \documentclass[smallextended]{svjour3}
 \smartqed
 \usepackage{appendix}
-\usepackage{amsmath}
+\usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{lineno}
 \usepackage{array}
@@ -85,7 +85,7 @@
 
 Whenever a flow encounters an obstacle, various types of interactions can arise depending the different time and lengths scales involved. In the case of atmospheric flows, this depends mainly on the part of the vertical structure of the atmosphere, schematically composed of a turbulent boundary layer topped by a turbulence-free part, with which the obstacle interacts \citep{Stull1988}.
 %
-At the largest scale, the feedback of mountains on the stratified flow of the free atmosphere results in wave generation as well as significant wind disturbances, such as foehn winds in the lee side \citep{refs}. Inside the boundary layer, the interaction between a turbulent flow and hilly surfaces is for example key to the understanding ocean surface wind-driven waves, or eolian beforms in desert \citep{Belcher1998, Sullivan2010, Courrech2015}.
+At the largest scale, the feedback of mountains on the stratified flow of the free atmosphere results in wave generation as well as significant wind disturbances, such as foehn winds in the lee side \citep{refs}. Inside the boundary layer, the interaction between a turbulent flow and hilly surfaces is for example key to the understanding ocean surface wind-driven waves, or eolian bedforms in desert \citep{Belcher1998, Sullivan2010, Courrech2015}.
 
 Indeed, eolian sand dunes typically emerge from the feedback of the topography on the turbulent flow, which speeds up close to the dune crest \citep{Rubin1987, Charru2013, Courrech2014}. Later on, when the dune reaches an intermediate size, it may also induce significant wind deflections. This can impact the sediment pathways of coastal systems \citep{Hesp2015}, or affect the collective behavior of dune populations with long-range interactions due to flow disturbances induced by each individual \citep{Smith2017, Bacik2020}. As the dunes increase in size by collisions and coarsening, they sometimes reach a giant size, comparable to the boundary layer depth, thus inducing interactions not only with the turbulent flow of the ABL, but also with the free atmosphere~\citep{andreotti2009}. However, the wind disturbances induced by these giant dunes have never been quantified.
 
@@ -133,6 +133,7 @@ The Adamax station is located near the Adamax salt pan, in a highly vegetated ar
   Indeed, the analysis of the wind speed and direction time series shows that the agreement between the local and regional datasets is always verified when no mid-scale topography are present (Fig.~\ref{Fig2}a--b) and Fig.~\ref{Fig5_supp}). In contrast, for the stations within the giant dune field, we observe that this agreement is limited to the Septembre--January time periods (Fig.~\ref{Fig2}c--d).
 
   \subsection{Influence of the giant dunes on local wind regimes}
+  \label{section_data_feedback}
 
   When giant dunes are present, in the February--August period, the local and regional winds match only during the morning, i.e when the southerly/southwesterly sea breeze dominates (see Fig.~\ref{Fig2}(e--f), Fig.~\ref{Fig3} and Fig.~\ref{Fig6_supp}). In the late afternoon and during the night, when the northwesterly `berg' and katabatic winds blow, the two datasets differ. In this case, the angular wind distribution of the local measurements exhibits two additional modes separated of $\simeq 180^\circ$, each corresponding to the giant dune alignement (purple frame in Fig.~\ref{Fig3} and Fig.~\ref{Fig6_supp}, as well as Fig.~\ref{Fig7_supp}). This deviation is also associated with a global attenuation of the wind strength (Fig.~\ref{Fig8_supp}). Remarkably, all these figures show that this process occurs for low wind velocities, typically for $u_{*} < 0.1~\textrm{m}~\textrm{s}^{-1}$. For shear velocities larger than $0.25~\textrm{m}~\textrm{s}^{-1}$, this wind reorientation does not occur. Finally, for intermediate shear velocities, both reorientation along the dune crest and no reorientation are observed (Fig.~\ref{Fig7_supp}).
 
@@ -147,12 +148,11 @@ The Adamax station is located near the Adamax salt pan, in a highly vegetated ar
 
   \section{Influence of the circadian cycle of the atmospheric boundary layer}
 
-  In the case of linear ridges, dune-induced flow disturbances have mainly been related to the incident wind direction~\citep{Walker2009, Hesp2015}. In our case, it is unlikely to be the dominant parameter, as the most deflected wind for both stations is the most perpendicular, where it should be winds with a $30^{\circ}--70^{\circ}$ incident direction~\citep{Hesp2015}.
-  An important observation is the difference in behavior between low and high wind velocities, which suggests a change in the hydrodynamical regime.
+  In the case of linear ridges, dune-induced flow disturbances have mainly been related to the incident wind direction~\citep{Walker2009, Hesp2015}. In our case, it is unlikely to be the dominant parameter, as the most deflected wind for both stations is the most perpendicular, where it should be winds with incident directions between $30^{\circ}$ and $70^{\circ}$~\citep{Hesp2015}. An important observation is the difference in behavior between low and high wind velocities, which suggests a change in the hydrodynamical regime.
 
-  Previous studies have linked meteorological flow around and over topographical obstacles to the vertical structure of the atmosphere \citep{Stull1988}. More particularly, dunes evolves in its lower part, the turbulent atmospheric boundary layer (ABL), typically characterized by a logarithmic wind profile and a vertically constant potential temperature $\theta$. Above, the free atmosphere (FA) is a stably stratified zone in which turbulence is negligible, and where the flow is usually considered as incompressible and inviscid. In the middle, a transitional layer, also known as entrainment zone, is characterized by a sharp increase of the potential temperature, which traps turbulence resulting from the surface friction below it.
+  Previous studies have linked atmospheric flow around and over topographical obstacles to the vertical structure of the atmosphere \citep{Stull1988}. More particularly, dunes evolves in its lower part, the turbulent atmospheric boundary layer (ABL), typically characterized by a logarithmic wind profile and a vertically constant potential temperature. Above, the free atmosphere (FA) is a stably stratified zone in which turbulence is negligible, and where the flow is usually considered as incompressible and inviscid. In the middle, a transitional layer, also known as entrainment zone, is characterized by a sharp increase of the potential temperature, which traps the turbulence resulting from the surface friction below it.
 
-  In the following, we sum-up the dominant numbers leading to different hydrodynamical interactions with the obstacle, and interpret the data with respect to the corresponding physical mechanisms.
+  In the following, we sum-up the dominant numbers leading to different hydrodynamical interactions with topographical obstacles, and interpret the data with respect to the corresponding physical mechanisms.
 
   \begin{figure}
     \centering
@@ -167,21 +167,18 @@ The Adamax station is located near the Adamax salt pan, in a highly vegetated ar
   \subsection{Relevant non-dimensional parameters and physical modeling}
   \label{theoretical_framework}
 
-  As a result, the giant dunes evolve in a turbulent flow capped by a stratified atmosphere, with a transitional layer acting as a free surface in between. When the dune are small enough, typically in the case of dune emergence or early coarsening (Fig.~\ref{Fig4}b), they do no interact with the top of the ABL \citep{Fourriere2010}. However, the giant dunes present in the Deep Sea and South Namib stations have wavelengths comparable or larger than typical ABL depths, inducing their interaction with the capping layer and the free atmosphere above \citep{andreotti2009}. However, as sketched in Fig.~\ref{Fig4}c--d, the nature of this interaction depends on two non-dimensional number, both called Froude numbers in the literature~\citep{Vosper2004, Sheridan2006, Hunt2006, Jiang2014}.
+  Flow deflection over ridges can be simplistically understood from a balance between inertia and pressure gradients~\citep{Hesp2015}. As the flow approaches the ridge crest, the compression of the streamlines results in larger flow velocities, and thus lower pressures~\citep{Rubin1987}. An incident flow oblique to the ridge is then deflected towards lower pressure zones, i.e towards the crest. Turbulent dissipation at the bottom and non-linearities tends to increase this effect downstream, resulting in along the crest wind deflection in the lee side~\citep{Hesp2015, Gadal2019}.
 
-  The ability of the capping layer to deform under the presence of an underlying topography is controlled by the \emph{surface Froude number}, typically used in the context of bedforms in rivers \citep{Fourriere2010, Andreotti2012}:
+  Another way to increase the flow deflection is its confinement below a capping surface, that result in further streamline compression. This happens when the flow disturbance induced by the obstacle reaches the surface. As obstacles typically disturb flow over a characteristic height similar to their width, this is well captured by the parameter $k H$, where $k = 2\pi/\lambda$ is the wavenumber and $H$ the ABL depth. Here, the giant dunes have kilometric wavelengths, such that $0.02 \lesssim k H \lesssim 5$, and they interact most of the time with the capping layer and the stratified free atmosphere above \citep{andreotti2009}.
+
+  Note that the ability of the capping layer and stratification to accommodate a perturbation induced by the topography directly impacts the strength of this confinement effect (Fig.~\ref{Fig4}). This is typically quantified using surface and internal Froude numbers
+  \citep{Vosper2004, Stull2006, Sheridan2006, Hunt2006, Jiang2014}:
   \begin{equation}
-    \mathcal{F}r_{\textup{S}} = \displaystyle\frac{U}{\sqrt{\displaystyle\frac{\Delta\rho}{\rho}gH}},
+        \mathcal{F}r_{\textup{S}} = \displaystyle\frac{U}{\sqrt{\displaystyle\frac{\Delta\rho}{\rho}gH}}, \, \mathcal{F}r_{\textup{I}} = \displaystyle\frac{k U}{N},
   \end{equation}
-  where $U$ is the wind velocity at the top of the ABL, $H$ its depth, $\rho$ its average density and $\Delta\rho$ the density jump between the ABL and the FA.
-  %
-  Likewise, the FA stratification ability to deform is controlled by the \emph{internal Froude number}, typically used in the context of flow disturbances induced by mountains \citep{Stull1988}:
-  \begin{equation}
-    \mathcal{F}r_{\textup{I}} = \displaystyle\frac{U}{H N},
-  \end{equation}
-  where $N$ is the Brunt-Väisälä frequency, characteristic of a stratified fluid.
-  %
-  When the flow inertia dominates over its weight ($\mathcal{F}r_{\textup{S}} \gg 1$) and the weight of the stratification ($\mathcal{F}r_{\textup{I}} \gg 1$), both the capping layer and the stratification deform and adapt to the underlying topography (Fig.~\ref{Fig4}d), resulting in an unconfined flow \citep{refs}. However, an opposite force balance induces a rigid capping layer and/or stratification (Fig.~\ref{Fig4}c), resulting in confined flows. In this case, the confined flow has trouble going smoothly over the obstacle, and are then typically associated with large deviations and modulation of the wind velocity, as qualitatively illustrated in the case of the Deep Sea station by Fig.~\ref{Fig4}e \citep{refs}.
+  where $U$ is the wind velocity at the top of the ABL, $\rho$ its average density, $\Delta\rho$ the density jump between the ABL and the FA and $N$ is the Brunt-Väisälä frequency, characteristic of the stratification.
+
+  The smallest wind disturbances are expected during the day, when the ABL depth is comparable to the dune wavelength ($k H \gtrsim 1$) and for large wind velocities, which correspond to a weak confinement situation (Fig.~\ref{Fig4b}). On the contrary, large wind disturbances are expected to occur during the night, when the confinement is mainly induced by shallow ABL (Fig.~\ref{Fig4d--f}). Note that this strong confinement can be somewhat reduced in the case of strong winds (corresponding to large Froude numbers, see Fig.~\ref{Fig4f}), explaining the threshold in velocity observed in the data (see section~\ref{section_data_feedback}).
 
   \subsection{Flow regime diagrams}
 

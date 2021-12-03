@@ -80,7 +80,7 @@ Hmax_fit = 10000  # [m]
 zmax = 0.55*Hmax_fit/1e3
 
 # ## labels
-titles = [r'Day - large $u_{*}$', 'Day - small $u_{*}$', 'Night - large $u_{*}$', 'Night - small $u_{*}$']
+titles = [r'Day - small $u_{*}$', 'Day - large $u_{*}$', 'Night - small $u_{*}$', 'Night - large $u_{*}$']
 labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}', r'\textbf{e}', r'\textbf{f}', r'\textbf{g}']
 xlabels = [r'$k H \gtrsim 1$' '\n' r'$\mathcal{F}r_{\textup{S}} \, \textup{and/or} \, \mathcal{F}r_{\textup{I}} < 1$',
            r'$k H \gtrsim 1$' '\n' r'$\mathcal{F}r_{\textup{S}} \, \textup{and/or} \, \mathcal{F}r_{\textup{I}} > 1$',
