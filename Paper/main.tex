@@ -169,7 +169,7 @@ The Adamax station is located near the Adamax salt pan, in a highly vegetated ar
 
   Flow deflection over ridges can be simplistically understood from a balance between inertia and pressure gradients~\citep{Hesp2015}. As the flow approaches the ridge crest, the compression of the streamlines results in larger flow velocities, and thus lower pressures~\citep{Rubin1987}. An incident flow oblique to the ridge is then deflected towards lower pressure zones, i.e towards the crest. Turbulent dissipation at the bottom and non-linearities tends to increase this effect downstream, resulting in along the crest wind deflection in the lee side~\citep{Hesp2015, Gadal2019}.
 
-  Another way to increase the flow deflection is its confinement below a capping surface, that result in further streamline compression. This happens when the flow disturbance induced by the obstacle reaches the surface. As obstacles typically disturb flow over a characteristic height similar to their width, this is well captured by the parameter $k H$, where $k = 2\pi/\lambda$ is the wavenumber and $H$ the ABL depth. Here, the giant dunes have kilometric wavelengths, such that $0.02 \lesssim k H \lesssim 5$, and they interact most of the time with the capping layer and the stratified free atmosphere above \citep{andreotti2009}.
+  Another way to increase the flow deflection is its confinement below a capping surface, that results in further streamline compression. This happens when the flow disturbance induced by the obstacle reaches the surface. As obstacles typically disturb flow over a characteristic height similar to their width, the potential of interaction between the dunes and the overlying atmospheric structure is well captured by the parameter $k H$, where $k = 2\pi/\lambda$ is the wavenumber and $H$ the ABL depth. Here, the giant dunes have kilometric wavelengths, such that $0.02 \lesssim k H \lesssim 5$, and they interact most of the time with the capping layer and the stratified free atmosphere above \citep{andreotti2009}.
 
   Note that the ability of the capping layer and stratification to accommodate a perturbation induced by the topography directly impacts the strength of this confinement effect (Fig.~\ref{Fig4}). This is typically quantified using surface and internal Froude numbers
   \citep{Vosper2004, Stull2006, Sheridan2006, Hunt2006, Jiang2014}:
@@ -178,29 +178,28 @@ The Adamax station is located near the Adamax salt pan, in a highly vegetated ar
   \end{equation}
   where $U$ is the wind velocity at the top of the ABL, $\rho$ its average density, $\Delta\rho$ the density jump between the ABL and the FA and $N$ is the Brunt-Väisälä frequency, characteristic of the stratification.
 
-  The smallest wind disturbances are expected during the day, when the ABL depth is comparable to the dune wavelength ($k H \gtrsim 1$) and for large wind velocities, which correspond to a weak confinement situation (Fig.~\ref{Fig4b}). On the contrary, large wind disturbances are expected to occur during the night, when the confinement is mainly induced by shallow ABL (Fig.~\ref{Fig4d--f}). Note that this strong confinement can be somewhat reduced in the case of strong winds (corresponding to large Froude numbers, see Fig.~\ref{Fig4f}), explaining the threshold in velocity observed in the data (see section~\ref{section_data_feedback}).
+  The smallest wind disturbances are expected during the day, when the ABL depth is comparable to the dune wavelength ($k H \gtrsim 1$) and for large wind velocities, which correspond to a weak confinement situation (Fig.~\ref{Fig4}b). On the contrary, large wind disturbances are expected to occur during the night, when the confinement is mainly induced by shallow ABL (Fig.~\ref{Fig4}d--f). Note that this strong confinement can be somewhat reduced in the case of strong winds (corresponding to large Froude numbers, see Fig.~\ref{Fig4}f), explaining the threshold in velocity observed in the data (see section~\ref{section_data_feedback}).
 
   \subsection{Flow regime diagrams}
 
-  In the spirit of \citet{Sheridan2006}, we aim to compute flow regime diagrams in the space defined by the three relevant non-dimensional numbers presented above, $\left(k H,\, \mathcal{F}r_{\textup{S}}, \, \mathcal{F}r_{\textup{I}}\right)$. They are calculated from the time series of the geopotential, temperature and specific humidity vertical profiles available in the ERA5 climate reanalysis (see SI~\ref{?}). The relative velocity modulation is computed as
+  To highlight these different regimes from our data, we compute wind disturbance diagrams in the space defined by the three relevant non-dimensional numbers presented above, $\left(k H,\, \mathcal{F}r_{\textup{S}}, \, \mathcal{F}r_{\textup{I}}\right)$. Those are calculated from the time series of the geopotential, temperature and specific humidity vertical profiles available in the ERA5 climate reanalysis (see SI section 2).
   %
+  Flow deviation is computed as the minimal angle between the wind orientations from the two datasets:
   \begin{equation}
-    \delta_{\textup{u}} = \frac{u_{*}^{\textup{ERA}} -  u_{*}^{\textup{station}}}{u_{*}^{\textup{ERA}}},
+    \delta_{\theta} = \left\vert \textup{min}\left(\left[\theta_{\textup{ERA}} - \theta_{\textup{station}}\right] \, \textup{mod.} \, 360, \left[\theta_{\textup{station}} - \theta_{\textup{ERA}}\right] \, \textup{mod.} \, 360\right) \right\vert.
   \end{equation}
   %
-  and the flow deviation as the minimal angle between the wind orientation in the two datasets:
+  The relative velocity modulation is computed as
   %
   \begin{equation}
-    \delta_{\theta} = \left\vert \textup{min}\left(\left[\theta_{\textup{ERA}} - \theta_{\textup{station}}\right] \, \textup{mod.} \, 360, \left[\theta_{\textup{station}} - \theta_{\textup{ERA}}\right] \, \textup{mod.} \, 360\right) \right\vert,
+    \delta_{\textup{u}} = \frac{u_{*}^{\textup{ERA}} -  u_{*}^{\textup{station}}}{u_{*}^{\textup{ERA}}}.
   \end{equation}
+
+  As both Froude numbers have qualitatively the same impact on the flow confinement, we first leave aside the internal Froude number, and focus on the space $(k H,\, \mathcal{F}r_{\textup{S}})$. When representing the two variables $\delta_{\theta}$ and $\delta_{\textup{u}}$ in this space, different regime emerges (Fig.~\ref{Fig5}). Small wind disturbances ($\delta_{\theta} \to 0$, $\delta_{\textup{u}} \to 0$) are located in the top-right part of the diagrams, corresponding to a regime mixing low-interaction and low-confinement ($k H$ and $\mathcal{F}r_{\textup{S}}$ large enough, Fig.~\ref{Fig4}c).
   %
+  Lower values of $k H$ (stronger interaction) or Froude numbers (stronger confinement) then both leads to an increase in wind disturbances, both in terms of orientation and velocity.   Below a threshold value of $k H \simeq 0.3$, wind disturbance occurs independently of the Froude numbers value. Furthermore, this also seems to control a transition between from damped to amplified wind velocities within the interdune (Fig.~\ref{Fig5}b), for which we do not have an explanation. Note that the same interpretation can be done with the diagrams including the internal Froude number $\mathcal{F}r_{\textup{I}}$, as shown by Fig.~\ref{Fig12_supp}.
 
-  When these two variables are represented in the marginal spaces $(k H,\, \mathcal{F}r_{\textup{S}})$ and $(k H,\, \mathcal{F}r_{\textup{I}})$, different regime emerges (Fig.~\ref{Fig5}). The small wind disturbances ($\delta_{\theta} \to 0$, $\delta_{\textup{u}} \to 0$) are located in the top-right part of the diagrams, corresponding to a regime mixing low-interactions ($k H$ large enough, Fig.~\ref{Fig4}b) and low-confinement ($\mathcal{F}r_{\textup{S}}, \, \mathcal{F}r_{\textup{I}}$ large enough, Fig.~\ref{Fig4}c).
-
-  Lower values of $k H$ (stronger interaction) or Froude numbers (stronger confinement) then both leads to an increase in wind disturbances, both in terms of orientation and velocity. Interestingly, the limit of no-interactions between the topography and the boundary layer structure ($k H \gg 1$), in which the properties of the capping layer and the stratification become irrelevant (Fig.~\ref{Fig4}b--\ref{Fig4}c), is never reached here, in the case of giant dunes.
-  %
-  Below a threshold value of $k H \simeq 0.3$, wind disturbance occurs independently of the Froude numbers value. However, the latter seem to control a transition between from damped to amplified wind velocities within the interdune (Fig.~\ref{Fig5}c--\ref{Fig5}d), for which we do not have an explanation.
-
+  Interestingly, the limit of no-interactions between the topography and the boundary layer structure ($k H \gg 1$), in which the properties of the capping layer and the stratification become irrelevant (Fig.~\ref{Fig4}b--\ref{Fig4}c), is never reached here, in the case of giant dunes.
 
   \begin{figure}
     \centering
@@ -320,8 +319,6 @@ For each station, the hydrodynamic roughness is calibrated by finding the one th
   \label{metric_roughness}
       \delta = \frac{\sqrt{\langle\| \boldsymbol{u}_{*, \textrm{era}} - \boldsymbol{u}_{*, \textrm{station}} \|^{2}\rangle_{t}}}{\sqrt{ \langle \| \boldsymbol{u}_{*, \textrm{era}} \| \rangle_{t}\langle \| \boldsymbol{u}_{*, \textrm{station}} \| \rangle_{t}}}
 \end{equation}
-
-
 
 This $\delta$--parameter is computed for hydrodynamic roughness values ranging from $10^{-5}$~m to $10^{-2}$~m for the different stations. A shown by figure~\ref{Fig3_supp}, the minimum of $\delta$ in the space ($z_{0,\, \textup{Era}}$, $z_{0,\, \textup{in situ}}$) forms a line. We thus take the roughness of the Era5Land dataset as the typical value when sediment transport occurs, $10^{-3}$~m, corresponding to the thickness of the transport layer \citep{Sherman2007}. It leads for the Adamax, Deep Sea, Huab and South Namib stations values of $2.7~\textup{mm}$, $0.76~\textup{mm}$, $0.12~\textup{mm}$ and $0.48~\textup{mm}$, respectively.
 
