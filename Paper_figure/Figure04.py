@@ -100,7 +100,7 @@ for ax in axrr[2, :]:
 # #### Plot vertical profiles
 for i, (t, ax) in enumerate(zip(time_steps[::2], axrr[:2, 0].flatten())):
     ax.set_title(r' ')
-    ax.text(0.04, 0.91, labels[i*3], ha='left', va='center', transform=ax.transAxes, bbox=props)
+    ax.text(0.04, 0.91, labels[i], ha='left', va='center', transform=ax.transAxes, bbox=props)
     ax.set_ylim(0, top=zmax)
     ax.set_xlim(305, 325)
     ax.set_ylabel('Height [km]')
@@ -132,7 +132,7 @@ for i, (t, ax) in enumerate(zip(time_steps, axrr[:2, 1:].flatten())):
     #
     ax.set_xlabel(xlabels[i])
     ax.set_title(titles[i])
-    ax.text(0.0176, 0.91, labels[i + 1 + i // 2], ha='left', va='center', transform=ax.transAxes, bbox=props)
+    ax.text(0.0176, 0.91, labels[i + 2], ha='left', va='center', transform=ax.transAxes, bbox=props)
 
 axrr[0, 1].annotate('', xy=[lambda_dune, 3*hdune], xytext=[2*lambda_dune, 3*hdune], transform=axrr[0, 1].transData, arrowprops=dict(arrowstyle="<->", color='k', shrinkA=0, shrinkB=0))
 axrr[0, 1].text(1.5*lambda_dune + 0.03, 3*hdune + 0.4, r'$\lambda=2\pi/k$', ha='center', va='center')

@@ -103,7 +103,7 @@ The Adamax station is located near the Adamax salt pan, in a highly vegetated ar
   \begin{figure}
     \centering
     \includegraphics[scale=1]{Figures/Figure1.pdf}
-    \caption{Wind data used in this study \textbf{a}: Location of the studied sites. \textbf{b--e}: Satellite images of the studied sites (Google-Earth, Maxar Technologies, CNES/Airbus). In each subplot, the left and right wind roses represent the data from the ERA5Land climate reanalysis and the in situ stations, respectively. Note that the bars show the direction towards which the wind blows. The red dots show the location of the in situ stations.}
+    \caption{Wind data used in this study \textbf{a}: Location of the studied sites. \textbf{b--e}: Satellite images of the studied sites (Google-Earth, Maxar Technologies, CNES/Airbus). In each subplot, the left and right wind roses represent the data from the ERA5Land climate reanalysis and the local wind stations, respectively. Note that the bars show the direction towards which the wind blows. The red dots show the location of local wind stations.}
     \label{Fig1}
   \end{figure}
 
@@ -122,7 +122,7 @@ The Adamax station is located near the Adamax salt pan, in a highly vegetated ar
   \begin{figure}
     \centering
     \includegraphics[scale=1]{Figures/Figure2.pdf}
-    \caption{Temporal comparison between the wind data coming from the Era5Land climate reanalysis (orange lines) and from the in situ measurements (blue lines). \textbf{a--b}: Huab station. \textbf{c--d}: Deep Sea station in winter. \textbf{e--f}: Deep Sea station in summer.}
+    \caption{Temporal comparison between the wind data coming from the Era5Land climate reanalysis (orange lines) and from the local measurements (blue lines). \textbf{a--b}: Huab station. \textbf{c--d}: Deep Sea station in winter. \textbf{e--f}: Deep Sea station in summer.}
     \label{Fig2}
   \end{figure}
 
@@ -141,7 +141,7 @@ The Adamax station is located near the Adamax salt pan, in a highly vegetated ar
   \begin{figure}
     \centering
     \includegraphics[scale=1]{Figures/Figure3.pdf}
-    \caption{Distributions of wind direction at the Deep Sea Station for the Era5Land climate reanalysis (orange) and the in situ measurements (blue). In each subplot, both distributions are plotted from the same time steps, selected with constraints on the wind direction (columns) and/or wind velocity (rows) in the Era5Land dataset. The vertical gray dashed lines indicate the dune orientation, and the top right numbers the percentage of the total number of time steps selected in each subplot. The purple frame highlights the regime (small wind velocities, nocturnal summer wind) during which the wind data from both datasets differs. A similar figure can be obtained for the Deep Sea station (see Fig.~\ref{Fig6_supp}).}
+    \caption{Distributions of wind direction at the Deep Sea Station for the Era5Land climate reanalysis (orange) and the local measurements (blue). In each subplot, both distributions are plotted from the same time steps, selected with constraints on the wind direction (columns) and/or wind velocity (rows) of the Era5Land dataset. The gray vertical dashed lines indicate the dune orientation, and the top right numbers the percentage of the total number of time steps selected in each subplot. The purple frame highlights the regime (small wind velocities, nocturnal summer wind) in which the data from both datasets differs. A similar figure can be obtained for the Deep Sea station (see Fig.~\ref{Fig6_supp}).}
     \label{Fig3}
   \end{figure}
 
@@ -157,7 +157,7 @@ The Adamax station is located near the Adamax salt pan, in a highly vegetated ar
   \begin{figure}
     \centering
     \includegraphics[scale=1]{Figures/Figure4.pdf}
-    \caption{\textbf{a}: Vertical profiles of the virtual potential temperature at 2 different time steps (blue - 29/11/2012 - 1100 UTC, red - 21/03/2017 - 1200 UTC) at the Deep Sea station. Dots: data from the ERA5 reanalysis. Transparent dashed lines: boundary layer height given by the ERA5 reanalysis, calculated from the bulk Richardson number \citep{seidel2012}. Plain lines: vertical (boundary layer) and linear (free atmosphere) fits to estimate the stratification properties. \textbf{b--d}: Sketches representing the interaction between the giant dunes and the atmospheric flow for different meteorological conditions. \textbf{e}: Streamlines qualitatively representing the effect of flow confinement, in the case of the Deep Sea station. The red and straight blue lines are calculated from the unconfined case, representing the situations \textbf{b--c}. The sinuous blue line represents the confined case of \textbf{d}. For details on their derivation, see Appendix.}
+    \caption{\textbf{a--b}: Vertical profiles of the virtual potential temperature at 2 different time steps (blue - 29/11/2012 - 1100 UTC, red - 21/03/2017 - 1200 UTC) at the Deep Sea station. Dots: data from the ERA5 reanalysis. Transparent dashed lines: boundary layer height given by the ERA5 reanalysis, calculated from the bulk Richardson number \citep{seidel2012}. Plain lines: vertical (boundary layer) and linear (free atmosphere) fits to estimate the stratification properties. \textbf{c--f}: Sketches representing the interaction between the giant dunes and the atmospheric flow for different meteorological conditions. \textbf{g}: Streamlines qualitatively representing the effect of flow confinement, in the case of the Deep Sea station. The red lines are calculated from the unconfined case similar to \textbf{d}. The sinuous blue line represents a confined case similar to \textbf{f}. For details on the streamline derivation, see Appendix~\ref{turbulent_wind_model}.}
     %
     %
     % calculated from equation~\eqref{Tau}. Note that topography and wind geometry represent the case of the Deep Sea station. For the red and straight blue lines, $(\mathcal{A}_{0}, \mathcal{B}_{0}) = (3.8, 1.3)$, calculated from the unbounded case of \citep{Fourriere2010}, and representing the situations \textbf{b--c}. For the sinuous blue line, $(\mathcal{A}_{0}, \mathcal{B}_{0}) = (8, 2)$, representing the confined case of \textbf{d}.}
@@ -178,7 +178,7 @@ The Adamax station is located near the Adamax salt pan, in a highly vegetated ar
   \end{equation}
   where $U$ is the wind velocity at the top of the ABL, $\rho$ its average density, $\Delta\rho$ the density jump between the ABL and the FA and $N$ is the Brunt-Väisälä frequency, characteristic of the stratification.
 
-  The smallest wind disturbances are expected during the day, when the ABL depth is comparable to the dune wavelength ($k H \gtrsim 1$) and for large wind velocities, which correspond to a weak confinement situation (Fig.~\ref{Fig4}b). On the contrary, large wind disturbances are expected to occur during the night, when the confinement is mainly induced by shallow ABL (Fig.~\ref{Fig4}d--f). Note that this strong confinement can be somewhat reduced in the case of strong winds (corresponding to large Froude numbers, see Fig.~\ref{Fig4}f), explaining the threshold in velocity observed in the data (see section~\ref{section_data_feedback}).
+  The smallest wind disturbances are expected during the day, when the ABL depth is comparable to the dune wavelength ($k H \gtrsim 1$) and for large wind velocities, which correspond to a weak confinement situation (Fig.~\ref{Fig4}d). On the contrary, large wind disturbances are expected to occur during the night, when the confinement is mainly induced by shallow ABL (Fig.~\ref{Fig4}e--f). Note that this strong confinement can be somewhat reduced in the case of strong winds (corresponding to large Froude numbers, see Fig.~\ref{Fig4}f), explaining the threshold in velocity observed in the data (see section~\ref{section_data_feedback}).
 
   \subsection{Flow regime diagrams}
 
@@ -195,11 +195,11 @@ The Adamax station is located near the Adamax salt pan, in a highly vegetated ar
     \delta_{\textup{u}} = \frac{u_{*}^{\textup{ERA}} -  u_{*}^{\textup{station}}}{u_{*}^{\textup{ERA}}}.
   \end{equation}
 
-  As both Froude numbers have qualitatively the same impact on the flow confinement, we first leave aside the internal Froude number, and focus on the space $(k H,\, \mathcal{F}r_{\textup{S}})$. When representing the two variables $\delta_{\theta}$ and $\delta_{\textup{u}}$ in this space, different regime emerges (Fig.~\ref{Fig5}). Small wind disturbances ($\delta_{\theta} \to 0$, $\delta_{\textup{u}} \to 0$) are located in the top-right part of the diagrams, corresponding to a regime mixing low-interaction and low-confinement ($k H$ and $\mathcal{F}r_{\textup{S}}$ large enough, Fig.~\ref{Fig4}c).
+  As both Froude numbers have qualitatively the same impact on the flow confinement, we first leave aside the internal Froude number, and focus on the space $(k H,\, \mathcal{F}r_{\textup{S}})$. When representing the two variables $\delta_{\theta}$ and $\delta_{\textup{u}}$ in this space, different regime emerges (Fig.~\ref{Fig5}). Small wind disturbances ($\delta_{\theta} \to 0$, $\delta_{\textup{u}} \to 0$) are located in the top-right part of the diagrams, corresponding to a regime mixing low-interaction and low-confinement ($k H$ and $\mathcal{F}r_{\textup{S}}$ large enough, Fig.~\ref{Fig4}d).
   %
   Lower values of $k H$ (stronger interaction) or Froude numbers (stronger confinement) then both leads to an increase in wind disturbances, both in terms of orientation and velocity.   Below a threshold value of $k H \simeq 0.3$, wind disturbance occurs independently of the Froude numbers value. Furthermore, this also seems to control a transition between from damped to amplified wind velocities within the interdune (Fig.~\ref{Fig5}b), for which we do not have an explanation. Note that the same interpretation can be done with the diagrams including the internal Froude number $\mathcal{F}r_{\textup{I}}$, as shown by Fig.~\ref{Fig12_supp}.
 
-  Interestingly, the limit of no-interactions between the topography and the boundary layer structure ($k H \gg 1$), in which the properties of the capping layer and the stratification become irrelevant (Fig.~\ref{Fig4}b--\ref{Fig4}c), is never reached here, in the case of giant dunes.
+  Interestingly, the limit of no-interactions between the topography and the boundary layer structure ($k H \gg 1$), in which the properties of the capping layer and the stratification become irrelevant, is never reached here, in the case of giant dunes.
 
   \begin{figure}
     \centering
@@ -220,7 +220,7 @@ The Adamax station is located near the Adamax salt pan, in a highly vegetated ar
 \begin{figure}
   \centering
   \includegraphics[scale=1]{Figures/Figure6.pdf}
-  \caption{Implications for smaller scale patterns in (a) the South Namib and (b) Deep Sea. The ellipses indicates the different types of elongating dunes, at large (plain) and small scale (dashed). The dune orientations are calculated using the model of \citet{Cour14} from the sand flux angular distributions, shown here for typical sand quartz grains of $180~\mu$m. The double blue and single red arrows correspond to the two possible dune growth mechanisms, bed instability and elongation, respectively. Likewise, plain arrows are calculated from the ERA5-Land datasets, and dashed arrows from the in situ measurements. Wedges show the uncertainty on the orientation calculation, and the arrows correspond to typical parameters found in the literature, i.e a grain diameter of $180~\mu$m and a flux-up ratio of 1.6. The green dots indicate the position of the measurement stations. See Appendix 2 for details.}
+  \caption{Implications for smaller scale patterns in (a) the South Namib and (b) Deep Sea. The ellipses indicates the different types of elongating dunes, at large (plain) and small scale (dashed). The dune orientations are calculated using the model of \citet{Courrech2014} from the sand flux angular distributions, shown here for typical sand quartz grains of $180~\mu$m. The double blue and single red arrows correspond to the two possible dune growth mechanisms, bed instability and elongation, respectively. Likewise, plain arrows are calculated from the ERA5-Land datasets, and dashed arrows from the in situ measurements. Wedges show the uncertainty on the orientation calculation, and the arrows correspond to typical parameters found in the literature, i.e a grain diameter of $180~\mu$m and a flux-up ratio of 1.6. The green dots indicate the position of the measurement stations. See Appendix 2 for additional details.}
   \label{Fig6}
 \end{figure}
 
@@ -229,6 +229,7 @@ These should follow the concluding section of the paper and precede the Referenc
 \end{acknowledgements}
 
 \section*{Appendix 1: ABL turbulent wind model}
+\label{turbulent_wind_model}
 
 Following the work of \citet{Fourriere2010} and \citet{Andreotti2012}, we briefly expose in this section the linear response of a turbulent flow to a small aspect ratio perturbation of the topography $\xi$. As this topography can be decomposed into several sinusoidal modes, we focus on the response to a sinusoidal topography as:
 \begin{equation}
@@ -300,14 +301,14 @@ The computed dune orientations, blue and red arrows in figure~\ref{Fig6}, are ho
 \begin{figure}
   \centering
   \includegraphics[scale=1]{Figures/Figure1_supp.pdf}
-  \caption{Gant chart representing the usable time steps for the two data sets, for all stations.}
+  \caption{Gant chart representing the valid time steps for the two data sets, for all stations.}
   \label{Fig1_supp}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[scale=1]{Figures/Figure2_supp.pdf}
-  \caption{Comparison between raw in situ wind measurements, and centered averaged data over one hour for the South Namib station. \textbf{a}: wind direction. \textbf{b}: wind velocity at the measurement height, 2.6 m.}
+  \caption{Comparison between raw local wind measurements, and centered averaged data over one hour for the South Namib station. \textbf{a}: wind direction. \textbf{b}: wind velocity at the measurement height, 2.6 m.}
   \label{Fig2_supp}
 \end{figure}
 
@@ -328,7 +329,7 @@ The choice of the hydrodynamic roughness values only impacts the calculated shea
 \begin{figure}
   \centering
   \includegraphics[scale=1]{Figures/Figure3_supp.pdf}
-  \caption{Calibration of the hydrodynamic roughnesses. The metric $\delta$ defined in \eqref{metric_roughness} is represented in colorscale as a function of the hydrodynamic roughnesses chosen for the Era5-Land and in situ datasets, for the Adamax (\textbf{a}), Deep Sea (\textbf{b}), Huab (\textbf{c}) and South Namib (\textbf{d}) Stations. The red dashed and plain lines shows the minima of $\delta$ and the identity line. The orange lines and dots highlights the chosen the hydrodynamic roughnesses for the in situ datasets by imposing $z_{0, \textup{\textup{ERA}}} = 1~\textup{mm}$, leading for each station to $2.7~\textup{mm}$, $0.76~\textup{mm}$, $0.12~\textup{mm}$ and $0.48~\textup{mm}$, respectively.}
+  \caption{Calibration of the hydrodynamic roughnesses. The metric $\delta$ defined in \eqref{metric_roughness} is represented in colorscale as a function of the hydrodynamic roughnesses chosen for the Era5-Land and in situ datasets, for the Adamax (\textbf{a}), Deep Sea (\textbf{b}), Huab (\textbf{c}) and South Namib (\textbf{d}) Stations. The red dashed and plain lines shows the minima of $\delta$ and the identity line. The orange lines and dots highlight the chosen hydrodynamic roughnesses for the local datasets, by imposing $z_{0, \textup{\textup{ERA}}} = 1~\textup{mm}$, leading for each station to $2.7~\textup{mm}$, $0.76~\textup{mm}$, $0.12~\textup{mm}$ and $0.48~\textup{mm}$, respectively.}
   \label{Fig3_supp}
 \end{figure}
 
@@ -336,14 +337,14 @@ The choice of the hydrodynamic roughness values only impacts the calculated shea
 \begin{figure}
   \centering
   \includegraphics[scale=1]{Figures/Figure4_supp.pdf}
-  \caption{Analysis of the DEMs of the Deep Sea (left column -- \textbf{a}, \textbf{b}, \textbf{c}) and South Namib (right column -- \textbf{d}, \textbf{e}, \textbf{f}) stations. \textbf{a--c}: Detrended topography (a second order polynomial is first fitted and then removed) . \textbf{b--d}: autocorrelation matrix shown in colorscale. The black line shows the detected orientation, and the red line the profile along which the wavelength is calculated, shown in \textbf{e--f}. The blue lines and dots show the first peak of the autocorrelation profile, whose horizontal position gives the characteristic wavelength of the dune pattern.}
+  \caption{Analysis of the DEMs of the Deep Sea (left column -- \textbf{a}, \textbf{b}, \textbf{c}) and South Namib (right column -- \textbf{d}, \textbf{e}, \textbf{f}) stations. \textbf{a--d}: Detrended topography (a second order polynomial is first fitted and then removed) . \textbf{b--e}: autocorrelation matrix shown in colorscale. The black line shows the detected orientation, and the red line the profile along which the wavelength is calculated, shown in \textbf{c--f}. The blue lines and dots show the first peak of the autocorrelation profile, whose abscissa gives the characteristic wavelength of the dune pattern.}
   \label{Fig4_supp}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[scale=1]{Figures/Figure5_supp.pdf}
-  \caption{Statistical agreement of the wind orientation (\textbf{a}) and velocity (\textbf{b}) between the Era5Land dataset and the in situ measurements for the Huab and Adamax stations. Note how the points are clustered around identity lines, black and dashed.}
+  \caption{Statistical agreement of the wind orientation (\textbf{a}) and velocity (\textbf{b}) between the Era5Land dataset and the local measurements for the Huab and Adamax stations. Note how the points are clustered around identity lines (dashed and black).}
   \label{Fig5_supp}
 \end{figure}
 
@@ -357,14 +358,14 @@ The choice of the hydrodynamic roughness values only impacts the calculated shea
 \begin{figure}
   \centering
   \includegraphics[scale=1]{Figures/Figure7_supp.pdf}
-  \caption{Statistical comparison of the wind orientation between the Era5Land dataset and in situ measurements for the South Namib and Deep Sea stations, for different velocity ranges. \textbf{a}: $u_{*, \textup{\textup{ERA}}} < 0.1~\textup{m}~\textup{s}^{-1}$. \textbf{b}: $0.1 < u_{*, \textup{\textup{ERA}}} \leq 0.25~\textup{m}~\textup{s}^{-1}$. \textbf{c}: $u_{*, \textup{\textup{ERA}}} \geq 0.25~\textup{m}~\textup{s}^{-1}$. Note that the dune orientations measured are substracted to the wind orientation, which allows to plot both stations on the same graph. Black dashed lines indicates in situ orientations aligned with the dune crests (here $0^\circ$, $180^\circ$ and $360^\circ$ -- \textbf{a}, \textbf{b}), as well as the identity lines (\textbf{b}, \textbf{c}).}
+  \caption{Statistical comparison of the wind orientation between the Era5Land dataset and the local measurements for the South Namib and Deep Sea stations, for different velocity ranges. \textbf{a}: $u_{*, \textup{\textup{ERA}}} < 0.1~\textup{m}~\textup{s}^{-1}$. \textbf{b}: $0.1 < u_{*, \textup{\textup{ERA}}} \leq 0.25~\textup{m}~\textup{s}^{-1}$. \textbf{c}: $u_{*, \textup{\textup{ERA}}} \geq 0.25~\textup{m}~\textup{s}^{-1}$. Note that the measured dune orientations are substracted to the wind orientation, which allows to plot both stations on the same graph. Black dashed lines indicate locally measured orientations aligned with the dune crests (here $0^\circ$, $180^\circ$ and $360^\circ$ -- \textbf{a}, \textbf{b}), as well as the identity lines (\textbf{b}, \textbf{c}).}
   \label{Fig7_supp}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[scale=1]{Figures/Figure8_supp.pdf}
-  \caption{Statistical comparison of the wind velocity between the Era5Land dataset and in situ measurements for the South Namib and Deep Sea stations. \textbf{a}: Nocturnal summer easterly wind. \textbf{b}: Diurnal southerly wind. Black dashed lines are identity lines. The angle ranges corresponding to diurnal and nocturnal summer winds are those taken in Fig.~\ref{Fig3} and Fig.~\ref{Fig6_supp}.}
+  \caption{Statistical comparison of the wind velocity between the Era5Land dataset and the local measurements for the South Namib and Deep Sea stations. \textbf{a}: Nocturnal summer easterly wind. \textbf{b}: Diurnal southerly wind. Black dashed lines are identity lines. The angle ranges used to select diurnal and nocturnal summer winds are those taken in Fig.~\ref{Fig3} and Fig.~\ref{Fig6_supp}.}
   \label{Fig8_supp}
 \end{figure}
 
@@ -412,7 +413,7 @@ Following \citet{Tritton2012}, the relative density jump at the capping layer
 \begin{figure}
   \centering
   \includegraphics[scale=1]{Figures/Figure12_supp.pdf}
-  \caption{Regime diagrams of the wind deviation $\delta_{\theta}$ and relative attenuation/amplification $\delta_{u}$ in the spaces $(\mathcal{F}r_{\textup{I}}, \, kH)$ and $(\mathcal{F}r_{\textup{I}}, \, \mathcal{F}r_{\textup{S}})$, containing the data from both the Deep Sea and South Namib stations. Blue dashed lines empirically delimit the different regimes. The point density in each bin of the diagrams is shown in Fig.~\ref{Fig11_supp}. The regime diagrams in the space $(\mathcal{F}r_{\textup{S}}, \, kH)$ are shown in Fig.~\ref{Fig5_supp}.}
+  \caption{Regime diagrams of the wind deviation $\delta_{\theta}$ and relative attenuation/amplification $\delta_{u}$ in the spaces $(\mathcal{F}r_{\textup{I}}, \, kH)$ and $(\mathcal{F}r_{\textup{I}}, \, \mathcal{F}r_{\textup{S}})$, containing the data from both the Deep Sea and South Namib stations. Blue dashed lines empirically delimit the different regimes. The point density in each bin of the diagrams is shown in Fig.~\ref{Fig11_supp}. The regime diagrams in the space $(\mathcal{F}r_{\textup{S}}, \, kH)$ are shown in Fig.~\ref{Fig5} of the main article.}
   \label{Fig12_supp}
 \end{figure}
 

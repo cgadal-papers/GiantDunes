@@ -4,7 +4,6 @@ The top-level auxiliary file: main.aux
 The style file: spbasic_updated.bst
 Database file #1: biblio.bib
 Warning--I didn't find a database entry for "refs"
-Warning--I didn't find a database entry for "Cour14"
 Warning--I didn't find a database entry for "Sherman2007"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
@@ -25,7 +24,7 @@ Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for ent
 while executing---line 1622 of file spbasic_updated.bst
 You've used 29 entries,
             3214 wiz_defined-function locations,
-            890 strings with 10603 characters,
+            888 strings with 10591 characters,
 and the built_in function-call counts, 48715 in all, are:
 = -- 5609
 > -- 1034
