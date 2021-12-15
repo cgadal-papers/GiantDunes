@@ -22,45 +22,45 @@ Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for ent
 while executing---line 1622 of file spbasic_updated.bst
 Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
 while executing---line 1622 of file spbasic_updated.bst
-You've used 29 entries,
+You've used 30 entries,
             3214 wiz_defined-function locations,
-            888 strings with 10591 characters,
-and the built_in function-call counts, 48715 in all, are:
-= -- 5609
-> -- 1034
-< -- 18
-+ -- 515
-- -- 329
-* -- 3615
-:= -- 5478
-add.period$ -- 29
-call.type$ -- 29
-change.case$ -- 253
-chr.to.int$ -- 35
-cite$ -- 29
-duplicate$ -- 4981
-empty$ -- 3548
-format.name$ -- 411
-if$ -- 10118
+            896 strings with 10716 characters,
+and the built_in function-call counts, 49755 in all, are:
+= -- 5736
+> -- 1044
+< -- 20
++ -- 523
+- -- 332
+* -- 3662
+:= -- 5586
+add.period$ -- 30
+call.type$ -- 30
+change.case$ -- 261
+chr.to.int$ -- 36
+cite$ -- 30
+duplicate$ -- 5096
+empty$ -- 3622
+format.name$ -- 415
+if$ -- 10340
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 339
-newline$ -- 97
-num.names$ -- 118
-pop$ -- 1231
+missing$ -- 347
+newline$ -- 100
+num.names$ -- 122
+pop$ -- 1272
 preamble$ -- 1
-purify$ -- 222
+purify$ -- 227
 quote$ -- 0
-skip$ -- 1840
+skip$ -- 1903
 stack$ -- 0
-substring$ -- 5264
-swap$ -- 2683
-text.length$ -- 3
+substring$ -- 5335
+swap$ -- 2766
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 255
+type$ -- 264
 warning$ -- 0
-while$ -- 297
+while$ -- 305
 width$ -- 0
-write$ -- 332
+write$ -- 344
 (There were 8 error messages)

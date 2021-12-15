@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.19)  15 DEC 2021 18:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.19)  15 DEC 2021 18:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -307,10 +307,6 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 75.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-Package natbib Warning: Citation `refs' on page 2 undefined on input line 88.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
@@ -399,17 +395,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [15
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 112--114
+Underfull \hbox (badness 10000) in paragraph at lines 116--118
 []\OT1/cmr/m/n/10 Rubin DM, Hunter RE (1987) Bed-form align-ment in di-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--114
+Underfull \hbox (badness 10000) in paragraph at lines 116--118
 \OT1/cmr/m/n/10 rec-tion-ally vary-ing flows. Sci-ence 237:276--278, DOI 
  []
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 153--158
+Underfull \hbox (badness 2103) in paragraph at lines 157--162
 []\OT1/cmr/m/n/10 Walker IJ, Hesp PA, Davidson-Arnott RG, Bauer BO, Namikas SL,
  []
 
@@ -557,17 +553,17 @@ Package natbib Warning: There were undefined citations.
 
 [21 <./Figures/Figure5_supp.pdf>] [22 <./Figures/Figure6_supp.pdf>] [23 <./Figures/Figure7_supp.pdf>] [24 <./Figures/Figure8_supp.pdf>] [25 <./Figures/Figure9_supp.pdf>] [26 <./Figures/Figure10_supp.pdf>] [27 <./Figures/Figure11_supp.pdf>] [28 <./Figures/Figure12_supp.pdf>] [29 <./Figures/Figure13_supp.pdf>] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 4788 strings out of 481239
- 67246 string characters out of 5920376
- 317887 words of memory out of 5000000
- 19961 multiletter control sequences out of 15000+600000
+ 4791 strings out of 481239
+ 67297 string characters out of 5920376
+ 317913 words of memory out of 5000000
+ 19964 multiletter control sequences out of 15000+600000
  541467 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,11n,37p,1324b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (29 pages, 19088337 bytes).
+Output written on main.pdf (29 pages, 19088344 bytes).
 PDF statistics:
  672 PDF objects out of 1000 (max. 8388607)
  543 compressed objects within 6 object streams
