@@ -95,16 +95,20 @@ for i, station in enumerate(['Adamax_Station', 'Huab_Station', 'Deep_Sea_Station
     ax.scatter(coords_station_pix[i][0], coords_station_pix[i][1], s=25, color=color_pt)
 
 # colorbar
+# left, bottom, width, height = [ax0.get_position().x0, 0.15, 0.43, 0.025]
 left, bottom, width, height = [0.025, 0.15, 0.43, 0.025]
 ax_colorbar = fig.add_axes([left, bottom, width, height])
 
-norm = BoundaryNorm(boundaries=bins + [bins[-1] + 0.05], ncolors=256)
+bounds = bins + [bins[-1] + bins[-1] - bins[-2]]
+bounds[0] = 0
+norm = BoundaryNorm(boundaries=bounds, ncolors=256)
 sm = plt.cm.ScalarMappable(cmap='viridis', norm=norm)
-cb = fig.colorbar(sm, cax=ax_colorbar, orientation='horizontal')
+cb = fig.colorbar(sm, cax=ax_colorbar, orientation='horizontal', ticks=bounds[::2])
 cb.set_label(r'Wind shear velocity, $u_{*}~[\textrm{m}~\textrm{s}^{-1}]$')
 labels = [item.get_text() for item in cb.ax.get_xticklabels()]
-labels[-1] = r'$\infty$'
-cb.set_ticklabels(labels)
+# labels[-1] = r'$\infty$'
+# labels[0] = r'$0$'
+# cb.ax.set_xticklabels(labels)
 
 plt.savefig(os.path.join(path_savefig, 'Figure1.pdf'), dpi=600)
 plt.show()
