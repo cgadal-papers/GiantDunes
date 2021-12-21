@@ -9,7 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import calendar
-from datetime import datetime
+from datetime import datetime, timedelta
 import sys
 import os
 sys.path.append('../')
@@ -54,6 +54,7 @@ subfigs = fig.subfigures(nrows=3, ncols=1)
 for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs, years, months, days, stations_plot)):
     axarr = subfig.subplots(1, 2)
     subfig.suptitle(row_labels[i])
+    subfig.set_facecolor('none')
     tmin = datetime(yr, mth, dy[0])
     tmax = datetime(yr, mth, dy[1])
     for j, (ax, var, label) in enumerate(zip(axarr, variables, labels[i])):
@@ -62,13 +63,24 @@ for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs, years, months, d
         ax.set_xlim(tmin, tmax)
         tick_formatter(ax)
         #
+        # #### plot nights
+        tstart = tmin - timedelta(days=1)
+        tstart = tstart.replace(hour=6)
+        x_night = [tstart + timedelta(days=i) for i in range((tmax-tmin).days + 2)]
+        for dawn in x_night:
+            a1 = ax.axvspan(dawn, dawn + timedelta(hours=12), facecolor='sandybrown', alpha=0.1, edgecolor=None, label=r'\faSun')
+            a2 = ax.axvspan(dawn - timedelta(hours=12), dawn, facecolor='lightgrey', alpha=0.25, edgecolor=None, label=r'\faMoon')
+        #
         ax.set_ylabel(label_var[var])
         ax.set_xlabel('Days in {} {:d}'.format(month_calendar[tmin.month], tmin.year))
+        ax.set_xticks([tmin + timedelta(days=i) for i in range((tmax-tmin).days + 1)])
         ax.text(0.02, 0.97, label, transform=ax.transAxes, ha='left', va='top')
         if var == 'U':
             ax.set_ylim((0, 9))
         else:
             ax.set_ylim((0, 360))
             ax.set_yticks((0, 90, 180, 270, 360))
+first_legend = fig.legend(handles=[a1, a2], loc='center right', ncol=2, columnspacing=1, bbox_to_anchor=(1, 0.98), frameon=False)
+#
 plt.savefig(os.path.join(path_savefig, 'Figure2.pdf'),)
 plt.show()

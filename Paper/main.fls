@@ -183,6 +183,7 @@ INPUT Figures/Figure13_supp.pdf
 INPUT ./Figures/Figure13_supp.pdf
 INPUT ./Figures/Figure13_supp.pdf
 INPUT main.aux
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
