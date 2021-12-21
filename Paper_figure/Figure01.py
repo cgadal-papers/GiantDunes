@@ -35,7 +35,8 @@ bins = [0.03, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
 labels = ['Adamax', 'Huab', 'Deep Sea', 'South Namib']
 coords_stations = np.array([(-19.034111,  15.737194), (-20.874722,  13.642), (-24.125533,  15.049100), (-26.044083,  15.396972)])
 scales = [1300, 1100, 1650, 2600]
-bbox = dict(facecolor=(1, 1, 1, 0.5), edgecolor=(1, 1, 1, 0.5))
+bbox = dict(facecolor=(1, 1, 1, 0.5), edgecolor=(1, 1, 1, 0))
+bbox2 = dict(facecolor=(1, 1, 1, 0.5), edgecolor=(1, 1, 1, 0), pad=0.25)
 color_pt = 'tab:red'
 numbering = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}', r'\textbf{e}']
 coords_station_pix = [(1141, 544), (881, 554), (755, 430), (772, 550)]
@@ -49,20 +50,20 @@ gs.update(left=0, right=0.99, bottom=0.001, top=0.999, wspace=0.27, hspace=0)
 ax0 = fig.add_subplot(gs[0, 0])
 Map = np.array(Image.open(os.path.join(path_imgs, 'Map.png')))
 ax0.imshow(Map[:-104, 642:-791], extent=[12.55, 17.38, -27.27, -18.2])
-ax0.set_xlabel('Longitude')
-ax0.set_ylabel('Latitude')
+ax0.set_xlabel(r'Longitude~[$^\circ$]')
+ax0.set_ylabel(r'Latitude~[$^\circ$]')
 ax0.yaxis.set_label_position('right')
 ax0.yaxis.tick_right()
-ax0.text(0.035, 0.976, numbering[0], transform=ax0.transAxes, ha='center', va='center', color='w')
+ax0.text(0.005, 0.998, numbering[0], transform=ax0.transAxes, ha='left', va='top', color='k', bbox=bbox2)
 #
 plt.scatter(coords_stations[:, 1], coords_stations[:, 0], s=25, color=color_pt)
 for point, txt in zip(coords_stations, labels):
     if txt != 'Huab':
         pad_x, pad_y = 0.05, -0.5
-        plt.gca().annotate(r'\textbf{' + txt + '}', (point[1] + pad_x, point[0] + pad_y), ha='right', va='bottom', color='white')
+        plt.gca().annotate(r'\textbf{' + txt + '}', (point[1] + pad_x, point[0] + pad_y), ha='right', va='bottom', color='k', bbox=bbox2)
     else:
         pad_x, pad_y = 0, -0.5
-        plt.gca().annotate(r'\textbf{' + txt + '}', (point[1] + pad_x, point[0] + pad_y), ha='left', va='bottom', color='white')
+        plt.gca().annotate(r'\textbf{' + txt + '}', (point[1] + pad_x, point[0] + pad_y), ha='left', va='bottom', color='k', bbox=bbox2)
 
 # right images
 gs_sub = gs[:, -1].subgridspec(4, 1, height_ratios=[1, 1, 1, 1], hspace=0)
@@ -75,7 +76,7 @@ for i, station in enumerate(['Adamax_Station', 'Huab_Station', 'Deep_Sea_Station
     # labels
     ax.text(0.015, 0.08, r'\textbf{' + labels[i] + '}', transform=ax.transAxes, ha='left', va='center', bbox=bbox, zorder=-5)
     # scale bars
-    backgrnd = Rectangle((0.75, 0), width=0.25, height=0.2, transform=ax.transAxes, color='w', alpha=0.6)
+    backgrnd = Rectangle((0.75, 0), width=0.25, height=0.2, transform=ax.transAxes, facecolor='w', alpha=0.6, ec=None)
     ax.add_patch(backgrnd)
     txt = r'$' + str(scales[i]) + r'~\textup{m}$'
     scalebar = AnchoredSizeBar(ax.transData, 384, txt, 'lower right', color='k',
@@ -90,7 +91,7 @@ for i, station in enumerate(['Adamax_Station', 'Huab_Station', 'Deep_Sea_Station
     plot_wind_rose(Data[station]['Orientation_station'], Data[station]['U_star_station'], bins, axins1, fig, label=None)
     #
     # labelling
-    ax.text(0.03, 0.93, numbering[i+1], transform=ax.transAxes, ha='center', va='center', color='w')
+    ax.text(0.005, 0.99, numbering[i+1], transform=ax.transAxes, ha='left', va='top', color='k', bbox=bbox2)
     # stations
     ax.scatter(coords_station_pix[i][0], coords_station_pix[i][1], s=25, color=color_pt)
 
