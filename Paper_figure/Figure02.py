@@ -58,18 +58,18 @@ for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs, years, months, d
     tmin = datetime(yr, mth, dy[0])
     tmax = datetime(yr, mth, dy[1])
     for j, (ax, var, label) in enumerate(zip(axarr, variables, labels[i])):
-        l1, = ax.plot(Data[station]['time'], Data[station][var + '_station'], label='measurements')
-        l2, = ax.plot(Data[station]['time'], Data[station][var + '_era'], label='Era5Land')
+        l1, = ax.plot(Data[station]['time'], Data[station][var + '_station'], label='measurements', color=theme.color_insitu)
+        l2, = ax.plot(Data[station]['time'], Data[station][var + '_era'], label='Era5Land', color=theme.color_Era5Land)
         ax.set_xlim(tmin, tmax)
         tick_formatter(ax)
         #
         # #### plot nights
         tstart = tmin - timedelta(days=1)
-        tstart = tstart.replace(hour=6)
+        tstart = tstart.replace(hour=10)
         x_night = [tstart + timedelta(days=i) for i in range((tmax-tmin).days + 2)]
-        for dawn in x_night:
-            a1 = ax.axvspan(dawn, dawn + timedelta(hours=12), facecolor='sandybrown', alpha=0.1, edgecolor=None, label=r'\faSun')
-            a2 = ax.axvspan(dawn - timedelta(hours=12), dawn, facecolor='lightgrey', alpha=0.25, edgecolor=None, label=r'\faMoon')
+        for daylight in x_night:
+            a1 = ax.axvspan(daylight, daylight + timedelta(hours=12), facecolor=theme.color_day, alpha=0.1, edgecolor=None, label=theme.Icon_day)
+            a2 = ax.axvspan(daylight - timedelta(hours=12), daylight, facecolor=theme.color_night, alpha=0.1, edgecolor=None, label=theme.Icon_night)
         #
         ax.set_ylabel(label_var[var])
         ax.set_xlabel('Days in {} {:d}'.format(month_calendar[tmin.month], tmin.year))
@@ -80,6 +80,8 @@ for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs, years, months, d
         else:
             ax.set_ylim((0, 360))
             ax.set_yticks((0, 90, 180, 270, 360))
+#
+# a1.set_edgecolor((0, 0, 0, 1))
 first_legend = fig.legend(handles=[a1, a2], loc='center right', ncol=2, columnspacing=1, bbox_to_anchor=(1, 0.98), frameon=False)
 #
 plt.savefig(os.path.join(path_savefig, 'Figure2.pdf'),)

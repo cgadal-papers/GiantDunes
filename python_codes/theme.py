@@ -51,3 +51,11 @@ cmap_topo = cmocean.cm.turbid_r
 # #### colors
 color_dune_orientation = 'grey'
 flux_color = matplotlib.colors.ListedColormap('navajowhite')
+color_day = '#c3b632'
+color_night = '#3d134f'
+color_Era5Land = 'tab:orange'
+color_insitu = 'tab:blue'
+
+# #### special Icons
+Icon_day = r'\faSun'
+Icon_night = r'\faMoon'
