@@ -43,7 +43,7 @@ fig, axarr = plt.subplots(4, 3, figsize=(theme.fig_width, 0.95*theme.fig_width),
                           # constrained_layout=True,
                           gridspec_kw={'height_ratios': [0.2, 1.3, 2, 2],
                                        'width_ratios': [2, 2, 1]})
-# Plotting diagrams
+# Plotting density diagrams
 ax_list = [axarr[2, 0], axarr[3, 0], axarr[3, 1]]
 for j, (ax, (var1, var2)) in enumerate(zip(ax_list, couples)):
     ax.set_xscale('log')
@@ -71,6 +71,7 @@ for j, (ax, (var1, var2)) in enumerate(zip(ax_list, couples)):
     else:
         ax.set_yticklabels([])
 
+# #### Plotting marginal distributions
 for i, (ax, var) in enumerate(zip([axarr[1, 0], axarr[2, 1], axarr[3, 2]], ['Froude', 'kLB', 'kH'])):
     orientation = 'vertical' if i < 2 else 'horizontal'
     make_nice_histogram(Data['South_Namib_Station'][var], 150, ax, alpha=0.4, density=False, scale_bins='log', orientation=orientation)

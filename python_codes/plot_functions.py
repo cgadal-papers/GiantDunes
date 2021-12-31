@@ -5,7 +5,8 @@ from scipy.stats import binned_statistic_2d
 
 
 def plot_wind_rose(theta, U, bins, ax, fig, label=None,
-                   props=dict(boxstyle='round', facecolor=(1, 1, 1, 0.9), edgecolor=(1, 1, 1, 1), pad=0)):
+                   props=dict(boxstyle='round', facecolor=(1, 1, 1, 0.9), edgecolor=(1, 1, 1, 1), pad=0),
+                   **kwargs):
     """Plot a wind rose from one dimensional time series.
 
     Parameters
@@ -22,6 +23,8 @@ def plot_wind_rose(theta, U, bins, ax, fig, label=None,
         figure on which the wind rose is plotted
     label : str or None
         if not None, label plotted below the wind rose (default is None).
+    **kwargs :
+        Optional parameters passed to :func:`windrose.WindroseAxes.bar <windrose.WindroseAxes>`.
 
     Returns
     -------
@@ -33,7 +36,7 @@ def plot_wind_rose(theta, U, bins, ax, fig, label=None,
     ax_rose.set_position(ax.get_position(), which='both')
     Angle = (90 - theta) % 360
     ax_rose.bar(Angle, U, bins=bins, normed=True, zorder=20, opening=1, edgecolor=None,
-                linewidth=0.5, nsector=60, cmap=plt.cm.viridis)
+                linewidth=0.5, nsector=60, **kwargs)
     ax_rose.grid(True, linewidth=0.4, color='k', linestyle='--')
     ax_rose.patch.set_alpha(0.6)
     ax_rose.set_axisbelow(True)
@@ -67,8 +70,8 @@ def plot_flux_rose(angles, distribution, ax, fig, nbins=20, withaxe=0, label=Non
         Define if the polar axes are plotted or not (the default is 0).
     label : str
         If not None, sets a label at the bottom of the flux rose (the default is None).
-    **kwargs : type
-        Description of parameter `**kwargs`.
+    **kwargs :
+        Optional parameters passed to :func:`windrose.WindroseAxes.bar <windrose.WindroseAxes>`.
 
     Returns
     -------
@@ -187,17 +190,6 @@ def plot_regime_diagram(ax, quantity, vars, lims, xlabel, ylabel, type='scatter'
         ax.set_yticklabels([])
     return a
 
-
-# def make_nice_histogram(data, nbins, ax, vmin=None, vmax=None, scale_bins='lin', density=True, **kwargs):
-#     min = np.nanmin(data) if vmin is None else vmin
-#     max = np.nanmax(data) if vmax is None else vmax
-#     if scale_bins == 'log':
-#         bins = np.logspace(np.log10(min), np.log10(max), nbins)
-#         ax.set_xscale('log')
-#     else:
-#         bins = np.linspace(min, max, nbins)
-#     a = ax.hist(data, bins=bins, histtype='stepfilled', density=density, edgecolor=None, **kwargs)
-#     ax.hist(data, bins=bins, histtype='step', color=a[-1][0].get_fc(), density=density)
 
 def make_nice_histogram(data, nbins, ax, vmin=None, vmax=None, scale_bins='lin', density=True, orientation='vertical', **kwargs):
     min = np.nanmin(data) if vmin is None else vmin

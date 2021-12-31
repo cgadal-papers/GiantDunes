@@ -3,8 +3,10 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: spbasic_updated.bst
 Database file #1: biblio.bib
-Warning--I didn't find a database entry for "refs"
-Warning--I didn't find a database entry for "Sherman2007"
+Repeated entry---line 888 of file biblio.bib
+ : @article{Rubin1987
+ :                   ,
+I'm skipping whatever remains of this entry
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
 while executing---line 1543 of file spbasic_updated.bst
@@ -14,7 +16,13 @@ Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for ent
 while executing---line 1543 of file spbasic_updated.bst
 Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
 while executing---line 1543 of file spbasic_updated.bst
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
+Name 1 in "Andreotti, B," has a comma at the end for entry Andreotti2004bis
+while executing---line 1543 of file spbasic_updated.bst
+Name 1 in "Andreotti, B," has a comma at the end for entry Andreotti2004bis
+while executing---line 1543 of file spbasic_updated.bst
+Name 1 in "Andreotti, B," has a comma at the end for entry Andreotti2004bis
+while executing---line 1622 of file spbasic_updated.bst
+Name 1 in "Andreotti, B," has a comma at the end for entry Andreotti2004bis
 while executing---line 1622 of file spbasic_updated.bst
 Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
 while executing---line 1622 of file spbasic_updated.bst
@@ -22,45 +30,47 @@ Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for ent
 while executing---line 1622 of file spbasic_updated.bst
 Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
 while executing---line 1622 of file spbasic_updated.bst
-You've used 30 entries,
+Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
+while executing---line 1622 of file spbasic_updated.bst
+You've used 75 entries,
             3214 wiz_defined-function locations,
-            896 strings with 10716 characters,
-and the built_in function-call counts, 49755 in all, are:
-= -- 5736
-> -- 1044
-< -- 20
-+ -- 523
-- -- 332
-* -- 3662
-:= -- 5586
-add.period$ -- 30
-call.type$ -- 30
-change.case$ -- 261
-chr.to.int$ -- 36
-cite$ -- 30
-duplicate$ -- 5096
-empty$ -- 3622
-format.name$ -- 415
-if$ -- 10340
+            1205 strings with 19417 characters,
+and the built_in function-call counts, 128660 in all, are:
+= -- 14808
+> -- 2855
+< -- 40
++ -- 1399
+- -- 911
+* -- 9606
+:= -- 14442
+add.period$ -- 75
+call.type$ -- 75
+change.case$ -- 671
+chr.to.int$ -- 81
+cite$ -- 75
+duplicate$ -- 13106
+empty$ -- 9299
+format.name$ -- 1143
+if$ -- 26676
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 347
-newline$ -- 100
-num.names$ -- 122
-pop$ -- 1272
+missing$ -- 895
+newline$ -- 235
+num.names$ -- 302
+pop$ -- 3287
 preamble$ -- 1
-purify$ -- 227
+purify$ -- 595
 quote$ -- 0
-skip$ -- 1903
+skip$ -- 4820
 stack$ -- 0
-substring$ -- 5335
-swap$ -- 2766
-text.length$ -- 4
+substring$ -- 13827
+swap$ -- 7129
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 264
+type$ -- 660
 warning$ -- 0
-while$ -- 305
+while$ -- 796
 width$ -- 0
-write$ -- 344
-(There were 8 error messages)
+write$ -- 844
+(There were 13 error messages)

@@ -1,7 +1,17 @@
 import matplotlib
 import matplotlib.pyplot as plt
+import matplotlib.colors as mpcolors
+import numpy as np
 import cmocean
 import os
+
+
+def truncate_colormap(cmap, minval=0.0, maxval=1.0, n=100):
+    # from here: https://stackoverflow.com/a/18926541/9530017
+    new_cmap = mpcolors.LinearSegmentedColormap.from_list(
+        'trunc({n},{a:.2f},{b:.2f})'.format(n=cmap.name, a=minval, b=maxval),
+        cmap(np.linspace(minval, maxval, n)))
+    return new_cmap
 
 
 def load_style():
@@ -20,7 +30,6 @@ def load_style():
 # -------------------------------------
 load_style()
 
-#  Better to define these in the style.mplstyle file
 
 # %%
 # Callable parameters
@@ -47,14 +56,16 @@ markersize_small = 2
 cmap_delta_u = cmocean.cm.curl_r
 cmap_delta_theta = 'plasma'
 cmap_topo = cmocean.cm.turbid_r
+cmap_wind = truncate_colormap(plt.cm.viridis, 0.15, 1, 256)
 
 # #### colors
 color_dune_orientation = 'grey'
 flux_color = matplotlib.colors.ListedColormap('navajowhite')
-color_day = '#c3b632'
-color_night = '#3d134f'
+color_day = '#C3B632'
+color_night = '#3D134F'
 color_Era5Land = 'tab:orange'
 color_insitu = 'tab:blue'
+color_station_position = 'black'
 
 # #### special Icons
 Icon_day = r'\faSun'

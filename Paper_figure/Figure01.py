@@ -37,7 +37,6 @@ coords_stations = np.array([(-19.034111,  15.737194), (-20.874722,  13.642), (-2
 scales = [1300, 1100, 1650, 2600]
 bbox = dict(facecolor=(1, 1, 1, 0.5), edgecolor=(1, 1, 1, 0))
 bbox2 = dict(facecolor=(1, 1, 1, 0.5), edgecolor=(1, 1, 1, 0), pad=0.25)
-color_pt = 'tab:red'
 numbering = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}', r'\textbf{e}']
 coords_station_pix = [(1141, 544), (881, 554), (755, 430), (772, 550)]
 
@@ -56,7 +55,7 @@ ax0.yaxis.set_label_position('right')
 ax0.yaxis.tick_right()
 ax0.text(0.005, 0.998, numbering[0], transform=ax0.transAxes, ha='left', va='top', color='k', bbox=bbox2)
 #
-plt.scatter(coords_stations[:, 1], coords_stations[:, 0], s=25, color=color_pt)
+plt.scatter(coords_stations[:, 1], coords_stations[:, 0], s=25, color=theme.color_station_position)
 for point, txt in zip(coords_stations, labels):
     if txt != 'Huab':
         pad_x, pad_y = 0.05, -0.5
@@ -85,15 +84,17 @@ for i, station in enumerate(['Adamax_Station', 'Huab_Station', 'Deep_Sea_Station
 
     # wind roses
     axins1 = ax.inset_axes([0, 0.45, 0.3, 0.5])
-    plot_wind_rose(Data[station]['Orientation_era'], Data[station]['U_star_era'], bins, axins1, fig, label=None)
+    plot_wind_rose(Data[station]['Orientation_era'], Data[station]['U_star_era'], bins,
+                   axins1, fig, label=None, cmap=theme.cmap_wind)
     #
     axins1 = ax.inset_axes([0.7, 0.45, 0.3, 0.5])
-    plot_wind_rose(Data[station]['Orientation_station'], Data[station]['U_star_station'], bins, axins1, fig, label=None)
+    plot_wind_rose(Data[station]['Orientation_station'], Data[station]['U_star_station'], bins,
+                   axins1, fig, label=None, cmap=theme.cmap_wind)
     #
     # labelling
     ax.text(0.005, 0.99, numbering[i+1], transform=ax.transAxes, ha='left', va='top', color='k', bbox=bbox2)
     # stations
-    ax.scatter(coords_station_pix[i][0], coords_station_pix[i][1], s=25, color=color_pt)
+    ax.scatter(coords_station_pix[i][0], coords_station_pix[i][1], s=25, color=theme.color_station_position)
 
 # colorbar
 # left, bottom, width, height = [ax0.get_position().x0, 0.15, 0.43, 0.025]

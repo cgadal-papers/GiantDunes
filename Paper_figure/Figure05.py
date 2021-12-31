@@ -56,7 +56,7 @@ regime_line_color = 'tab:blue'
 
 
 var1, var2 = 'Froude', 'kH'
-xlabel = r'$\mathcal{F}r_{\textup{S}} =  U/\sqrt{(\Delta\rho/\rho) g H}$'
+xlabel = r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho) g H}$'
 
 # #### Figure
 fig, axarr = plt.subplots(1, 2, figsize=(theme.fig_width, 0.375*theme.fig_height_max),
