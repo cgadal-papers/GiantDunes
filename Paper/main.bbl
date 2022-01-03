@@ -1,4 +1,4 @@
-\begin{thebibliography}{75}
+\begin{thebibliography}{78}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -271,6 +271,11 @@ Pearce KI, Walker IJ (2005) {Frequency and magnitude biases in the 'Fryberger'
   model, with implications for characterizing geomorphically effective winds}.
   Geomorphology 68(1-2):39--55, \doi{10.1016/j.geomorph.2004.09.030}
 
+\bibitem[{Pelletier and Field(2016)}]{Pelletier2016}
+Pelletier JD, Field JP (2016) {Predicting the roughness length of turbulent
+  flows over landscapes with multi-scale microtopography}. Earth Surface
+  Dynamics 4(2):391--405, \doi{10.5194/esurf-4-391-2016}
+
 \bibitem[{Rasmussen et~al.(1996)Rasmussen, Iversen, and
   Rautaheimo}]{Rasmussen96}
 Rasmussen KR, Iversen JD, Rautaheimo P (1996) {Saltation and wind flow
@@ -291,6 +296,10 @@ Runyon K, Bridges N, Ayoub F, Newman C, Quade J (2017) An integrated model for
 Seidel DJ, Zhang Y, Beljaars A, Golaz JC, Jacobson AR, Medeiros B (2012)
   Climatology of the planetary boundary layer over the continental united
   states and europe. Journal of Geophysical Research: Atmospheres 117(D17)
+
+\bibitem[{Shao(2008)}]{Shao2008}
+Shao Y (2008) Physics and modelling of wind erosion, vol~37. Springer Science
+  \& Business Media
 
 \bibitem[{Shen et~al.(2019)Shen, Zhang, Huang, Wang, and Cen}]{Shen2019}
 Shen Y, Zhang C, Huang X, Wang X, Cen S (2019) The effect of wind speed
@@ -318,6 +327,9 @@ Song Q, Gao X, Lei J, Li S (2019) Spatial distribution of sand dunes and their
   relationship with fluvial systems on the southern margin of the taklimakan
   desert, china. Geomatics, Natural Hazards and Risk 10(1):2408--2428
 
+\bibitem[{Spalding(1961)}]{Spalding1961}
+Spalding DB (1961) A single formula for the “law of the wall”
+
 \bibitem[{Stull(2006)}]{Stull2006}
 Stull R (2006) 9 - the atmospheric boundary layer. In: Wallace JM, Hobbs PV
   (eds) Atmospheric Science (Second Edition), second edition edn, Academic
@@ -335,9 +347,6 @@ Sullivan PP, McWilliams JC (2010) Dynamics of winds and currents coupled to
 \bibitem[{Sykes(1980)}]{Sykes1980}
 Sykes RI (1980) An asymptotic theory of incompressible turbulent boundarylayer
   flow over a small hump. Journal of Fluid Mechanics 101(3):647--670
-
-\bibitem[{Tritton(2012)}]{Tritton2012}
-Tritton D (2012) Physical fluid dynamics. Springer Science \& Business Media
 
 \bibitem[{Ungar and Haff(1987)}]{Ungar1987}
 Ungar JE, Haff PK (1987) {Steady state saltation in air}. Sedimentology
@@ -381,6 +390,14 @@ Walker IJ, Hesp PA, Davidson-Arnott RG, Bauer BO, Namikas SL, Ollerhead J
   incident wind and profile form of dunes: Greenwich dunes, prince edward
   island, canada. Geomorphology 105:127--138,
   \doi{10.1016/j.geomorph.2007.12.019}
+
+\bibitem[{Zhang et~al.(2016)Zhang, Li, Zhou, Zhang, Kang, Shen, and
+  Jia}]{Zhang2016}
+Zhang C, Li Q, Zhou N, Zhang J, Kang L, Shen Y, Jia W (2016) {Field
+  observations of wind profiles and sand fluxes above the windward slope of a
+  sand dune before and after the establishment of semi-buried straw
+  checkerboard barriers}. Aeolian Research 20:59--70,
+  \doi{10.1016/j.aeolia.2015.11.003}
 
 \bibitem[{Zilker and Hanratty(1979)}]{Zilker1979}
 Zilker DP, Hanratty TJ (1979) Influence of the amplitude of a solid wavy wall

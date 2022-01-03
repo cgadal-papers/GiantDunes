@@ -32,45 +32,48 @@ Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for ent
 while executing---line 1622 of file spbasic_updated.bst
 Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
 while executing---line 1622 of file spbasic_updated.bst
-You've used 75 entries,
+`journal' is a missing field, not a string, for entry Spalding1961
+while executing---line 1622 of file spbasic_updated.bst
+Warning--empty journal in Spalding1961
+You've used 78 entries,
             3214 wiz_defined-function locations,
-            1205 strings with 19417 characters,
-and the built_in function-call counts, 128660 in all, are:
-= -- 14808
-> -- 2855
-< -- 40
-+ -- 1399
-- -- 911
-* -- 9606
-:= -- 14442
-add.period$ -- 75
-call.type$ -- 75
-change.case$ -- 671
-chr.to.int$ -- 81
-cite$ -- 75
-duplicate$ -- 13106
-empty$ -- 9299
-format.name$ -- 1143
-if$ -- 26676
+            1226 strings with 20068 characters,
+and the built_in function-call counts, 132392 in all, are:
+= -- 15221
+> -- 2950
+< -- 43
++ -- 1444
+- -- 941
+* -- 9877
+:= -- 14885
+add.period$ -- 77
+call.type$ -- 78
+change.case$ -- 696
+chr.to.int$ -- 84
+cite$ -- 79
+duplicate$ -- 13475
+empty$ -- 9558
+format.name$ -- 1182
+if$ -- 27437
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 895
-newline$ -- 235
-num.names$ -- 302
-pop$ -- 3287
+missing$ -- 929
+newline$ -- 244
+num.names$ -- 314
+pop$ -- 3392
 preamble$ -- 1
-purify$ -- 595
+purify$ -- 617
 quote$ -- 0
-skip$ -- 4820
+skip$ -- 4965
 stack$ -- 0
-substring$ -- 13827
-swap$ -- 7129
-text.length$ -- 5
+substring$ -- 14162
+swap$ -- 7343
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 660
-warning$ -- 0
-while$ -- 796
+type$ -- 687
+warning$ -- 1
+while$ -- 824
 width$ -- 0
-write$ -- 844
-(There were 13 error messages)
+write$ -- 878
+(There were 14 error messages)
