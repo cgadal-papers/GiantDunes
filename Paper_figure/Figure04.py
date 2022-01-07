@@ -73,7 +73,7 @@ dz = lambda_dune/5
 
 # ## vertical profiles parameters
 station = 'Deep_Sea_Station'
-time_steps = [30542, 30542, 30312, 30312]
+time_steps = [18206, 18206, 9354, 9354]
 colors = [theme.color_day, theme.color_day, theme.color_night, theme.color_night]
 Icons = [theme.Icon_day, theme.Icon_night]
 Hmax_fit = 10000  # [m]
@@ -90,6 +90,11 @@ xlabels = [r'$k H \gtrsim 1 \, \textup{and} \, \, \mathcal{F} < 1$',
 
 props = dict(boxstyle='square, pad=0.1', color='white', alpha=1)
 
+hours = np.array([i.hour for i in Data[station]['time']])
+mask = ~((hours > 10) & (hours < 22)) & ~np.isnan(Data[station]['Froude']) & (Data[station]['Boundary layer height'] > 500) & (Data[station]['Boundary layer height'] < 1000) & (Data[station]['delta_theta'] > 2.5) & (Data[station]['delta_theta'] < 3.5) & (Data[station]['theta_ground'] > 305) & (Data[station]['theta_ground'] < 310)
+mask = ((hours > 10) & (hours < 22)) & ~np.isnan(Data[station]['Froude']) & (Data[station]['Boundary layer height'] > 2400) & (Data[station]['Boundary layer height'] < 2800) & (Data[station]['theta_ground'] > 310) & (Data[station]['theta_ground'] < 314)
+idx = np.arange(Data[station]['Froude'].size)
+
 # #### Figure
 fig, axrr = plt.subplots(4, 3, figsize=(theme.fig_width, 1.2*theme.fig_width),
                          constrained_layout=True,
@@ -104,7 +109,7 @@ for i, (t, ax) in enumerate(zip(time_steps[::2], axrr[:2, 0].flatten())):
     ax.text(0.04, 0.96, labels[i], ha='left', va='top', transform=ax.transAxes, bbox=props)
     ax.text(0.96, 0.96, Icons[i], ha='right', va='top', transform=ax.transAxes, bbox=props)
     ax.set_ylim(0, top=zmax)
-    ax.set_xlim(305, 325)
+    ax.set_xlim(301, 325)
     ax.set_ylabel('Height [km]')
     ax.set_xlabel(r'$T_{\textup{vp}}$ [K]')
     #

@@ -32,10 +32,10 @@ ad_hoc_quantity = np.concatenate([Data[station]['U_star_era'] for station in Sta
 # Figure properties
 couples = [('Froude', 'kLB'), ('Froude', 'kH'), ('kLB', 'kH')]
 lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
-# ax_labels = {'kH': r'$kH$', 'Froude': r'$\mathcal{F}r_{\textup{S}} =  U/\sqrt{(\Delta\rho/\rho) g H}$',
-# 'kLB': r'$\mathcal{F}r_{\textup{I}} =  kU/N$'}
-ax_labels = {'kH': r'$kH$', 'Froude': r'$\mathcal{F}r_{\textup{S}}$',
-             'kLB': r'$\mathcal{F}r_{\textup{I}}$'}
+# ax_labels = {'kH': r'$kH$', 'Froude': r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho) g H}$',
+# 'kLB': r'$\mathcal{F}_{\textup{I}} =  kU/N$'}
+ax_labels = {'kH': r'$kH$', 'Froude': r'$\mathcal{F}$',
+             'kLB': r'$\mathcal{F}_{\textup{I}}$'}
 norm = LogNorm(vmin=1, vmax=1.5e3)
 
 # #### Figure
