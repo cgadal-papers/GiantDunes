@@ -22,12 +22,12 @@
 Figure 2
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-121
+.. GENERATED FROM PYTHON SOURCE LINES 7-89
 
 
 
 .. image-sg:: /Paper_figure/images/sphx_glr_Figure02_001.png
-   :alt: Huab Station, Deep Sea Station
+   :alt: Figure02
    :srcset: /Paper_figure/images/sphx_glr_Figure02_001.png
    :class: sphx-glr-single-img
 
@@ -40,7 +40,6 @@ Figure 2
 
     import numpy as np
     import matplotlib.pyplot as plt
-    import matplotlib.gridspec as gridspec
     import matplotlib.dates as mdates
     import calendar
     from datetime import datetime, timedelta
@@ -73,89 +72,58 @@ Figure 2
     variables = ['U', 'Orientation']
     label_var = {'U': r'Velocity, $u_{*}~[\textup{m}~\textup{s}^{-1}]$', 'Orientation': r'Orientation, $\theta~[^\circ]$'}
     labels = [(r'\textbf{a}', r'\textbf{b}'), (r'\textbf{c}', r'\textbf{d}'), (r'\textbf{e}', r'\textbf{f}')]
-    year = [2018, 2017]
-    month = [2, 12]
-    days = [(10, 17), (10, 17)]
+    row_labels = ['Huab station', 'Deep Sea station -- summer', 'Deep Sea station -- winter']
+    years = [2018, 2017, 2017]
+    months = [2, 12, 6]
+    days = [(11, 14), (5, 8), (1, 4)]
     month_calendar = {index: month for index, month in enumerate(calendar.month_name) if month}
 
 
-    stations_plot = ['Huab_Station', 'Deep_Sea_Station']
+    stations_plot = ['Huab_Station', 'Deep_Sea_Station', 'Deep_Sea_Station']
 
     # #### Figure
-    fig = plt.figure(figsize=(theme.fig_width, 0.65*theme.fig_height_max))
-
-    # grids
-    gs = gridspec.GridSpec(2, 1, height_ratios=[2, 1], figure=fig)
-    gs.update(left=0.12, right=0.985, bottom=0.07, top=0.95, hspace=0.3)
-    gs_top = gs[0].subgridspec(1, 2, width_ratios=[1, 1], wspace=0.05)
-    gs_bottom = gs[1].subgridspec(1, 2, width_ratios=[1, 1], wspace=0.3)
-
-    # top grid
-    for i, station in enumerate(stations_plot):
-        tmin = datetime(year[i], month[i], days[i][0])
-        tmax = datetime(year[i], month[i], days[i][1])
-        # plots
-        gs_sub = gs_top[i].subgridspec(2, 1, height_ratios=[1, 1], hspace=0.08)
-        for j, (var, label) in enumerate(zip(variables, labels[i])):
-            ax = fig.add_subplot(gs_sub[j])
-            #
-            ax.plot(Data[station]['time'], Data[station][var + '_station'])
-            ax.plot(Data[station]['time'], Data[station][var + '_era'])
-            # label
-            ax.text(0.02, 0.93, label, ha='left', va='center', transform=ax.transAxes)
-            # axis label properties
+    fig = plt.figure(figsize=(theme.fig_width, 0.63*theme.fig_height_max), constrained_layout=True)
+    subfigs = fig.subfigures(nrows=3, ncols=1)
+    for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs, years, months, days, stations_plot)):
+        axarr = subfig.subplots(1, 2)
+        subfig.suptitle(row_labels[i])
+        subfig.set_facecolor('none')
+        tmin = datetime(yr, mth, dy[0])
+        tmax = datetime(yr, mth, dy[1])
+        for j, (ax, var, label) in enumerate(zip(axarr, variables, labels[i])):
+            l1, = ax.plot(Data[station]['time'], Data[station][var + '_station'], label='measurements', color=theme.color_insitu)
+            l2, = ax.plot(Data[station]['time'], Data[station][var + '_era'], label='Era5Land', color=theme.color_Era5Land)
             ax.set_xlim(tmin, tmax)
             tick_formatter(ax)
             #
-            if i == 0:
-                ax.set_ylabel(label_var[var])
+            # #### plot nights
+            tstart = tmin - timedelta(days=1)
+            tstart = tstart.replace(hour=10)
+            x_night = [tstart + timedelta(days=i) for i in range((tmax-tmin).days + 2)]
+            for daylight in x_night:
+                a1 = ax.axvspan(daylight, daylight + timedelta(hours=12), facecolor=theme.color_day, alpha=0.1, edgecolor=None, label=theme.Icon_day)
+                a2 = ax.axvspan(daylight - timedelta(hours=12), daylight, facecolor=theme.color_night, alpha=0.1, edgecolor=None, label=theme.Icon_night)
+            #
+            ax.set_ylabel(label_var[var])
+            ax.set_xlabel('Days in {} {:d}'.format(month_calendar[tmin.month], tmin.year))
+            ax.set_xticks([tmin + timedelta(days=i) for i in range((tmax-tmin).days + 1)])
+            ax.text(0.02, 0.97, label, transform=ax.transAxes, ha='left', va='top')
             if var == 'U':
-                ax.set_xticklabels([])
-                ax.set_title(station.replace('_', ' '))
-                ax.set_ylim(0, 10)
-                if not i == 0:
-                    ax.set_yticklabels([])
+                ax.set_ylim((0, 9))
             else:
-                ax.set_ylim([0, 360])
-                ax.set_yticks([0, 90, 180, 270, 360])
-                if i == 0:
-                    ticklabels = ax.get_yticklabels()
-                    ticklabels[-1].set_va('top')
-                else:
-                    ax.set_yticklabels([])
-                ax.set_xlabel('Days in ' + month_calendar[tmin.month] + ' ' + str(tmin.year))
-
-    # bottom grid
-    tmin = datetime(2017, 6, 1)
-    tmax = datetime(2017, 6, 4)
-
-    for i, (var, label) in enumerate(zip(variables, labels[-1])):
-        ax = fig.add_subplot(gs_bottom[i])
-        #
-        ax.plot(Data[station]['time'], Data[station][var + '_station'])
-        ax.plot(Data[station]['time'], Data[station][var + '_era'])
-        # label
-        ax.text(0.02, 0.93, label, ha='left', va='center', transform=ax.transAxes)
-        # axis label properties
-        ax.set_xlim(tmin, tmax)
-        tick_formatter(ax)
-        plt.xticks([tmin + timedelta(days=i) for i in range((tmax-tmin).days + 1)])
-        ax.set_ylabel(label_var[var])
-        if var == 'U':
-            ax.set_ylim(0, 10)
-        else:
-            ax.set_ylim([0, 360])
-            ax.set_yticks([0, 90, 180, 270, 360])
-        ax.set_xlabel('Days in ' + month_calendar[tmin.month] + ' ' + str(tmin.year))
-
-
-    plt.savefig(os.path.join(path_savefig, 'Figure2.pdf'), dpi=600)
+                ax.set_ylim((0, 360))
+                ax.set_yticks((0, 90, 180, 270, 360))
+    #
+    # a1.set_edgecolor((0, 0, 0, 1))
+    first_legend = fig.legend(handles=[a1, a2], loc='center right', ncol=2, columnspacing=1, bbox_to_anchor=(1, 0.98), frameon=False)
+    #
+    plt.savefig(os.path.join(path_savefig, 'Figure2.pdf'),)
     plt.show()
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.215 seconds)
+   **Total running time of the script:** ( 0 minutes  2.137 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure02.py:

@@ -5,25 +5,6 @@ Examples using ``python_codes.theme.fig_height_max``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 1">
-
-.. only:: html
-
- .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure01_thumb.png
-     :alt: Figure 1
-
-     :ref:`sphx_glr_Paper_figure_Figure01.py`
-
-.. raw:: html
-
-    </div>
-
-.. only:: not html
-
- * :ref:`sphx_glr_Paper_figure_Figure01.py`
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="Figure 2">
 
 .. only:: html
@@ -59,25 +40,6 @@ Examples using ``python_codes.theme.fig_height_max``
 .. only:: not html
 
  * :ref:`sphx_glr_Paper_figure_Figure05.py`
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 4 -- SI">
-
-.. only:: html
-
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure04_supp_thumb.png
-     :alt: Figure 4 -- SI
-
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure04_supp.py`
-
-.. raw:: html
-
-    </div>
-
-.. only:: not html
-
- * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure04_supp.py`
 
 .. raw:: html
 

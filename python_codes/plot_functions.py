@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 from windrose import WindroseAxes
 import numpy as np
 from scipy.stats import binned_statistic_2d
+import matplotlib.patches as ptch
+import matplotlib.path as path
 
 
 def plot_wind_rose(theta, U, bins, ax, fig, label=None,
@@ -206,3 +208,42 @@ def make_nice_histogram(data, nbins, ax, vmin=None, vmax=None, scale_bins='lin',
                 density=density, orientation=orientation, **kwargs)
     ax.hist(data, bins=bins, histtype='step',
             color=a[-1][0].get_fc(), density=density, orientation=orientation)
+
+
+def plot_arrow(ax, start, end, arrowprops):
+    """Plot an arrow using matplotlib :func:`FancyArrowPatch <matplotlib.patch.FancyArrowPatch>`. Note that it can plot dashed arrows without having an ugly head depending on `type` argument, following https://stackoverflow.com/questions/47180328/pyplot-dotted-line-with-fancyarrowpatch.
+
+    Parameters
+    ----------
+    ax : matplotlib axe
+        Axe on which to plot the arrow
+    start : tuple, list, numpy array
+        starting coordinates of the arrow
+    end : tuple, list, numpy array
+        starting coordinates of the arrow
+    arrowprops : dict
+        `arrowprops` dictionnary passed to matplotlib :func:`FancyArrowPatch <matplotlib.patch.FancyArrowPatch>`.
+
+    Returns
+    -------
+
+        Return nothing, only plot the arrow
+
+    """
+    arrow = ptch.FancyArrowPatch(end, start, **arrowprops)
+    ax.add_patch(arrow)
+    if arrow.get_linestyle() != '-':
+        # Tail
+        v1 = arrow.get_path().vertices[0:3, :]
+        c1 = arrow.get_path().codes[0:3]
+        p1 = path.Path(v1, c1)
+        pp1 = ptch.PathPatch(p1, color=arrow.get_facecolor(), lw=arrow.get_linewidth(), linestyle=arrow.get_linestyle(), fill=False)
+        ax.add_patch(pp1)
+        # Heads ====> partie qui ne marche pas
+        v2 = arrow.get_path().vertices[3:, :]
+        c2 = arrow.get_path().codes[3:]
+        c2[0] = 1
+        p2 = path.Path(v2, c2)
+        pp2 = ptch.PathPatch(p2, color=arrow.get_facecolor(), lw=arrow.get_linewidth(), linestyle='-')
+        ax.add_patch(pp2)
+        arrow.remove()

@@ -88,10 +88,10 @@ Figure 12 -- SI
     regime_line_color = 'tab:blue'
 
     vars = [('kLB', 'kH'), ('kLB', 'Froude')]
-    ax_labels = {'kH': r'$kH$', 'Froude': r'$\mathcal{F}r_{\textup{S}} =  U/\sqrt{(\Delta\rho/\rho) g H}$',
-                 'kLB': r'$\mathcal{F}r_{\textup{I}} =  kU/N$'}
-    xlabels = [r'$\mathcal{F}r_{\textup{I}} =  kU/N$']
-    ylabels = [r'$kH$', r'$\mathcal{F}r_{\textup{S}} =  U/\sqrt{(\Delta\rho/\rho) g H}$']
+    ax_labels = {'kH': r'$kH$', 'Froude': r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho_{0}) g H}$',
+                 'kLB': r'$\mathcal{F}_{\textup{I}} =  kU/N$'}
+    xlabels = [r'$\mathcal{F}_{\textup{I}} =  kU/N$']
+    ylabels = [r'$kH$', r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho) g H}$']
     lim_regime = {'kH': 0.32, 'Froude': 0.4, 'kLB': 0.35}
 
     # 3D plot
@@ -133,7 +133,7 @@ Figure 12 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.744 seconds)
+   **Total running time of the script:** ( 0 minutes  4.151 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure12_supp.py:

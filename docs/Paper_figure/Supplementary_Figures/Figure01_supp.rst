@@ -65,7 +65,7 @@ Figure 1 -- SI
 
     Stations = ['Adamax_Station', 'Huab_Station', 'Deep_Sea_Station', 'South_Namib_Station']
     dat_types = ['Era5Land_wind_data_', 'in_situ_wind_data_']
-    colors = ['tab:blue', 'tab:orange', 'tab:red']
+    colors = [theme.color_Era5Land, theme.color_insitu]
 
     dt_threshold = timedelta(minutes=60)
     height_rect = 0.75
@@ -107,7 +107,7 @@ Figure 1 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.709 seconds)
+   **Total running time of the script:** ( 0 minutes  0.815 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure01_supp.py:

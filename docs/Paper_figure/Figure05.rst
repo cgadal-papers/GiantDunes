@@ -22,7 +22,7 @@
 Figure 5
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-89
+.. GENERATED FROM PYTHON SOURCE LINES 7-88
 
 
 
@@ -52,7 +52,6 @@ Figure 5
     theme.load_style()
 
     # path
-    path_imgs = '../static/images/'
     path_savefig = '../Paper/Figures'
     path_outputdata = '../static/output_data/data/'
 
@@ -89,7 +88,7 @@ Figure 5
 
 
     var1, var2 = 'Froude', 'kH'
-    xlabel = r'$\mathcal{F}r_{\textup{S}} =  U/\sqrt{(\Delta\rho/\rho) g H}$'
+    xlabel = r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho_{0}) g H}$'
 
     # #### Figure
     fig, axarr = plt.subplots(1, 2, figsize=(theme.fig_width, 0.375*theme.fig_height_max),
@@ -123,7 +122,7 @@ Figure 5
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.730 seconds)
+   **Total running time of the script:** ( 0 minutes  2.197 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure05.py:

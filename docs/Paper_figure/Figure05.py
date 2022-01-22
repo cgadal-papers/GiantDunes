@@ -19,7 +19,6 @@ from python_codes.plot_functions import plot_regime_diagram
 theme.load_style()
 
 # path
-path_imgs = '../static/images/'
 path_savefig = '../Paper/Figures'
 path_outputdata = '../static/output_data/data/'
 
@@ -56,7 +55,7 @@ regime_line_color = 'tab:blue'
 
 
 var1, var2 = 'Froude', 'kH'
-xlabel = r'$\mathcal{F}r_{\textup{S}} =  U/\sqrt{(\Delta\rho/\rho) g H}$'
+xlabel = r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho_{0}) g H}$'
 
 # #### Figure
 fig, axarr = plt.subplots(1, 2, figsize=(theme.fig_width, 0.375*theme.fig_height_max),

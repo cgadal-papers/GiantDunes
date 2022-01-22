@@ -89,7 +89,7 @@ Figure 13 -- SI
     couples = [('Froude', 'kH'), ('kLB', 'kH')]
     labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}']
     #
-    ax_labels = {'Froude': r'$Fr_{\textup{surface}} =  U/\sqrt{(\Delta\rho/\rho) g H}$', 'kH': '$k H$', 'kLB': r'$Fr_{\textup{internal}} = k U/N$'}
+    ax_labels = {'Froude': r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho_{0}) g H}$', 'kH': '$k H$', 'kLB': r'$\mathcal{F}_{\textup{I}} = k U/N$'}
     lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
     #
     regime_line_color = 'tab:blue'
@@ -183,7 +183,7 @@ Figure 13 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  7.091 seconds)
+   **Total running time of the script:** ( 0 minutes  7.723 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure13_supp.py:

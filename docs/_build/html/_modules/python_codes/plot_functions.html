@@ -154,7 +154,8 @@
 
 
 <div class="viewcode-block" id="plot_wind_rose"><a class="viewcode-back" href="../../_autosummary/python_codes.plot_functions.plot_wind_rose.html#python_codes.plot_functions.plot_wind_rose">[docs]</a><span class="k">def</span> <span class="nf">plot_wind_rose</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                   <span class="n">props</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">),</span> <span class="n">edgecolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">)):</span>
+                   <span class="n">props</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">),</span> <span class="n">edgecolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                   <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Plot a wind rose from one dimensional time series.</span>
 
 <span class="sd">    Parameters</span>
@@ -171,6 +172,8 @@
 <span class="sd">        figure on which the wind rose is plotted</span>
 <span class="sd">    label : str or None</span>
 <span class="sd">        if not None, label plotted below the wind rose (default is None).</span>
+<span class="sd">    **kwargs :</span>
+<span class="sd">        Optional parameters passed to :func:`windrose.WindroseAxes.bar &lt;windrose.WindroseAxes&gt;`.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -182,7 +185,7 @@
     <span class="n">ax_rose</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_position</span><span class="p">(),</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
     <span class="n">Angle</span> <span class="o">=</span> <span class="p">(</span><span class="mi">90</span> <span class="o">-</span> <span class="n">theta</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span>
     <span class="n">ax_rose</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">Angle</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">opening</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">nsector</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">)</span>
+                <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">nsector</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">ax_rose</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
     <span class="n">ax_rose</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.6</span><span class="p">)</span>
     <span class="n">ax_rose</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
@@ -216,8 +219,8 @@
 <span class="sd">        Define if the polar axes are plotted or not (the default is 0).</span>
 <span class="sd">    label : str</span>
 <span class="sd">        If not None, sets a label at the bottom of the flux rose (the default is None).</span>
-<span class="sd">    **kwargs : type</span>
-<span class="sd">        Description of parameter `**kwargs`.</span>
+<span class="sd">    **kwargs :</span>
+<span class="sd">        Optional parameters passed to :func:`windrose.WindroseAxes.bar &lt;windrose.WindroseAxes&gt;`.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -336,17 +339,6 @@
         <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([])</span>
     <span class="k">return</span> <span class="n">a</span></div>
 
-
-<span class="c1"># def make_nice_histogram(data, nbins, ax, vmin=None, vmax=None, scale_bins=&#39;lin&#39;, density=True, **kwargs):</span>
-<span class="c1">#     min = np.nanmin(data) if vmin is None else vmin</span>
-<span class="c1">#     max = np.nanmax(data) if vmax is None else vmax</span>
-<span class="c1">#     if scale_bins == &#39;log&#39;:</span>
-<span class="c1">#         bins = np.logspace(np.log10(min), np.log10(max), nbins)</span>
-<span class="c1">#         ax.set_xscale(&#39;log&#39;)</span>
-<span class="c1">#     else:</span>
-<span class="c1">#         bins = np.linspace(min, max, nbins)</span>
-<span class="c1">#     a = ax.hist(data, bins=bins, histtype=&#39;stepfilled&#39;, density=density, edgecolor=None, **kwargs)</span>
-<span class="c1">#     ax.hist(data, bins=bins, histtype=&#39;step&#39;, color=a[-1][0].get_fc(), density=density)</span>
 
 <div class="viewcode-block" id="make_nice_histogram"><a class="viewcode-back" href="../../_autosummary/python_codes.plot_functions.make_nice_histogram.html#python_codes.plot_functions.make_nice_histogram">[docs]</a><span class="k">def</span> <span class="nf">make_nice_histogram</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">nbins</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale_bins</span><span class="o">=</span><span class="s1">&#39;lin&#39;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="nb">min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="k">if</span> <span class="n">vmin</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">vmin</span>

@@ -50,9 +50,9 @@ fig, axarr = plt.subplots(2, 2, figsize=(theme.fig_width, 1*theme.fig_width),
                           constrained_layout=True, gridspec_kw={'height_ratios': [2, 1]})
 
 
-# ill-processed vertical profiles
-for i, t in enumerate(time_steps_bad):
-    plot_vertical_profile(axarr[0, 1], Data[station]['height'][:, t], Data[station]['Virtual_potential_temperature'][:, t],
+# ## well-processed vertical profiles
+for i, t in enumerate(time_steps_good):
+    plot_vertical_profile(axarr[0, 0], Data[station]['height'][:, t], Data[station]['Virtual_potential_temperature'][:, t],
                           Data[station]['gradient_free_atm'][t], Data[station]['theta_free_atm'][t],
                           Data[station]['Boundary layer height'][t], Data[station]['theta_ground'][t], Hmax_fit,
                           color=colors[i])
@@ -61,10 +61,15 @@ axarr[0, 0].set_xlabel('Virtual potential temp. [K]')
 axarr[0, 0].set_ylabel('Height [km]')
 axarr[0, 0].set_ylim(0, top=0.68*Hmax_fit/1e3)
 axarr[0, 0].set_xlim(297, 328)
+# Labelling some quantities
+axarr[0, 0].text(axarr[0, 0].get_xlim()[0]-1, Data[station]['Boundary layer height'][time_steps_good[1]]/1e3, '$H$', ha='right', va='top', color='tab:orange')
+axarr[0, 0].text(Data[station]['theta_ground'][time_steps_good[1]], axarr[0, 0].get_ylim()[0]-0.15, '$T_{0}$', ha='center', va='top', color='tab:orange')
+axarr[0, 0].annotate('', xy=(313, 4), xytext=(316, 4), arrowprops=dict(arrowstyle="<->", shrinkA=0, shrinkB=0, color='tab:orange'))
+axarr[0, 0].text((313 + 316)/2 - 1, 4.05, r'$\Delta T_{\textup{vp}}$', ha='center', va='bottom', color='tab:orange')
 
-# well-processed vertical profiles
-for i, t in enumerate(time_steps_good):
-    plot_vertical_profile(axarr[0, 0], Data[station]['height'][:, t], Data[station]['Virtual_potential_temperature'][:, t],
+# ## ill-processed vertical profiles
+for i, t in enumerate(time_steps_bad):
+    plot_vertical_profile(axarr[0, 1], Data[station]['height'][:, t], Data[station]['Virtual_potential_temperature'][:, t],
                           Data[station]['gradient_free_atm'][t], Data[station]['theta_free_atm'][t],
                           Data[station]['Boundary layer height'][t], Data[station]['theta_ground'][t], Hmax_fit,
                           color=colors[i])
@@ -74,7 +79,7 @@ axarr[0, 1].set_ylabel('Height [km]')
 axarr[0, 1].set_ylim(0, top=0.68*Hmax_fit/1e3)
 axarr[0, 1].set_xlim(297, 328)
 
-# hourly distributions of ill-processed vertical profiles
+# ## hourly distributions of ill-processed vertical profiles
 for station in Stations:
     hr = np.array([i.hour for i in Data[station]['time']])
     make_nice_histogram(hr[np.isnan(Data[station]['Froude'])], 24, axarr[1, 0], alpha=0.5, vmin=0, vmax=23, label=' '.join(station.split('_')[:-1]), scale_bins='lin', density=False)
@@ -84,7 +89,7 @@ axarr[1, 0].set_xlim(0, 23)
 axarr[1, 0].ticklabel_format(axis='y', style='sci', scilimits=(0, 1))
 axarr[1, 0].legend(loc='upper center')
 
-# monthly distributions of ill-processed vertical profiles
+# ## monthly distributions of ill-processed vertical profiles
 for station in Stations:
     month = np.array([i.month for i in Data[station]['time']])
     make_nice_histogram(month[np.isnan(Data[station]['Froude'])], 24, axarr[1, 1], alpha=0.5, vmin=0, vmax=23, label=' '.join(station.split('_')[:-1]), scale_bins='lin', density=False)
@@ -93,7 +98,7 @@ axarr[1, 1].set_ylabel(r'Counts')
 axarr[1, 1].set_xlim(0, 12)
 axarr[1, 1].ticklabel_format(axis='y', style='sci', scilimits=(0, 1))
 
-# labelling
+# ## labelling
 axarr[0, 0].text(0.05, 0.95, labels[0], ha='center', va='center', transform=axarr[0, 0].transAxes)
 axarr[0, 1].text(0.05, 0.95, labels[1], ha='center', va='center', transform=axarr[0, 1].transAxes)
 axarr[1, 0].text(0.05, 0.92, labels[2], ha='center', va='center', transform=axarr[1, 0].transAxes)

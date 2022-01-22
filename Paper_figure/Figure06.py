@@ -19,7 +19,7 @@ import python_codes.theme as theme
 from python_codes.meteo_analysis import quartic_transport_law, quadratic_transport_law
 from python_codes.general import Make_angular_PDF, cosd, sind, Vector_average
 from python_codes.CourrechDuPont2014 import Bed_Instability_Orientation, Elongation_direction
-from python_codes.plot_functions import plot_flux_rose
+from python_codes.plot_functions import plot_flux_rose, plot_arrow
 
 
 def North_arrow(fig, ax, center, length, length_small, width, radius, theta=0, color='k'):
@@ -35,36 +35,6 @@ def North_arrow(fig, ax, center, length, length_small, width, radius, theta=0, c
     t.set_visible(False)
     height_t = bb.height
     t = ax.text(center[0], center[1] - height_t/2, r'\textbf{N}', color=color, ha='center')
-
-
-def plot_arrow(ax, point, length, angle, type, arrowprops):
-    dx = cosd(angle)*length
-    dy = sind(-angle)*length
-    # dx = int(round(cosd(angle)*length))
-    # dy = int(round(sind(-angle)*length))
-    if type == 'centered':
-        xy = point - np.array([dx, dy])/2
-        xytext = point + np.array([dx, dy])/2
-    else:
-        xy = point
-        xytext = xy + np.array([dx, dy])
-    arrow = ptch.FancyArrowPatch(xytext, xy, **arrowprops)
-    ax.add_patch(arrow)
-    if arrow.get_linestyle() != '-':
-        # Tail
-        v1 = arrow.get_path().vertices[0:3, :]
-        c1 = arrow.get_path().codes[0:3]
-        p1 = path.Path(v1, c1)
-        pp1 = ptch.PathPatch(p1, color=arrow.get_facecolor(), lw=arrow.get_linewidth(), linestyle=arrow.get_linestyle(), fill=False)
-        ax.add_patch(pp1)
-        # Heads ====> partie qui ne marche pas
-        v2 = arrow.get_path().vertices[3:, :]
-        c2 = arrow.get_path().codes[3:]
-        c2[0] = 1
-        p2 = path.Path(v2, c2)
-        pp2 = ptch.PathPatch(p2, color=arrow.get_facecolor(), lw=arrow.get_linewidth(), linestyle='-')
-        ax.add_patch(pp2)
-        arrow.remove()
 
 
 def plot_orientation_wedge(ax, A_F, A_BI, center, length, color_F, color_BI, alpha=0.2, **kwargs):
@@ -178,7 +148,7 @@ for ax, station, label in zip(axarr.flatten(), Stations, labels):
     RDD, RDP = Vector_average(Angles, PDF[station][0, index, 1, :])
     subax = ax.inset_axes(bounds=anchor, transform=ax.transAxes)
     a = plot_flux_rose(Angles, PDF[station][0, index, 1, :], subax, fig, cmap=theme.flux_color, edgecolor='k', linewidth=0.5, label='Era5-Land', props=props)
-    a.annotate("", (RDD*np.pi/180, 0), (RDD*np.pi/180, 0.85*a.get_rmax()), arrowprops=dict(arrowstyle="<|-", shrinkA=0, shrinkB=0, color='saddlebrown'))
+    plot_arrow(a, (RDD*np.pi/180, 0), (RDD*np.pi/180, 0.85*a.get_rmax()), arrowprops=dict(arrowstyle="<|-", shrinkA=0, shrinkB=0, color='saddlebrown', mutation_scale=10))
     a.grid(linewidth=0.4, color='k', linestyle='--')
     a.set_axisbelow(True)
     a.patch.set_alpha(0.4)
@@ -189,7 +159,8 @@ for ax, station, label in zip(axarr.flatten(), Stations, labels):
     RDD, RDP = Vector_average(Angles, PDF[station][0, index, 0, :])
     subax = ax.inset_axes(bounds=anchor, transform=ax.transAxes)
     a = plot_flux_rose(Angles, PDF[station][0, index, 0, :], subax, fig, cmap=theme.flux_color, edgecolor='k', linewidth=0.5, label='in situ', props=props)
-    a.annotate("", (RDD*np.pi/180, 0), (RDD*np.pi/180, 0.85*a.get_rmax()), arrowprops=dict(arrowstyle="<|-", shrinkA=0, shrinkB=0, color='saddlebrown'))
+    plot_arrow(a, (RDD*np.pi/180, 0), (RDD*np.pi/180, 0.85*a.get_rmax()),
+               arrowprops=dict(arrowstyle="<|-", shrinkA=0, shrinkB=0, color='saddlebrown', mutation_scale=10, ls='--'))
     a.grid(linewidth=0.4, color='k', linestyle='--')
     a.set_axisbelow(True)
     a.patch.set_alpha(0.4)
@@ -197,27 +168,40 @@ for ax, station, label in zip(axarr.flatten(), Stations, labels):
     #
     # #### Plot orientation arrows
     length = 220
-    # Era5 Land
-    center = (600, 724)
-    plot_arrow(ax, center, 2*length, alpha_BI[station][-1, 1, index, 1], 'centered',
-               arrowprops=dict(arrowstyle="<|-|>", color=color_BI, shrinkA=0, shrinkB=0,
-                               lw=lw_arrow, mutation_scale=10, linestyle='-'))
-    plot_arrow(ax, center, length, alpha_F[station][-1, 1, index, 1], 'not_centered',
-               arrowprops=dict(arrowstyle="<|-", color=color_F, shrinkA=0, shrinkB=0,
-                               lw=lw_arrow, mutation_scale=10, linestyle='-'))
+    # ## Era5 Land
+    center = np.array([600, 724])
+    #
+    vec = np.array([cosd(alpha_BI[station][-1, 1, index, 1]), sind(-alpha_BI[station][-1, 1, index, 1])])
+    start = center - length*vec
+    end = center + length*vec
+    plot_arrow(ax, start, end, arrowprops=dict(arrowstyle="<|-|>", color=color_BI, shrinkA=0, shrinkB=0,
+                                               lw=lw_arrow, mutation_scale=10, linestyle='-'))
+    #
+    vec = np.array([cosd(alpha_F[station][-1, 1, index, 1]), sind(-alpha_F[station][-1, 1, index, 1])])
+    start = center
+    end = start + length*vec
+    plot_arrow(ax, start, end, arrowprops=dict(arrowstyle="<|-", color=color_F, shrinkA=0, shrinkB=0,
+                                               lw=lw_arrow, mutation_scale=10, linestyle='-'))
+    #
     plot_orientation_wedge(ax, alpha_F[station][:, :, :, 1], alpha_BI[station][:, :, :, 1],
                            center, length, color_F, color_BI, alpha=0.2)
-    # station
+    # ## station
     if station == 'Deep_Sea_Station':
-        center = (1400, 724)
+        center = np.array([1400, 724])
     else:
-        center = (1600, 750)
-    plot_arrow(ax, center, 2*length, alpha_BI[station][-1, 1, index, 0], 'centered',
-               arrowprops=dict(arrowstyle="<|-|>", color=color_BI, shrinkA=0, shrinkB=0,
-                               lw=lw_arrow, mutation_scale=10, linestyle='--'))
-    plot_arrow(ax, center, length, alpha_F[station][-1, 1, index, 0], 'not_centered',
-               arrowprops=dict(arrowstyle="<|-", color=color_F, shrinkA=0, shrinkB=0,
-                               lw=lw_arrow, mutation_scale=10, linestyle='--'))
+        center = np.array([1600, 750])
+    vec = np.array([cosd(alpha_BI[station][-1, 1, index, 0]), sind(-alpha_BI[station][-1, 1, index, 0])])
+    start = center - length*vec
+    end = center + length*vec
+    plot_arrow(ax, start, end, arrowprops=dict(arrowstyle="<|-|>", color=color_BI, shrinkA=0, shrinkB=0,
+                                               lw=lw_arrow, mutation_scale=10, linestyle='--'))
+    #
+    vec = np.array([cosd(alpha_F[station][-1, 1, index, 0]), sind(-alpha_F[station][-1, 1, index, 0])])
+    start = center
+    end = start + length*vec
+    plot_arrow(ax, start, end, arrowprops=dict(arrowstyle="<|-", color=color_F, shrinkA=0, shrinkB=0,
+                                               lw=lw_arrow, mutation_scale=10, linestyle='--'))
+    #
     plot_orientation_wedge(ax, alpha_F[station][:, :, :, 0], alpha_BI[station][:, :, :, 0],
                            center, length, color_F, color_BI, alpha=0.2, linestyle='--')
 

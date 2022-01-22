@@ -1,4 +1,4 @@
-python\_codes.theme
+﻿python\_codes.theme
 ===================
 
 .. automodule:: python_codes.theme
@@ -17,6 +17,7 @@ python\_codes.theme
       :nosignatures:
    
       load_style
+      truncate_colormap
    
    
 

@@ -22,7 +22,7 @@
 Figure 6
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-244
+.. GENERATED FROM PYTHON SOURCE LINES 7-243
 
 
 
@@ -169,7 +169,6 @@ Figure 6
     # ### figure properties
     color_BI = 'tab:blue'
     color_F = 'crimson'
-    color_station = 'tab:green'
     lw_arrow = 1.5
     props = dict(boxstyle='round', color='wheat', alpha=0.9)
     labels = [r'\textbf{a}', r'\textbf{b}']
@@ -233,10 +232,10 @@ Figure 6
         length = 220
         # Era5 Land
         center = (600, 724)
-        plot_arrow(ax, center, 2*length, alpha_BI[station][-1, 0, index, 1], 'centered',
+        plot_arrow(ax, center, 2*length, alpha_BI[station][-1, 1, index, 1], 'centered',
                    arrowprops=dict(arrowstyle="<|-|>", color=color_BI, shrinkA=0, shrinkB=0,
                                    lw=lw_arrow, mutation_scale=10, linestyle='-'))
-        plot_arrow(ax, center, length, alpha_F[station][-1, 0, index, 1], 'not_centered',
+        plot_arrow(ax, center, length, alpha_F[station][-1, 1, index, 1], 'not_centered',
                    arrowprops=dict(arrowstyle="<|-", color=color_F, shrinkA=0, shrinkB=0,
                                    lw=lw_arrow, mutation_scale=10, linestyle='-'))
         plot_orientation_wedge(ax, alpha_F[station][:, :, :, 1], alpha_BI[station][:, :, :, 1],
@@ -246,10 +245,10 @@ Figure 6
             center = (1400, 724)
         else:
             center = (1600, 750)
-        plot_arrow(ax, center, 2*length, alpha_BI[station][-1, 0, index, 0], 'centered',
+        plot_arrow(ax, center, 2*length, alpha_BI[station][-1, 1, index, 0], 'centered',
                    arrowprops=dict(arrowstyle="<|-|>", color=color_BI, shrinkA=0, shrinkB=0,
                                    lw=lw_arrow, mutation_scale=10, linestyle='--'))
-        plot_arrow(ax, center, length, alpha_F[station][-1, 0, index, 0], 'not_centered',
+        plot_arrow(ax, center, length, alpha_F[station][-1, 1, index, 0], 'not_centered',
                    arrowprops=dict(arrowstyle="<|-", color=color_F, shrinkA=0, shrinkB=0,
                                    lw=lw_arrow, mutation_scale=10, linestyle='--'))
         plot_orientation_wedge(ax, alpha_F[station][:, :, :, 0], alpha_BI[station][:, :, :, 0],
@@ -257,8 +256,8 @@ Figure 6
 
     # #### Other annotations
     # station positions
-    axarr[0].scatter(419, 376, color=color_station)
-    axarr[1].scatter(1392, 483, color=color_station)
+    axarr[0].scatter(419, 376, color=theme.color_station_position)
+    axarr[1].scatter(1392, 483, color=theme.color_station_position)
     #
     # Observed dune patterns
     ellispe_big = ptch.Ellipse((925, 460), 250, 850, angle=0, color=color_F, fill=False)
@@ -278,7 +277,7 @@ Figure 6
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  14.161 seconds)
+   **Total running time of the script:** ( 0 minutes  31.196 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure06.py:

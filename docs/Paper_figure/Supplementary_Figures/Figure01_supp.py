@@ -32,7 +32,7 @@ path_inputdata = '../../static/input_data/'
 
 Stations = ['Adamax_Station', 'Huab_Station', 'Deep_Sea_Station', 'South_Namib_Station']
 dat_types = ['Era5Land_wind_data_', 'in_situ_wind_data_']
-colors = ['tab:blue', 'tab:orange', 'tab:red']
+colors = [theme.color_Era5Land, theme.color_insitu]
 
 dt_threshold = timedelta(minutes=60)
 height_rect = 0.75

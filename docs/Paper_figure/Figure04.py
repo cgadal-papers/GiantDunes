@@ -15,8 +15,8 @@ from python_codes.general import cosd, sind
 from python_codes.linear_theory import Cisaillement_basal_rotated_wind, coeffA0, coeffB0
 
 
-def perturb(x, amp, lamb, shift):
-    return np.cos(2*np.pi*x/lamb)*amp + shift
+def perturb(x, z, amp, lamb, shift):
+    return np.cos(2*np.pi*x/lamb)*amp*np.exp(-z/lamb) + shift
 
 
 def plot_vertical_profile(ax, height, Virtual_potential_temperature, grad_free_atm, theta_free_atm, blh, theta_ground, Hmax_fit, color='tab:blue', label=None, alpha_pt=1):
@@ -31,7 +31,7 @@ def plot_vertical_profile(ax, height, Virtual_potential_temperature, grad_free_a
 
 def plot_streamlines(ax, z_pos, x, amp, lamb, **kwargs):
     for z in z_pos:
-        ax.plot(x, perturb(x, amp, lamb, z), **kwargs)
+        ax.plot(x, perturb(x, z, amp, lamb, z), **kwargs)
 
 
 def topo(x, y, alpha, k, xi):
@@ -57,14 +57,14 @@ color_dune = '#D2691E'
 alpha_dune = 0.2
 #
 lambda_dune = 2.5
-mult = 1.7
+mult = 1
 hdune = 0.05*lambda_dune*mult
 lw_capping_layer = 3
 #
 n_dunes = 3
 xlims = [0, n_dunes*lambda_dune]
 x = np.linspace(xlims[0], xlims[1], 500)
-dunes = perturb(x, hdune, lambda_dune, 0.75*hdune)
+dunes = perturb(x, 0, hdune, lambda_dune, 0.75*hdune)
 dunes[dunes < 0] = np.nan
 #
 xmax = x.max()
@@ -73,21 +73,27 @@ dz = lambda_dune/5
 
 # ## vertical profiles parameters
 station = 'Deep_Sea_Station'
-time_steps = [30302, 30302, 2012, 2012]
-colors = ['tab:red', 'tab:red', 'tab:blue', 'tab:blue']
+time_steps = [18206, 18206, 9354, 9354]
+colors = [theme.color_day, theme.color_day, theme.color_night, theme.color_night]
+Icons = [theme.Icon_day, theme.Icon_night]
 Hmax_fit = 10000  # [m]
 
-zmax = 0.55*Hmax_fit/1e3
+zmax = 0.4*Hmax_fit/1e3
 
 # ## labels
-titles = [r'Day - large $u_{*}$', 'Day - small $u_{*}$', 'Night - large $u_{*}$', 'Night - small $u_{*}$']
+titles = [r'Day - small $u_{*}$', 'Day - large $u_{*}$', 'Night - small $u_{*}$', 'Night - large $u_{*}$']
 labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}', r'\textbf{e}', r'\textbf{f}', r'\textbf{g}']
-xlabels = [r'$k H \gtrsim 1$' '\n' r'$\mathcal{F}r_{\textup{S}} \, \textup{and/or} \, \mathcal{F}r_{\textup{I}} < 1$',
-           r'$k H \gtrsim 1$' '\n' r'$\mathcal{F}r_{\textup{S}} \, \textup{and/or} \, \mathcal{F}r_{\textup{I}} > 1$',
-           r'$k H \lesssim 1$' '\n' r'$\mathcal{F}r_{\textup{S}} \, \textup{and/or} \, \mathcal{F}r_{\textup{I}} < 1$',
-           r'$k H \lesssim 1$' '\n' r'$\mathcal{F}r_{\textup{S}} \, \textup{and/or} \, \mathcal{F}r_{\textup{I}} > 1$']
+xlabels = [r'$k H \gtrsim 1 \, \textup{and} \, \, \mathcal{F} < 1$',
+           r'$k H \gtrsim 1 \, \textup{and} \, \, \mathcal{F} > 1$',
+           r'$k H \lesssim 1 \, \textup{and} \, \, \mathcal{F} < 1$',
+           r'$k H \lesssim 1 \, \textup{and} \, \, \mathcal{F} > 1$']
 
 props = dict(boxstyle='square, pad=0.1', color='white', alpha=1)
+
+hours = np.array([i.hour for i in Data[station]['time']])
+mask = ~((hours > 10) & (hours < 22)) & ~np.isnan(Data[station]['Froude']) & (Data[station]['Boundary layer height'] > 500) & (Data[station]['Boundary layer height'] < 1000) & (Data[station]['delta_theta'] > 2.5) & (Data[station]['delta_theta'] < 3.5) & (Data[station]['theta_ground'] > 305) & (Data[station]['theta_ground'] < 310)
+mask = ((hours > 10) & (hours < 22)) & ~np.isnan(Data[station]['Froude']) & (Data[station]['Boundary layer height'] > 2400) & (Data[station]['Boundary layer height'] < 2800) & (Data[station]['theta_ground'] > 310) & (Data[station]['theta_ground'] < 314)
+idx = np.arange(Data[station]['Froude'].size)
 
 # #### Figure
 fig, axrr = plt.subplots(4, 3, figsize=(theme.fig_width, 1.2*theme.fig_width),
@@ -100,9 +106,10 @@ for ax in axrr[2, :]:
 # #### Plot vertical profiles
 for i, (t, ax) in enumerate(zip(time_steps[::2], axrr[:2, 0].flatten())):
     ax.set_title(r' ')
-    ax.text(0.04, 0.91, labels[i*3], ha='left', va='center', transform=ax.transAxes, bbox=props)
+    ax.text(0.04, 0.96, labels[i], ha='left', va='top', transform=ax.transAxes, bbox=props)
+    ax.text(0.96, 0.96, Icons[i], ha='right', va='top', transform=ax.transAxes, bbox=props)
     ax.set_ylim(0, top=zmax)
-    ax.set_xlim(305, 325)
+    ax.set_xlim(301, 325)
     ax.set_ylabel('Height [km]')
     ax.set_xlabel(r'$T_{\textup{vp}}$ [K]')
     #
@@ -112,13 +119,13 @@ for i, (t, ax) in enumerate(zip(time_steps[::2], axrr[:2, 0].flatten())):
                           color=colors[2*i], alpha_pt=0.5)
 
 # #### Sketches
-amplitudes = [0, 0.5, 0, 1]
+amplitudes = [0, 1.3, 0, 1.3]
 for i, (t, ax) in enumerate(zip(time_steps, axrr[:2, 1:].flatten())):
     ax.set_xticks([])
     ax.set_yticks([])
     ax.set_ylim(0, top=zmax)
     ax.set_xlim(xlims)
-    ax.set_aspect('equal')
+    # ax.set_aspect('equal')
     # dunes
     a, = ax.plot(x, dunes, color=color_dune)
     ax.fill_between(x, dunes, color=a.get_color(), alpha=alpha_dune)
@@ -132,7 +139,7 @@ for i, (t, ax) in enumerate(zip(time_steps, axrr[:2, 1:].flatten())):
     #
     ax.set_xlabel(xlabels[i])
     ax.set_title(titles[i])
-    ax.text(0.0176, 0.91, labels[i + 1 + i // 2], ha='left', va='center', transform=ax.transAxes, bbox=props)
+    ax.text(0.0176, 0.91, labels[i + 2], ha='left', va='center', transform=ax.transAxes, bbox=props)
 
 axrr[0, 1].annotate('', xy=[lambda_dune, 3*hdune], xytext=[2*lambda_dune, 3*hdune], transform=axrr[0, 1].transData, arrowprops=dict(arrowstyle="<->", color='k', shrinkA=0, shrinkB=0))
 axrr[0, 1].text(1.5*lambda_dune + 0.03, 3*hdune + 0.4, r'$\lambda=2\pi/k$', ha='center', va='center')
@@ -157,15 +164,16 @@ k = 1  # non dimensional wavenumber
 AR = 0.1
 skip = (slice(None, None, 50), slice(None, None, 50))
 eta_0 = 2.5e-6
+bbox = dict(facecolor=(1, 1, 1, 0.9), edgecolor=(1, 1, 1, 0), pad=0.2)
 
 # horizontal space
 x = np.linspace(-12, 12, 1000)
 y = np.linspace(-3, 3, 1000)
 X, Y = np.meshgrid(x, y)
 
-Theta_list = [70, 190, 190]
-A0_list = [coeffA0(eta_0), coeffA0(eta_0), 8]
-B0_list = [coeffB0(eta_0), coeffB0(eta_0), 2]
+Theta_list = [190, 190, 190]
+A0_list = [coeffA0(eta_0), 6, 8]
+B0_list = [coeffB0(eta_0), 2, 2.7]
 
 cnt = ax.contourf(x, y, topo(X, Y, alpha, k, AR), levels=100, vmin=-(AR + 0.06),
                   vmax=AR + 0.02, zorder=-5, cmap=theme.cmap_topo)
@@ -179,8 +187,11 @@ for i, (theta, A0, B0, c) in enumerate(zip(Theta_list, A0_list, B0_list, colors)
     theta = np.arctan2(TAU[1], TAU[0])
     # ax.quiver(X[skip], Y[skip], TAU[0][skip], TAU[1][skip], color='grey')
     # strm = ax.streamplot(X, Y, TAU[0], TAU[1], color=np.sqrt(TAU[0]**2 + TAU[1]**2), cmap='inferno', density=50, start_points=[[4, 5-0.5*i]])
-    strm = ax.streamplot(X, Y, ustar*np.cos(theta), ustar*np.sin(theta),
-                         color=c, density=50, start_points=[[4, 3-0.5*i]])
+    strm = ax.streamplot(X, Y, ustar*np.cos(theta), ustar*np.sin(theta), density=50, start_points=[[4, 3-0.75*i]], color='k')
+
+ax.text(-6.57, 1, ' ' + labels[3] + ' ', bbox=bbox)
+ax.text(-6.57, 0, ' ' + labels[2] + ', ' + labels[5] + ' ', bbox=bbox)
+ax.text(-6.57, -1.5, ' ' + labels[4] + ' ', bbox=bbox)
 
 cb = fig.colorbar(cnt, label=r'Non-dimensional bed elevation $k \xi$', ax=ax, location='top', pad=0.08)
 cb.formatter.set_powerlimits((0, 0))

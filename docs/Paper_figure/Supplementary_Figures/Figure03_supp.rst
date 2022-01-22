@@ -82,8 +82,8 @@ Figure 3 -- SI
     plt.ylim([Data_roughness['z0_station_vals'].min(), Data_roughness['z0_station_vals'].max()])
     plt.gca().set_xscale('log')
     plt.gca().set_yscale('log')
-    fig.supxlabel(r'Hydrodynamic roughness - ERA, $z_{0, \textup{Era}}$ [m]')
-    fig.supylabel(r'Hydrodynamic roughness - in situ, $z_{0, \textup{in situ}}$ [m]')
+    fig.supxlabel(r'Hydrodynamic roughness - ERA, $z_{0}^{\textup{Era5Land}}$ [m]')
+    fig.supylabel(r'Hydrodynamic roughness - in situ, $z_{0}^{\textup{local}}$ [m]')
 
     # colorbar
     sm = plt.cm.ScalarMappable(cmap='viridis', norm=norm)
@@ -95,7 +95,7 @@ Figure 3 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.336 seconds)
+   **Total running time of the script:** ( 0 minutes  2.607 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure03_supp.py:
