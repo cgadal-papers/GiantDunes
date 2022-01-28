@@ -38,7 +38,7 @@ scales = [1300, 1100, 1650, 2600]
 bbox = dict(facecolor=(1, 1, 1, 0.5), edgecolor=(1, 1, 1, 0))
 bbox2 = dict(facecolor=(1, 1, 1, 0.5), edgecolor=(1, 1, 1, 0), pad=0.25)
 numbering = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}', r'\textbf{e}']
-coords_station_pix = [(1141, 544), (881, 554), (755, 430), (772, 550)]
+coords_insitu_pix = [(1141, 544), (881, 554), (755, 430), (772, 550)]
 
 # #### Figure
 fig = plt.figure(figsize=(theme.fig_width, 0.6*theme.fig_height_max))
@@ -94,7 +94,7 @@ for i, station in enumerate(['Adamax_Station', 'Huab_Station', 'Deep_Sea_Station
     # labelling
     ax.text(0.005, 0.99, numbering[i+1], transform=ax.transAxes, ha='left', va='top', color='k', bbox=bbox2)
     # stations
-    ax.scatter(coords_station_pix[i][0], coords_station_pix[i][1], s=25, color=theme.color_station_position)
+    ax.scatter(coords_insitu_pix[i][0], coords_insitu_pix[i][1], s=25, color=theme.color_station_position)
 
 # colorbar
 # left, bottom, width, height = [ax0.get_position().x0, 0.15, 0.43, 0.025]
