@@ -5,11 +5,12 @@ Figure 1 -- SI
 
 """
 
+import os
+import sys
+import glob
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
-import sys
-import os
 sys.path.append('../../')
 import python_codes.theme as theme
 from datetime import timedelta
@@ -25,13 +26,14 @@ def make_range_broken_barh(time, dt):
     return [(tstart, tspan) for tstart, tspan in zip(t_diff[::2], np.diff(t_diff)[::2])]
 
 
-# Paths
+# paths
 path_savefig = '../../Paper/Figures'
-path_inputdata = '../../static/input_data/'
+path_inputdata = '../../static/raw_data/'
 
 
 Stations = ['Adamax_Station', 'Huab_Station', 'Deep_Sea_Station', 'South_Namib_Station']
-dat_types = ['Era5Land_wind_data_', 'in_situ_wind_data_']
+directory_types = ['ERA5Land', 'measured_wind_data']
+
 colors = [theme.color_Era5Land, theme.color_insitu]
 
 dt_threshold = timedelta(minutes=60)
@@ -44,19 +46,19 @@ fig_width = theme.fig_width
 fig_height = 0.45*fig_width
 fig = plt.figure(figsize=(fig_width, fig_height), constrained_layout=True)
 for station in Stations:
-    for i, data_type in enumerate(dat_types):
-        name = os.path.join(path_inputdata, station, data_type + station + '.npy')
-        if os.path.exists(name):
-            data = np.load(name, allow_pickle=True).item()
-            time = data['time']
-            if data_type == 'in_situ_wind_data_':
-                orientation, velocities = data['direction'], data['velocity']
-                mask = (~(np.isnan(velocities) | np.isnan(orientation))) & (velocities > 0)
-            else:
-                mask = np.ones(time.size).astype(bool)
-            xranges = make_range_broken_barh(time[mask], dt_threshold)
-            plt.broken_barh(xranges, (height_plot, height_rect), facecolor=colors[i])
-            height_plot += height_rect
+    for i, directory in enumerate(directory_types):
+        list_files = glob.glob(os.path.join(path_inputdata, directory, '*.npy'))
+        file = [i for i in list_files if station in i][0]
+        data = np.load(file, allow_pickle=True).item()
+        time = data['time']
+        if directory == 'measured_wind_data':
+            orientation, velocities = data['direction'], data['velocity']
+            mask = (~(np.isnan(velocities) | np.isnan(orientation))) & (velocities > 0)
+        else:
+            mask = np.ones(time.size).astype(bool)
+        xranges = make_range_broken_barh(time[mask], dt_threshold)
+        plt.broken_barh(xranges, (height_plot, height_rect), facecolor=colors[i])
+        height_plot += height_rect
     centers.append(height_plot - height_rect)
     height_plot += height_delta
 

@@ -8,7 +8,6 @@ Figure 6
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as ptch
-import matplotlib.path as path
 from matplotlib.colors import to_rgba
 from PIL import Image
 from datetime import datetime
@@ -53,10 +52,10 @@ def plot_orientation_wedge(ax, A_F, A_BI, center, length, color_F, color_BI, alp
 # Loading figure theme
 theme.load_style()
 
-# path
+# paths
 path_imgs = '../static/images/'
 path_savefig = '../Paper/Figures'
-path_outputdata = '../static/output_data/data/'
+path_outputdata = '../static/processed_data'
 
 # ##### Loading meteo data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -90,8 +89,8 @@ for station in Stations:
     # time masks
     mask_time = (Data[station]['time'] >= time_mask[station][0]) & (Data[station]['time'] <= time_mask[station][1])
     # Vector of orientations and shear velocity
-    Orientations = np.array([Data[station]['Orientation_station'][mask_time], Data[station]['Orientation_era'][mask_time]])
-    Shear_vel = np.array([Data[station]['U_star_station'][mask_time], Data[station]['U_star_era'][mask_time]])
+    Orientations = np.array([Data[station]['Orientation_insitu'][mask_time], Data[station]['Orientation_era'][mask_time]])
+    Shear_vel = np.array([Data[station]['U_star_insitu'][mask_time], Data[station]['U_star_era'][mask_time]])
     # corresponding shield number
     theta = (rho_f/((rho_g - rho_f)*g*grain_diameters[:, None, None]))*Shear_vel[None, :, :]**2
     # sediment fluxes

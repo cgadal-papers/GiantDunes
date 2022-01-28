@@ -41,10 +41,10 @@ def topo(x, y, alpha, k, xi):
 # Loading figure theme
 theme.load_style()
 
-# path
+# paths
 path_imgs = '../static/images/'
 path_savefig = '../Paper/Figures'
-path_outputdata = '../static/output_data/data/'
+path_outputdata = '../static/processed_data'
 
 # ##### Loading meteo data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()

@@ -21,10 +21,10 @@ from python_codes.plot_functions import plot_wind_rose
 # Loading figure theme
 theme.load_style()
 
-# path
+# paths
 path_imgs = '../static/images/'
 path_savefig = '../Paper/Figures'
-path_outputdata = '../static/output_data/data/'
+path_outputdata = '../static/processed_data'
 
 # Loading wind data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -88,7 +88,7 @@ for i, station in enumerate(['Adamax_Station', 'Huab_Station', 'Deep_Sea_Station
                    axins1, fig, label=None, cmap=theme.cmap_wind)
     #
     axins1 = ax.inset_axes([0.7, 0.45, 0.3, 0.5])
-    plot_wind_rose(Data[station]['Orientation_station'], Data[station]['U_star_station'], bins,
+    plot_wind_rose(Data[station]['Orientation_insitu'], Data[station]['U_star_insitu'], bins,
                    axins1, fig, label=None, cmap=theme.cmap_wind)
     #
     # labelling

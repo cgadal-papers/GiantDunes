@@ -17,8 +17,7 @@ theme.load_style()
 
 # paths
 path_savefig = '../../Paper/Figures'
-path_outputdata = '../../static/output_data/data/'
-path_inputdata = '../../static/input_data'
+path_outputdata = '../../static/processed_data/'
 
 # Loading data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -33,12 +32,12 @@ Nocturnal_wind = {'South_Namib_Station': [150, 260], 'Deep_Sea_Station': [150, 2
 # variables
 x1 = np.concatenate([Data[station]['U_star_era'][(Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1])]
                      for station in Stations])
-y1 = np.concatenate([Data[station]['U_star_station'][(Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1])]
+y1 = np.concatenate([Data[station]['U_star_insitu'][(Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1])]
                      for station in Stations])
 #
 x2 = np.concatenate([Data[station]['U_star_era'][~((Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1]))]
                      for station in Stations])
-y2 = np.concatenate([Data[station]['U_star_station'][~((Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1]))]
+y2 = np.concatenate([Data[station]['U_star_insitu'][~((Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1]))]
                      for station in Stations])
 
 X = [x1, x2]
