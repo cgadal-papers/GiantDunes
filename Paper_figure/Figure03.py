@@ -61,9 +61,9 @@ for i in range(3):  # Loop over velocites
         #
         perc = (mask_theta & mask_U).sum()/mask_theta.size
         hours = np.array([t.hour for t in Data[station]['time'][(mask_theta & mask_U)]])
-        mask_day = (hours >= 10) & (hours <= 10 + 12)
+        mask_day = (hours > 10) & (hours <= 10 + 12)
         perc_day = mask_day.sum()/(mask_theta & mask_U).sum()
-        axarr[i, j].text(0.98, 0.96, '{:.2f} \n {:.2f}'.format(perc, perc_day), ha='right', va='top', transform=axarr[i, j].transAxes)
+        axarr[i, j].text(0.98, 0.96, '{:.1f} \n {:.1f}'.format(perc, perc_day), ha='right', va='top', transform=axarr[i, j].transAxes)
         if i == 0:
             axarr[i, j].set_xlabel(label_theta)
             axarr[i, j].xaxis.set_label_position("top")
