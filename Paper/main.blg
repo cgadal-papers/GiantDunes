@@ -2,78 +2,46 @@ This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: spbasic_updated.bst
-Database file #1: biblio.bib
-Repeated entry---line 888 of file biblio.bib
- : @article{Rubin1987
- :                   ,
-I'm skipping whatever remains of this entry
+Database file #1: main.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
-while executing---line 1543 of file spbasic_updated.bst
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
-while executing---line 1543 of file spbasic_updated.bst
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
-while executing---line 1543 of file spbasic_updated.bst
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
-while executing---line 1543 of file spbasic_updated.bst
-Name 1 in "Andreotti, B," has a comma at the end for entry Andreotti2004bis
-while executing---line 1543 of file spbasic_updated.bst
-Name 1 in "Andreotti, B," has a comma at the end for entry Andreotti2004bis
-while executing---line 1543 of file spbasic_updated.bst
-Name 1 in "Andreotti, B," has a comma at the end for entry Andreotti2004bis
-while executing---line 1622 of file spbasic_updated.bst
-Name 1 in "Andreotti, B," has a comma at the end for entry Andreotti2004bis
-while executing---line 1622 of file spbasic_updated.bst
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
-while executing---line 1622 of file spbasic_updated.bst
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
-while executing---line 1622 of file spbasic_updated.bst
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
-while executing---line 1622 of file spbasic_updated.bst
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
-while executing---line 1622 of file spbasic_updated.bst
-`journal' is a missing field, not a string, for entry Spalding1961
-while executing---line 1622 of file spbasic_updated.bst
-Warning--empty journal in Spalding1961
-You've used 78 entries,
+You've used 92 entries,
             3214 wiz_defined-function locations,
-            1226 strings with 20068 characters,
-and the built_in function-call counts, 132392 in all, are:
-= -- 15221
-> -- 2950
+            1283 strings with 21242 characters,
+and the built_in function-call counts, 148991 in all, are:
+= -- 17368
+> -- 3484
 < -- 43
-+ -- 1444
-- -- 941
-* -- 9877
-:= -- 14885
-add.period$ -- 77
-call.type$ -- 78
-change.case$ -- 696
-chr.to.int$ -- 84
-cite$ -- 79
-duplicate$ -- 13475
-empty$ -- 9558
-format.name$ -- 1182
-if$ -- 27437
++ -- 1727
+- -- 1109
+* -- 10520
+:= -- 16692
+add.period$ -- 92
+call.type$ -- 92
+change.case$ -- 823
+chr.to.int$ -- 98
+cite$ -- 92
+duplicate$ -- 15091
+empty$ -- 10251
+format.name$ -- 1404
+if$ -- 30737
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 929
-newline$ -- 244
-num.names$ -- 314
-pop$ -- 3392
+missing$ -- 1101
+newline$ -- 286
+num.names$ -- 370
+pop$ -- 4331
 preamble$ -- 1
-purify$ -- 617
+purify$ -- 729
 quote$ -- 0
-skip$ -- 4965
+skip$ -- 6025
 stack$ -- 0
-substring$ -- 14162
-swap$ -- 7343
-text.length$ -- 6
+substring$ -- 14982
+swap$ -- 8715
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 687
-warning$ -- 1
-while$ -- 824
+type$ -- 816
+warning$ -- 0
+while$ -- 984
 width$ -- 0
-write$ -- 878
-(There were 14 error messages)
+write$ -- 1022
