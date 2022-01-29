@@ -25,7 +25,7 @@ theme.load_style()
 
 # paths
 path_savefig = '../../Paper/Figures'
-path_outputdata = '../../static/output_data/data/'
+path_outputdata = '../../static/processed_data/'
 
 # ## regime diagram properties
 # data
@@ -41,7 +41,7 @@ modulus = np.linalg.norm(np.concatenate([Hydro_coeffs_time[station] for station 
 couples = [('Froude', 'kH'), ('kLB', 'kH')]
 labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}']
 #
-ax_labels = {'Froude': r'$Fr_{\textup{surface}} =  U/\sqrt{(\Delta\rho/\rho) g H}$', 'kH': '$k H$', 'kLB': r'$Fr_{\textup{internal}} = k U/N$'}
+ax_labels = {'Froude': r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho_{0}) g H}$', 'kH': '$k H$', 'kLB': r'$\mathcal{F}_{\textup{I}} = k U/N$'}
 lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
 #
 regime_line_color = 'tab:blue'

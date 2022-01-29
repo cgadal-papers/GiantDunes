@@ -22,7 +22,7 @@
 Figure 5 -- SI
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-65
+.. GENERATED FROM PYTHON SOURCE LINES 7-64
 
 
 
@@ -51,8 +51,7 @@ Figure 5 -- SI
 
     # paths
     path_savefig = '../../Paper/Figures'
-    path_outputdata = '../../static/output_data/data/'
-    path_inputdata = '../../static/input_data'
+    path_outputdata = '../../static/processed_data/'
 
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
     labels = [r'\textbf{a}', r'\textbf{b}']
@@ -61,10 +60,10 @@ Figure 5 -- SI
     Stations_ref = ['Adamax_Station', 'Huab_Station']
     #
     Theta_ERA = np.concatenate([Data[station]['Orientation_era'] for station in Stations_ref])
-    Theta_Station = np.concatenate([Data[station]['Orientation_station'] for station in Stations_ref])
+    Theta_Station = np.concatenate([Data[station]['Orientation_insitu'] for station in Stations_ref])
     #
     U_ERA = np.concatenate([Data[station]['U_star_era'] for station in Stations_ref])
-    U_Station = np.concatenate([Data[station]['U_star_station'] for station in Stations_ref])
+    U_Station = np.concatenate([Data[station]['U_star_insitu'] for station in Stations_ref])
 
 
     # #### Figure
@@ -99,7 +98,7 @@ Figure 5 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.711 seconds)
+   **Total running time of the script:** ( 0 minutes  1.803 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure05_supp.py:

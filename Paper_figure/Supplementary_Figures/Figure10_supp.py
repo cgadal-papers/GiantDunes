@@ -18,10 +18,9 @@ from python_codes.plot_functions import make_nice_histogram
 # Loading figure theme
 theme.load_style()
 
-# path
-path_imgs = '../../static/images/'
+# paths
 path_savefig = '../../Paper/Figures'
-path_outputdata = '../../static/output_data/data/'
+path_outputdata = '../../static/processed_data/'
 
 # ##### Loading meteo data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -56,7 +55,7 @@ axarr[1, 1].set_xlim(left=0)
 axarr[0, 0].set_xlabel(r'Boundary layer height, $H~[\textup{m}]$')
 axarr[0, 1].set_xlabel(r'Brunt-Väisälä frequency, $N~[\textup{s}^{-1}]$')
 axarr[1, 0].set_xlabel(r'Wind velocity in $H$, $U~[\textup{m}~\textup{s}^{-1}]$')
-axarr[1, 1].set_xlabel(r'Relative density jump, $\Delta\rho/\rho$')
+axarr[1, 1].set_xlabel(r'Relative density jump, $\Delta\rho/\rho_{0}$')
 #
 
 for i, (ax, label) in enumerate(zip(axarr.flatten(), labels)):

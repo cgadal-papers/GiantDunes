@@ -17,6 +17,7 @@ python\_codes.theme
       :nosignatures:
    
       load_style
+      truncate_colormap
    
    
 

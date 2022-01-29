@@ -39,12 +39,11 @@ Stations = ['Deep_Sea_Station', 'South_Namib_Station']
 Data_DEM = {}
 #
 # Paths
-path_savefig = '../static/output_data/figures/'
-path_outputdata = '../static/output_data/data/'
-path_inputdata = '../static/input_data/'
+path_outputdata = '../static/processed_data/'
+path_inputdata = '../static/raw_data/'
 #
 for i, station in enumerate(Stations):
-    file = os.path.join(path_inputdata, station, 'DEM_' + station + '.npy')
+    file = os.path.join(path_inputdata, 'DEM/DEM_' + station + '.npy')
     orientation, wavelength_indx, amplitude, p0, p1, transect, C, topo, lon, lat, km_step = DEM_analysis(file)
     #
     Data_DEM[station] = {'orientation': orientation, 'wavelength': wavelength_indx*km_step,

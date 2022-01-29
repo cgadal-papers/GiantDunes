@@ -22,7 +22,7 @@
 Figure 5
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-89
+.. GENERATED FROM PYTHON SOURCE LINES 7-88
 
 
 
@@ -51,10 +51,10 @@ Figure 5
     # Loading figure theme
     theme.load_style()
 
-    # path
+    # paths
     path_imgs = '../static/images/'
     path_savefig = '../Paper/Figures'
-    path_outputdata = '../static/output_data/data/'
+    path_outputdata = '../static/processed_data'
 
     # ##### Loading meteo data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -63,18 +63,17 @@ Figure 5
     # #### Computing quantities
 
     Orientation_era = np.concatenate([Data[station]['Orientation_era'] for station in Stations])
-    Orientation_station = np.concatenate([Data[station]['Orientation_station'] for station in Stations])
+    Orientation_insitu = np.concatenate([Data[station]['Orientation_insitu'] for station in Stations])
     U_era = np.concatenate([Data[station]['U_star_era'] for station in Stations])
-    U_station = np.concatenate([Data[station]['U_star_station'] for station in Stations])
+    U_insitu = np.concatenate([Data[station]['U_star_insitu'] for station in Stations])
     numbers = {key: np.concatenate([Data[station][key] for station in Stations]) for key in ('Froude', 'kH', 'kLB')}
     #
-    Delta = smallestSignedAngleBetween(Orientation_era, Orientation_station)
+    Delta = smallestSignedAngleBetween(Orientation_era, Orientation_insitu)
     mode_delta = np.array([find_mode_distribution(Delta, i) for i in np.arange(150, 350)]).mean()
     delta_angle = np.abs(Delta)
-    delta_u = (U_era - U_station)/U_era
+    delta_u = (U_era - U_insitu)/U_era
 
     # #### Figure parameters
-
     lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
     cmaps = [theme.cmap_delta_theta, theme.cmap_delta_u]
     norms = [mpcolors.Normalize(vmin=0, vmax=99),
@@ -89,7 +88,7 @@ Figure 5
 
 
     var1, var2 = 'Froude', 'kH'
-    xlabel = r'$\mathcal{F}r_{\textup{S}} =  U/\sqrt{(\Delta\rho/\rho) g H}$'
+    xlabel = r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho_{0}) g H}$'
 
     # #### Figure
     fig, axarr = plt.subplots(1, 2, figsize=(theme.fig_width, 0.375*theme.fig_height_max),
@@ -123,7 +122,7 @@ Figure 5
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.730 seconds)
+   **Total running time of the script:** ( 0 minutes  1.933 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure05.py:

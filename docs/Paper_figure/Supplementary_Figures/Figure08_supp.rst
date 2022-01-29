@@ -22,7 +22,7 @@
 Figure 8 -- SI
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-69
+.. GENERATED FROM PYTHON SOURCE LINES 7-72
 
 
 
@@ -50,8 +50,7 @@ Figure 8 -- SI
 
     # paths
     path_savefig = '../../Paper/Figures'
-    path_outputdata = '../../static/output_data/data/'
-    path_inputdata = '../../static/input_data'
+    path_outputdata = '../../static/processed_data/'
 
     # Loading data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -66,12 +65,16 @@ Figure 8 -- SI
     # variables
     x1 = np.concatenate([Data[station]['U_star_era'][(Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1])]
                          for station in Stations])
-    y1 = np.concatenate([Data[station]['U_star_station'][(Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1])]
+    y1 = np.concatenate([Data[station]['U_star_insitu'][(Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1])]
                          for station in Stations])
+    t1 = np.concatenate([Data[station]['time'][(Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1])]
+                         for station in Stations])
+
+    hours = [i.hour for i in t1]
     #
     x2 = np.concatenate([Data[station]['U_star_era'][~((Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1]))]
                          for station in Stations])
-    y2 = np.concatenate([Data[station]['U_star_station'][~((Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1]))]
+    y2 = np.concatenate([Data[station]['U_star_insitu'][~((Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1]))]
                          for station in Stations])
 
     X = [x1, x2]
@@ -103,7 +106,7 @@ Figure 8 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.141 seconds)
+   **Total running time of the script:** ( 0 minutes  2.164 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure08_supp.py:

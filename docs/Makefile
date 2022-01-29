@@ -32,5 +32,4 @@ clean_hard:
 	rm -rf Processing/
 	rm -rf _autosummary
 	rm -rf gen_modules
-	# rm -rf ../static/output_data/data/*
-	rm -rf ../static/output_data/figures/*
+	# rm -rf ../static/processed_data/*

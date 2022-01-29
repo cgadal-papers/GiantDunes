@@ -22,7 +22,7 @@
 Figure 4 -- SI
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-80
+.. GENERATED FROM PYTHON SOURCE LINES 7-79
 
 
 
@@ -51,8 +51,7 @@ Figure 4 -- SI
 
     # paths
     path_savefig = '../../Paper/Figures'
-    path_outputdata = '../../static/output_data/data/'
-    path_inputdata = '../../static/input_data'
+    path_outputdata = '../../static/processed_data/'
 
     Data_DEM = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'),
                        allow_pickle=True).item()
@@ -114,7 +113,7 @@ Figure 4 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  13.181 seconds)
+   **Total running time of the script:** ( 0 minutes  13.471 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure04_supp.py:

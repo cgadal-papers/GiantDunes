@@ -2,66 +2,46 @@ This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: spbasic_updated.bst
-Database file #1: biblio.bib
-Warning--I didn't find a database entry for "refs"
-Warning--I didn't find a database entry for "Cour14"
-Warning--I didn't find a database entry for "Sherman2007"
+Database file #1: main.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
-while executing---line 1543 of file spbasic_updated.bst
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
-while executing---line 1543 of file spbasic_updated.bst
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
-while executing---line 1543 of file spbasic_updated.bst
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
-while executing---line 1543 of file spbasic_updated.bst
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
-while executing---line 1622 of file spbasic_updated.bst
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
-while executing---line 1622 of file spbasic_updated.bst
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
-while executing---line 1622 of file spbasic_updated.bst
-Too many commas in name 1 of "Lancaster, J., Lancaster, N. \& Seely, MK" for entry lancaster1984
-while executing---line 1622 of file spbasic_updated.bst
-You've used 25 entries,
+You've used 92 entries,
             3214 wiz_defined-function locations,
-            852 strings with 9541 characters,
-and the built_in function-call counts, 42111 in all, are:
-= -- 4840
-> -- 892
-< -- 13
-+ -- 443
-- -- 285
-* -- 3152
-:= -- 4754
-add.period$ -- 25
-call.type$ -- 25
-change.case$ -- 215
-chr.to.int$ -- 25
-cite$ -- 25
-duplicate$ -- 4304
-empty$ -- 3087
-format.name$ -- 354
-if$ -- 8733
+            1283 strings with 21242 characters,
+and the built_in function-call counts, 148991 in all, are:
+= -- 17368
+> -- 3484
+< -- 43
++ -- 1727
+- -- 1109
+* -- 10520
+:= -- 16692
+add.period$ -- 92
+call.type$ -- 92
+change.case$ -- 823
+chr.to.int$ -- 98
+cite$ -- 92
+duplicate$ -- 15091
+empty$ -- 10251
+format.name$ -- 1404
+if$ -- 30737
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 290
-newline$ -- 85
-num.names$ -- 100
-pop$ -- 1035
+missing$ -- 1101
+newline$ -- 286
+num.names$ -- 370
+pop$ -- 4331
 preamble$ -- 1
-purify$ -- 192
+purify$ -- 729
 quote$ -- 0
-skip$ -- 1574
+skip$ -- 6025
 stack$ -- 0
-substring$ -- 4627
-swap$ -- 2275
-text.length$ -- 2
+substring$ -- 14982
+swap$ -- 8715
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 219
+type$ -- 816
 warning$ -- 0
-while$ -- 254
+while$ -- 984
 width$ -- 0
-write$ -- 283
-(There were 8 error messages)
+write$ -- 1022
