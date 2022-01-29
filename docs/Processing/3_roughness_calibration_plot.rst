@@ -139,7 +139,7 @@ The chosen metric for comparison is then:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.635 seconds)
+   **Total running time of the script:** ( 0 minutes  4.096 seconds)
 
 
 .. _sphx_glr_download_Processing_3_roughness_calibration_plot.py:

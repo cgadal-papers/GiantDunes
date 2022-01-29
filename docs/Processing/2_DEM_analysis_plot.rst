@@ -86,7 +86,7 @@ Here, we extract from each DEMs the average orientation, wavelength and amplitud
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.038 seconds)
+   **Total running time of the script:** ( 0 minutes  1.088 seconds)
 
 
 .. _sphx_glr_download_Processing_2_DEM_analysis_plot.py:
