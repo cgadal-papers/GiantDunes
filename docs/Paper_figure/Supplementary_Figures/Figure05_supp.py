@@ -18,8 +18,7 @@ theme.load_style()
 
 # paths
 path_savefig = '../../Paper/Figures'
-path_outputdata = '../../static/output_data/data/'
-path_inputdata = '../../static/input_data'
+path_outputdata = '../../static/processed_data/'
 
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
 labels = [r'\textbf{a}', r'\textbf{b}']
@@ -28,10 +27,10 @@ labels = [r'\textbf{a}', r'\textbf{b}']
 Stations_ref = ['Adamax_Station', 'Huab_Station']
 #
 Theta_ERA = np.concatenate([Data[station]['Orientation_era'] for station in Stations_ref])
-Theta_Station = np.concatenate([Data[station]['Orientation_station'] for station in Stations_ref])
+Theta_Station = np.concatenate([Data[station]['Orientation_insitu'] for station in Stations_ref])
 #
 U_ERA = np.concatenate([Data[station]['U_star_era'] for station in Stations_ref])
-U_Station = np.concatenate([Data[station]['U_star_station'] for station in Stations_ref])
+U_Station = np.concatenate([Data[station]['U_star_insitu'] for station in Stations_ref])
 
 
 # #### Figure

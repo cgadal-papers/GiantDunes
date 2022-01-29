@@ -22,7 +22,7 @@
 Figure 3 -- SI
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-61
+.. GENERATED FROM PYTHON SOURCE LINES 7-60
 
 
 
@@ -50,8 +50,7 @@ Figure 3 -- SI
 
     # paths
     path_savefig = '../../Paper/Figures'
-    path_outputdata = '../../static/output_data/data/'
-    path_inputdata = '../../static/input_data'
+    path_outputdata = '../../static/processed_data/'
 
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
     Data_roughness = np.load(os.path.join(path_outputdata, 'Data_calib_roughness.npy'),
@@ -66,20 +65,20 @@ Figure 3 -- SI
     #
     for i, (ax, p, metric, station, label) in enumerate(zip(axrr.flatten(), Data_roughness['Pvals'],
                                                             Data_roughness['Metrics'], Data_roughness['Stations'], labels)):
-        cs = ax.contourf(Data_roughness['z0_era_vals'], Data_roughness['z0_station_vals'], metric, levels=50, norm=norm)
+        cs = ax.contourf(Data_roughness['z0_era_vals'], Data_roughness['z0_insitu_vals'], metric, levels=50, norm=norm)
         for c in cs.collections:
             c.set_edgecolor("face")
-        ax.plot(Data_roughness['z0_era_vals'], Data_roughness['z0_station_vals'], color='tab:red', label='$y=x$')
+        ax.plot(Data_roughness['z0_era_vals'], Data_roughness['z0_insitu_vals'], color='tab:red', label='$y=x$')
         ax.plot(Data_roughness['z0_era_vals'], np.exp(p[1])*Data_roughness['z0_era_vals']**p[0], 'r--', label='minimum line')
-        a, = ax.plot([Data_roughness['z0_era_vals'].min(), 1e-3], [Data[station]['z0_station'], Data[station]['z0_station']], color='tab:orange')
-        ax.plot([1e-3, 1e-3], [Data_roughness['z0_station_vals'].min(), Data[station]['z0_station']], color=a.get_color())
-        ax.plot(1e-3, Data[station]['z0_station'], '.', color=a.get_color())
+        a, = ax.plot([Data_roughness['z0_era_vals'].min(), 1e-3], [Data[station]['z0_insitu'], Data[station]['z0_insitu']], color='tab:orange')
+        ax.plot([1e-3, 1e-3], [Data_roughness['z0_insitu_vals'].min(), Data[station]['z0_insitu']], color=a.get_color())
+        ax.plot(1e-3, Data[station]['z0_insitu'], '.', color=a.get_color())
         #
         ax.text(0.07, 0.93, label, ha='center', va='center', transform=ax.transAxes)
 
 
     plt.xlim([Data_roughness['z0_era_vals'].min(), Data_roughness['z0_era_vals'].max()])
-    plt.ylim([Data_roughness['z0_station_vals'].min(), Data_roughness['z0_station_vals'].max()])
+    plt.ylim([Data_roughness['z0_insitu_vals'].min(), Data_roughness['z0_insitu_vals'].max()])
     plt.gca().set_xscale('log')
     plt.gca().set_yscale('log')
     fig.supxlabel(r'Hydrodynamic roughness - ERA, $z_{0}^{\textup{Era5Land}}$ [m]')
@@ -95,7 +94,7 @@ Figure 3 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.607 seconds)
+   **Total running time of the script:** ( 0 minutes  2.966 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure03_supp.py:

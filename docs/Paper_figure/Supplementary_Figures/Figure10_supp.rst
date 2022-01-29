@@ -22,7 +22,7 @@
 Figure 10 -- SI
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-71
+.. GENERATED FROM PYTHON SOURCE LINES 7-70
 
 
 
@@ -51,10 +51,9 @@ Figure 10 -- SI
     # Loading figure theme
     theme.load_style()
 
-    # path
-    path_imgs = '../../static/images/'
+    # paths
     path_savefig = '../../Paper/Figures'
-    path_outputdata = '../../static/output_data/data/'
+    path_outputdata = '../../static/processed_data/'
 
     # ##### Loading meteo data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -105,7 +104,7 @@ Figure 10 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.360 seconds)
+   **Total running time of the script:** ( 0 minutes  1.041 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure10_supp.py:

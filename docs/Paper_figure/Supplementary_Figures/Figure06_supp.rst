@@ -22,7 +22,7 @@
 Figure 6 -- SI
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-83
+.. GENERATED FROM PYTHON SOURCE LINES 7-82
 
 
 
@@ -49,10 +49,9 @@ Figure 6 -- SI
     # Loading figure theme
     theme.load_style()
 
-    # path
-    path_imgs = '../../static/images/'
+    # paths
     path_savefig = '../../Paper/Figures'
-    path_outputdata = '../../static/output_data/data/'
+    path_outputdata = '../../static/processed_data/'
 
     # Loading wind data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -86,7 +85,7 @@ Figure 6 -- SI
             else:
                 mask_theta = Data[station]['Orientation_era'] < 400  # take all orientations
                 label_theta = 'all angles'
-            make_nice_histogram(Data[station]['Orientation_station'][mask_theta & mask_U], 80, axarr[i, j], alpha=0.5, color=theme.color_insitu)
+            make_nice_histogram(Data[station]['Orientation_insitu'][mask_theta & mask_U], 80, axarr[i, j], alpha=0.5, color=theme.color_insitu)
             make_nice_histogram(Data[station]['Orientation_era'][mask_theta & mask_U], 80, axarr[i, j], alpha=0.5, color=theme.color_Era5Land)
             #
             axarr[i, j].axvline(Data_pattern['orientation'], color=theme.color_dune_orientation, ls='--', lw=2)
@@ -94,9 +93,9 @@ Figure 6 -- SI
             #
             perc = (mask_theta & mask_U).sum()/mask_theta.size
             hours = np.array([t.hour for t in Data[station]['time'][(mask_theta & mask_U)]])
-            mask_day = (hours >= 10) & (hours <= 10 + 12)
+            mask_day = (hours > 10) & (hours <= 10 + 12)
             perc_day = mask_day.sum()/(mask_theta & mask_U).sum()
-            axarr[i, j].text(0.5, 0.95, '{:.2f} \n {:.2f}'.format(perc, perc_day), ha='center', va='top', transform=axarr[i, j].transAxes)
+            axarr[i, j].text(0.5, 0.95, '{:.1f} \n {:.1f}'.format(perc, perc_day), ha='center', va='top', transform=axarr[i, j].transAxes)
             if i == 0:
                 axarr[i, j].set_xlabel(label_theta)
                 axarr[i, j].xaxis.set_label_position("top")
@@ -117,7 +116,7 @@ Figure 6 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.244 seconds)
+   **Total running time of the script:** ( 0 minutes  2.994 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure06_supp.py:

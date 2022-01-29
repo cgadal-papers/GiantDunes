@@ -54,10 +54,10 @@ Figure 1
     # Loading figure theme
     theme.load_style()
 
-    # path
+    # paths
     path_imgs = '../static/images/'
     path_savefig = '../Paper/Figures'
-    path_outputdata = '../static/output_data/data/'
+    path_outputdata = '../static/processed_data'
 
     # Loading wind data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -71,7 +71,7 @@ Figure 1
     bbox = dict(facecolor=(1, 1, 1, 0.5), edgecolor=(1, 1, 1, 0))
     bbox2 = dict(facecolor=(1, 1, 1, 0.5), edgecolor=(1, 1, 1, 0), pad=0.25)
     numbering = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}', r'\textbf{e}']
-    coords_station_pix = [(1141, 544), (881, 554), (755, 430), (772, 550)]
+    coords_insitu_pix = [(1141, 544), (881, 554), (755, 430), (772, 550)]
 
     # #### Figure
     fig = plt.figure(figsize=(theme.fig_width, 0.6*theme.fig_height_max))
@@ -121,13 +121,13 @@ Figure 1
                        axins1, fig, label=None, cmap=theme.cmap_wind)
         #
         axins1 = ax.inset_axes([0.7, 0.45, 0.3, 0.5])
-        plot_wind_rose(Data[station]['Orientation_station'], Data[station]['U_star_station'], bins,
+        plot_wind_rose(Data[station]['Orientation_insitu'], Data[station]['U_star_insitu'], bins,
                        axins1, fig, label=None, cmap=theme.cmap_wind)
         #
         # labelling
         ax.text(0.005, 0.99, numbering[i+1], transform=ax.transAxes, ha='left', va='top', color='k', bbox=bbox2)
         # stations
-        ax.scatter(coords_station_pix[i][0], coords_station_pix[i][1], s=25, color=theme.color_station_position)
+        ax.scatter(coords_insitu_pix[i][0], coords_insitu_pix[i][1], s=25, color=theme.color_station_position)
 
     # colorbar
     # left, bottom, width, height = [ax0.get_position().x0, 0.15, 0.43, 0.025]
@@ -151,7 +151,7 @@ Figure 1
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  9.604 seconds)
+   **Total running time of the script:** ( 0 minutes  9.446 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure01.py:

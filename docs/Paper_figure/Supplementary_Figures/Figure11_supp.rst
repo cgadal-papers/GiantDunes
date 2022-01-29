@@ -22,7 +22,7 @@
 Figure 11 -- SI
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-130
+.. GENERATED FROM PYTHON SOURCE LINES 7-129
 
 
 
@@ -51,8 +51,7 @@ Figure 11 -- SI
 
     # paths
     path_savefig = '../../Paper/Figures'
-    path_outputdata = '../../static/output_data/data/'
-    path_inputdata = '../../static/input_data'
+    path_outputdata = '../../static/processed_data/'
 
     # Loading data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -164,7 +163,7 @@ Figure 11 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.312 seconds)
+   **Total running time of the script:** ( 0 minutes  1.722 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure11_supp.py:

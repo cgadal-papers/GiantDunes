@@ -26,10 +26,10 @@ def tick_formatter(ax, fmt='%d'):
 # Loading figure theme
 theme.load_style()
 
-# path
+# paths
 path_imgs = '../static/images/'
 path_savefig = '../Paper/Figures'
-path_outputdata = '../static/output_data/data/'
+path_outputdata = '../static/processed_data'
 
 # Loading wind data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -58,7 +58,7 @@ for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs, years, months, d
     tmin = datetime(yr, mth, dy[0])
     tmax = datetime(yr, mth, dy[1])
     for j, (ax, var, label) in enumerate(zip(axarr, variables, labels[i])):
-        l1, = ax.plot(Data[station]['time'], Data[station][var + '_station'], label='measurements', color=theme.color_insitu)
+        l1, = ax.plot(Data[station]['time'], Data[station][var + '_insitu'], label='measurements', color=theme.color_insitu)
         l2, = ax.plot(Data[station]['time'], Data[station][var + '_era'], label='Era5Land', color=theme.color_Era5Land)
         ax.set_xlim(tmin, tmax)
         tick_formatter(ax)

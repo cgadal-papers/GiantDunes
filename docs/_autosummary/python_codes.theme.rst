@@ -1,4 +1,4 @@
-﻿python\_codes.theme
+python\_codes.theme
 ===================
 
 .. automodule:: python_codes.theme

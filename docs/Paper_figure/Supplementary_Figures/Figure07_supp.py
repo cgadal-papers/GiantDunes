@@ -18,8 +18,7 @@ theme.load_style()
 
 # paths
 path_savefig = '../../Paper/Figures'
-path_outputdata = '../../static/output_data/data/'
-path_inputdata = '../../static/input_data'
+path_outputdata = '../../static/processed_data/'
 
 # Loading data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -37,17 +36,17 @@ velocity_thresholds = [0.1, 0.25]
 # variables
 x1 = np.concatenate([Data[station]['Orientation_era'][Data[station]['U_star_era'] < velocity_thresholds[0]] - Dune_orientations[Stations.index(station)]
                      for station in Stations])
-y1 = np.concatenate([Data[station]['Orientation_station'][Data[station]['U_star_era'] < velocity_thresholds[0]] - Dune_orientations[Stations.index(station)]
+y1 = np.concatenate([Data[station]['Orientation_insitu'][Data[station]['U_star_era'] < velocity_thresholds[0]] - Dune_orientations[Stations.index(station)]
                      for station in Stations])
 
 x2 = np.concatenate([Data[station]['Orientation_era'][(Data[station]['U_star_era'] >= velocity_thresholds[0]) & (Data[station]['U_star_era'] < velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
                      for station in Stations])
-y2 = np.concatenate([Data[station]['Orientation_station'][(Data[station]['U_star_era'] >= velocity_thresholds[0]) & (Data[station]['U_star_era'] < velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
+y2 = np.concatenate([Data[station]['Orientation_insitu'][(Data[station]['U_star_era'] >= velocity_thresholds[0]) & (Data[station]['U_star_era'] < velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
                      for station in Stations])
 
 x3 = np.concatenate([Data[station]['Orientation_era'][(Data[station]['U_star_era'] >= velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
                      for station in Stations])
-y3 = np.concatenate([Data[station]['Orientation_station'][(Data[station]['U_star_era'] >= velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
+y3 = np.concatenate([Data[station]['Orientation_insitu'][(Data[station]['U_star_era'] >= velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
                      for station in Stations])
 
 X = [x1, x2, x3]

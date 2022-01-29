@@ -74,10 +74,10 @@ Figure 4
     # Loading figure theme
     theme.load_style()
 
-    # path
+    # paths
     path_imgs = '../static/images/'
     path_savefig = '../Paper/Figures'
-    path_outputdata = '../static/output_data/data/'
+    path_outputdata = '../static/processed_data'
 
     # ##### Loading meteo data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -240,7 +240,7 @@ Figure 4
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.602 seconds)
+   **Total running time of the script:** ( 0 minutes  5.866 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure04.py:

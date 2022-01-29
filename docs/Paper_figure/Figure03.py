@@ -16,10 +16,10 @@ from python_codes.plot_functions import make_nice_histogram
 # Loading figure theme
 theme.load_style()
 
-# path
+# paths
 path_imgs = '../static/images/'
 path_savefig = '../Paper/Figures'
-path_outputdata = '../static/output_data/data/'
+path_outputdata = '../static/processed_data'
 
 # Loading wind data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -53,7 +53,7 @@ for i in range(3):  # Loop over velocites
         else:
             mask_theta = Data[station]['Orientation_era'] < 400  # take all orientations
             label_theta = 'all angles'
-        make_nice_histogram(Data[station]['Orientation_station'][mask_theta & mask_U], 80, axarr[i, j], alpha=0.5, color=theme.color_insitu)
+        make_nice_histogram(Data[station]['Orientation_insitu'][mask_theta & mask_U], 80, axarr[i, j], alpha=0.5, color=theme.color_insitu)
         make_nice_histogram(Data[station]['Orientation_era'][mask_theta & mask_U], 80, axarr[i, j], alpha=0.5, color=theme.color_Era5Land)
         #
         axarr[i, j].axvline(Data_pattern['orientation'], color=theme.color_dune_orientation, ls='--', lw=2)
@@ -61,9 +61,9 @@ for i in range(3):  # Loop over velocites
         #
         perc = (mask_theta & mask_U).sum()/mask_theta.size
         hours = np.array([t.hour for t in Data[station]['time'][(mask_theta & mask_U)]])
-        mask_day = (hours >= 10) & (hours <= 10 + 12)
+        mask_day = (hours > 10) & (hours <= 10 + 12)
         perc_day = mask_day.sum()/(mask_theta & mask_U).sum()
-        axarr[i, j].text(0.98, 0.96, '{:.2f} \n {:.2f}'.format(perc, perc_day), ha='right', va='top', transform=axarr[i, j].transAxes)
+        axarr[i, j].text(0.98, 0.96, '{:.1f} \n {:.1f}'.format(perc, perc_day), ha='right', va='top', transform=axarr[i, j].transAxes)
         if i == 0:
             axarr[i, j].set_xlabel(label_theta)
             axarr[i, j].xaxis.set_label_position("top")

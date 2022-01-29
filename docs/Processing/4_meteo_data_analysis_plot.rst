@@ -22,7 +22,7 @@
 Processing the meteorological data
 ==================================
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-30
+.. GENERATED FROM PYTHON SOURCE LINES 8-29
 
 .. code-block:: default
 
@@ -37,8 +37,7 @@ Processing the meteorological data
     theme.load_style()
 
     # Paths
-    path_savefig = '../static/output_data/figures/'
-    path_outputdata = '../static/output_data/data/'
+    path_outputdata = '../static/processed_data/'
 
     # ##### Loading meteo data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -55,14 +54,14 @@ Processing the meteorological data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-35
+.. GENERATED FROM PYTHON SOURCE LINES 30-34
 
 Calculating the relevant meteorological quantities
 ------------------------
 
 We calculate the relevant meteorological quantities from the Era5 pressure levels data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-56
+.. GENERATED FROM PYTHON SOURCE LINES 34-55
 
 .. code-block:: default
 
@@ -94,12 +93,12 @@ We calculate the relevant meteorological quantities from the Era5 pressure level
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-59
+.. GENERATED FROM PYTHON SOURCE LINES 56-58
 
 Analyzing the vertical profiles of virtual potential temperature
 ------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-104
+.. GENERATED FROM PYTHON SOURCE LINES 58-103
 
 .. code-block:: default
 
@@ -158,7 +157,7 @@ Analyzing the vertical profiles of virtual potential temperature
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.923 seconds)
+   **Total running time of the script:** ( 0 minutes  6.026 seconds)
 
 
 .. _sphx_glr_download_Processing_4_meteo_data_analysis_plot.py:
