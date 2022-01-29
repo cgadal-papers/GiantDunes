@@ -18,8 +18,8 @@ theme.load_style()
 
 # paths
 path_savefig = '../../Paper/Figures'
-path_outputdata = '../../static/output_data/data/'
-path_inputdata = '../../static/input_data'
+path_outputdata = '../../static/processed_data'
+path_inputdata = '../../static/raw_data'
 
 # figure parameters
 station = 'South_Namib_Station'
@@ -27,24 +27,24 @@ tmin, tmax = datetime(2017, 6, 3), datetime(2017, 6, 10)
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
 
 # Loading and recomputing some raw data
-path_insitu = os.path.join(path_inputdata, station, 'in_situ_wind_data_' + station + '.npy')
+path_insitu = os.path.join(path_inputdata, 'measured_wind_data/in_situ_wind_data_' + station + '.npy')
 Data_insitu = np.load(path_insitu, allow_pickle=True).item()
 #
-t_station = Data_insitu['time']
-U_station = Data_insitu['velocity']
+t_insitu = Data_insitu['time']
+U_insitu = Data_insitu['velocity']
 # putting angles in trigo. ref.
-Orientation_station = (270 - Data_insitu['direction']) % 360
+Orientation_insitu = (270 - Data_insitu['direction']) % 360
 
 
 # ### Figure
 fig, axarr = plt.subplots(2, 1, figsize=(theme.fig_width, 0.85*theme.fig_width),
                           constrained_layout=True, sharex=True)
 
-axarr[0].plot(t_station, Orientation_station, label='Raw data')
-axarr[0].plot(Data[station]['time'], Data[station]['Orientation_station'], label='Binned data')
+axarr[0].plot(t_insitu, Orientation_insitu, label='Raw data')
+axarr[0].plot(Data[station]['time'], Data[station]['Orientation_insitu'], label='Binned data')
 #
-axarr[1].plot(t_station, U_station, label='Raw data')
-axarr[1].plot(Data[station]['time'], Data[station]['U_station'], label='1hr-averaged data')
+axarr[1].plot(t_insitu, U_insitu, label='Raw data')
+axarr[1].plot(Data[station]['time'], Data[station]['U_insitu'], label='1hr-averaged data')
 #
 axarr[0].set_ylabel(r'Wind orientation, $\theta~[^{\circ}]$')
 axarr[0].set_ylim(0, 360)

@@ -18,10 +18,9 @@ from python_codes.plot_functions import make_nice_histogram
 # Loading figure theme
 theme.load_style()
 
-# path
-path_imgs = '../../static/images/'
+# paths
 path_savefig = '../../Paper/Figures'
-path_outputdata = '../../static/output_data/data/'
+path_outputdata = '../../static/processed_data/'
 
 # ##### Loading meteo data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
