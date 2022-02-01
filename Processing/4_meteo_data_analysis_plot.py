@@ -16,7 +16,7 @@ from python_codes.meteo_analysis import mu
 theme.load_style()
 
 # Paths
-path_outputdata = '../static/processed_data/'
+path_outputdata = '../static/data/processed_data/'
 
 # ##### Loading meteo data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()

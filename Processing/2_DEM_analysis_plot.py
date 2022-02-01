@@ -39,8 +39,8 @@ Stations = ['Deep_Sea_Station', 'South_Namib_Station']
 Data_DEM = {}
 #
 # Paths
-path_outputdata = '../static/processed_data/'
-path_inputdata = '../static/raw_data/'
+path_outputdata = '../static/data/processed_data/'
+path_inputdata = '../static/data/raw_data'
 #
 for i, station in enumerate(Stations):
     file = os.path.join(path_inputdata, 'DEM/DEM_' + station + '.npy')

@@ -18,8 +18,8 @@ theme.load_style()
 
 # paths
 path_savefig = '../../Paper/Figures'
-path_outputdata = '../../static/processed_data'
-path_inputdata = '../../static/raw_data'
+path_outputdata = '../../static/data/processed_data'
+path_inputdata = '../../static/data/raw_data'
 
 # figure parameters
 station = 'South_Namib_Station'

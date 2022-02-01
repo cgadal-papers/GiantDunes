@@ -25,7 +25,7 @@ theme.load_style()
 
 # paths
 path_savefig = '../../Paper/Figures'
-path_outputdata = '../../static/processed_data/'
+path_outputdata = '../../static/data/processed_data/'
 
 # ## regime diagram properties
 # data

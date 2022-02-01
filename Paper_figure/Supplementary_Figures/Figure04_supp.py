@@ -18,7 +18,7 @@ theme.load_style()
 
 # paths
 path_savefig = '../../Paper/Figures'
-path_outputdata = '../../static/processed_data/'
+path_outputdata = '../../static/data/processed_data/'
 
 Data_DEM = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'),
                    allow_pickle=True).item()

@@ -17,7 +17,7 @@ theme.load_style()
 
 # paths
 path_savefig = '../../Paper/Figures'
-path_outputdata = '../../static/processed_data/'
+path_outputdata = '../../static/data/processed_data/'
 
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
 Data_roughness = np.load(os.path.join(path_outputdata, 'Data_calib_roughness.npy'),

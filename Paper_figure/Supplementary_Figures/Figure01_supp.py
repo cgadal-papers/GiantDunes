@@ -28,7 +28,7 @@ def make_range_broken_barh(time, dt):
 
 # paths
 path_savefig = '../../Paper/Figures'
-path_inputdata = '../../static/raw_data/'
+path_inputdata = '../../static/data/raw_data/'
 
 
 Stations = ['Adamax_Station', 'Huab_Station', 'Deep_Sea_Station', 'South_Namib_Station']
