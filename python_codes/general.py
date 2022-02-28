@@ -62,6 +62,6 @@ def find_mode_distribution(data, bin_number):
 
 
 def Make_angular_PDF(angles, weight, bin_edges=np.linspace(0, 360, 361), axis=-1):
-    hist = histogram(angles, bins=bin_edges, density=1, weights=weight, axis=axis)
+    hist, _ = histogram(angles, bins=bin_edges, density=1, weights=weight, axis=axis)
     bin_centers = bin_edges[1:] - (bin_edges[1] - bin_edges[0])/2
     return hist, bin_centers

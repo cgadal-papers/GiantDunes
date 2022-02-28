@@ -43,8 +43,8 @@ variables = ['U_star', 'Orientation']
 label_var = {'U_star': r'Velocity, $u_{*}~[\textup{m}~\textup{s}^{-1}]$', 'Orientation': r'Orientation, $\theta~[^\circ]$'}
 labels = [(r'\textbf{a}', r'\textbf{b}'), (r'\textbf{c}', r'\textbf{d}'),
           (r'\textbf{e}', r'\textbf{f}'), (r'\textbf{g}', r'\textbf{h}')]
-row_labels = ['Adamax station -- summer', 'Adamax station -- winter', 'North Namib station -- summer',
-              'North Namib station -- winter']
+row_labels = ['Adamax -- summer', 'Adamax -- winter', 'North Sand Sea -- summer',
+              'North Sand Sea -- winter']
 years = [2015, 2016, 2017, 2017]
 months = [11, 8, 12, 6]
 days = [(10, 14), (17, 20), (5, 8), (1, 4)]

@@ -1,24 +1,19 @@
 """
-============
-Figure 13 -- SI
-============
+============================
+Figure 14 -- Online Resource
+============================
 
 """
 
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.colors as mpcolors
 import sys
 import os
 sys.path.append('../../')
 import python_codes.theme as theme
-from python_codes.general import cosd, sind
+from python_codes.general import smallestSignedAngleBetween, find_mode_distribution
 from python_codes.plot_functions import plot_regime_diagram
-from python_codes.linear_theory import Cisaillement_basal_rotated_wind
-
-
-def topo(x, y, alpha, k, xi):
-    return xi*np.cos(k*(cosd(alpha)*x + sind(alpha)*y))
-
 
 # Loading figure theme
 theme.load_style()
@@ -27,107 +22,74 @@ theme.load_style()
 path_savefig = '../../Paper/Figures'
 path_outputdata = '../../static/data/processed_data/'
 
-# ## regime diagram properties
-# data
-Stations = ['South_Namib_Station', 'Deep_Sea_Station']
+# ##### Loading meteo data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
+Stations = ['South_Namib_Station', 'Deep_Sea_Station']
+
+# #### Computing quantities
+
+Orientation_era = np.concatenate([Data[station]['Orientation_era'] for station in Stations])
+Orientation_insitu = np.concatenate([Data[station]['Orientation_insitu'] for station in Stations])
+U_era = np.concatenate([Data[station]['U_star_era'] for station in Stations])
+U_insitu = np.concatenate([Data[station]['U_star_insitu'] for station in Stations])
 numbers = {key: np.concatenate([Data[station][key] for station in Stations]) for key in ('Froude', 'kH', 'kLB')}
-
-# Time series hydrodynamic coefficients
-Hydro_coeffs_time = np.load(os.path.join(path_outputdata, 'time_series_hydro_coeffs.npy'), allow_pickle=True).item()
-modulus = np.linalg.norm(np.concatenate([Hydro_coeffs_time[station] for station in Stations], axis=1), axis=0)
-
 #
-couples = [('Froude', 'kH'), ('kLB', 'kH')]
-labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}']
-#
-ax_labels = {'Froude': r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho_{0}) g H}$', 'kH': '$k H$', 'kLB': r'$\mathcal{F}_{\textup{I}} = k U/N$'}
+Delta = smallestSignedAngleBetween(Orientation_era, Orientation_insitu)
+mode_delta = np.array([find_mode_distribution(Delta, i) for i in np.arange(150, 350)]).mean()
+delta_angle = np.abs(Delta)
+delta_u = (U_era - U_insitu)/U_era
+
+# #### Figure parameters
+
 lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
-#
-regime_line_color = 'tab:blue'
+cmaps = [theme.cmap_delta_theta, theme.cmap_delta_u]
+norms = [mpcolors.Normalize(vmin=0, vmax=99),
+         mpcolors.TwoSlopeNorm(vmin=-3, vcenter=0, vmax=1)]
 cbar_labels = [r'$\delta_{\theta}$ [deg.]', r'$\delta_{u}$']
+quantities = [delta_angle, delta_u]
+labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}']
+cbticks = [[0, 25, 50, 75], [-3, -1.5, 0, 0.5, 1]]
 
 mask = ~np.isnan(numbers['Froude'])
+log_counts_max = np.log10(2230)
+regime_line_color = 'tab:blue'
 
-# ## streamline parameters
-station = Stations[1]
-Data_DEM = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]
-
-#
-alpha = Data_DEM['orientation'] - 90  # dune orientation, degrees
-k = 1  # non dimensional wavenumber
-AR = 0.1
-B0 = 2
-skip = (slice(None, None, 50), slice(None, None, 50))
-#
-# horizontal space
-x = np.linspace(-12, 12, 1000)
-y = np.linspace(-6, 6, 1000)
-X, Y = np.meshgrid(x, y)
+vars = [('kLB', 'kH'), ('kLB', 'Froude')]
+ax_labels = {'kH': r'$kH$', 'Froude': r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho_{0}) g H}$',
+             'kLB': r'$\mathcal{F}_{\textup{I}} =  kU/N$'}
+xlabels = [r'$\mathcal{F}_{\textup{I}} =  kU/N$']
+ylabels = [r'$kH$', r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho) g H}$']
+lim_regime = {'kH': 0.32, 'Froude': 0.4, 'kLB': 0.35}
 
 
 # #### Figure
-fig = plt.figure(figsize=(theme.fig_width, 0.74*theme.fig_height_max), constrained_layout=True)
-# ## regime diagrams
-gs = fig.add_gridspec(2, 1, height_ratios=[1.63, 1])
-gs.update(hspace=0.1025)
-gs_top = gs[0].subgridspec(1, 2)
-axarr = []
-for i, (var1, var2) in enumerate(couples):
-    axarr.append(fig.add_subplot(gs_top[i]))
-    vars = [numbers[var1][mask], numbers[var2][mask]]
-    cmap = 'viridis'
-    lims_list = [lims[var1], lims[var2]]
-    xlabel = ax_labels[var1]
-    ylabel = ax_labels[var2] if i == 0 else None
-    #
-    bin1 = np.logspace(np.floor(np.log10(numbers[var1][mask].min())), np.ceil(np.log10(numbers[var1][mask].max())), 50)
-    bin2 = np.logspace(np.floor(np.log10(numbers[var2][mask].min())), np.ceil(np.log10(numbers[var2][mask].max())), 50)
-    bins = [bin1, bin2]
-    a = plot_regime_diagram(axarr[-1], modulus[mask], vars, lims_list, xlabel, ylabel, bins=bins, vmin=0, vmax=40, cmap='plasma', type='binned')
-    axarr[-1].text(0.05, 0.92, labels[i], transform=axarr[-1].transAxes)
+fig, axarr = plt.subplots(2, 2, figsize=(theme.fig_width, 0.6*theme.fig_height_max),
+                          constrained_layout=True, gridspec_kw={'height_ratios': [1, 1]})
 
-# #### colorbar
-cb = fig.colorbar(a, ax=axarr, location='top', aspect=26,
-                  label=r'$\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}$')
+# #### colorbars
+for i, (cmap, norm, cbtick) in enumerate(zip(cmaps, norms, cbticks)):
+    sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
+    cb = plt.colorbar(sm, ax=axarr[0, i], location='top', ticks=cbtick)
+    cb.set_label(cbar_labels[i])
 
-# ## Examples
-ax = fig.add_subplot(gs[1])
-ax.set_xlabel('$kx$')
-ax.set_ylabel('$ky$')
-# ax.set_aspect('equal')
-ax.text(0.025, 0.92, labels[2], transform=ax.transAxes)
-#
-cnt = ax.contourf(x, y, topo(X, Y, alpha, k, AR), levels=100, vmin=-(AR + 0.06),
-                  vmax=AR + 0.02, zorder=-5, cmap=theme.cmap_topo)
-for c in cnt.collections:
-    c.set_edgecolor("face")
-    c.set_rasterized(True)
-
-# # #### Parameters
-modulus = np.linalg.norm(Hydro_coeffs_time[station], axis=0)
-indexes_tp = np.arange(Data[station]['kH'].size)
-mask1 = (Data[station]['kH'] > 0.7) & (Data[station]['Froude'] > 0.6) & (modulus < 10)
-mask2 = (Data[station]['kH'] > 0.7) & (Data[station]['Froude'] < 0.3) & (modulus < 10)
-mask3 = (Data[station]['kH'] < 0.5) & (Data[station]['Froude'] > 0.6) & (modulus < 10)
-mask4 = (Data[station]['kH'] < 0.5) & (Data[station]['Froude'] < 0.3) & (modulus < 10)
-
-indexes = [2808, 35785, 6231, 11308]
-#
-for i, (m, A0, B0) in enumerate(sorted(zip(modulus[indexes], Hydro_coeffs_time[station][0][indexes], Hydro_coeffs_time[station][1][indexes]))):
-    print(Data[station]['time'][indexes[i]], Data[station]['kH'][indexes[i]], Data[station]['Froude'][indexes[i]], Data[station]['kLB'][indexes[i]], A0, B0, np.sqrt(A0**2 + B0**2))
-    TAU = Cisaillement_basal_rotated_wind(X, Y, alpha, A0, B0, AR, 190)
-    ustar = np.sqrt(np.linalg.norm(np.array(TAU), axis=0))
-    theta = np.arctan2(TAU[1], TAU[0])
-    # ax.quiver(X[skip], Y[skip], TAU[0][skip], TAU[1][skip], color='grey')
-    # strm = ax.streamplot(X, Y, TAU[0], TAU[1], color=np.sqrt(TAU[0]**2 + TAU[1]**2), cmap='inferno', density=50, start_points=[[4, 5-0.5*i]])
-    strm = ax.streamplot(X, Y, ustar*np.cos(theta), ustar*np.sin(theta),
-                         color=ustar, cmap='inferno', density=50, start_points=[[4, 5-0.5*i]])
-#
-cb = fig.colorbar(cnt, label=r'Bed elevation $k \xi$', ax=ax, location='top', pad=0.08)
-cb.formatter.set_powerlimits((0, 0))
-cb.update_ticks()
-cb = fig.colorbar(strm.lines, label=r'Shear velocity, $u_{*}/u_{*}^{0}$', ax=ax, location='right', aspect=10)
+for i, (var1, var2) in enumerate(vars):
+    for j, (ax, quantity, cmap, norm) in enumerate(zip(axarr[i, :].flatten(), quantities, cmaps, norms)):
+        vars = [numbers[var1][mask], numbers[var2][mask]]
+        lims_list = [lims[var1], lims[var2]]
+        #
+        bin1 = np.logspace(np.floor(np.log10(numbers[var1][mask].min())), np.ceil(np.log10(numbers[var1][mask].max())), 50)
+        bin2 = np.logspace(np.floor(np.log10(numbers[var2][mask].min())), np.ceil(np.log10(numbers[var2][mask].max())), 50)
+        bins = [bin1, bin2]
+        xlabel = None if i < 1 else ax_labels[var1]
+        ylabel = None if j > 0 else ax_labels[var2]
+        #
+        a = plot_regime_diagram(ax, quantity[mask], vars, lims_list, xlabel, ylabel, bins=bins, norm=norm, cmap=cmap, type='binned')
+        #
+        ax.text(0.04, 0.94, labels[2*i + j], transform=ax.transAxes, ha='left', va='center')
+        #
+        # regime lines
+        ax.axvline(lim_regime[var1], color=regime_line_color, linestyle='--', lw=2)
+        ax.axhline(lim_regime[var2], color=regime_line_color, linestyle='--', lw=2)
 
 plt.savefig(os.path.join(path_savefig, 'Figure14_supp.pdf'), dpi=400)
 plt.show()

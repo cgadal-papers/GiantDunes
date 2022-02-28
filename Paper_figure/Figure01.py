@@ -32,7 +32,7 @@ Stations = sorted(Data.keys())
 
 # fig properties
 bins = [0.03, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
-labels = ['Adamax', 'Huab', 'North Namib', 'South Namib']
+labels = ['Adamax', 'Huab', 'North Sand Sea', 'South Sand Sea']
 coords_stations = np.array([(-19.034111,  15.737194), (-20.874722,  13.642), (-24.125533,  15.049100), (-26.044083,  15.396972)])
 scales = [1300, 1100, 1650, 2600]
 bbox = dict(facecolor=(1, 1, 1, 0.5), edgecolor=(1, 1, 1, 0))
@@ -57,12 +57,17 @@ ax0.text(0.005, 0.998, numbering[0], transform=ax0.transAxes, ha='left', va='top
 #
 plt.scatter(coords_stations[:, 1], coords_stations[:, 0], s=25, color=theme.color_station_position)
 for point, txt in zip(coords_stations, labels):
-    if txt != 'Huab':
-        pad_x, pad_y = 0.05, -0.5
-        plt.gca().annotate(r'\textbf{' + txt + '}', (point[1] + pad_x, point[0] + pad_y), ha='right', va='bottom', color='k', bbox=bbox2)
+    pad_x, pad_y = 0, 0
+    if 'Sand Sea' in txt:
+        ha, va = 'center', 'top'
+        pad_y = -0.15
+    elif txt == 'Huab':
+        ha, va = 'left', 'center'
+        pad_x = 0.15
     else:
-        pad_x, pad_y = 0, -0.5
-        plt.gca().annotate(r'\textbf{' + txt + '}', (point[1] + pad_x, point[0] + pad_y), ha='left', va='bottom', color='k', bbox=bbox2)
+        ha, va = 'right', 'center'
+        pad_x = -0.15
+    plt.gca().annotate(r'\textbf{' + txt + '}', (point[1] + pad_x, point[0] + pad_y), ha=ha, va=va, color='k', bbox=bbox2)
 
 # right images
 gs_sub = gs[:, -1].subgridspec(4, 1, height_ratios=[1, 1, 1, 1], hspace=0)

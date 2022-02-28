@@ -157,7 +157,7 @@ for ax, station, label in zip(axarr.flatten(), Stations, labels):
     anchor = [1-pad_bord_x-size_rose_x, 1-(pad_bord_x+size_rose_x)*ax_aspect, size_rose_x, size_rose_x*ax_aspect]
     RDD, RDP = Vector_average(Angles, PDF[station][0, index, 0, :])
     subax = ax.inset_axes(bounds=anchor, transform=ax.transAxes)
-    a = plot_flux_rose(Angles, PDF[station][0, index, 0, :], subax, fig, cmap=theme.flux_color, edgecolor='k', linewidth=0.5, label='in situ', props=props)
+    a = plot_flux_rose(Angles, PDF[station][0, index, 0, :], subax, fig, cmap=theme.flux_color, edgecolor='k', linewidth=0.5, label='local', props=props)
     plot_arrow(a, (RDD*np.pi/180, 0), (RDD*np.pi/180, 0.85*a.get_rmax()),
                arrowprops=dict(arrowstyle="<|-", shrinkA=0, shrinkB=0, color='saddlebrown', mutation_scale=10, ls='--'))
     a.grid(linewidth=0.4, color='k', linestyle='--')

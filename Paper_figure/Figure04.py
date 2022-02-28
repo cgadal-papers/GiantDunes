@@ -7,6 +7,7 @@ Figure 4
 
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.patches import FancyArrowPatch
 import sys
 import os
 sys.path.append('../')
@@ -188,6 +189,13 @@ for i, (theta, A0, B0, c) in enumerate(zip(Theta_list, A0_list, B0_list, colors)
     # ax.quiver(X[skip], Y[skip], TAU[0][skip], TAU[1][skip], color='grey')
     # strm = ax.streamplot(X, Y, TAU[0], TAU[1], color=np.sqrt(TAU[0]**2 + TAU[1]**2), cmap='inferno', density=50, start_points=[[4, 5-0.5*i]])
     strm = ax.streamplot(X, Y, ustar*np.cos(theta), ustar*np.sin(theta), density=50, start_points=[[4, 3-0.75*i]], color='k')
+
+tail = np.array([10.5, 0.36])
+length = 4
+head = tail + np.array([cosd(Theta_list[0]), sind(Theta_list[0])])*length
+
+arrow = FancyArrowPatch(tail, head, mutation_scale=20, facecolor='lightblue')
+ax.add_patch(arrow)
 
 ax.text(-6.57, 1, ' ' + labels[3] + ' ', bbox=bbox)
 ax.text(-6.57, 0, ' ' + labels[2] + ', ' + labels[5] + ' ', bbox=bbox)

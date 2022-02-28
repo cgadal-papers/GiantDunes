@@ -1,92 +1,78 @@
 """
-============
-Figure 5 -- SI
-============
+============================
+Figure 5 -- Online Resource
+============================
 
 """
 
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
-import calendar
-import locale
-from datetime import datetime, timedelta
-import sys
 import os
+import matplotlib.pyplot as plt
+import sys
+from types import SimpleNamespace
 sys.path.append('../../')
 import python_codes.theme as theme
+from python_codes.general import cosd, sind
 
-locale.setlocale(locale.LC_ALL, 'en_US.utf8')
-
-
-def tick_formatter(ax, fmt='%d'):
-    myFmt = mdates.DateFormatter(fmt)
-    ax.xaxis.set_major_formatter(myFmt)
-    ticklabels = ax.get_xticklabels()
-    ticklabels[0].set_ha('left')
-
-
-# Loading figure theme
 theme.load_style()
 
 # paths
 path_savefig = '../../Paper/Figures'
 path_outputdata = '../../static/data/processed_data/'
 
-# Loading wind data
-Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
-Stations = sorted(Data.keys())
+Data_DEM = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'),
+                   allow_pickle=True).item()
 
-# Figure properties
-variables = ['U_star', 'Orientation']
-label_var = {'U_star': r'Velocity, $u_{*}~[\textup{m}~\textup{s}^{-1}]$', 'Orientation': r'Orientation, $\theta~[^\circ]$'}
-labels = [(r'\textbf{a}', r'\textbf{b}'), (r'\textbf{c}', r'\textbf{d}'),
-          (r'\textbf{e}', r'\textbf{f}'), (r'\textbf{g}', r'\textbf{h}')]
-row_labels = ['Huab station -- summer', 'Huab station -- winter', 'South Namib station -- summer',
-              'South Namib station -- winter']
-years = [2018, 2018, 2017, 2017]
-months = [12, 6, 11, 5]
-days = [(3, 6), (2, 5), (3, 6), (8, 11)]
-month_calendar = {index: month for index, month in enumerate(calendar.month_name) if month}
+labels = [(r'\textbf{a}', r'\textbf{d}'), (r'\textbf{b}', r'\textbf{e}'), (r'\textbf{c}', r'\textbf{f}')]
 
+fig, axrr = plt.subplots(3, 2, figsize=(theme.fig_width, 0.75*theme.fig_height_max),
+                         constrained_layout=True, gridspec_kw={'width_ratios': (0.9, 1)})
+for i, station in enumerate(Data_DEM.keys()):
+    # loading into namespace from data dictionnary to shorten call
+    n = SimpleNamespace(**Data_DEM[station])
+    # ax0: Topo
+    cs = axrr[0, i].contourf(n.lon, n.lat, n.topo, levels=50)
+    for c in cs.collections:
+        c.set_edgecolor("face")
+        c.set_rasterized(True)
+    cb = fig.colorbar(cs, ax=axrr[0, i], label='$h$~[m]', location='top')
+    cb.ax.locator_params(nbins=8)
+    axrr[0, i].set_xlabel(r'longitude [$^{\circ}$]')
+    axrr[0, i].set_ylabel(r'latitude [$^{\circ}$]')
+    axrr[0, i].set_aspect('equal')
+    #
+    # ax1: Autocorrelation map
+    x = list(-(n.lon - n.lon[0])[:: -1]) + list((n.lon - n.lon[0])[1:])
+    y = list(-(n.lat - n.lat[0])[:: -1]) + list((n.lat - n.lat[0])[1:])
+    cs = axrr[1, i].contourf(x, y, n.C, levels=50)
+    for c in cs.collections:
+        c.set_edgecolor("face")
+        c.set_rasterized(True)
+    #
+    axrr[1, i].plot([x[n.p0[0]], x[int(round(n.p1[0]))]], [y[n.p0[1]], y[int(round(n.p1[1]))]], color='tab:red', label='profile for wavelength calculation')
+    p11 = n.p0 + np.array([cosd(n.orientation), sind(n.orientation)])*min(n.topo.shape)
+    p12 = n.p0 - np.array([cosd(n.orientation), sind(n.orientation)])*min(n.topo.shape)
+    axrr[1, i].plot([x[int(round(p11[0]))], x[int(round(p12[0]))]], [y[int(round(p11[1]))], y[int(round(p12[1]))]], color='k', label='n.orientation')
+    axrr[1, i].set_xlabel(r'shift in longitude [$^{\circ}$]')
+    axrr[1, i].set_ylabel(r'shift in latitude [$^{\circ}$]')
+    axrr[1, i].set_aspect('equal')
+    #
+    # ax2: Autocorrelation profile
+    mytrans = axrr[2, i].transData + axrr[2, i].transAxes.inverted()
+    #
+    x_transect = np.arange(n.transect.size)*n.km_step
+    axrr[2, i].plot(x_transect, n.transect, color='tab:red')
+    axrr[2, i].plot(x_transect[n.wavelength_indx], n.transect[n.wavelength_indx], color='tab:blue', marker='.')
+    lims = axrr[2, i].get_ylim()
+    axrr[2, i].vlines(x_transect[n.wavelength_indx], lims[0], n.transect[n.wavelength_indx], color='tab:blue', linestyle='--')
+    axrr[2, i].set_xlabel('Distance along profile [km]')
+    axrr[2, i].set_ylabel('Autocorrelation~[m$^{2}$]')
+    axrr[2, i].set_xlim(0, x_transect.max())
+    axrr[2, i].set_ylim(lims)
+    #
+    axrr[0, i].text(0.05, 0.90, labels[0][i], ha='center', va='center', transform=axrr[0, i].transAxes, color='w')
+    axrr[1, i].text(0.05, 0.90, labels[1][i], ha='center', va='center', transform=axrr[1, i].transAxes, color='w')
+    axrr[2, i].text(0.05, 0.90, labels[2][i], ha='center', va='center', transform=axrr[2, i].transAxes)
 
-stations_plot = ['Huab_Station', 'Huab_Station', 'South_Namib_Station', 'South_Namib_Station']
-
-# #### Figure
-fig = plt.figure(figsize=(theme.fig_width, 0.93*theme.fig_height_max), constrained_layout=True)
-subfigs = fig.subfigures(nrows=4, ncols=1)
-for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs, years, months, days, stations_plot)):
-    axarr = subfig.subplots(1, 2)
-    subfig.suptitle(row_labels[i])
-    subfig.set_facecolor('none')
-    tmin = datetime(yr, mth, dy[0])
-    tmax = datetime(yr, mth, dy[1])
-    for j, (ax, var, label) in enumerate(zip(axarr, variables, labels[i])):
-        l1, = ax.plot(Data[station]['time'], Data[station][var + '_insitu'], label='measurements', color=theme.color_insitu)
-        l2, = ax.plot(Data[station]['time'], Data[station][var + '_era'], label='Era5Land', color=theme.color_Era5Land)
-        ax.set_xlim(tmin, tmax)
-        tick_formatter(ax)
-        #
-        # #### plot nights
-        tstart = tmin - timedelta(days=1)
-        tstart = tstart.replace(hour=10)
-        x_night = [tstart + timedelta(days=i) for i in range((tmax-tmin).days + 2)]
-        for daylight in x_night:
-            a1 = ax.axvspan(daylight, daylight + timedelta(hours=12), facecolor=theme.color_day, alpha=0.1, edgecolor=None, label=theme.Icon_day)
-            a2 = ax.axvspan(daylight - timedelta(hours=12), daylight, facecolor=theme.color_night, alpha=0.1, edgecolor=None, label=theme.Icon_night)
-        #
-        ax.set_ylabel(label_var[var])
-        ax.set_xlabel('Days in {} {:d}'.format(month_calendar[tmin.month], tmin.year))
-        ax.set_xticks([tmin + timedelta(days=i) for i in range((tmax-tmin).days + 1)])
-        ax.text(0.02, 0.97, label, transform=ax.transAxes, ha='left', va='top')
-        if var == 'U_star':
-            ax.set_ylim((0, 0.5))
-        else:
-            ax.set_ylim((0, 360))
-            ax.set_yticks((0, 90, 180, 270, 360))
-#
-# a1.set_edgecolor((0, 0, 0, 1))
-first_legend = fig.legend(handles=[a1, a2], loc='center right', ncol=2, columnspacing=1, bbox_to_anchor=(1, 0.98), frameon=False)
-#
-plt.savefig(os.path.join(path_savefig, 'Figure5_supp.pdf'),)
+plt.savefig(os.path.join(path_savefig, 'Figure5_supp.pdf'), dpi=600)
 plt.show()
