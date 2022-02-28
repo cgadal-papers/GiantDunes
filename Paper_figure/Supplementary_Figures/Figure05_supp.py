@@ -6,58 +6,87 @@ Figure 5 -- SI
 """
 
 import numpy as np
-import os
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+import calendar
+import locale
+from datetime import datetime, timedelta
 import sys
+import os
 sys.path.append('../../')
 import python_codes.theme as theme
-from python_codes.plot_functions import plot_scatter_surrounded
+
+locale.setlocale(locale.LC_ALL, 'en_US.utf8')
 
 
+def tick_formatter(ax, fmt='%d'):
+    myFmt = mdates.DateFormatter(fmt)
+    ax.xaxis.set_major_formatter(myFmt)
+    ticklabels = ax.get_xticklabels()
+    ticklabels[0].set_ha('left')
+
+
+# Loading figure theme
 theme.load_style()
 
 # paths
 path_savefig = '../../Paper/Figures'
 path_outputdata = '../../static/data/processed_data/'
 
+# Loading wind data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
-labels = [r'\textbf{a}', r'\textbf{b}']
+Stations = sorted(Data.keys())
 
-# preparing data
-Stations_ref = ['Adamax_Station', 'Huab_Station']
-#
-Theta_ERA = np.concatenate([Data[station]['Orientation_era'] for station in Stations_ref])
-Theta_Station = np.concatenate([Data[station]['Orientation_insitu'] for station in Stations_ref])
-#
-U_ERA = np.concatenate([Data[station]['U_star_era'] for station in Stations_ref])
-U_Station = np.concatenate([Data[station]['U_star_insitu'] for station in Stations_ref])
+# Figure properties
+variables = ['U_star', 'Orientation']
+label_var = {'U_star': r'Velocity, $u_{*}~[\textup{m}~\textup{s}^{-1}]$', 'Orientation': r'Orientation, $\theta~[^\circ]$'}
+labels = [(r'\textbf{a}', r'\textbf{b}'), (r'\textbf{c}', r'\textbf{d}'),
+          (r'\textbf{e}', r'\textbf{f}'), (r'\textbf{g}', r'\textbf{h}')]
+row_labels = ['Huab station -- summer', 'Huab station -- winter', 'South Namib station -- summer',
+              'South Namib station -- winter']
+years = [2018, 2018, 2017, 2017]
+months = [12, 6, 11, 5]
+days = [(3, 6), (2, 5), (3, 6), (8, 11)]
+month_calendar = {index: month for index, month in enumerate(calendar.month_name) if month}
 
+
+stations_plot = ['Huab_Station', 'Huab_Station', 'South_Namib_Station', 'South_Namib_Station']
 
 # #### Figure
-
-fig, axrr = plt.subplots(1, 2, figsize=(theme.fig_width, 0.5*theme.fig_width),
-                         constrained_layout=True)
-
-for ax, label, quantity in zip(axrr, labels, [[Theta_ERA, Theta_Station], [U_ERA, U_Station]]):
-    plt.sca(ax)
-    plot_scatter_surrounded(quantity[0], quantity[1], color='tab:blue', alpha=0.1)
-    ax.plot([0, 360], [0, 360], 'k--')
-    ax.text(0.05, 0.95, label, ha='center', va='center', transform=ax.transAxes)
-
-axrr[0].set_xlim(0, 360)
-axrr[0].set_ylim(0, 360)
-axrr[0].set_xticks([0, 90, 180, 270, 360])
-axrr[0].set_yticks([0, 90, 180, 270, 360])
-axrr[0].set_xlabel(r'$\theta_{\textup{ERA}}$')
-axrr[0].set_ylabel(r'$\theta_{\textup{in situ}}$')
-axrr[0].set_aspect('equal')
+fig = plt.figure(figsize=(theme.fig_width, 0.93*theme.fig_height_max), constrained_layout=True)
+subfigs = fig.subfigures(nrows=4, ncols=1)
+for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs, years, months, days, stations_plot)):
+    axarr = subfig.subplots(1, 2)
+    subfig.suptitle(row_labels[i])
+    subfig.set_facecolor('none')
+    tmin = datetime(yr, mth, dy[0])
+    tmax = datetime(yr, mth, dy[1])
+    for j, (ax, var, label) in enumerate(zip(axarr, variables, labels[i])):
+        l1, = ax.plot(Data[station]['time'], Data[station][var + '_insitu'], label='measurements', color=theme.color_insitu)
+        l2, = ax.plot(Data[station]['time'], Data[station][var + '_era'], label='Era5Land', color=theme.color_Era5Land)
+        ax.set_xlim(tmin, tmax)
+        tick_formatter(ax)
+        #
+        # #### plot nights
+        tstart = tmin - timedelta(days=1)
+        tstart = tstart.replace(hour=10)
+        x_night = [tstart + timedelta(days=i) for i in range((tmax-tmin).days + 2)]
+        for daylight in x_night:
+            a1 = ax.axvspan(daylight, daylight + timedelta(hours=12), facecolor=theme.color_day, alpha=0.1, edgecolor=None, label=theme.Icon_day)
+            a2 = ax.axvspan(daylight - timedelta(hours=12), daylight, facecolor=theme.color_night, alpha=0.1, edgecolor=None, label=theme.Icon_night)
+        #
+        ax.set_ylabel(label_var[var])
+        ax.set_xlabel('Days in {} {:d}'.format(month_calendar[tmin.month], tmin.year))
+        ax.set_xticks([tmin + timedelta(days=i) for i in range((tmax-tmin).days + 1)])
+        ax.text(0.02, 0.97, label, transform=ax.transAxes, ha='left', va='top')
+        if var == 'U_star':
+            ax.set_ylim((0, 0.5))
+        else:
+            ax.set_ylim((0, 360))
+            ax.set_yticks((0, 90, 180, 270, 360))
 #
-axrr[1].set_xlim(0, 0.5)
-axrr[1].set_ylim(0, 0.5)
-axrr[1].set_xlabel(r'$u_{*, \textup{ERA}}$')
-axrr[1].set_ylabel(r'$u_{*, \textup{in situ}}$')
-axrr[1].set_aspect('equal')
+# a1.set_edgecolor((0, 0, 0, 1))
+first_legend = fig.legend(handles=[a1, a2], loc='center right', ncol=2, columnspacing=1, bbox_to_anchor=(1, 0.98), frameon=False)
 #
-
-plt.savefig(os.path.join(path_savefig, 'Figure5_supp.pdf'), dpi=400)
+plt.savefig(os.path.join(path_savefig, 'Figure5_supp.pdf'),)
 plt.show()

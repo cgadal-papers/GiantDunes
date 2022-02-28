@@ -64,10 +64,10 @@ for station in Stations:
 
 plt.xlabel('time [years]')
 plt.gca().set_yticks(centers)
-plt.gca().set_yticklabels([station[:-8].replace('_', ' ') for station in Stations])
+plt.gca().set_yticklabels([station[:-8].replace('_', ' ') if station != 'Deep_Sea_Station' else 'North Namib' for station in Stations])
 ptch_Era5Land = mpatches.Patch(color=colors[0], label='Era5Land/Era5')
-ptch_InSitu = mpatches.Patch(color=colors[1], label='In situ')
-plt.legend(handles=[ptch_Era5Land, ptch_InSitu], loc='lower left')
+ptch_InSitu = mpatches.Patch(color=colors[1], label='local measurements')
+plt.legend(handles=[ptch_Era5Land, ptch_InSitu], loc='lower left', bbox_to_anchor=(0, 0.1))
 
 
 plt.savefig(os.path.join(path_savefig, 'Figure1_supp.pdf'))

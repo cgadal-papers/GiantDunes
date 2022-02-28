@@ -54,7 +54,6 @@
 \newcommand{\new}{\textcolor{blue}}
 \newcommand{\todo}{\textcolor{red}}
 
-
 %---------------------------------------------------------------------------------------
 \begin{document}
 
@@ -123,7 +122,7 @@ In this work, we compare local wind speeds and directions measured in four diffe
 
 %---------------------------------------------------------------------------------------
 \section{Wind regimes across the Namib Sand Sea}
-We have measured the wind regime in four different sites of Namibia, representative of various environments across and nearby the Namib desert (Fig.~\ref{Fig1}). The Adamax station is located near the Adamax salt pan, in a highly vegetated area. The Huab station, on the coast at the outlet of the Huab river, is in an arid place where $60$-m scale barchan dunes develop. These two stations are located in a relatively flat \pc{quantify how flat is flat ?} environment. In contrast, the Deep Sea and South Namib stations are located in the interdune between tens of meters high giant linear dunes with kilometer-scale wavelengths and superimposed patterns. In this section, we describe and compare winds from local measurements and climate reanalysis predictions.
+We have measured the wind regime in four different sites of Namibia, representative of various environments across and nearby the Namib desert (Fig.~\ref{Fig1}). The Adamax station is located near the Adamax salt pan, in a highly vegetated area. The Huab station, on the coast at the outlet of the Huab river, is in an arid place where $60$-m scale barchan dunes develop. These two stations are located in a relatively flat \pc{quantify how flat is flat ?} environment. In contrast, the North Namib and South Namib stations are located in the interdune between tens of meters high giant linear dunes with kilometer-scale wavelengths and superimposed patterns. In this section, we describe and compare winds from local measurements and climate reanalysis predictions.
 
 %------------------------
 \subsection{Wind and elevation data}
@@ -131,14 +130,14 @@ Local winds are measured at meteorological stations located in these four differ
 
 For comparison, the local measurements are averaged into 1-hr bins centered on the temporal scale of the ERA5-Land estimates (Suppl. Fig.~\ref{Fig2_supp}). As the wind velocities of both datasets are provided at different heights, we convert them into shear velocities (Suppl. Mat. section 1), characteristic of the turbulent wind profile, which are then used together with the wind direction for further analysis. Wind roses in Fig.~\ref{Fig1}(b--e) show the resulting wind data.
 
-Dune properties are computed using autocorrelation on the 30-m Digital Elevation Models (DEMs) of the shuttle radar topography mission \citep{Farr2007}. For the South Namib and Deep Sea stations, we obtain respectively orientations of $85^\circ$ and $125^\circ$ with respect to the North, wavelengths of $2.6~\textup{km}$ and $2.3~\textup{km}$ and amplitudes of $45~\textup{m}$ and $20~\textup{m}$ (Suppl. Fig.~\ref{Fig4_supp} for more details).
+Dune properties are computed using autocorrelation on the 30-m Digital Elevation Models (DEMs) of the shuttle radar topography mission \citep{Farr2007}. For the South Namib and North Namib stations, we obtain respectively orientations of $85^\circ$ and $125^\circ$ with respect to the North, wavelengths of $2.6~\textup{km}$ and $2.3~\textup{km}$ and amplitudes of $45~\textup{m}$ and $20~\textup{m}$ (Suppl. Fig.~\ref{Fig5_supp} for more details).
 
 
 %---------------------------------------------
 \begin{figure}
 \centering
 \includegraphics[scale=1]{Figures/Figure2.pdf}
-\caption{Temporal comparison between the wind data coming from the ERA5-Land climate reanalysis (orange lines) and from the local measurements (blue lines). Coloured swathes indicate day (between 1000 UTC and 2200 UTC) and night (before 1000 UTC or after 2200 UTC) \textbf{a-b}: Huab station. \textbf{c-d}: Deep Sea station in winter. \textbf{e-f}: Deep Sea station in summer.}
+\caption{Temporal comparison between the wind data coming from the ERA5-Land climate reanalysis (orange lines) and from the local measurements (blue lines). Coloured swathes indicate day (between 1000 UTC and 2200 UTC) and night (before 1000 UTC or after 2200 UTC) \textbf{a-b}: Adamax station in summer. \textbf{b-c}: Adamax station in winter. \textbf{d-e}: North Namib station in summer. \textbf{f-g}: North Namib station in winter. Time series of the two other stations are shown in Suppl. Fig.~\ref{Fig4_supp}.}
 \label{Fig2}
 \end{figure}
 %---------------------------------------------
@@ -149,16 +148,16 @@ Dune properties are computed using autocorrelation on the 30-m Digital Elevation
 \label{section_data_feedback}
 The obtained wind regimes are shown in figure~\ref{Fig1}. In the Namib, the regional wind patterns are essentially controlled by the see breeze, resulting in strong northward components (sometimes slightly deviated by the large scale topography \pc{mountain?}) present in all regional wind roses \citep{lancaster1985}. These daytime winds are dominant during the second-half of the year (September-January). In winter, an additional easterly component can be recorded during the night, induced by the combination of katabatic winds forming in the mountains, and infrequent `berg' winds, which are responsible of the high wind velocities observed \citep{lancaster1984}. The frequency of these easterly components decreases from the inland to the coast. As a result, bidirectional wind regimes within the Namib Sand Sea and at the Adamax salt pan (Fig.~\ref{Fig1}b,d,e) and a unidirectional wind regime on the coast at the outlet of the Huab River (Fig.~\ref{Fig1}c) are observed.
 
-In the case of the Adamax and Huab stations, the time series of wind speed and direction from the regional predictions quantitatively match those corresponding to the local measurements (Fig.~\ref{Fig2}a,b) and Suppl. Fig.~\ref{Fig5_supp}). For the Deep Sea and South Namib stations within the giant dune field, we observe that this agreement is also good, but limited to the September-January time period (Fig.~\ref{Fig2}c,d). As a matter of fact, the measured wind roses exhibit additional wind components aligned with the giant dune orientation, as evidenced on the satellite images (Fig.~\ref{Fig1}c,d).
+In the case of the Adamax and Huab stations, the time series of wind speed and direction from the regional predictions quantitatively match those corresponding to the local measurements (Fig.~\ref{Fig2}a--d) and Suppl. Fig.~\ref{Fig5_supp}a--d,~\ref{Fig6_supp}). For the North Namib and South Namib stations within the giant dune field, we observe that this agreement is also good, but limited to the September-January time period (Fig.~\ref{Fig2}e--h and and Suppl. Fig.~\ref{Fig5_supp}e--h). As a matter of fact, the measured wind roses exhibit additional wind components aligned with the giant dune orientation, as evidenced on the satellite images (Fig.~\ref{Fig1}c,d).
 
-More precisely, during the February-August period, the local and regional winds in the interdune match during daytime only, i.e when the southerly/southwesterly sea breeze dominates (Figs.~\ref{Fig2}(e,f) and \ref{Fig3}, Suppl. Fig.~\ref{Fig6_supp}). In the late afternoon and during the night, when the northwesterly `berg' and katabatic winds blow, measurements and predictions differ. In this case, the angular wind distribution of the local measurements exhibits two additional modes corresponding to reversing winds aligned with the giant dune orientation (purple frame in Fig.~\ref{Fig3}, Suppl. Figs.~\ref{Fig6_supp} and \ref{Fig7_supp}). This deviation is also associated with a global attenuation of the wind strength (Suppl. Fig.~\ref{Fig8_supp}). Remarkably, all these figures show that this wind reorientation and attenuation processes typically occur at low wind velocities, typically for $u_{*} \lesssim 0.1~\textrm{m}~\textrm{s}^{-1}$. For shear velocities larger than $\simeq 0.25~\textrm{m}~\textrm{s}^{-1}$, the wind reorientation is not significant. Finally, for intermediate shear velocities, moments of reorientation along the dune crest and others with no reorientation can both be observed (Suppl. Fig.~\ref{Fig7_supp}). \pc{CHECK the above lines cf. $\delta u$}
+More precisely, during the February-August period, the local and regional winds in the interdune match during daytime only, i.e when the southerly/southwesterly sea breeze dominates (Figs.~\ref{Fig2}e,f and \ref{Fig3}, Suppl. Fig.~\ref{Fig7_supp}). In the late afternoon and during the night, when the northwesterly `berg' and katabatic winds blow, measurements and predictions differ. In this case, the angular wind distribution of the local measurements exhibits two additional modes corresponding to reversing winds aligned with the giant dune orientation (purple frame in Fig.~\ref{Fig3}, Suppl. Figs.~\ref{Fig7_supp} and \ref{Fig8_supp}). This deviation is also associated with a global attenuation of the wind strength (Suppl. Fig.~\ref{Fig9_supp}). Remarkably, all these figures show that this wind reorientation and attenuation processes typically occur at low wind velocities, typically for $u_{*} \lesssim 0.1~\textrm{m}~\textrm{s}^{-1}$. For shear velocities larger than $\simeq 0.25~\textrm{m}~\textrm{s}^{-1}$, the wind reorientation is not significant. Finally, for intermediate shear velocities, moments of reorientation along the dune crest and others with no reorientation can both be observed (Suppl. Fig.~\ref{Fig8_supp}). \pc{CHECK the above lines cf. $\delta u$}
 
 
 %---------------------------------------------
 \begin{figure}
 \centering
 \includegraphics[scale=1]{Figures/Figure3.pdf}
-\caption{Distributions of wind direction at the Deep Sea Station for the ERA5-Land climate reanalysis (orange) and the local measurements (blue). In each subplot, both distributions are plotted from the same time steps, selected with constraints on the wind direction (columns) and/or wind velocity (rows) of the ERA5-Land dataset. The gray vertical dashed lines indicate the dune orientation. The numbers at the top right give the percentage of time steps selected in each sub-range, as well as the percentage of them corresponding to the day (between 1000 UTC and 2200 UTC). The purple frame highlights the regime (small wind velocities, nocturnal summer wind) in which the data from both datasets differ. A similar figure can be obtained for the Deep Sea station (Suppl. Fig.~\ref{Fig6_supp}).}
+\caption{Distributions of wind direction at the North Namib Station for the ERA5-Land climate reanalysis (orange) and the local measurements (blue). In each subplot, both distributions are plotted from the same time steps, selected with constraints on the wind direction (columns) and/or wind velocity (rows) of the ERA5-Land dataset. The gray vertical dashed lines indicate the dune orientation. The numbers at the top right give the percentage of time steps selected in each sub-range, as well as the percentage of them corresponding to the day (between 1000 UTC and 2200 UTC). The purple frame highlights the regime (small wind velocities, nocturnal summer wind) in which the data from both datasets differ. A similar figure can be obtained for the North Namib station (Suppl. Fig.~\ref{Fig7_supp}).}
 \label{Fig3}
 \end{figure}
 %---------------------------------------------
@@ -166,14 +165,14 @@ More precisely, during the February-August period, the local and regional winds 
 
 %---------------------------------------------------------------------------------------
 \section{Influence of wind speed and circadian cycle on the atmospheric boundary layer}
-The wind deflection induced by linear dunes has so far mainly been related to the angle between wind direction and crest orientation, with a maximum deflection for angles between $30^{\circ}$ and $70^{\circ}$ \citep{Walker2009, Hesp2015}. In the analysed data, the most deflected wind at both Deep Sean and South Namib stations is the most perpendicular to the giant dunes (\pc{Fig.~\ref{***}}). The incident wind direction then does not seem to be the only parameter controlling the wind deflection. In contrast, a different behaviour is observed between low and high wind velocities, suggesting a change in hydrodynamical regime. In this section, we discuss the relevant parameters associated with the dynamical mechanisms that govern the interactions between the atmospheric boundary layer flow and topographical obstacles. This analysis allows us to provide a physics-based interpretation the observations.
+The wind deflection induced by linear dunes has so far mainly been related to the angle between wind direction and crest orientation, with a maximum deflection for angles between $30^{\circ}$ and $70^{\circ}$ \citep{Walker2009, Hesp2015}. In the analysed data, the most deflected wind at both North Namibn and South Namib stations is the most perpendicular to the giant dunes (\pc{Fig.~\ref{***}}). The incident wind direction then does not seem to be the only parameter controlling the wind deflection. In contrast, a different behaviour is observed between low and high wind velocities, suggesting a change in hydrodynamical regime. In this section, we discuss the relevant parameters associated with the dynamical mechanisms that govern the interactions between the atmospheric boundary layer flow and topographical obstacles. This analysis allows us to provide a physics-based interpretation the observations.
 
 
 %---------------------------------------------
 \begin{figure}
 \centering
 \includegraphics[scale=1]{Figures/Figure4.pdf}
-\caption{\textbf{a-b}: Vertical profiles of the virtual potential temperature at 2 different time steps (day - 03/11/2015 - 1200 UTC, night - 01/13/2013 - 0900 UTC) at the Deep Sea station. Dots: data from the ERA5 reanalysis. Dashed lines: boundary layer height given by the ERA5 reanalysis (Suppl. Mat. section 2). Plain lines: vertical (boundary layer) and linear (free atmosphere) fits to estimate the stratification properties. \textbf{c-f}: Sketches representing the interaction between the giant dunes and the atmospheric flow for different meteorological conditions. \textbf{g}: Streamlines over a sinusoidal topography $\xi(x,y)$ qualitatively representing the effect of low, medium and strong flow confinement, in relation to the above panels (see Appendix~1 for more details). \pc{add arrow with reference wind}}
+\caption{\textbf{a-b}: Vertical profiles of the virtual potential temperature at 2 different time steps (day - 03/11/2015 - 1200 UTC, night - 01/13/2013 - 0900 UTC) at the North Namib station. Dots: data from the ERA5 reanalysis. Dashed lines: boundary layer height given by the ERA5 reanalysis (Suppl. Mat. section 2). Plain lines: vertical (boundary layer) and linear (free atmosphere) fits to estimate the stratification properties. \textbf{c-f}: Sketches representing the interaction between the giant dunes and the atmospheric flow for different meteorological conditions. \textbf{g}: Streamlines over a sinusoidal topography $\xi(x,y)$ qualitatively representing the effect of low, medium and strong flow confinement, in relation to the above panels (see Appendix~1 for more details). \pc{add arrow with reference wind}}
 \label{Fig4}
 \end{figure}
 %---------------------------------------------
@@ -200,7 +199,7 @@ This theoretical framework in mind, the smallest wind disturbances are expected 
 \begin{figure}
 \centering
 \includegraphics[scale=1]{Figures/Figure5.pdf}
-\caption{Regime diagrams of the wind deviation $\delta_{\theta}$ (\textbf{a}) and relative attenuation/amplification $\delta_{u}$ (\textbf{b}) in the space $(\mathcal{F}, \, kH)$, containing the data from both the Deep Sea and South Namib stations. Blue dashed lines empirically delimit the different regimes. The point density in each bin of the diagrams is shown in Suppl. Fig.~\ref{Fig11_supp}. Similar regime diagrams in the spaces $(\mathcal{F}_{\textup{I}}, \, kH)$ and $(\mathcal{F}_{\textup{I}}, \, \mathcal{F})$ are shown in Suppl. Fig.~\ref{Fig12_supp}. \pc{ticks on x-axis ?}}
+\caption{Regime diagrams of the wind deviation $\delta_{\theta}$ (\textbf{a}) and relative attenuation/amplification $\delta_{u}$ (\textbf{b}) in the space $(\mathcal{F}, \, kH)$, containing the data from both the North Namib and South Namib stations. Blue dashed lines empirically delimit the different regimes. The point density in each bin of the diagrams is shown in Suppl. Fig.~\ref{Fig12_supp}. Similar regime diagrams in the spaces $(\mathcal{F}_{\textup{I}}, \, kH)$ and $(\mathcal{F}_{\textup{I}}, \, \mathcal{F})$ are shown in Suppl. Fig.~\ref{Fig13_supp}. \pc{ticks on x-axis ?}}
 \label{Fig5}
 \end{figure}
 %---------------------------------------------
@@ -221,7 +220,7 @@ These two quantities are represented as maps in the plane $(\mathcal{F}, \, kH)$
 \begin{figure}
 \centering
 \includegraphics[scale=1]{Figures/Figure6.pdf}
-\caption{Implications for smaller scale patterns in (\textbf{a}) the South Namib and (\textbf{b}) Deep Sea. The ellipses indicate the different types of elongating dunes, at large (plain line) and small (dashed line) scales. Dune orientation are predicted using the model of \citet{Courrech2014} from the sand flux angular distributions, shown here (roses and resultant transport direction) for typical values (grain size $180~\mu$m, flux-up ratio of $1.6$). Code for corresponding arrows: use of ERA5-Land data (plain line), use of local measurements (dashed line), prediction for the bed instability growth mechanism (blue), prediction for the elongation growth mechanism (red). Wedges show the uncertainty on the orientation calculation when parameters are varied. The black dots indicate the location of the meteorological stations with respect to the dunes. See Appendix 2 for additional details.}
+\caption{Implications for smaller scale patterns in (\textbf{a}) the South Namib and (\textbf{b}) North Namib. The ellipses indicate the different types of elongating dunes, at large (plain line) and small (dashed line) scales. Dune orientation are predicted using the model of \citet{Courrech2014} from the sand flux angular distributions, shown here (roses and resultant transport direction) for typical values (grain size $180~\mu$m, flux-up ratio of $1.6$). Code for corresponding arrows: use of ERA5-Land data (plain line), use of local measurements (dashed line), prediction for the bed instability growth mechanism (blue), prediction for the elongation growth mechanism (red). Wedges show the uncertainty on the orientation calculation when parameters are varied. The black dots indicate the location of the meteorological stations with respect to the dunes. See Appendix 2 for additional details.}
 \label{Fig6}
 \end{figure}
 %---------------------------------------------
@@ -231,7 +230,7 @@ These two quantities are represented as maps in the plane $(\mathcal{F}, \, kH)$
 \section{Discussion}
 The comparison of local (direct measurements) and regional (climate reanalysis) wind data reveals the giant dune feedback on the wind flow. In flat areas, the agreement between the two confirms the ability of the ERA5-Land climate reanalysis to predict the wind regime down to scales $\sim10$~km, i.e the model grid. When smaller scale topographies are present (giant dunes in our case), locally measured winds can significantly differ from the regionally predicted ones. This is the case when the disturbances induced by the dunes interact with the lower part of the ABL vertical structure, which presents circadian variations. During the day, when the capping layer is typically high, this interaction is small, and the ERA5-Land predictions are also quantitatively consistent with the local data. During the night, however, the presence of a shallow atmospheric boundary layer induces a strong confinement of the flow, and is associated with large wind deflection by the dunes. Importantly, we find that this effect can be counterbalanced for large wind velocities, which are capable of deforming the capping layer, thus decreasing the influence of the confinement.
 
-The theoretical computation of the wind disturbances induced by sinusoidal ridges under flow confinement has been performed in the linear limit \citep{andreotti2009, Andreotti2012}, i.e. when the aspect ration of these ridges is small ($k\xi_0 \ll 1$). These models are able to qualitatively reproduce the observed wind deflection (Appendix 1, Suppl. Figs.~\ref{Fig12_supp} and \ref{Fig13_supp}), and thus provide the physical support for the hydrodynamic picture we propose here. They however cannot reach the magnitude of these observations, probably due to the presence of expected non-linearities in high confinement situations linked to strong flow modulations. Besides, these linear calculations only predict wind attenuation in the interdune, in contrast with the observed enhanced velocities associated with particular summer evening winds from the South. Some other models also predict different spatial flow structures such as lee waves and rotors~\citep{baines1995, Vosper2004}, which of course cannot be observed by our single point measurements. Data at different places along and across the ridges are needed to investigate and possibly map such flow structures, and for further comparisons with the models.
+The theoretical computation of the wind disturbances induced by sinusoidal ridges under flow confinement has been performed in the linear limit \citep{andreotti2009, Andreotti2012}, i.e. when the aspect ration of these ridges is small ($k\xi_0 \ll 1$). These models are able to qualitatively reproduce the observed wind deflection (Appendix 1, Suppl. Figs.~\ref{Fig13_supp} and \ref{Fig14_supp}), and thus provide the physical support for the hydrodynamic picture we propose here. They however cannot reach the magnitude of these observations, probably due to the presence of expected non-linearities in high confinement situations linked to strong flow modulations. Besides, these linear calculations only predict wind attenuation in the interdune, in contrast with the observed enhanced velocities associated with particular summer evening winds from the South. Some other models also predict different spatial flow structures such as lee waves and rotors~\citep{baines1995, Vosper2004}, which of course cannot be observed by our single point measurements. Data at different places along and across the ridges are needed to investigate and possibly map such flow structures, and for further comparisons with the models.
 
 This study highlights the interaction between giant dunes and the atmospheric boundary layer. It then supports the debated idea that the capping layer acts as a bounding surface impacting the dune dynamics, and limiting dune growth in particular~\citep{andreotti2009}, as opposed to an unconstrained growth ever-slower with size \citep{Eastwood2011, gunn2021}. Interestingly, this mechanism would allow for the inference of the ABL depth from the giant bedforms spacing where measurements are not feasible or available, as e.g. performed by~\citet{Lorenz2010} on Titan.
 
@@ -258,7 +257,7 @@ Following the work of \citet{Fourriere2010}, \citet{Andreotti2012} and \citet{an
 \xi = \xi_{0}\cos\left[k\left(\cos(\alpha)x + \sin(\alpha)y\right)\right],
 \end{equation}
 %
-which is also a good approximation for the giant dunes observed in the Deep Sea and South Namib Station (Fig.~\ref{Fig1} and Suppl. Fig.~\ref{Fig4_supp}). $x$ and $y$ are the streamwise and spanwise coordinates, $k=2\pi/\lambda$ the wavenumber of the sinusoidal perturbation, and $\alpha$ its crest orientation with respect to the $y$-direction. The two components of the basal shear stress $\boldsymbol{\tau} = \rho_{0} u_{*}\boldsymbol{u}_{*}$, constant in the flat bottom reference case, can then be generically written as:
+which is also a good approximation for the giant dunes observed in the North Namib and South Namib Station (Fig.~\ref{Fig1} and Suppl. Fig.~\ref{Fig4_supp}). $x$ and $y$ are the streamwise and spanwise coordinates, $k=2\pi/\lambda$ the wavenumber of the sinusoidal perturbation, and $\alpha$ its crest orientation with respect to the $y$-direction. The two components of the basal shear stress $\boldsymbol{\tau} = \rho_{0} u_{*}\boldsymbol{u}_{*}$, constant in the flat bottom reference case, can then be generically written as:
 %
 \begin{align}
 \tau_{x} & = \tau_{0}\left(1 + k\xi_{0}\sqrt{\mathcal{A}_{x}^{2} + \mathcal{B}_{x}^{2}}\cos\left[k\left(\cos(\alpha)x + \sin(\alpha)y\right) + \phi_{x}\right]\right), \\
@@ -280,7 +279,7 @@ where $\mathcal{A}_{0}$ and $\mathcal{B}_{0}$ are now two coefficients independe
 
 With capping a layer height and Froude numbers computed from the ERA5-Land time series, the corresponding $\mathcal{A}_{0}$ and $\mathcal{B}_{0}$ can be deduced, allowing to produce maps as displayed in Suppl. Fig.~\ref{Fig13_supp}. Interestingly, it shows similar regimes as in the diagrams of Fig.~\ref{Fig5} and Fig.~\ref{Fig12_supp}a,b, supporting the physics picture. However, the matching remains qualitative only. As a matter of fact, the linearity assumption of the theoretical framework requires $\left(\vert \tau \vert - \tau_{0}\right)/\tau_{0} \ll 1$, which translates into $k\xi\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}} \ll 1$. In our case, the giant dune morphology gives $k\xi_0 \simeq 0.1$, which means that one quits the regime of validity of the linear theory when the coefficient modulus $\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}$ becomes larger than a few units. In accordance with the theoretical expectations, these coefficients present values on the order of unity ($\mathcal{A}_{0} \simeq 3$ and $\mathcal{B}_{0} \simeq 1$) in unconfined situations \citep{Claudin2013, Lu2021}. In contrast and as illustrated in Suppl. Fig.~\ref{Fig12_supp}a,b, larger values are predicted in case of strong confinement, which does not allow us to proceed to further quantitative comparison with the data.
 
-Finally, the linear model is also able to reproduce the enhancement of the flow deflection over the sinusoidal ridges when $\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}$ is increased (Suppl. Fig.~\ref{Fig13_supp}). Here, using $k\xi_0 \simeq 0.1$ to be representative of the amplitude of the giant dunes at the Deep Sea station, the coefficient modulus is bounded to $10$.
+Finally, the linear model is also able to reproduce the enhancement of the flow deflection over the sinusoidal ridges when $\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}$ is increased (Suppl. Fig.~\ref{Fig13_supp}). Here, using $k\xi_0 \simeq 0.1$ to be representative of the amplitude of the giant dunes at the North Namib station, the coefficient modulus is bounded to $10$.
 
 
 %---------------------------------------------------------------------------------------
@@ -381,9 +380,9 @@ We do not have precise velocity vertical profiles to be able to deduce an accura
 \delta = \frac{\sqrt{\langle\| \boldsymbol{u}_{*, \textrm{era}} - \boldsymbol{u}_{*, \textrm{station}} \|^{2}\rangle}}{\sqrt{ \langle \| \boldsymbol{u}_{*, \textrm{era}} \| \rangle \langle \| \boldsymbol{u}_{*, \textrm{station}} \| \rangle}} ,
 \end{equation}
 %
-where $\langle.\rangle$ denotes time average. This parameter is computed for values of $z_0$ in ERA5-Land analysis ranging from $10^{-5}$~m to $10^{-2}$~m for the four different stations. Note that for the Deep Sea and South Namib stations, where the giant dunes feedback presumably affect the wind, we take into account the non-deflected winds only in the calculation of $\delta$ (with a $15^\circ$ tolerance).
+where $\langle.\rangle$ denotes time average. This parameter is computed for values of $z_0$ in ERA5-Land analysis ranging from $10^{-5}$~m to $10^{-2}$~m for the four different stations. Note that for the North Namib and South Namib stations, where the giant dunes feedback presumably affect the wind, we take into account the non-deflected winds only in the calculation of $\delta$ (with a $15^\circ$ tolerance).
 
-As shown in Suppl. Fig.~\ref{Fig3_supp}, the minimum values of $\delta$ in the space ($z_{0}^{\textup{ERA5Land}}$, $z_{0}^{\textup{local}}$) form a line. We thus set the roughness in the ERA5-Land analysis to the typical value $z_0=10^{-3}$~m, and deduce the corresponding ones for the local stations. It leads to $2.7$, $0.8$, $0.1$ and $0.5$~mm for the Adamax, Deep Sea, Huab and South Namib stations, respectively. Importantly, this approach somewhat impacts the calculation of the shear velocities, but not that of the wind directions. As such, most of our conclusions are independent of such a choice. However, it may affect the magnitude of the wind velocity attenuation/amplification in flow confinement situations.
+As shown in Suppl. Fig.~\ref{Fig3_supp}, the minimum values of $\delta$ in the space ($z_{0}^{\textup{ERA5Land}}$, $z_{0}^{\textup{local}}$) form a line. We thus set the roughness in the ERA5-Land analysis to the typical value $z_0=10^{-3}$~m, and deduce the corresponding ones for the local stations. It leads to $2.7$, $0.8$, $0.1$ and $0.5$~mm for the Adamax, North Namib, Huab and South Namib stations, respectively. Importantly, this approach somewhat impacts the calculation of the shear velocities, but not that of the wind directions. As such, most of our conclusions are independent of such a choice. However, it may affect the magnitude of the wind velocity attenuation/amplification in flow confinement situations.
 
 
 %---------------------------------------------------------------------------------------
@@ -448,25 +447,25 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure3_supp.pdf}
-\caption{Calibration of hydrodynamic roughness. The parameter $\delta$ (Eq.~\ref{metric_roughness}) quantifying the difference between local and predicted winds is shown in colorscale as a function of the hydrodynamic roughnesses chosen for the ERA5-Land and for local winds, for the (\textbf{a}) Adamax, (\textbf{b}) Deep Sea, (\textbf{c}) Huab and (\textbf{d}) South Namib stations. The red dashed and plain lines shows the minima of $\delta$ and the identity line, respectively. The orange lines and dots highlight the chosen hydrodynamic roughnesses for the local winds deduced from setting $z_{0}^{\textup{ERA5Land}} = 1$~mm.}
+\caption{Calibration of hydrodynamic roughness. The parameter $\delta$ (Eq.~\ref{metric_roughness}) quantifying the difference between local and predicted winds is shown in colorscale as a function of the hydrodynamic roughnesses chosen for the ERA5-Land and for local winds, for the (\textbf{a}) Adamax, (\textbf{b}) North Namib, (\textbf{c}) Huab and (\textbf{d}) South Namib stations. The red dashed and plain lines shows the minima of $\delta$ and the identity line, respectively. The orange lines and dots highlight the chosen hydrodynamic roughnesses for the local winds deduced from setting $z_{0}^{\textup{ERA5Land}} = 1$~mm.}
 \label{Fig3_supp}
 \end{figure}
 %---------------------------------------------
 
 %---------------------------------------------
 \begin{figure}[p]
-\centering
-\includegraphics[scale=1]{Figures/Figure4_supp.pdf}
-\caption{Analysis of the DEMs of the Deep Sea (left column -- panels \textbf{a}, \textbf{b}, \textbf{c}) and South Namib (right column -- panels \textbf{d}, \textbf{e}, \textbf{f}) stations. \textbf{a-d}: Bed elevation detrended by a fitted second order polynomial base-line. \textbf{b-e}: Autocorrelation matrix shown in colorscale. The black line shows the detected dune orientation, and the red line represents the autocorrelation profile along which the dune wavelength is calculated, displayed in \textbf{c-f}. The blue lines and dots show the first peak of the autocorrelation profile, whose abscissa gives the characteristic wavelength of the dune pattern.}
-\label{Fig4_supp}
+  \centering
+  \includegraphics[scale=1]{Figures/Figure4_supp.pdf}
+  \caption{Analysis of the DEMs of the North Namib (left column -- panels \textbf{a}, \textbf{b}, \textbf{c}) and South Namib (right column -- panels \textbf{d}, \textbf{e}, \textbf{f}) stations. \textbf{a-d}: Bed elevation detrended by a fitted second order polynomial base-line. \textbf{b-e}: Autocorrelation matrix shown in colorscale. The black line shows the detected dune orientation, and the red line represents the autocorrelation profile along which the dune wavelength is calculated, displayed in \textbf{c-f}. The blue lines and dots show the first peak of the autocorrelation profile, whose abscissa gives the characteristic wavelength of the dune pattern.}
+  \label{Fig4_supp}
 \end{figure}
 %---------------------------------------------
 
 %---------------------------------------------
-\begin{figure}[p]
+\begin{figure}
 \centering
 \includegraphics[scale=1]{Figures/Figure5_supp.pdf}
-\caption{Statistical comparison of the wind orientation (\textbf{a}) and velocity (\textbf{b}) between the ERA5-Land dataset and the local measurements for the Huab and Adamax stations. Data point clustering around identity lines (dashed and black) provide evidence for agreement of the two sets.}
+\caption{Temporal comparison between the wind data coming from the ERA5-Land climate reanalysis (orange lines) and from the local measurements (blue lines). Coloured swathes indicate day (between 1000 UTC and 2200 UTC) and night (before 1000 UTC or after 2200 UTC) \textbf{a-b}: Huab station in summer. \textbf{b-c}: Huab station in winter. \textbf{d-e}: South Namib station in summer. \textbf{f-g}: South Namib station in winter.}
 \label{Fig5_supp}
 \end{figure}
 %---------------------------------------------
@@ -475,7 +474,7 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure6_supp.pdf}
-\caption{Distributions of wind direction at the South Namib Station for the ERA5-Land climate reanalysis (orange) and the local measurements (blue) -- equivalent of Fig.~\ref{Fig3}. In each subplot, both distributions are plotted from the same time steps, selected with constraints on the wind direction (columns) and/or wind velocity (rows) in the ERA5-Land dataset. The gray vertical dashed lines indicate the dune orientation. The numbers at the top centre give the percentage of time steps selected in each sub-range, as well as the percentage of them corresponding to the day (between 1000 UTC and 2200 UTC). The purple frame highlights the regime (small wind velocities, nocturnal summer wind) during which the wind data from both datasets differ.}
+\caption{Statistical comparison of the wind orientation (\textbf{a}) and velocity (\textbf{b}) between the ERA5-Land dataset and the local measurements for the Huab and Adamax stations. Data point clustering around identity lines (dashed and black) provide evidence for agreement of the two sets.}
 \label{Fig6_supp}
 \end{figure}
 %---------------------------------------------
@@ -484,7 +483,7 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure7_supp.pdf}
-\caption{Statistical comparison of the wind orientation between the ERA5-Land dataset and the local measurements for the South Namib and Deep Sea stations, for different velocity ranges. \textbf{a}: $u_{*, \textup{\textup{ERA}}} < 0.1~\textup{m}~\textup{s}^{-1}$. \textbf{b}: $0.1 < u_{*, \textup{\textup{ERA}}} \leq 0.25~\textup{m}~\textup{s}^{-1}$. \textbf{c}: $u_{*, \textup{\textup{ERA}}} \geq 0.25~\textup{m}~\textup{s}^{-1}$. The measured dune orientations are subtracted to the wind orientation, which allows us to plot both stations on the same graph. Black dashed lines indicate locally measured orientations aligned with the dune crests (here $0^\circ$, $180^\circ$ and $360^\circ$ -- panels \textbf{a}, \textbf{b}), as well as the identity lines (panels \textbf{b}, \textbf{c}).}
+\caption{Distributions of wind direction at the South Namib Station for the ERA5-Land climate reanalysis (orange) and the local measurements (blue) -- equivalent of Fig.~\ref{Fig3}. In each subplot, both distributions are plotted from the same time steps, selected with constraints on the wind direction (columns) and/or wind velocity (rows) in the ERA5-Land dataset. The gray vertical dashed lines indicate the dune orientation. The numbers at the top centre give the percentage of time steps selected in each sub-range, as well as the percentage of them corresponding to the day (between 1000 UTC and 2200 UTC). The purple frame highlights the regime (small wind velocities, nocturnal summer wind) during which the wind data from both datasets differ.}
 \label{Fig7_supp}
 \end{figure}
 %---------------------------------------------
@@ -493,7 +492,7 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure8_supp.pdf}
-\caption{Statistical comparison of the wind velocity between the ERA5-Land dataset and the local measurements for the South Namib and Deep Sea stations. \textbf{a}: Nocturnal summer easterly wind. \textbf{b}: Diurnal southerly wind. Black dashed lines are identity lines. The angle ranges used to select diurnal and nocturnal summer winds are the same as those in Fig.~\ref{Fig3} and Suppl. Fig.~\ref{Fig6_supp}.}
+\caption{Statistical comparison of the wind orientation between the ERA5-Land dataset and the local measurements for the South Namib and North Namib stations, for different velocity ranges. \textbf{a}: $u_{*, \textup{\textup{ERA}}} < 0.1~\textup{m}~\textup{s}^{-1}$. \textbf{b}: $0.1 < u_{*, \textup{\textup{ERA}}} \leq 0.25~\textup{m}~\textup{s}^{-1}$. \textbf{c}: $u_{*, \textup{\textup{ERA}}} \geq 0.25~\textup{m}~\textup{s}^{-1}$. The measured dune orientations are subtracted to the wind orientation, which allows us to plot both stations on the same graph. Black dashed lines indicate locally measured orientations aligned with the dune crests (here $0^\circ$, $180^\circ$ and $360^\circ$ -- panels \textbf{a}, \textbf{b}), as well as the identity lines (panels \textbf{b}, \textbf{c}).}
 \label{Fig8_supp}
 \end{figure}
 %---------------------------------------------
@@ -502,7 +501,7 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure9_supp.pdf}
-\caption{\textbf{a}: Vertical profiles of the virtual potential temperature at three different times (blue: 29/11/2012 - 1100 UTC, orange: 21/03/2017 - 1200 UTC, green: 21/03/2017 - 2000 UTC) at the South Namib station. Dots: data from the ERA5 reanalysis. Dashed lines: boundary layer height given by the ERA5 reanalysis. Plain lines: vertical (ABL) and linear (FA) fits to estimate the quantities displayed in Suppl. Fig.~\ref{Fig10_supp}. \textbf{b}: Examples of ill-processed vertical profiles at three different times (blue: 2/12/2013 - 2300 UTC, orange: 20/03/2017 - 0000 UTC, green: 14/07/2017 - 1400 UTC) at the South Namib station. \textbf{c}: Hourly distribution of ill-processed vertical profiles. \textbf{d}: Monthly distribution of ill-processed vertical profiles.}
+\caption{Statistical comparison of the wind velocity between the ERA5-Land dataset and the local measurements for the South Namib and North Namib stations. \textbf{a}: Nocturnal summer easterly wind. \textbf{b}: Diurnal southerly wind. Black dashed lines are identity lines. The angle ranges used to select diurnal and nocturnal summer winds are the same as those in Fig.~\ref{Fig3} and Suppl. Fig.~\ref{Fig6_supp}.}
 \label{Fig9_supp}
 \end{figure}
 %---------------------------------------------
@@ -510,8 +509,8 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 %---------------------------------------------
 \begin{figure}[p]
 \centering
-\includegraphics{Figures/Figure10_supp.pdf}
-\caption{Distributions of the meteorological parameters resulting from the processing of the ERA5-Land data for the South Namib (blue) and the Deep Sea (orange) stations. \pc{axis label : panel c -velocity at (height) H}. \pc{Is this for all day/night/seasons ?}}
+\includegraphics[scale=1]{Figures/Figure10_supp.pdf}
+\caption{\textbf{a}: Vertical profiles of the virtual potential temperature at three different times (blue: 29/11/2012 - 1100 UTC, orange: 21/03/2017 - 1200 UTC, green: 21/03/2017 - 2000 UTC) at the South Namib station. Dots: data from the ERA5 reanalysis. Dashed lines: boundary layer height given by the ERA5 reanalysis. Plain lines: vertical (ABL) and linear (FA) fits to estimate the quantities displayed in Suppl. Fig.~\ref{Fig10_supp}. \textbf{b}: Examples of ill-processed vertical profiles at three different times (blue: 2/12/2013 - 2300 UTC, orange: 20/03/2017 - 0000 UTC, green: 14/07/2017 - 1400 UTC) at the South Namib station. \textbf{c}: Hourly distribution of ill-processed vertical profiles. \textbf{d}: Monthly distribution of ill-processed vertical profiles.}
 \label{Fig10_supp}
 \end{figure}
 %---------------------------------------------
@@ -519,8 +518,8 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 %---------------------------------------------
 \begin{figure}[p]
 \centering
-\includegraphics[scale=1]{Figures/Figure11_supp.pdf}
-\caption{Non-dimensional parameters distributions. For the marginal \pc{???} distributions, the orange correspond to the South Namib station, and the blue to the Deep Sea station.}
+\includegraphics{Figures/Figure11_supp.pdf}
+\caption{Distributions of the meteorological parameters resulting from the processing of the ERA5-Land data for the South Namib (blue) and the North Namib (orange) stations. \pc{axis label : panel c -velocity at (height) H}. \pc{Is this for all day/night/seasons ?}}
 \label{Fig11_supp}
 \end{figure}
 %---------------------------------------------
@@ -529,7 +528,7 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure12_supp.pdf}
-\caption{Regime diagrams of the wind deviation $\delta_{\theta}$ and relative attenuation/amplification $\delta_{u}$ in the spaces $(\mathcal{F}_{\textup{I}}, \, kH)$ and $(\mathcal{F}_{\textup{I}}, \, \mathcal{F})$, containing the data from both the Deep Sea and South Namib stations. Blue dashed lines empirically delimit the different regimes. The point density in each bin of the diagrams is shown in Suppl. Fig.~\ref{Fig11_supp}. The similar regime diagrams in the space $(\mathcal{F}, \, kH)$ are shown in Fig.~\ref{Fig5}.}
+\caption{Non-dimensional parameters distributions. For the marginal \pc{???} distributions, the orange correspond to the South Namib station, and the blue to the North Namib station.}
 \label{Fig12_supp}
 \end{figure}
 %---------------------------------------------
@@ -538,8 +537,17 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure13_supp.pdf}
-\caption{Computation of the flow disturbance with the linear model of \citet{andreotti2009}. (a) and (b) Magnitude of the hydrodynamic coefficients $\mathcal{A}_0$ and $\mathcal{B}_0$, calculated from the values of the non-dimensional numbers corresponding to the ERA5-Land time series presented in Figs.~\ref{Fig4} and \ref{Fig5}. (c) Shear velocity streamlines over sinusoidal ridges of amplitude $k\xi_0 = 0.1$ and for increasing values of $\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}$. From the upper to the lower streamline, values of $\left(kH,\, \mathcal{F},\, \mathcal{F}_{\rm I},\, \mathcal{A}_{0},\, \mathcal{B}_{0},\, \sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}\right)$ are (1.9, 0.6, 1.5, 3.4, 1.0, 3.5), (1.5, 0.3, 0.4, 4.8, 1.4, 5.0), (0.1, 3.5, 1.0, 8.6, 0.1, 8.6), (0.5, 0.05, 0.04, 9.6, 2.5, 9.9).}
+\caption{Regime diagrams of the wind deviation $\delta_{\theta}$ and relative attenuation/amplification $\delta_{u}$ in the spaces $(\mathcal{F}_{\textup{I}}, \, kH)$ and $(\mathcal{F}_{\textup{I}}, \, \mathcal{F})$, containing the data from both the North Namib and South Namib stations. Blue dashed lines empirically delimit the different regimes. The point density in each bin of the diagrams is shown in Suppl. Fig.~\ref{Fig11_supp}. The similar regime diagrams in the space $(\mathcal{F}, \, kH)$ are shown in Fig.~\ref{Fig5}.}
 \label{Fig13_supp}
+\end{figure}
+%---------------------------------------------
+
+%---------------------------------------------
+\begin{figure}[p]
+\centering
+\includegraphics[scale=1]{Figures/Figure14_supp.pdf}
+\caption{Computation of the flow disturbance with the linear model of \citet{andreotti2009}. (a) and (b) Magnitude of the hydrodynamic coefficients $\mathcal{A}_0$ and $\mathcal{B}_0$, calculated from the values of the non-dimensional numbers corresponding to the ERA5-Land time series presented in Figs.~\ref{Fig4} and \ref{Fig5}. (c) Shear velocity streamlines over sinusoidal ridges of amplitude $k\xi_0 = 0.1$ and for increasing values of $\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}$. From the upper to the lower streamline, values of $\left(kH,\, \mathcal{F},\, \mathcal{F}_{\rm I},\, \mathcal{A}_{0},\, \mathcal{B}_{0},\, \sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}\right)$ are (1.9, 0.6, 1.5, 3.4, 1.0, 3.5), (1.5, 0.3, 0.4, 4.8, 1.4, 5.0), (0.1, 3.5, 1.0, 8.6, 0.1, 8.6), (0.5, 0.05, 0.04, 9.6, 2.5, 9.9).}
+\label{Fig14_supp}
 \end{figure}
 %---------------------------------------------
 
