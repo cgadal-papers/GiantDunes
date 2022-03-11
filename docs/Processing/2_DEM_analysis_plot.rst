@@ -68,8 +68,8 @@ Here, we extract from each DEMs the average orientation, wavelength and amplitud
     Data_DEM = {}
     #
     # Paths
-    path_outputdata = '../static/processed_data/'
-    path_inputdata = '../static/raw_data/'
+    path_outputdata = '../static/data/processed_data/'
+    path_inputdata = '../static/data/raw_data'
     #
     for i, station in enumerate(Stations):
         file = os.path.join(path_inputdata, 'DEM/DEM_' + station + '.npy')
@@ -86,7 +86,7 @@ Here, we extract from each DEMs the average orientation, wavelength and amplitud
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.038 seconds)
+   **Total running time of the script:** ( 0 minutes  1.011 seconds)
 
 
 .. _sphx_glr_download_Processing_2_DEM_analysis_plot.py:

@@ -37,7 +37,7 @@ Processing the meteorological data
     theme.load_style()
 
     # Paths
-    path_outputdata = '../static/processed_data/'
+    path_outputdata = '../static/data/processed_data/'
 
     # ##### Loading meteo data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -157,7 +157,7 @@ Analyzing the vertical profiles of virtual potential temperature
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.026 seconds)
+   **Total running time of the script:** ( 0 minutes  6.603 seconds)
 
 
 .. _sphx_glr_download_Processing_4_meteo_data_analysis_plot.py:

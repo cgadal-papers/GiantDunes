@@ -18,11 +18,11 @@
 .. _sphx_glr_Paper_figure_Supplementary_Figures_Figure02_supp.py:
 
 
-============
-Figure 2 -- SI
-============
+============================
+Figure 2 -- Online Resource
+============================
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-66
+.. GENERATED FROM PYTHON SOURCE LINES 7-77
 
 
 
@@ -38,61 +38,72 @@ Figure 2 -- SI
 .. code-block:: default
 
 
-    import numpy as np
     import os
-    from datetime import datetime
-    import matplotlib.dates as mdates
-    import matplotlib.pyplot as plt
     import sys
+    import glob
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import matplotlib.patches as mpatches
     sys.path.append('../../')
     import python_codes.theme as theme
-
+    from datetime import timedelta
+    #
     theme.load_style()
+
+
+    def make_range_broken_barh(time, dt):
+        diff = np.diff(time)
+        t_diff = np.concatenate((time[1:][diff > dt_threshold], time[:-1][diff > dt_threshold]))
+        t_diff = np.insert(t_diff, [0, t_diff.size], [time[0], time[-1]])
+        t_diff = np.array(sorted(t_diff))
+        return [(tstart, tspan) for tstart, tspan in zip(t_diff[::2], np.diff(t_diff)[::2])]
+
 
     # paths
     path_savefig = '../../Paper/Figures'
-    path_outputdata = '../../static/processed_data'
-    path_inputdata = '../../static/raw_data'
-
-    # figure parameters
-    station = 'South_Namib_Station'
-    tmin, tmax = datetime(2017, 6, 3), datetime(2017, 6, 10)
-    Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
-
-    # Loading and recomputing some raw data
-    path_insitu = os.path.join(path_inputdata, 'measured_wind_data/in_situ_wind_data_' + station + '.npy')
-    Data_insitu = np.load(path_insitu, allow_pickle=True).item()
-    #
-    t_insitu = Data_insitu['time']
-    U_insitu = Data_insitu['velocity']
-    # putting angles in trigo. ref.
-    Orientation_insitu = (270 - Data_insitu['direction']) % 360
+    path_inputdata = '../../static/data/raw_data/'
 
 
-    # ### Figure
-    fig, axarr = plt.subplots(2, 1, figsize=(theme.fig_width, 0.85*theme.fig_width),
-                              constrained_layout=True, sharex=True)
+    Stations = ['Adamax_Station', 'Huab_Station', 'Deep_Sea_Station', 'South_Namib_Station']
+    labels = ['Adamax', 'Huab', 'North Sand Sea', 'South Sand Sea']
 
-    axarr[0].plot(t_insitu, Orientation_insitu, label='Raw data')
-    axarr[0].plot(Data[station]['time'], Data[station]['Orientation_insitu'], label='Binned data')
-    #
-    axarr[1].plot(t_insitu, U_insitu, label='Raw data')
-    axarr[1].plot(Data[station]['time'], Data[station]['U_insitu'], label='1hr-averaged data')
-    #
-    axarr[0].set_ylabel(r'Wind orientation, $\theta~[^{\circ}]$')
-    axarr[0].set_ylim(0, 360)
-    axarr[0].set_yticks([0, 90, 180, 270, 360])
-    axarr[1].set_ylabel(r'Wind velocity at 2.6 m, $[\textup{m}~\textup{s}^{-1}]$')
-    axarr[1].set_ylim(bottom=0)
-    axarr[1].set_xlim(tmin, tmax)
-    axarr[1].set_xlabel(r'Days in June 2017')
-    myFmt = mdates.DateFormatter('%d')
-    axarr[1].xaxis.set_major_formatter(myFmt)
-    plt.legend(loc='upper center')
+    directory_types = ['ERA5Land', 'measured_wind_data']
 
-    # subplots labels
-    axarr[0].text(0.015, 0.93, r'\textbf{a}', ha='left', va='center', transform=axarr[0].transAxes)
-    axarr[1].text(0.015, 0.93, r'\textbf{b}', ha='left', va='center', transform=axarr[1].transAxes)
+    colors = [theme.color_Era5Land, theme.color_insitu]
+
+    dt_threshold = timedelta(minutes=60)
+    height_rect = 0.75
+    height_delta = 1
+    height_plot = 0
+    centers = []
+
+    fig_width = theme.fig_width
+    fig_height = 0.45*fig_width
+    fig = plt.figure(figsize=(fig_width, fig_height), constrained_layout=True)
+    for station in Stations:
+        for i, directory in enumerate(directory_types):
+            list_files = glob.glob(os.path.join(path_inputdata, directory, '*.npy'))
+            file = [i for i in list_files if station in i][0]
+            data = np.load(file, allow_pickle=True).item()
+            time = data['time']
+            if directory == 'measured_wind_data':
+                orientation, velocities = data['direction'], data['velocity']
+                mask = (~(np.isnan(velocities) | np.isnan(orientation))) & (velocities > 0)
+            else:
+                mask = np.ones(time.size).astype(bool)
+            xranges = make_range_broken_barh(time[mask], dt_threshold)
+            plt.broken_barh(xranges, (height_plot, height_rect), facecolor=colors[i])
+            height_plot += height_rect
+        centers.append(height_plot - height_rect)
+        height_plot += height_delta
+
+    plt.xlabel('time [years]')
+    plt.gca().set_yticks(centers)
+    plt.gca().set_yticklabels(labels)
+    ptch_Era5Land = mpatches.Patch(color=colors[0], label='Era5Land/Era5')
+    ptch_InSitu = mpatches.Patch(color=colors[1], label='local measurements')
+    plt.legend(handles=[ptch_Era5Land, ptch_InSitu], loc='lower left', bbox_to_anchor=(0, 0.2))
+
 
     plt.savefig(os.path.join(path_savefig, 'Figure2_supp.pdf'))
     plt.show()
@@ -100,7 +111,7 @@ Figure 2 -- SI
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.482 seconds)
+   **Total running time of the script:** ( 0 minutes  2.430 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure02_supp.py:

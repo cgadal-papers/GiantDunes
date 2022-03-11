@@ -9,11 +9,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import calendar
+import locale
 from datetime import datetime, timedelta
 import sys
 import os
 sys.path.append('../')
 import python_codes.theme as theme
+
+locale.setlocale(locale.LC_ALL, 'en_US.utf8')
 
 
 def tick_formatter(ax, fmt='%d'):
@@ -29,28 +32,30 @@ theme.load_style()
 # paths
 path_imgs = '../static/images/'
 path_savefig = '../Paper/Figures'
-path_outputdata = '../static/processed_data'
+path_outputdata = '../static/data/processed_data'
 
 # Loading wind data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
 Stations = sorted(Data.keys())
 
 # Figure properties
-variables = ['U', 'Orientation']
-label_var = {'U': r'Velocity, $u_{*}~[\textup{m}~\textup{s}^{-1}]$', 'Orientation': r'Orientation, $\theta~[^\circ]$'}
-labels = [(r'\textbf{a}', r'\textbf{b}'), (r'\textbf{c}', r'\textbf{d}'), (r'\textbf{e}', r'\textbf{f}')]
-row_labels = ['Huab station', 'Deep Sea station -- summer', 'Deep Sea station -- winter']
-years = [2018, 2017, 2017]
-months = [2, 12, 6]
-days = [(11, 14), (5, 8), (1, 4)]
+variables = ['U_star', 'Orientation']
+label_var = {'U_star': r'Velocity, $u_{*}~[\textup{m}~\textup{s}^{-1}]$', 'Orientation': r'Orientation, $\theta~[^\circ]$'}
+labels = [(r'\textbf{a}', r'\textbf{b}'), (r'\textbf{c}', r'\textbf{d}'),
+          (r'\textbf{e}', r'\textbf{f}'), (r'\textbf{g}', r'\textbf{h}')]
+row_labels = ['Adamax -- summer', 'Adamax -- winter', 'North Sand Sea -- summer',
+              'North Sand Sea -- winter']
+years = [2015, 2016, 2017, 2017]
+months = [11, 8, 12, 6]
+days = [(10, 14), (17, 20), (5, 8), (1, 4)]
 month_calendar = {index: month for index, month in enumerate(calendar.month_name) if month}
 
 
-stations_plot = ['Huab_Station', 'Deep_Sea_Station', 'Deep_Sea_Station']
+stations_plot = ['Adamax_Station', 'Adamax_Station', 'Deep_Sea_Station', 'Deep_Sea_Station']
 
 # #### Figure
-fig = plt.figure(figsize=(theme.fig_width, 0.63*theme.fig_height_max), constrained_layout=True)
-subfigs = fig.subfigures(nrows=3, ncols=1)
+fig = plt.figure(figsize=(theme.fig_width, 0.93*theme.fig_height_max), constrained_layout=True)
+subfigs = fig.subfigures(nrows=4, ncols=1)
 for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs, years, months, days, stations_plot)):
     axarr = subfig.subplots(1, 2)
     subfig.suptitle(row_labels[i])
@@ -75,8 +80,8 @@ for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs, years, months, d
         ax.set_xlabel('Days in {} {:d}'.format(month_calendar[tmin.month], tmin.year))
         ax.set_xticks([tmin + timedelta(days=i) for i in range((tmax-tmin).days + 1)])
         ax.text(0.02, 0.97, label, transform=ax.transAxes, ha='left', va='top')
-        if var == 'U':
-            ax.set_ylim((0, 9))
+        if var == 'U_star':
+            ax.set_ylim((0, 0.5))
         else:
             ax.set_ylim((0, 360))
             ax.set_yticks((0, 90, 180, 270, 360))

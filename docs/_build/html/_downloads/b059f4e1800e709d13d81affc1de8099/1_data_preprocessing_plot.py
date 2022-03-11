@@ -39,8 +39,8 @@ Names = {
         }
 
 # paths
-path_ouputdata = '../static/processed_data/'
-path_inputdata = '../static/raw_data'
+path_outputdata = '../static/data/processed_data/'
+path_inputdata = '../static/data/raw_data'
 
 Stations = ['Adamax_Station', 'Deep_Sea_Station', 'Huab_Station', 'South_Namib_Station']
 
@@ -124,5 +124,5 @@ for station in Stations:
             if key not in ['time', 'levels', 'latitude', 'longitude']:
                 Data[station][Names[key]] = Data_level[key].squeeze()[..., inds_mask]
 
-path_save = os.path.join(path_ouputdata, 'Data_preprocessed.npy')
+path_save = os.path.join(path_outputdata, 'Data_preprocessed.npy')
 np.save(path_save, Data)

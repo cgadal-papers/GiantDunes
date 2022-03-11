@@ -38,7 +38,7 @@ Note that this script takes a certain amount of times to run, and as such is not
     from python_codes.linear_theory import calculate_solution
 
     # Paths
-    path_outputdata = '../static/processed_data/'
+    path_outputdata = '../static/data/processed_data/'
 
     # Importing non-dimensional numbers calculated
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()

@@ -43,14 +43,14 @@ Examples using ``python_codes.theme.color_insitu``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 1 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 2 -- Online Resource">
 
 .. only:: html
 
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure01_supp_thumb.png
-     :alt: Figure 1 -- SI
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure02_supp_thumb.png
+     :alt: Figure 2 -- Online Resource
 
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure01_supp.py`
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure02_supp.py`
 
 .. raw:: html
 
@@ -58,16 +58,16 @@ Examples using ``python_codes.theme.color_insitu``
 
 .. only:: not html
 
- * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure01_supp.py`
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure02_supp.py`
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 6 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 6 -- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure06_supp_thumb.png
-     :alt: Figure 6 -- SI
+     :alt: Figure 6 -- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure06_supp.py`
 
@@ -78,3 +78,22 @@ Examples using ``python_codes.theme.color_insitu``
 .. only:: not html
 
  * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure06_supp.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 8 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure08_supp_thumb.png
+     :alt: Figure 8 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure08_supp.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure08_supp.py`

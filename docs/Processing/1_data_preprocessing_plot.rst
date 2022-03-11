@@ -66,8 +66,8 @@ For each station, we follow these preprocessing steps:
             }
 
     # paths
-    path_ouputdata = '../static/processed_data/'
-    path_inputdata = '../static/raw_data'
+    path_outputdata = '../static/data/processed_data/'
+    path_inputdata = '../static/data/raw_data'
 
     Stations = ['Adamax_Station', 'Deep_Sea_Station', 'Huab_Station', 'South_Namib_Station']
 
@@ -151,13 +151,13 @@ For each station, we follow these preprocessing steps:
                 if key not in ['time', 'levels', 'latitude', 'longitude']:
                     Data[station][Names[key]] = Data_level[key].squeeze()[..., inds_mask]
 
-    path_save = os.path.join(path_ouputdata, 'Data_preprocessed.npy')
+    path_save = os.path.join(path_outputdata, 'Data_preprocessed.npy')
     np.save(path_save, Data)
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.801 seconds)
+   **Total running time of the script:** ( 0 minutes  7.363 seconds)
 
 
 .. _sphx_glr_download_Processing_1_data_preprocessing_plot.py:

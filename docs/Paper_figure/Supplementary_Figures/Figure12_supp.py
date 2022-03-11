@@ -1,97 +1,69 @@
 """
-============
-Figure 12 -- SI
-============
+============================
+Figure 12 -- Online Resource
+============================
 
 """
 
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.colors as mpcolors
 import sys
 import os
 sys.path.append('../../')
 import python_codes.theme as theme
-from python_codes.general import smallestSignedAngleBetween, find_mode_distribution
-from python_codes.plot_functions import plot_regime_diagram
+from python_codes.meteo_analysis import mu
+from python_codes.plot_functions import make_nice_histogram
+
 
 # Loading figure theme
 theme.load_style()
 
 # paths
 path_savefig = '../../Paper/Figures'
-path_outputdata = '../../static/processed_data/'
+path_outputdata = '../../static/data/processed_data/'
 
 # ##### Loading meteo data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
+
+# ## histograms parameters
 Stations = ['South_Namib_Station', 'Deep_Sea_Station']
-
-# #### Computing quantities
-
-Orientation_era = np.concatenate([Data[station]['Orientation_era'] for station in Stations])
-Orientation_insitu = np.concatenate([Data[station]['Orientation_insitu'] for station in Stations])
-U_era = np.concatenate([Data[station]['U_star_era'] for station in Stations])
-U_insitu = np.concatenate([Data[station]['U_star_insitu'] for station in Stations])
-numbers = {key: np.concatenate([Data[station][key] for station in Stations]) for key in ('Froude', 'kH', 'kLB')}
+g = 9.81  # [m/s2] gravitational constant
+z0_era = 1e-3  # [m] hydrodynamic roughness
 #
-Delta = smallestSignedAngleBetween(Orientation_era, Orientation_insitu)
-mode_delta = np.array([find_mode_distribution(Delta, i) for i in np.arange(150, 350)]).mean()
-delta_angle = np.abs(Delta)
-delta_u = (U_era - U_insitu)/U_era
-
-# #### Figure parameters
-
-lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
-cmaps = [theme.cmap_delta_theta, theme.cmap_delta_u]
-norms = [mpcolors.Normalize(vmin=0, vmax=99),
-         mpcolors.TwoSlopeNorm(vmin=-3, vcenter=0, vmax=3)]
-cbar_labels = [r'$\delta_{\theta}$ [deg.]', r'$\delta_{u}$']
-quantities = [delta_angle, delta_u]
 labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}']
-
-mask = ~np.isnan(numbers['Froude'])
-log_counts_max = np.log10(2230)
-regime_line_color = 'tab:blue'
-
-vars = [('kLB', 'kH'), ('kLB', 'Froude')]
-ax_labels = {'kH': r'$kH$', 'Froude': r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho_{0}) g H}$',
-             'kLB': r'$\mathcal{F}_{\textup{I}} =  kU/N$'}
-xlabels = [r'$\mathcal{F}_{\textup{I}} =  kU/N$']
-ylabels = [r'$kH$', r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho) g H}$']
-lim_regime = {'kH': 0.32, 'Froude': 0.4, 'kLB': 0.35}
-
-# 3D plot
-view_point = (25, -128)
-plot_idx = np.random.permutation(np.arange(delta_angle.size))  # to plot the points of the scatter plot in random order
+nbins = 80
 
 # #### Figure
-fig, axarr = plt.subplots(2, 2, figsize=(theme.fig_width, 0.6*theme.fig_height_max),
-                          constrained_layout=True, gridspec_kw={'height_ratios': [1, 1]})
+fig, axarr = plt.subplots(2, 2, figsize=(theme.fig_width, 0.9*theme.fig_width),
+                          constrained_layout=True, sharey=True)
 
-# #### colorbars
-for i, (cmap, norm) in enumerate(zip(cmaps, norms)):
-    sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
-    cb = plt.colorbar(sm, ax=axarr[0, i], location='top')
-    cb.set_label(cbar_labels[i])
+for station in Stations:
+    make_nice_histogram(Data[station]['Boundary layer height'], nbins, axarr[0, 0], alpha=0.4, label=' '.join(station.split('_')[:-1]), density=False, scale_bins='log')
+    #
+    N = np.sqrt(g*Data[station]['gradient_free_atm']/Data[station]['theta_ground'])
+    make_nice_histogram(N, nbins, axarr[0, 1], alpha=0.4, label=' '.join(station.split('_')[:-1]), density=False)
+    #
+    U_H = Data[station]['U_star_era']*mu(Data[station]['Boundary layer height'], z0_era)
+    make_nice_histogram(U_H, nbins, axarr[1, 0], alpha=0.4, label=' '.join(station.split('_')[:-1]), density=False)
+    #
+    make_nice_histogram(Data[station]['delta_theta']/Data[station]['theta_ground'], nbins, axarr[1, 1], alpha=0.4, label=' '.join(station.split('_')[:-1]), density=False)
 
-for i, (var1, var2) in enumerate(vars):
-    for j, (ax, quantity, cmap, norm) in enumerate(zip(axarr[i, :].flatten(), quantities, cmaps, norms)):
-        vars = [numbers[var1][mask], numbers[var2][mask]]
-        lims_list = [lims[var1], lims[var2]]
-        #
-        bin1 = np.logspace(np.floor(np.log10(numbers[var1][mask].min())), np.ceil(np.log10(numbers[var1][mask].max())), 50)
-        bin2 = np.logspace(np.floor(np.log10(numbers[var2][mask].min())), np.ceil(np.log10(numbers[var2][mask].max())), 50)
-        bins = [bin1, bin2]
-        xlabel = None if i < 1 else ax_labels[var1]
-        ylabel = None if j > 0 else ax_labels[var2]
-        #
-        a = plot_regime_diagram(ax, quantity[mask], vars, lims_list, xlabel, ylabel, bins=bins, norm=norm, cmap=cmap, type='binned')
-        #
-        ax.text(0.04, 0.94, labels[2*i + j], transform=ax.transAxes, ha='left', va='center')
-        #
-        # regime lines
-        ax.axvline(lim_regime[var1], color=regime_line_color, linestyle='--', lw=2)
-        ax.axhline(lim_regime[var2], color=regime_line_color, linestyle='--', lw=2)
 
-plt.savefig(os.path.join(path_savefig, 'Figure12_supp.pdf'), dpi=400)
+axarr[1, 0].set_xlim(left=0)
+axarr[1, 1].set_xlim(left=0)
+#
+axarr[0, 0].set_xlabel(r'Boundary layer height, $H~[\textup{m}]$')
+axarr[0, 1].set_xlabel(r'Brunt-Väisälä frequency, $N~[\textup{s}^{-1}]$')
+axarr[1, 0].set_xlabel(r'Wind velocity at $H$, $U~[\textup{m}~\textup{s}^{-1}]$')
+axarr[1, 1].set_xlabel(r'Relative density jump, $\Delta\rho/\rho_{0}$')
+#
+
+for i, (ax, label) in enumerate(zip(axarr.flatten(), labels)):
+    ax.set_ylim(0, 1700)
+    ax.text(0.03, 0.93, label, transform=ax.transAxes, va='center', ha='left')
+    ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
+    if i not in [1, 3]:
+        ax.set_ylabel('Counts')
+
+plt.savefig(os.path.join(path_savefig, 'Figure12_supp.pdf'))
 plt.show()

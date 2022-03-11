@@ -18,11 +18,11 @@
 .. _sphx_glr_Paper_figure_Supplementary_Figures_Figure13_supp.py:
 
 
-============
-Figure 13 -- SI
-============
+============================
+Figure 13 -- Online Resource
+============================
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-134
+.. GENERATED FROM PYTHON SOURCE LINES 7-129
 
 
 
@@ -32,158 +32,138 @@ Figure 13 -- SI
    :class: sphx-glr-single-img
 
 
-.. rst-class:: sphx-glr-script-out
-
- Out:
-
- .. code-block:: none
-
-    2013-01-01 15:00:00 1.9106625456117055 0.6053199427708578 1.500333702919269 3.391502248112032 0.9847083903446562 3.5315631260058384
-    2017-11-05 09:00:00 1.5248132014954165 0.26683693111779716 0.39357735111864456 4.800427945429627 1.4323216206208542 5.009556236250838
-    2013-05-24 06:00:00 0.0915046707312773 3.4871336349339015 1.0440374076264303 8.595055698677989 0.10476280264978154 8.595694137659622
-    2013-12-21 19:00:00 0.4816925487764967 0.045943945124992065 0.037083908406501456 9.589940988901052 2.548549499611661 9.922805688038808
 
 
-
-
-
-
-|
 
 .. code-block:: default
 
 
     import numpy as np
-    import matplotlib.pyplot as plt
-    import sys
     import os
+    import matplotlib.pyplot as plt
+    from matplotlib.colors import LogNorm
+    import sys
     sys.path.append('../../')
     import python_codes.theme as theme
-    from python_codes.general import cosd, sind
-    from python_codes.plot_functions import plot_regime_diagram
-    from python_codes.linear_theory import Cisaillement_basal_rotated_wind
+    from python_codes.plot_functions import make_nice_histogram
 
-
-    def topo(x, y, alpha, k, xi):
-        return xi*np.cos(k*(cosd(alpha)*x + sind(alpha)*y))
-
-
-    # Loading figure theme
     theme.load_style()
 
     # paths
     path_savefig = '../../Paper/Figures'
-    path_outputdata = '../../static/processed_data/'
+    path_outputdata = '../../static/data/processed_data/'
 
-    # ## regime diagram properties
-    # data
-    Stations = ['South_Namib_Station', 'Deep_Sea_Station']
+    # Loading data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
+    Stations = ['South_Namib_Station', 'Deep_Sea_Station']
+
     numbers = {key: np.concatenate([Data[station][key] for station in Stations]) for key in ('Froude', 'kH', 'kLB')}
-
-    # Time series hydrodynamic coefficients
-    Hydro_coeffs_time = np.load(os.path.join(path_outputdata, 'time_series_hydro_coeffs.npy'), allow_pickle=True).item()
-    modulus = np.linalg.norm(np.concatenate([Hydro_coeffs_time[station] for station in Stations], axis=1), axis=0)
-
-    #
-    couples = [('Froude', 'kH'), ('kLB', 'kH')]
-    labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}']
-    #
-    ax_labels = {'Froude': r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho_{0}) g H}$', 'kH': '$k H$', 'kLB': r'$\mathcal{F}_{\textup{I}} = k U/N$'}
-    lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
-    #
-    regime_line_color = 'tab:blue'
-    cbar_labels = [r'$\delta_{\theta}$ [deg.]', r'$\delta_{u}$']
-
     mask = ~np.isnan(numbers['Froude'])
+    ad_hoc_quantity = np.concatenate([Data[station]['U_star_era'] for station in Stations])
 
-    # ## streamline parameters
-    station = Stations[1]
-    Data_DEM = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]
-
-    #
-    alpha = Data_DEM['orientation'] - 90  # dune orientation, degrees
-    k = 1  # non dimensional wavenumber
-    AR = 0.1
-    B0 = 2
-    skip = (slice(None, None, 50), slice(None, None, 50))
-    #
-    # horizontal space
-    x = np.linspace(-12, 12, 1000)
-    y = np.linspace(-6, 6, 1000)
-    X, Y = np.meshgrid(x, y)
-
+    # Figure properties
+    couples = [('Froude', 'kLB'), ('Froude', 'kH'), ('kLB', 'kH')]
+    lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
+    # ax_labels = {'kH': r'$kH$', 'Froude': r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho) g H}$',
+    # 'kLB': r'$\mathcal{F}_{\textup{I}} =  kU/N$'}
+    ax_labels = {'kH': r'$kH$', 'Froude': r'$\mathcal{F}$',
+                 'kLB': r'$\mathcal{F}_{\textup{I}}$'}
+    norm = LogNorm(vmin=1, vmax=1.5e3)
 
     # #### Figure
-    fig = plt.figure(figsize=(theme.fig_width, 0.74*theme.fig_height_max), constrained_layout=True)
-    # ## regime diagrams
-    gs = fig.add_gridspec(2, 1, height_ratios=[1.63, 1])
-    gs.update(hspace=0.1025)
-    gs_top = gs[0].subgridspec(1, 2)
-    axarr = []
-    for i, (var1, var2) in enumerate(couples):
-        axarr.append(fig.add_subplot(gs_top[i]))
-        vars = [numbers[var1][mask], numbers[var2][mask]]
-        cmap = 'viridis'
-        lims_list = [lims[var1], lims[var2]]
+    fig, axarr = plt.subplots(4, 3, figsize=(theme.fig_width, 0.95*theme.fig_width),
+                              # constrained_layout=True,
+                              gridspec_kw={'height_ratios': [0.2, 1.3, 2, 2],
+                                           'width_ratios': [2, 2, 1]})
+    # Plotting density diagrams
+    ax_list = [axarr[2, 0], axarr[3, 0], axarr[3, 1]]
+    for j, (ax, (var1, var2)) in enumerate(zip(ax_list, couples)):
+        ax.set_xscale('log')
+        ax.set_yscale('log')
+        #
+        x_var, y_var = numbers[var1][mask], numbers[var2][mask]
         xlabel = ax_labels[var1]
-        ylabel = ax_labels[var2] if i == 0 else None
+        ylabel = ax_labels[var2] if j == 0 else None
         #
         bin1 = np.logspace(np.floor(np.log10(numbers[var1][mask].min())), np.ceil(np.log10(numbers[var1][mask].max())), 50)
         bin2 = np.logspace(np.floor(np.log10(numbers[var2][mask].min())), np.ceil(np.log10(numbers[var2][mask].max())), 50)
-        bins = [bin1, bin2]
-        a = plot_regime_diagram(axarr[-1], modulus[mask], vars, lims_list, xlabel, ylabel, bins=bins, vmin=0, vmax=40, cmap='plasma', type='binned')
-        axarr[-1].text(0.05, 0.92, labels[i], transform=axarr[-1].transAxes)
+        # #### binning data
+        counts, x_edge, y_edge = np.histogram2d(x_var, y_var, bins=[bin1, bin2])
+        # plotting histogramm
+        a = ax.pcolormesh(x_edge, y_edge, counts.T, snap=True, norm=norm)
+        #
+        ax.set_xlim(lims[var1])
+        ax.set_ylim(lims[var2])
+        if j in [1, 2]:
+            ax.set_xlabel(ax_labels[var1])
+        else:
+            ax.set_xticklabels([])
+        if j in [0, 1]:
+            ax.set_ylabel(ax_labels[var2])
+        else:
+            ax.set_yticklabels([])
 
-    # #### colorbar
-    cb = fig.colorbar(a, ax=axarr, location='top', aspect=26,
-                      label=r'$\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}$')
+    # #### Plotting marginal distributions
+    for i, (ax, var) in enumerate(zip([axarr[1, 0], axarr[2, 1], axarr[3, 2]], ['Froude', 'kLB', 'kH'])):
+        orientation = 'vertical' if i < 2 else 'horizontal'
+        make_nice_histogram(Data['South_Namib_Station'][var], 150, ax, alpha=0.4, density=False, scale_bins='log', orientation=orientation)
+        make_nice_histogram(Data['Deep_Sea_Station'][var], 150, ax, alpha=0.4, density=False, scale_bins='log', orientation=orientation)
+        if i == 2:
+            ax.set_ylim(lims[var])
+            ax.set_yticklabels([])
+            ax.set_xlabel('Counts')
+            # ax.ticklabel_format(style='sci', axis='x', scilimits=(0, 0))
+        elif i == 0:
+            ax.set_ylabel('Counts')
+            ax.set_xticklabels([])
+            ax.set_xlim(lims[var])
+            ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
+        elif i == 1:
+            ax.set_xticklabels([])
+            ax.set_ylabel('Counts')
+            ax.set_xlim(lims[var])
+            ax.yaxis.tick_right()
+            ax.yaxis.set_label_position('right')
+            ax.yaxis.set_ticks_position('both')
+            ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
 
-    # ## Examples
-    ax = fig.add_subplot(gs[1])
-    ax.set_xlabel('$kx$')
-    ax.set_ylabel('$ky$')
-    # ax.set_aspect('equal')
-    ax.text(0.025, 0.92, labels[2], transform=ax.transAxes)
+    # remove the underlying axes for cb
+    gs = axarr[0, 0].get_gridspec()
+    for ax in axarr[0, :]:
+        ax.remove()
+    cax = fig.add_subplot(gs[0, :])
     #
-    cnt = ax.contourf(x, y, topo(X, Y, alpha, k, AR), levels=100, vmin=-(AR + 0.06),
-                      vmax=AR + 0.02, zorder=-5, cmap=theme.cmap_topo)
-    for c in cnt.collections:
-        c.set_edgecolor("face")
-        c.set_rasterized(True)
-
-    # # #### Parameters
-    modulus = np.linalg.norm(Hydro_coeffs_time[station], axis=0)
-    indexes_tp = np.arange(Data[station]['kH'].size)
-    mask1 = (Data[station]['kH'] > 0.7) & (Data[station]['Froude'] > 0.6) & (modulus < 10)
-    mask2 = (Data[station]['kH'] > 0.7) & (Data[station]['Froude'] < 0.3) & (modulus < 10)
-    mask3 = (Data[station]['kH'] < 0.5) & (Data[station]['Froude'] > 0.6) & (modulus < 10)
-    mask4 = (Data[station]['kH'] < 0.5) & (Data[station]['Froude'] < 0.3) & (modulus < 10)
-
-    indexes = [2808, 35785, 6231, 11308]
+    cb = fig.colorbar(a, cax=cax, label='Counts', orientation='horizontal')
+    cb.ax.xaxis.set_ticks_position('top')
+    cb.ax.xaxis.set_label_position('top')
     #
-    for i, (m, A0, B0) in enumerate(sorted(zip(modulus[indexes], Hydro_coeffs_time[station][0][indexes], Hydro_coeffs_time[station][1][indexes]))):
-        print(Data[station]['time'][indexes[i]], Data[station]['kH'][indexes[i]], Data[station]['Froude'][indexes[i]], Data[station]['kLB'][indexes[i]], A0, B0, np.sqrt(A0**2 + B0**2))
-        TAU = Cisaillement_basal_rotated_wind(X, Y, alpha, A0, B0, AR, 190)
-        ustar = np.sqrt(np.linalg.norm(np.array(TAU), axis=0))
-        theta = np.arctan2(TAU[1], TAU[0])
-        # ax.quiver(X[skip], Y[skip], TAU[0][skip], TAU[1][skip], color='grey')
-        # strm = ax.streamplot(X, Y, TAU[0], TAU[1], color=np.sqrt(TAU[0]**2 + TAU[1]**2), cmap='inferno', density=50, start_points=[[4, 5-0.5*i]])
-        strm = ax.streamplot(X, Y, ustar*np.cos(theta), ustar*np.sin(theta),
-                             color=ustar, cmap='inferno', density=50, start_points=[[4, 5-0.5*i]])
+    # removing unused axes
+    axarr[1, 1].remove()
+    axarr[1, 2].remove()
+    axarr[2, -1].remove()
     #
-    cb = fig.colorbar(cnt, label=r'Bed elevation $k \xi$', ax=ax, location='top', pad=0.08)
-    cb.formatter.set_powerlimits((0, 0))
-    cb.update_ticks()
-    cb = fig.colorbar(strm.lines, label=r'Shear velocity, $u_{*}/u_{*}^{0}$', ax=ax, location='right', aspect=10)
+    plt.subplots_adjust(bottom=0.09, top=0.91, left=0.13, right=0.99, hspace=0.2, wspace=0.15)
+    #
+    # Adjusting final ax positions
+    # cb
+    pos = cax.get_position()
+    cb_h = pos.height
+    pos.y0 = 0.9
+    pos.y1 = pos.y0 + cb_h
+    cax.set_position(pos)
+    # distrib 2
+    box1 = axarr[1, 0].get_position()
+    pos = axarr[2, 1].get_position()
+    pos.y1 = pos.y0 + box1.height
+    axarr[2, 1].set_position(pos)
 
-    plt.savefig(os.path.join(path_savefig, 'Figure13_supp.pdf'), dpi=400)
+    plt.savefig(os.path.join(path_savefig, 'Figure13_supp.pdf'))
     plt.show()
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.951 seconds)
+   **Total running time of the script:** ( 0 minutes  2.223 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure13_supp.py:

@@ -21,7 +21,7 @@ theme.load_style()
 # paths
 path_imgs = '../static/images/'
 path_savefig = '../Paper/Figures'
-path_outputdata = '../static/processed_data'
+path_outputdata = '../static/data/processed_data'
 
 # ##### Loading meteo data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -44,10 +44,11 @@ delta_u = (U_era - U_insitu)/U_era
 lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
 cmaps = [theme.cmap_delta_theta, theme.cmap_delta_u]
 norms = [mpcolors.Normalize(vmin=0, vmax=99),
-         mpcolors.TwoSlopeNorm(vmin=-3, vcenter=0, vmax=3)]
+         mpcolors.TwoSlopeNorm(vmin=-3, vcenter=0, vmax=1)]
 cbar_labels = [r'$\delta_{\theta}$ [deg.]', r'$\delta_{u}$']
 quantities = [delta_angle, delta_u]
 labels = [r'\textbf{a}', r'\textbf{b}']
+cbticks = [[0, 25, 50, 75], [-3, -1.5, 0, 0.5, 1]]
 
 mask = ~np.isnan(numbers['Froude'])
 log_counts_max = np.log10(2230)
@@ -61,7 +62,9 @@ xlabel = r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho_{0}) g H}$'
 fig, axarr = plt.subplots(1, 2, figsize=(theme.fig_width, 0.375*theme.fig_height_max),
                           constrained_layout=True)
 
-for i, (ax, quantity, cmap, norm) in enumerate(zip(axarr.flatten(), quantities, cmaps, norms)):
+for i, (ax, quantity, cmap, norm, cbtick) in enumerate(zip(axarr.flatten(),
+                                                           quantities, cmaps, norms,
+                                                           cbticks)):
     ylabel = '$k H$' if i == 0 else None
     #
     vars = [numbers[var1][mask], numbers[var2][mask]]
@@ -73,14 +76,14 @@ for i, (ax, quantity, cmap, norm) in enumerate(zip(axarr.flatten(), quantities, 
     a = plot_regime_diagram(ax, quantity[mask], vars, lims_list, xlabel, ylabel, bins=bins, norm=norm, cmap=cmap, type='binned')
     #
     ax.text(0.04, 0.94, labels[i], transform=ax.transAxes, ha='left', va='center')
-
+    #
     # regime lines
     ax.axvline(0.4, color=regime_line_color, linestyle='--', lw=2)
     ax.axhline(0.32, color=regime_line_color, linestyle='--', lw=2)
-
+    #
     # colorbar
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
-    cb = plt.colorbar(sm, ax=ax, location='top')
+    cb = plt.colorbar(sm, ax=ax, location='top', ticks=cbtick)
     cb.set_label(cbar_labels[i])
 
 plt.savefig(os.path.join(path_savefig, 'Figure5.pdf'))

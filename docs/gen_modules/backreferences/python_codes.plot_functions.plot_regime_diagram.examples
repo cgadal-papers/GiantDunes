@@ -24,14 +24,14 @@ Examples using ``python_codes.plot_functions.plot_regime_diagram``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 12 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 14 -- Online Resource">
 
 .. only:: html
 
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure12_supp_thumb.png
-     :alt: Figure 12 -- SI
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure14_supp_thumb.png
+     :alt: Figure 14 -- Online Resource
 
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure12_supp.py`
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure14_supp.py`
 
 .. raw:: html
 
@@ -39,18 +39,18 @@ Examples using ``python_codes.plot_functions.plot_regime_diagram``
 
 .. only:: not html
 
- * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure12_supp.py`
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure14_supp.py`
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 13 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 16 -- Online Resource">
 
 .. only:: html
 
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure13_supp_thumb.png
-     :alt: Figure 13 -- SI
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure16_supp_thumb.png
+     :alt: Figure 16 -- Online Resource
 
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure13_supp.py`
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure16_supp.py`
 
 .. raw:: html
 
@@ -58,4 +58,4 @@ Examples using ``python_codes.plot_functions.plot_regime_diagram``
 
 .. only:: not html
 
- * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure13_supp.py`
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure16_supp.py`

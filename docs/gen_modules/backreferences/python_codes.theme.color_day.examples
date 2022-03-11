@@ -40,3 +40,22 @@ Examples using ``python_codes.theme.color_day``
 .. only:: not html
 
  * :ref:`sphx_glr_Paper_figure_Figure04.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 6 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure06_supp_thumb.png
+     :alt: Figure 6 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure06_supp.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure06_supp.py`

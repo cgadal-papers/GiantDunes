@@ -24,14 +24,14 @@ Examples using ``python_codes.plot_functions.make_nice_histogram``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 6 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 8 -- Online Resource">
 
 .. only:: html
 
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure06_supp_thumb.png
-     :alt: Figure 6 -- SI
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure08_supp_thumb.png
+     :alt: Figure 8 -- Online Resource
 
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure06_supp.py`
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure08_supp.py`
 
 .. raw:: html
 
@@ -39,54 +39,16 @@ Examples using ``python_codes.plot_functions.make_nice_histogram``
 
 .. only:: not html
 
- * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure06_supp.py`
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure08_supp.py`
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 9 -- SI">
-
-.. only:: html
-
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure09_supp_thumb.png
-     :alt: Figure 9 -- SI
-
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure09_supp.py`
-
-.. raw:: html
-
-    </div>
-
-.. only:: not html
-
- * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure09_supp.py`
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 10 -- SI">
-
-.. only:: html
-
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure10_supp_thumb.png
-     :alt: Figure 10 -- SI
-
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure10_supp.py`
-
-.. raw:: html
-
-    </div>
-
-.. only:: not html
-
- * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure10_supp.py`
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 11 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 11 -- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure11_supp_thumb.png
-     :alt: Figure 11 -- SI
+     :alt: Figure 11 -- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure11_supp.py`
 
@@ -97,3 +59,60 @@ Examples using ``python_codes.plot_functions.make_nice_histogram``
 .. only:: not html
 
  * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure11_supp.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 12 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure12_supp_thumb.png
+     :alt: Figure 12 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure12_supp.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure12_supp.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 13 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure13_supp_thumb.png
+     :alt: Figure 13 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure13_supp.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure13_supp.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 15 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure15_supp_thumb.png
+     :alt: Figure 15 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure15_supp.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure15_supp.py`

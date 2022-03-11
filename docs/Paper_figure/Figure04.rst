@@ -22,7 +22,7 @@
 Figure 4
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-206
+.. GENERATED FROM PYTHON SOURCE LINES 7-214
 
 
 
@@ -40,6 +40,7 @@ Figure 4
 
     import numpy as np
     import matplotlib.pyplot as plt
+    from matplotlib.patches import FancyArrowPatch
     import sys
     import os
     sys.path.append('../')
@@ -77,7 +78,7 @@ Figure 4
     # paths
     path_imgs = '../static/images/'
     path_savefig = '../Paper/Figures'
-    path_outputdata = '../static/processed_data'
+    path_outputdata = '../static/data/processed_data'
 
     # ##### Loading meteo data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -222,6 +223,13 @@ Figure 4
         # strm = ax.streamplot(X, Y, TAU[0], TAU[1], color=np.sqrt(TAU[0]**2 + TAU[1]**2), cmap='inferno', density=50, start_points=[[4, 5-0.5*i]])
         strm = ax.streamplot(X, Y, ustar*np.cos(theta), ustar*np.sin(theta), density=50, start_points=[[4, 3-0.75*i]], color='k')
 
+    tail = np.array([10.5, 0.36])
+    length = 4
+    head = tail + np.array([cosd(Theta_list[0]), sind(Theta_list[0])])*length
+
+    arrow = FancyArrowPatch(tail, head, mutation_scale=20, facecolor='lightblue')
+    ax.add_patch(arrow)
+
     ax.text(-6.57, 1, ' ' + labels[3] + ' ', bbox=bbox)
     ax.text(-6.57, 0, ' ' + labels[2] + ', ' + labels[5] + ' ', bbox=bbox)
     ax.text(-6.57, -1.5, ' ' + labels[4] + ' ', bbox=bbox)
@@ -240,7 +248,7 @@ Figure 4
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.866 seconds)
+   **Total running time of the script:** ( 0 minutes  9.223 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure04.py:

@@ -5,31 +5,12 @@ Examples using ``python_codes.plot_functions.plot_scatter_surrounded``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 5 -- SI">
-
-.. only:: html
-
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure05_supp_thumb.png
-     :alt: Figure 5 -- SI
-
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure05_supp.py`
-
-.. raw:: html
-
-    </div>
-
-.. only:: not html
-
- * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure05_supp.py`
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 7 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 7 -- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure07_supp_thumb.png
-     :alt: Figure 7 -- SI
+     :alt: Figure 7 -- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure07_supp.py`
 
@@ -43,14 +24,14 @@ Examples using ``python_codes.plot_functions.plot_scatter_surrounded``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 8 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 9 -- Online Resource">
 
 .. only:: html
 
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure08_supp_thumb.png
-     :alt: Figure 8 -- SI
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure09_supp_thumb.png
+     :alt: Figure 9 -- Online Resource
 
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure08_supp.py`
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure09_supp.py`
 
 .. raw:: html
 
@@ -58,4 +39,23 @@ Examples using ``python_codes.plot_functions.plot_scatter_surrounded``
 
 .. only:: not html
 
- * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure08_supp.py`
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure09_supp.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 10 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure10_supp_thumb.png
+     :alt: Figure 10 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure10_supp.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure10_supp.py`

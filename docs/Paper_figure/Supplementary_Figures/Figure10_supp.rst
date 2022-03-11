@@ -18,11 +18,11 @@
 .. _sphx_glr_Paper_figure_Supplementary_Figures_Figure10_supp.py:
 
 
-============
-Figure 10 -- SI
-============
+============================
+Figure 10 -- Online Resource
+============================
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-70
+.. GENERATED FROM PYTHON SOURCE LINES 7-72
 
 
 
@@ -39,72 +39,74 @@ Figure 10 -- SI
 
 
     import numpy as np
+    import os
     import matplotlib.pyplot as plt
     import sys
-    import os
     sys.path.append('../../')
     import python_codes.theme as theme
-    from python_codes.meteo_analysis import mu
-    from python_codes.plot_functions import make_nice_histogram
+    from python_codes.plot_functions import plot_scatter_surrounded
 
-
-    # Loading figure theme
     theme.load_style()
 
     # paths
     path_savefig = '../../Paper/Figures'
-    path_outputdata = '../../static/processed_data/'
+    path_outputdata = '../../static/data/processed_data/'
 
-    # ##### Loading meteo data
+    # Loading data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
 
-    # ## histograms parameters
+    labels = [r'\textbf{a}', r'\textbf{b}']
+
+    # preparing data
     Stations = ['South_Namib_Station', 'Deep_Sea_Station']
-    g = 9.81  # [m/s2] gravitational constant
-    z0_era = 1e-3  # [m] hydrodynamic roughness
+
+    Nocturnal_wind = {'South_Namib_Station': [150, 260], 'Deep_Sea_Station': [150, 230]}
+
+    # variables
+    x1 = np.concatenate([Data[station]['U_star_era'][(Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1])]
+                         for station in Stations])
+    y1 = np.concatenate([Data[station]['U_star_insitu'][(Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1])]
+                         for station in Stations])
+    t1 = np.concatenate([Data[station]['time'][(Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1])]
+                         for station in Stations])
+
+    hours = [i.hour for i in t1]
     #
-    labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}']
-    nbins = 80
+    x2 = np.concatenate([Data[station]['U_star_era'][~((Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1]))]
+                         for station in Stations])
+    y2 = np.concatenate([Data[station]['U_star_insitu'][~((Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1]))]
+                         for station in Stations])
+
+    X = [x1, x2]
+    Y = [y1, y2]
 
     # #### Figure
-    fig, axarr = plt.subplots(2, 2, figsize=(theme.fig_width, 0.9*theme.fig_width),
+    pad_angle = 2
+    labels = [r'\textbf{a}', r'\textbf{b}']
+    alphas = [0.075, 0.045]
+
+    fig, axarr = plt.subplots(1, 2, figsize=(theme.fig_width, 0.53*theme.fig_width),
                               constrained_layout=True, sharey=True)
 
-    for station in Stations:
-        make_nice_histogram(Data[station]['Boundary layer height'], nbins, axarr[0, 0], alpha=0.4, label=' '.join(station.split('_')[:-1]), density=False, scale_bins='log')
-        #
-        N = np.sqrt(g*Data[station]['gradient_free_atm']/Data[station]['theta_ground'])
-        make_nice_histogram(N, nbins, axarr[0, 1], alpha=0.4, label=' '.join(station.split('_')[:-1]), density=False)
-        #
-        U_H = Data[station]['U_star_era']*mu(Data[station]['Boundary layer height'], z0_era)
-        make_nice_histogram(U_H, nbins, axarr[1, 0], alpha=0.4, label=' '.join(station.split('_')[:-1]), density=False)
-        #
-        make_nice_histogram(Data[station]['delta_theta']/Data[station]['theta_ground'], nbins, axarr[1, 1], alpha=0.4, label=' '.join(station.split('_')[:-1]), density=False)
+    for i, (ax, label, x, y, alpha) in enumerate(zip(axarr, labels, X, Y, alphas)):
+        plt.sca(ax)
+        plot_scatter_surrounded(x, y, color='tab:blue', alpha=alpha)
+        ax.plot([0, 0.6], [0, 0.6], 'k--')
+        ax.set_xlabel(r'$u_{*, \textup{ERA}}~[\textup{m}~\textup{s}^{-1}]$')
+        ax.set_xlim(0, 0.57)
+        ax.set_ylim(0, 0.57)
+        ax.text(0.05, 0.95, label, ha='center', va='center', transform=ax.transAxes)
+        ax.set_aspect('equal')
 
+    axarr[0].set_ylabel(r'$u_{*, \textup{local}}~[\textup{m}~\textup{s}^{-1}]$')
 
-    axarr[1, 0].set_xlim(left=0)
-    axarr[1, 1].set_xlim(left=0)
-    #
-    axarr[0, 0].set_xlabel(r'Boundary layer height, $H~[\textup{m}]$')
-    axarr[0, 1].set_xlabel(r'Brunt-Väisälä frequency, $N~[\textup{s}^{-1}]$')
-    axarr[1, 0].set_xlabel(r'Wind velocity in $H$, $U~[\textup{m}~\textup{s}^{-1}]$')
-    axarr[1, 1].set_xlabel(r'Relative density jump, $\Delta\rho/\rho_{0}$')
-    #
-
-    for i, (ax, label) in enumerate(zip(axarr.flatten(), labels)):
-        ax.set_ylim(0, 1700)
-        ax.text(0.03, 0.93, label, transform=ax.transAxes, va='center', ha='left')
-        ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
-        if i not in [1, 3]:
-            ax.set_ylabel('Counts')
-
-    plt.savefig(os.path.join(path_savefig, 'Figure10_supp.pdf'))
+    plt.savefig(os.path.join(path_savefig, 'Figure10_supp.pdf'), dpi=400)
     plt.show()
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.041 seconds)
+   **Total running time of the script:** ( 0 minutes  2.430 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure10_supp.py:

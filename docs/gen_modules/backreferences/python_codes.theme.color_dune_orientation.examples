@@ -24,14 +24,14 @@ Examples using ``python_codes.theme.color_dune_orientation``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 6 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 8 -- Online Resource">
 
 .. only:: html
 
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure06_supp_thumb.png
-     :alt: Figure 6 -- SI
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure08_supp_thumb.png
+     :alt: Figure 8 -- Online Resource
 
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure06_supp.py`
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure08_supp.py`
 
 .. raw:: html
 
@@ -39,4 +39,4 @@ Examples using ``python_codes.theme.color_dune_orientation``
 
 .. only:: not html
 
- * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure06_supp.py`
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure08_supp.py`

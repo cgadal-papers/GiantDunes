@@ -153,12 +153,12 @@ Below is the gallery presenting the scripts used to make the figures of the supp
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 1 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 1 -- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure01_supp_thumb.png
-     :alt: Figure 1 -- SI
+     :alt: Figure 1 -- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure01_supp.py`
 
@@ -174,12 +174,12 @@ Below is the gallery presenting the scripts used to make the figures of the supp
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 2 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 2 -- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure02_supp_thumb.png
-     :alt: Figure 2 -- SI
+     :alt: Figure 2 -- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure02_supp.py`
 
@@ -195,12 +195,12 @@ Below is the gallery presenting the scripts used to make the figures of the supp
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 3 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 3 -- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure03_supp_thumb.png
-     :alt: Figure 3 -- SI
+     :alt: Figure 3 -- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure03_supp.py`
 
@@ -216,12 +216,12 @@ Below is the gallery presenting the scripts used to make the figures of the supp
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 4 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 4 -- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure04_supp_thumb.png
-     :alt: Figure 4 -- SI
+     :alt: Figure 4 -- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure04_supp.py`
 
@@ -237,12 +237,12 @@ Below is the gallery presenting the scripts used to make the figures of the supp
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 5 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 5 -- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure05_supp_thumb.png
-     :alt: Figure 5 -- SI
+     :alt: Figure 5 -- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure05_supp.py`
 
@@ -258,12 +258,12 @@ Below is the gallery presenting the scripts used to make the figures of the supp
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 6 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 6 -- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure06_supp_thumb.png
-     :alt: Figure 6 -- SI
+     :alt: Figure 6 -- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure06_supp.py`
 
@@ -279,12 +279,12 @@ Below is the gallery presenting the scripts used to make the figures of the supp
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 7 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 7 -- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure07_supp_thumb.png
-     :alt: Figure 7 -- SI
+     :alt: Figure 7 -- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure07_supp.py`
 
@@ -300,12 +300,12 @@ Below is the gallery presenting the scripts used to make the figures of the supp
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 8 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 8 -- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure08_supp_thumb.png
-     :alt: Figure 8 -- SI
+     :alt: Figure 8 -- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure08_supp.py`
 
@@ -321,12 +321,12 @@ Below is the gallery presenting the scripts used to make the figures of the supp
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 9 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 9 -- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure09_supp_thumb.png
-     :alt: Figure 9 -- SI
+     :alt: Figure 9 -- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure09_supp.py`
 
@@ -342,12 +342,12 @@ Below is the gallery presenting the scripts used to make the figures of the supp
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 10 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 10 -- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure10_supp_thumb.png
-     :alt: Figure 10 -- SI
+     :alt: Figure 10 -- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure10_supp.py`
 
@@ -363,12 +363,12 @@ Below is the gallery presenting the scripts used to make the figures of the supp
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 11 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 11 -- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure11_supp_thumb.png
-     :alt: Figure 11 -- SI
+     :alt: Figure 11 -- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure11_supp.py`
 
@@ -384,12 +384,12 @@ Below is the gallery presenting the scripts used to make the figures of the supp
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 12 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 12 -- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure12_supp_thumb.png
-     :alt: Figure 12 -- SI
+     :alt: Figure 12 -- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure12_supp.py`
 
@@ -405,12 +405,12 @@ Below is the gallery presenting the scripts used to make the figures of the supp
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 13 -- SI">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 13 -- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure13_supp_thumb.png
-     :alt: Figure 13 -- SI
+     :alt: Figure 13 -- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure13_supp.py`
 
@@ -423,6 +423,69 @@ Below is the gallery presenting the scripts used to make the figures of the supp
    :hidden:
 
    /Paper_figure/Supplementary_Figures/Figure13_supp
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 14 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure14_supp_thumb.png
+     :alt: Figure 14 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure14_supp.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /Paper_figure/Supplementary_Figures/Figure14_supp
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 15 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure15_supp_thumb.png
+     :alt: Figure 15 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure15_supp.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /Paper_figure/Supplementary_Figures/Figure15_supp
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 16 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure16_supp_thumb.png
+     :alt: Figure 16 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure16_supp.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /Paper_figure/Supplementary_Figures/Figure16_supp
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>

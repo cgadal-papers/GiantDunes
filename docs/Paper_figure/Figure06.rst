@@ -88,7 +88,7 @@ Figure 6
     # paths
     path_imgs = '../static/images/'
     path_savefig = '../Paper/Figures'
-    path_outputdata = '../static/processed_data'
+    path_outputdata = '../static/data/processed_data'
 
     # ##### Loading meteo data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -190,7 +190,7 @@ Figure 6
         anchor = [1-pad_bord_x-size_rose_x, 1-(pad_bord_x+size_rose_x)*ax_aspect, size_rose_x, size_rose_x*ax_aspect]
         RDD, RDP = Vector_average(Angles, PDF[station][0, index, 0, :])
         subax = ax.inset_axes(bounds=anchor, transform=ax.transAxes)
-        a = plot_flux_rose(Angles, PDF[station][0, index, 0, :], subax, fig, cmap=theme.flux_color, edgecolor='k', linewidth=0.5, label='in situ', props=props)
+        a = plot_flux_rose(Angles, PDF[station][0, index, 0, :], subax, fig, cmap=theme.flux_color, edgecolor='k', linewidth=0.5, label='local', props=props)
         plot_arrow(a, (RDD*np.pi/180, 0), (RDD*np.pi/180, 0.85*a.get_rmax()),
                    arrowprops=dict(arrowstyle="<|-", shrinkA=0, shrinkB=0, color='saddlebrown', mutation_scale=10, ls='--'))
         a.grid(linewidth=0.4, color='k', linestyle='--')
@@ -260,7 +260,7 @@ Figure 6
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  1.931 seconds)
+   **Total running time of the script:** ( 0 minutes  10.093 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure06.py:

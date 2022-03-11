@@ -1,7 +1,7 @@
 """
-============
-Figure 7 -- SI
-============
+============================
+Figure 7 -- Online Resource
+============================
 
 """
 
@@ -18,63 +18,46 @@ theme.load_style()
 
 # paths
 path_savefig = '../../Paper/Figures'
-path_outputdata = '../../static/processed_data/'
+path_outputdata = '../../static/data/processed_data/'
 
-# Loading data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
-
 labels = [r'\textbf{a}', r'\textbf{b}']
 
 # preparing data
-Stations = ['South_Namib_Station', 'Deep_Sea_Station']
+Stations_ref = ['Adamax_Station', 'Huab_Station']
+#
+Theta_ERA = np.concatenate([Data[station]['Orientation_era'] for station in Stations_ref])
+Theta_Station = np.concatenate([Data[station]['Orientation_insitu'] for station in Stations_ref])
+#
+U_ERA = np.concatenate([Data[station]['U_star_era'] for station in Stations_ref])
+U_Station = np.concatenate([Data[station]['U_star_insitu'] for station in Stations_ref])
 
-Dune_orientations = [np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]['orientation']
-                     for station in Stations]
-
-velocity_thresholds = [0.1, 0.25]
-
-# variables
-x1 = np.concatenate([Data[station]['Orientation_era'][Data[station]['U_star_era'] < velocity_thresholds[0]] - Dune_orientations[Stations.index(station)]
-                     for station in Stations])
-y1 = np.concatenate([Data[station]['Orientation_insitu'][Data[station]['U_star_era'] < velocity_thresholds[0]] - Dune_orientations[Stations.index(station)]
-                     for station in Stations])
-
-x2 = np.concatenate([Data[station]['Orientation_era'][(Data[station]['U_star_era'] >= velocity_thresholds[0]) & (Data[station]['U_star_era'] < velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
-                     for station in Stations])
-y2 = np.concatenate([Data[station]['Orientation_insitu'][(Data[station]['U_star_era'] >= velocity_thresholds[0]) & (Data[station]['U_star_era'] < velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
-                     for station in Stations])
-
-x3 = np.concatenate([Data[station]['Orientation_era'][(Data[station]['U_star_era'] >= velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
-                     for station in Stations])
-y3 = np.concatenate([Data[station]['Orientation_insitu'][(Data[station]['U_star_era'] >= velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
-                     for station in Stations])
-
-X = [x1, x2, x3]
-Y = [y1, y2, y3]
 
 # #### Figure
-pad_angle = 2
-labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}']
 
-fig, axarr = plt.subplots(3, 1, figsize=(theme.fig_width, 1.3*theme.fig_width),
-                          constrained_layout=True, sharex=True, sharey=True)
+fig, axrr = plt.subplots(1, 2, figsize=(theme.fig_width, 0.5*theme.fig_width),
+                         constrained_layout=True)
 
-
-for i, (ax, label, x, y) in enumerate(zip(axarr.flatten(), labels, X, Y)):
+for ax, label, quantity in zip(axrr, labels, [[Theta_ERA, Theta_Station], [U_ERA, U_Station]]):
     plt.sca(ax)
-    plot_scatter_surrounded(x % 360, y % 360, color='tab:blue', alpha=0.2)
-    ax.set_ylabel(r'$\theta_{\textup{in situ}} - \alpha_{\textup{dune}}$')
-    ax.text(-0.1, 0.98, label, ha='center', va='center', transform=ax.transAxes)
-    if i in [0, 1]:
-        ax.axhline(180, color='k', linestyle='--')
-        ax.axhline(0 + pad_angle, color='k', linestyle='--')
-        ax.axhline(360 - pad_angle, color='k', linestyle='--')
-    if i in [1, 2]:
-        ax.plot([0, 360], [0, 360], 'k--')
+    plot_scatter_surrounded(quantity[0], quantity[1], color='tab:blue', alpha=0.1)
+    ax.plot([0, 360], [0, 360], 'k--')
+    ax.text(0.05, 0.95, label, ha='center', va='center', transform=ax.transAxes)
 
-ax.set_xlim(0, 360)
-ax.set_ylim(0, 360)
-ax.set_xlabel(r'$\theta_{\textup{ERA}} - \alpha_{\textup{dune}}$')
+axrr[0].set_xlim(0, 360)
+axrr[0].set_ylim(0, 360)
+axrr[0].set_xticks([0, 90, 180, 270, 360])
+axrr[0].set_yticks([0, 90, 180, 270, 360])
+axrr[0].set_xlabel(r'$\theta_{\textup{ERA}}$')
+axrr[0].set_ylabel(r'$\theta_{\textup{local}}$')
+axrr[0].set_aspect('equal')
+#
+axrr[1].set_xlim(0, 0.5)
+axrr[1].set_ylim(0, 0.5)
+axrr[1].set_xlabel(r'$u_{*, \textup{ERA}}$')
+axrr[1].set_ylabel(r'$u_{*, \textup{local}}$')
+axrr[1].set_aspect('equal')
+#
 
 plt.savefig(os.path.join(path_savefig, 'Figure7_supp.pdf'), dpi=400)
 plt.show()

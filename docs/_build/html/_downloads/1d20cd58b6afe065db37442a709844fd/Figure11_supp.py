@@ -1,128 +1,110 @@
 """
-============
-Figure 11 -- SI
-============
+============================
+Figure 11 -- Online Resource
+============================
 
 """
 
 import numpy as np
 import os
 import matplotlib.pyplot as plt
-from matplotlib.colors import LogNorm
 import sys
 sys.path.append('../../')
 import python_codes.theme as theme
 from python_codes.plot_functions import make_nice_histogram
 
+
+def plot_vertical_profile(ax, height, Virtual_potential_temperature, grad_free_atm, theta_free_atm, blh, theta_ground, Hmax_fit, color='tab:blue', label=None):
+    Hfit = np.linspace(blh, Hmax_fit, 100)
+    #
+    line = ax.vlines(theta_ground, 0, blh/1e3, color=color, label=label, zorder=-3)
+    ax.axhline(blh/1e3, alpha=0.5, color=color, ls='--')
+    ax.plot(np.poly1d([grad_free_atm, theta_free_atm])(Hfit), Hfit/1e3, color=line.get_color(), zorder=-2)
+    ax.plot(Virtual_potential_temperature, height/1e3, '.', color=line.get_color(), zorder=-1)
+    # ax.scatter(theta_ground, blh/1e3, s=30, facecolors=line.get_color(), edgecolors='k', linewidth=2, zorder=0)
+
+
 theme.load_style()
 
 # paths
 path_savefig = '../../Paper/Figures'
-path_outputdata = '../../static/processed_data/'
+path_outputdata = '../../static/data/processed_data/'
 
 # Loading data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
+
+labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}']
+
+# ## vertical profiles parameters
+station = 'Deep_Sea_Station'
+time_steps_bad = [10856, 30266, 33463]
+time_steps_good = [2012, 30302, 30310]
+colors = ['tab:blue', 'tab:orange', 'tab:green']
+Hmax_fit = 10000  # [m]
+
+# ## Distribution parameters
 Stations = ['South_Namib_Station', 'Deep_Sea_Station']
 
-numbers = {key: np.concatenate([Data[station][key] for station in Stations]) for key in ('Froude', 'kH', 'kLB')}
-mask = ~np.isnan(numbers['Froude'])
-ad_hoc_quantity = np.concatenate([Data[station]['U_star_era'] for station in Stations])
+fig, axarr = plt.subplots(2, 2, figsize=(theme.fig_width, 1*theme.fig_width),
+                          constrained_layout=True, gridspec_kw={'height_ratios': [2, 1]})
 
-# Figure properties
-couples = [('Froude', 'kLB'), ('Froude', 'kH'), ('kLB', 'kH')]
-lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
-# ax_labels = {'kH': r'$kH$', 'Froude': r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho) g H}$',
-# 'kLB': r'$\mathcal{F}_{\textup{I}} =  kU/N$'}
-ax_labels = {'kH': r'$kH$', 'Froude': r'$\mathcal{F}$',
-             'kLB': r'$\mathcal{F}_{\textup{I}}$'}
-norm = LogNorm(vmin=1, vmax=1.5e3)
 
-# #### Figure
-fig, axarr = plt.subplots(4, 3, figsize=(theme.fig_width, 0.95*theme.fig_width),
-                          # constrained_layout=True,
-                          gridspec_kw={'height_ratios': [0.2, 1.3, 2, 2],
-                                       'width_ratios': [2, 2, 1]})
-# Plotting density diagrams
-ax_list = [axarr[2, 0], axarr[3, 0], axarr[3, 1]]
-for j, (ax, (var1, var2)) in enumerate(zip(ax_list, couples)):
-    ax.set_xscale('log')
-    ax.set_yscale('log')
-    #
-    x_var, y_var = numbers[var1][mask], numbers[var2][mask]
-    xlabel = ax_labels[var1]
-    ylabel = ax_labels[var2] if j == 0 else None
-    #
-    bin1 = np.logspace(np.floor(np.log10(numbers[var1][mask].min())), np.ceil(np.log10(numbers[var1][mask].max())), 50)
-    bin2 = np.logspace(np.floor(np.log10(numbers[var2][mask].min())), np.ceil(np.log10(numbers[var2][mask].max())), 50)
-    # #### binning data
-    counts, x_edge, y_edge = np.histogram2d(x_var, y_var, bins=[bin1, bin2])
-    # plotting histogramm
-    a = ax.pcolormesh(x_edge, y_edge, counts.T, snap=True, norm=norm)
-    #
-    ax.set_xlim(lims[var1])
-    ax.set_ylim(lims[var2])
-    if j in [1, 2]:
-        ax.set_xlabel(ax_labels[var1])
-    else:
-        ax.set_xticklabels([])
-    if j in [0, 1]:
-        ax.set_ylabel(ax_labels[var2])
-    else:
-        ax.set_yticklabels([])
+# ## well-processed vertical profiles
+for i, t in enumerate(time_steps_good):
+    plot_vertical_profile(axarr[0, 0], Data[station]['height'][:, t], Data[station]['Virtual_potential_temperature'][:, t],
+                          Data[station]['gradient_free_atm'][t], Data[station]['theta_free_atm'][t],
+                          Data[station]['Boundary layer height'][t], Data[station]['theta_ground'][t], Hmax_fit,
+                          color=colors[i])
 
-# #### Plotting marginal distributions
-for i, (ax, var) in enumerate(zip([axarr[1, 0], axarr[2, 1], axarr[3, 2]], ['Froude', 'kLB', 'kH'])):
-    orientation = 'vertical' if i < 2 else 'horizontal'
-    make_nice_histogram(Data['South_Namib_Station'][var], 150, ax, alpha=0.4, density=False, scale_bins='log', orientation=orientation)
-    make_nice_histogram(Data['Deep_Sea_Station'][var], 150, ax, alpha=0.4, density=False, scale_bins='log', orientation=orientation)
-    if i == 2:
-        ax.set_ylim(lims[var])
-        ax.set_yticklabels([])
-        ax.set_xlabel('Counts')
-        # ax.ticklabel_format(style='sci', axis='x', scilimits=(0, 0))
-    elif i == 0:
-        ax.set_ylabel('Counts')
-        ax.set_xticklabels([])
-        ax.set_xlim(lims[var])
-        ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
-    elif i == 1:
-        ax.set_xticklabels([])
-        ax.set_ylabel('Counts')
-        ax.set_xlim(lims[var])
-        ax.yaxis.tick_right()
-        ax.yaxis.set_label_position('right')
-        ax.yaxis.set_ticks_position('both')
-        ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
+axarr[0, 0].set_xlabel('Virtual potential temp. [K]')
+axarr[0, 0].set_ylabel('Height [km]')
+axarr[0, 0].set_ylim(0, top=0.68*Hmax_fit/1e3)
+axarr[0, 0].set_xlim(297, 328)
+# Labelling some quantities
+axarr[0, 0].text(axarr[0, 0].get_xlim()[0]-1, Data[station]['Boundary layer height'][time_steps_good[1]]/1e3, '$H$', ha='right', va='top', color='tab:orange')
+axarr[0, 0].text(Data[station]['theta_ground'][time_steps_good[1]], axarr[0, 0].get_ylim()[0]-0.15, '$T_{0}$', ha='center', va='top', color='tab:orange')
+axarr[0, 0].annotate('', xy=(313, 4), xytext=(316, 4), arrowprops=dict(arrowstyle="<->", shrinkA=0, shrinkB=0, color='tab:orange'))
+axarr[0, 0].text((313 + 316)/2 - 1, 4.05, r'$\Delta T_{\textup{vp}}$', ha='center', va='bottom', color='tab:orange')
 
-# remove the underlying axes for cb
-gs = axarr[0, 0].get_gridspec()
-for ax in axarr[0, :]:
-    ax.remove()
-cax = fig.add_subplot(gs[0, :])
-#
-cb = fig.colorbar(a, cax=cax, label='Counts', orientation='horizontal')
-cb.ax.xaxis.set_ticks_position('top')
-cb.ax.xaxis.set_label_position('top')
-#
-# removing unused axes
-axarr[1, 1].remove()
-axarr[1, 2].remove()
-axarr[2, -1].remove()
-#
-plt.subplots_adjust(bottom=0.09, top=0.91, left=0.13, right=0.99, hspace=0.2, wspace=0.15)
-#
-# Adjusting final ax positions
-# cb
-pos = cax.get_position()
-cb_h = pos.height
-pos.y0 = 0.9
-pos.y1 = pos.y0 + cb_h
-cax.set_position(pos)
-# distrib 2
-box1 = axarr[1, 0].get_position()
-pos = axarr[2, 1].get_position()
-pos.y1 = pos.y0 + box1.height
-axarr[2, 1].set_position(pos)
+# ## ill-processed vertical profiles
+for i, t in enumerate(time_steps_bad):
+    plot_vertical_profile(axarr[0, 1], Data[station]['height'][:, t], Data[station]['Virtual_potential_temperature'][:, t],
+                          Data[station]['gradient_free_atm'][t], Data[station]['theta_free_atm'][t],
+                          Data[station]['Boundary layer height'][t], Data[station]['theta_ground'][t], Hmax_fit,
+                          color=colors[i])
+
+axarr[0, 1].set_xlabel('Virtual potential temp. [K]')
+axarr[0, 1].set_ylabel('Height [km]')
+axarr[0, 1].set_ylim(0, top=0.68*Hmax_fit/1e3)
+axarr[0, 1].set_xlim(297, 328)
+
+# ## hourly distributions of ill-processed vertical profiles
+for station in Stations:
+    hr = np.array([i.hour for i in Data[station]['time']])
+    make_nice_histogram(hr[np.isnan(Data[station]['Froude'])], 24, axarr[1, 0],
+                        alpha=0.5, vmin=0, vmax=23, label='South Sand Sea' if station == 'South_Namib_Station' else 'North Sand Sea',
+                        scale_bins='lin', density=False)
+axarr[1, 0].set_xlabel('Hours of the day')
+axarr[1, 0].set_ylabel(r'Counts')
+axarr[1, 0].set_xlim(0, 23)
+axarr[1, 0].ticklabel_format(axis='y', style='sci', scilimits=(0, 1))
+axarr[1, 0].legend(loc='upper center')
+
+# ## monthly distributions of ill-processed vertical profiles
+for station in Stations:
+    month = np.array([i.month for i in Data[station]['time']])
+    make_nice_histogram(month[np.isnan(Data[station]['Froude'])], 24, axarr[1, 1], alpha=0.5, vmin=0, vmax=23, label=' '.join(station.split('_')[:-1]), scale_bins='lin', density=False)
+axarr[1, 1].set_xlabel('Months of the year')
+axarr[1, 1].set_ylabel(r'Counts')
+axarr[1, 1].set_xlim(0, 12)
+axarr[1, 1].ticklabel_format(axis='y', style='sci', scilimits=(0, 1))
+
+# ## labelling
+axarr[0, 0].text(0.05, 0.95, labels[0], ha='center', va='center', transform=axarr[0, 0].transAxes)
+axarr[0, 1].text(0.05, 0.95, labels[1], ha='center', va='center', transform=axarr[0, 1].transAxes)
+axarr[1, 0].text(0.05, 0.92, labels[2], ha='center', va='center', transform=axarr[1, 0].transAxes)
+axarr[1, 1].text(0.05, 0.92, labels[3], ha='center', va='center', transform=axarr[1, 1].transAxes)
+
 
 plt.savefig(os.path.join(path_savefig, 'Figure11_supp.pdf'))
 plt.show()

@@ -32,7 +32,7 @@ warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 
 # paths
-path_outputdata = '../static/processed_data/'
+path_outputdata = '../static/data/processed_data/'
 
 # Parameters
 z0_era = 1e-3  # hydrodynamic roughness chosen for the Era5Land dataset [m]

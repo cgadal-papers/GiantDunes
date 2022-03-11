@@ -52,7 +52,7 @@ Figure 3
     # paths
     path_imgs = '../static/images/'
     path_savefig = '../Paper/Figures'
-    path_outputdata = '../static/processed_data'
+    path_outputdata = '../static/data/processed_data'
 
     # Loading wind data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
@@ -118,7 +118,7 @@ Figure 3
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.076 seconds)
+   **Total running time of the script:** ( 0 minutes  7.304 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure03.py:
