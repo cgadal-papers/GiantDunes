@@ -33,3 +33,8 @@ clean_hard:
 	rm -rf _autosummary
 	rm -rf gen_modules
 	# rm -rf ../static/processed_data/*
+
+# build documentation also for github pages
+github:
+	@make html
+	@cp -a _build/html/. ../docs
