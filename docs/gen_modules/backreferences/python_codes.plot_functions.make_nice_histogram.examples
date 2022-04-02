@@ -43,14 +43,14 @@ Examples using ``python_codes.plot_functions.make_nice_histogram``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 11 -- Online Resource">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 9 -- Online Resource">
 
 .. only:: html
 
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure11_supp_thumb.png
-     :alt: Figure 11 -- Online Resource
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure09_supp_thumb.png
+     :alt: Figure 9 -- Online Resource
 
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure11_supp.py`
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure09_supp.py`
 
 .. raw:: html
 
@@ -58,7 +58,7 @@ Examples using ``python_codes.plot_functions.make_nice_histogram``
 
 .. only:: not html
 
- * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure11_supp.py`
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure09_supp.py`
 
 .. raw:: html
 
@@ -100,14 +100,14 @@ Examples using ``python_codes.plot_functions.make_nice_histogram``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 15 -- Online Resource">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 14 -- Online Resource">
 
 .. only:: html
 
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure15_supp_thumb.png
-     :alt: Figure 15 -- Online Resource
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure14_supp_thumb.png
+     :alt: Figure 14 -- Online Resource
 
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure15_supp.py`
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure14_supp.py`
 
 .. raw:: html
 
@@ -115,4 +115,23 @@ Examples using ``python_codes.plot_functions.make_nice_histogram``
 
 .. only:: not html
 
- * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure15_supp.py`
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure14_supp.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 16 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure16_supp_thumb.png
+     :alt: Figure 16 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure16_supp.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure16_supp.py`

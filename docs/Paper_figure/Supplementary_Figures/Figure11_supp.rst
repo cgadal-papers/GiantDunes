@@ -22,7 +22,7 @@
 Figure 11 -- Online Resource
 ============================
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-111
+.. GENERATED FROM PYTHON SOURCE LINES 7-72
 
 
 
@@ -44,18 +44,7 @@ Figure 11 -- Online Resource
     import sys
     sys.path.append('../../')
     import python_codes.theme as theme
-    from python_codes.plot_functions import make_nice_histogram
-
-
-    def plot_vertical_profile(ax, height, Virtual_potential_temperature, grad_free_atm, theta_free_atm, blh, theta_ground, Hmax_fit, color='tab:blue', label=None):
-        Hfit = np.linspace(blh, Hmax_fit, 100)
-        #
-        line = ax.vlines(theta_ground, 0, blh/1e3, color=color, label=label, zorder=-3)
-        ax.axhline(blh/1e3, alpha=0.5, color=color, ls='--')
-        ax.plot(np.poly1d([grad_free_atm, theta_free_atm])(Hfit), Hfit/1e3, color=line.get_color(), zorder=-2)
-        ax.plot(Virtual_potential_temperature, height/1e3, '.', color=line.get_color(), zorder=-1)
-        # ax.scatter(theta_ground, blh/1e3, s=30, facecolors=line.get_color(), edgecolors='k', linewidth=2, zorder=0)
-
+    from python_codes.plot_functions import plot_scatter_surrounded
 
     theme.load_style()
 
@@ -66,86 +55,58 @@ Figure 11 -- Online Resource
     # Loading data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
 
-    labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}']
+    labels = [r'\textbf{a}', r'\textbf{b}']
 
-    # ## vertical profiles parameters
-    station = 'Deep_Sea_Station'
-    time_steps_bad = [10856, 30266, 33463]
-    time_steps_good = [2012, 30302, 30310]
-    colors = ['tab:blue', 'tab:orange', 'tab:green']
-    Hmax_fit = 10000  # [m]
-
-    # ## Distribution parameters
+    # preparing data
     Stations = ['South_Namib_Station', 'Deep_Sea_Station']
 
-    fig, axarr = plt.subplots(2, 2, figsize=(theme.fig_width, 1*theme.fig_width),
-                              constrained_layout=True, gridspec_kw={'height_ratios': [2, 1]})
+    Nocturnal_wind = {'South_Namib_Station': [150, 260], 'Deep_Sea_Station': [150, 230]}
 
+    # variables
+    x1 = np.concatenate([Data[station]['U_star_era'][(Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1])]
+                         for station in Stations])
+    y1 = np.concatenate([Data[station]['U_star_insitu'][(Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1])]
+                         for station in Stations])
+    t1 = np.concatenate([Data[station]['time'][(Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1])]
+                         for station in Stations])
 
-    # ## well-processed vertical profiles
-    for i, t in enumerate(time_steps_good):
-        plot_vertical_profile(axarr[0, 0], Data[station]['height'][:, t], Data[station]['Virtual_potential_temperature'][:, t],
-                              Data[station]['gradient_free_atm'][t], Data[station]['theta_free_atm'][t],
-                              Data[station]['Boundary layer height'][t], Data[station]['theta_ground'][t], Hmax_fit,
-                              color=colors[i])
+    hours = [i.hour for i in t1]
+    #
+    x2 = np.concatenate([Data[station]['U_star_era'][~((Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1]))]
+                         for station in Stations])
+    y2 = np.concatenate([Data[station]['U_star_insitu'][~((Data[station]['Orientation_era'] > Nocturnal_wind[station][0]) & (Data[station]['Orientation_era'] < Nocturnal_wind[station][1]))]
+                         for station in Stations])
 
-    axarr[0, 0].set_xlabel('Virtual potential temp. [K]')
-    axarr[0, 0].set_ylabel('Height [km]')
-    axarr[0, 0].set_ylim(0, top=0.68*Hmax_fit/1e3)
-    axarr[0, 0].set_xlim(297, 328)
-    # Labelling some quantities
-    axarr[0, 0].text(axarr[0, 0].get_xlim()[0]-1, Data[station]['Boundary layer height'][time_steps_good[1]]/1e3, '$H$', ha='right', va='top', color='tab:orange')
-    axarr[0, 0].text(Data[station]['theta_ground'][time_steps_good[1]], axarr[0, 0].get_ylim()[0]-0.15, '$T_{0}$', ha='center', va='top', color='tab:orange')
-    axarr[0, 0].annotate('', xy=(313, 4), xytext=(316, 4), arrowprops=dict(arrowstyle="<->", shrinkA=0, shrinkB=0, color='tab:orange'))
-    axarr[0, 0].text((313 + 316)/2 - 1, 4.05, r'$\Delta T_{\textup{vp}}$', ha='center', va='bottom', color='tab:orange')
+    X = [x1, x2]
+    Y = [y1, y2]
 
-    # ## ill-processed vertical profiles
-    for i, t in enumerate(time_steps_bad):
-        plot_vertical_profile(axarr[0, 1], Data[station]['height'][:, t], Data[station]['Virtual_potential_temperature'][:, t],
-                              Data[station]['gradient_free_atm'][t], Data[station]['theta_free_atm'][t],
-                              Data[station]['Boundary layer height'][t], Data[station]['theta_ground'][t], Hmax_fit,
-                              color=colors[i])
+    # #### Figure
+    pad_angle = 2
+    labels = [r'\textbf{a}', r'\textbf{b}']
+    alphas = [0.075, 0.045]
 
-    axarr[0, 1].set_xlabel('Virtual potential temp. [K]')
-    axarr[0, 1].set_ylabel('Height [km]')
-    axarr[0, 1].set_ylim(0, top=0.68*Hmax_fit/1e3)
-    axarr[0, 1].set_xlim(297, 328)
+    fig, axarr = plt.subplots(1, 2, figsize=(theme.fig_width, 0.53*theme.fig_width),
+                              constrained_layout=True, sharey=True)
 
-    # ## hourly distributions of ill-processed vertical profiles
-    for station in Stations:
-        hr = np.array([i.hour for i in Data[station]['time']])
-        make_nice_histogram(hr[np.isnan(Data[station]['Froude'])], 24, axarr[1, 0],
-                            alpha=0.5, vmin=0, vmax=23, label='South Sand Sea' if station == 'South_Namib_Station' else 'North Sand Sea',
-                            scale_bins='lin', density=False)
-    axarr[1, 0].set_xlabel('Hours of the day')
-    axarr[1, 0].set_ylabel(r'Counts')
-    axarr[1, 0].set_xlim(0, 23)
-    axarr[1, 0].ticklabel_format(axis='y', style='sci', scilimits=(0, 1))
-    axarr[1, 0].legend(loc='upper center')
+    for i, (ax, label, x, y, alpha) in enumerate(zip(axarr, labels, X, Y, alphas)):
+        plt.sca(ax)
+        plot_scatter_surrounded(x, y, color='tab:blue', alpha=alpha)
+        ax.plot([0, 0.6], [0, 0.6], 'k--')
+        ax.set_xlabel(r'$u_{*, \textup{ERA}}~[\textup{m}~\textup{s}^{-1}]$')
+        ax.set_xlim(0, 0.57)
+        ax.set_ylim(0, 0.57)
+        ax.text(0.05, 0.95, label, ha='center', va='center', transform=ax.transAxes)
+        ax.set_aspect('equal')
 
-    # ## monthly distributions of ill-processed vertical profiles
-    for station in Stations:
-        month = np.array([i.month for i in Data[station]['time']])
-        make_nice_histogram(month[np.isnan(Data[station]['Froude'])], 24, axarr[1, 1], alpha=0.5, vmin=0, vmax=23, label=' '.join(station.split('_')[:-1]), scale_bins='lin', density=False)
-    axarr[1, 1].set_xlabel('Months of the year')
-    axarr[1, 1].set_ylabel(r'Counts')
-    axarr[1, 1].set_xlim(0, 12)
-    axarr[1, 1].ticklabel_format(axis='y', style='sci', scilimits=(0, 1))
+    axarr[0].set_ylabel(r'$u_{*, \textup{local}}~[\textup{m}~\textup{s}^{-1}]$')
 
-    # ## labelling
-    axarr[0, 0].text(0.05, 0.95, labels[0], ha='center', va='center', transform=axarr[0, 0].transAxes)
-    axarr[0, 1].text(0.05, 0.95, labels[1], ha='center', va='center', transform=axarr[0, 1].transAxes)
-    axarr[1, 0].text(0.05, 0.92, labels[2], ha='center', va='center', transform=axarr[1, 0].transAxes)
-    axarr[1, 1].text(0.05, 0.92, labels[3], ha='center', va='center', transform=axarr[1, 1].transAxes)
-
-
-    plt.savefig(os.path.join(path_savefig, 'Figure11_supp.pdf'))
+    plt.savefig(os.path.join(path_savefig, 'Figure11_supp.pdf'), dpi=400)
     plt.show()
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.117 seconds)
+   **Total running time of the script:** ( 0 minutes  2.465 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure11_supp.py:

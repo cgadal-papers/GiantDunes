@@ -22,7 +22,7 @@
 Figure 5
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-91
+.. GENERATED FROM PYTHON SOURCE LINES 7-89
 
 
 
@@ -85,8 +85,6 @@ Figure 5
 
     mask = ~np.isnan(numbers['Froude'])
     log_counts_max = np.log10(2230)
-    regime_line_color = 'tab:blue'
-
 
     var1, var2 = 'Froude', 'kH'
     xlabel = r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho_{0}) g H}$'
@@ -111,8 +109,8 @@ Figure 5
         ax.text(0.04, 0.94, labels[i], transform=ax.transAxes, ha='left', va='center')
         #
         # regime lines
-        ax.axvline(0.4, color=regime_line_color, linestyle='--', lw=2)
-        ax.axhline(0.32, color=regime_line_color, linestyle='--', lw=2)
+        ax.axvline(0.4, color=theme.regime_line_color, linestyle='--', lw=2)
+        ax.axhline(0.32, color=theme.regime_line_color, linestyle='--', lw=2)
         #
         # colorbar
         sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
@@ -125,7 +123,7 @@ Figure 5
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.329 seconds)
+   **Total running time of the script:** ( 0 minutes  3.374 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure05.py:

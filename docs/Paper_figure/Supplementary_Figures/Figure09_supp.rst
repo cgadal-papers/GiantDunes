@@ -22,7 +22,7 @@
 Figure 9 -- Online Resource
 ============================
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-81
+.. GENERATED FROM PYTHON SOURCE LINES 7-74
 
 
 
@@ -39,83 +39,76 @@ Figure 9 -- Online Resource
 
 
     import numpy as np
-    import os
     import matplotlib.pyplot as plt
     import sys
+    import os
     sys.path.append('../../')
     import python_codes.theme as theme
-    from python_codes.plot_functions import plot_scatter_surrounded
+    from python_codes.plot_functions import make_nice_histogram
 
-
+    # Loading figure theme
     theme.load_style()
 
     # paths
     path_savefig = '../../Paper/Figures'
     path_outputdata = '../../static/data/processed_data/'
 
-    # Loading data
-    Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
+    # Loading wind data
+    Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'),
+                   allow_pickle=True).item()
+    Stations = ['Huab_Station', 'Adamax_Station']
 
-    labels = [r'\textbf{a}', r'\textbf{b}']
-
-    # preparing data
-    Stations = ['South_Namib_Station', 'Deep_Sea_Station']
-
-    Dune_orientations = [np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]['orientation']
-                         for station in Stations]
-
-    velocity_thresholds = [0.1, 0.25]
-
-    # variables
-    x1 = np.concatenate([Data[station]['Orientation_era'][Data[station]['U_star_era'] < velocity_thresholds[0]] - Dune_orientations[Stations.index(station)]
-                         for station in Stations])
-    y1 = np.concatenate([Data[station]['Orientation_insitu'][Data[station]['U_star_era'] < velocity_thresholds[0]] - Dune_orientations[Stations.index(station)]
-                         for station in Stations])
-
-    x2 = np.concatenate([Data[station]['Orientation_era'][(Data[station]['U_star_era'] >= velocity_thresholds[0]) & (Data[station]['U_star_era'] < velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
-                         for station in Stations])
-    y2 = np.concatenate([Data[station]['Orientation_insitu'][(Data[station]['U_star_era'] >= velocity_thresholds[0]) & (Data[station]['U_star_era'] < velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
-                         for station in Stations])
-
-    x3 = np.concatenate([Data[station]['Orientation_era'][(Data[station]['U_star_era'] >= velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
-                         for station in Stations])
-    y3 = np.concatenate([Data[station]['Orientation_insitu'][(Data[station]['U_star_era'] >= velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
-                         for station in Stations])
-
-    X = [x1, x2, x3]
-    Y = [y1, y2, y3]
-
-    # #### Figure
-    pad_angle = 2
-    labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}']
-
-    fig, axarr = plt.subplots(3, 1, figsize=(theme.fig_width, 1.3*theme.fig_width),
-                              constrained_layout=True, sharex=True, sharey=True)
+    # Figure properties
+    velocity_bins = [[0.05, 0.2], [0.3, 10]]
+    color_ax = 'purple'
 
 
-    for i, (ax, label, x, y) in enumerate(zip(axarr.flatten(), labels, X, Y)):
-        plt.sca(ax)
-        plot_scatter_surrounded(x % 360, y % 360, color='tab:blue', alpha=0.2)
-        ax.set_ylabel(r'$\theta_{\textup{local}} - \alpha_{\textup{dune}}$')
-        ax.text(-0.1, 0.98, label, ha='center', va='center', transform=ax.transAxes)
-        if i in [0, 1]:
-            ax.axhline(180, color='k', linestyle='--')
-            ax.axhline(0 + pad_angle, color='k', linestyle='--')
-            ax.axhline(360 - pad_angle, color='k', linestyle='--')
-        if i in [1, 2]:
-            ax.plot([0, 360], [0, 360], 'k--')
+    # ################ Figure
+    fig, axarr = plt.subplots(3, 2, figsize=(theme.fig_width, 0.925*theme.fig_width),
+                              constrained_layout=True, sharex=True)
 
-    ax.set_xlim(0, 360)
-    ax.set_ylim(0, 360)
-    ax.set_xlabel(r'$\theta_{\textup{ERA}} - \alpha_{\textup{dune}}$')
+    for j, station in enumerate(Stations):
+        label_station = 'Huab' if station == 'Huab_Station' else 'Etosha West'
+        for i in range(3):  # Loop over velocites
+            if i < 2:
+                mask_U = (Data[station]['U_star_era'] >= velocity_bins[i][0]) & (Data[station]['U_star_era'] <= velocity_bins[i][1])
+                label_u = r'$u_{*, \textup{ERA}} < ' + str(velocity_bins[i][1]) + '$' if i == 0 else r'$u_{*, \textup{ERA}} > ' + str(velocity_bins[i][0]) + '$'
+            else:
+                mask_U = (Data[station]['U_star_era'] < 10)  # take all velocities
+                label_u = 'all velocities'
+            axarr[i, -1].set_ylabel(label_u)
+            axarr[i, -1].yaxis.set_label_position("right")
+            #
+            make_nice_histogram(Data[station]['Orientation_insitu'][mask_U], 80, axarr[i, j],
+                                alpha=0.5, color=theme.color_insitu)
+            make_nice_histogram(Data[station]['Orientation_era'][mask_U], 80, axarr[i, j],
+                                alpha=0.5, color=theme.color_Era5Land)
+            #
+            #
+            perc = (mask_U).sum()/mask_U.size
+            hours = np.array([t.hour for t in Data[station]['time'][(mask_U)]])
+            mask_day = (hours > 10) & (hours <= 10 + 12)
+            perc_day = mask_day.sum()/(mask_U).sum()
+            axarr[i, j].text(0.93, 0.95, '{:.1f} \n {:.1f}'.format(perc, perc_day),
+                             ha='center', va='top', transform=axarr[i, j].transAxes)
+            if i == 0:
+                axarr[i, j].set_xlabel(label_station)
+                axarr[i, j].xaxis.set_label_position("top")
 
-    plt.savefig(os.path.join(path_savefig, 'Figure9_supp.pdf'), dpi=400)
+    plt.xlim(0, 360)
+    plt.xticks([45, 125, 215, 305])
+    for ax in axarr.flatten():
+        ax.set_yticks([])
+    fig.supxlabel(r'Wind direction, $\theta~[^\circ]$')
+    fig.supylabel('Distributions')
+
+    plt.savefig(os.path.join(path_savefig, 'Figure9_supp.pdf'))
     plt.show()
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.694 seconds)
+   **Total running time of the script:** ( 0 minutes  0.835 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure09_supp.py:

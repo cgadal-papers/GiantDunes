@@ -447,12 +447,12 @@ Below is the gallery presenting the scripts used to make the figures of the supp
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 15 -- Online Resource">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 15-- Online Resource">
 
 .. only:: html
 
  .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure15_supp_thumb.png
-     :alt: Figure 15 -- Online Resource
+     :alt: Figure 15-- Online Resource
 
      :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure15_supp.py`
 
@@ -486,6 +486,27 @@ Below is the gallery presenting the scripts used to make the figures of the supp
    :hidden:
 
    /Paper_figure/Supplementary_Figures/Figure16_supp
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 17 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure17_supp_thumb.png
+     :alt: Figure 17 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure17_supp.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /Paper_figure/Supplementary_Figures/Figure17_supp
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>

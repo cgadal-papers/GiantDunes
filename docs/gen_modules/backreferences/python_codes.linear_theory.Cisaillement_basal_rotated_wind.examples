@@ -24,14 +24,14 @@ Examples using ``python_codes.linear_theory.Cisaillement_basal_rotated_wind``
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 16 -- Online Resource">
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 17 -- Online Resource">
 
 .. only:: html
 
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure16_supp_thumb.png
-     :alt: Figure 16 -- Online Resource
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure17_supp_thumb.png
+     :alt: Figure 17 -- Online Resource
 
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure16_supp.py`
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure17_supp.py`
 
 .. raw:: html
 
@@ -39,4 +39,4 @@ Examples using ``python_codes.linear_theory.Cisaillement_basal_rotated_wind``
 
 .. only:: not html
 
- * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure16_supp.py`
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure17_supp.py`

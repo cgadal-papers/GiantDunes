@@ -62,7 +62,7 @@ Figure 3
     station = 'Deep_Sea_Station'
     #
     theta_bins = [[0, 90], [150, 230]]
-    velocity_bins = [[0.05, 0.25], [0.3, 10]]
+    velocity_bins = [[0.05, 0.2], [0.3, 10]]
     Data_pattern = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]
     icon = [r'\faSun', r'\faMoon']
 
@@ -118,7 +118,7 @@ Figure 3
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  7.304 seconds)
+   **Total running time of the script:** ( 0 minutes  4.042 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure03.py:

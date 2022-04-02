@@ -61,7 +61,7 @@ Figure 8 -- Online Resource
     station = 'South_Namib_Station'
     #
     theta_bins = [[0, 140], [150, 260]]
-    velocity_bins = [[0.05, 0.2], [0.2, 10]]
+    velocity_bins = [[0.05, 0.2], [0.3, 10]]
     Data_pattern = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]
     icon = [r'\faSun', r'\faMoon']
 
@@ -116,7 +116,7 @@ Figure 8 -- Online Resource
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.431 seconds)
+   **Total running time of the script:** ( 0 minutes  2.483 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure08_supp.py:

@@ -22,7 +22,7 @@
 Figure 1
 ============
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-122
+.. GENERATED FROM PYTHON SOURCE LINES 8-123
 
 
 
@@ -65,7 +65,7 @@ Figure 1
 
     # fig properties
     bins = [0.03, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
-    labels = ['Adamax', 'Huab', 'North Sand Sea', 'South Sand Sea']
+    labels = ['Etosha West', 'Huab', 'North Sand Sea', 'South Sand Sea']
     coords_stations = np.array([(-19.034111,  15.737194), (-20.874722,  13.642), (-24.125533,  15.049100), (-26.044083,  15.396972)])
     scales = [1300, 1100, 1650, 2600]
     bbox = dict(facecolor=(1, 1, 1, 0.5), edgecolor=(1, 1, 1, 0))
@@ -156,7 +156,7 @@ Figure 1
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  12.083 seconds)
+   **Total running time of the script:** ( 0 minutes  12.244 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure01.py:

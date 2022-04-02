@@ -7,31 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>python_codes.theme &#8212; Giant dunes feedback on wind  documentation</title>
     
-    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/pydata-custom.css" />
     
-    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -45,7 +42,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -158,7 +155,6 @@
 <span class="kn">import</span> <span class="nn">cmocean</span>
 <span class="kn">import</span> <span class="nn">cmasher</span> <span class="k">as</span> <span class="nn">cmr</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
 
 
 <div class="viewcode-block" id="truncate_colormap"><a class="viewcode-back" href="../../_autosummary/python_codes.theme.truncate_colormap.html#python_codes.theme.truncate_colormap">[docs]</a><span class="k">def</span> <span class="nf">truncate_colormap</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span> <span class="n">minval</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
@@ -208,11 +204,7 @@
 <span class="n">markersize_small</span> <span class="o">=</span> <span class="mi">2</span>
 
 <span class="c1"># #### colormaps</span>
-<span class="c1"># cmap_delta_u = plt.cm.twilight</span>
 <span class="n">cmap_delta_u</span> <span class="o">=</span> <span class="n">truncate_colormap</span><span class="p">(</span><span class="n">cmr</span><span class="o">.</span><span class="n">emergency_s_r</span><span class="p">,</span> <span class="n">minval</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
-<span class="c1"># cmap_delta_u = truncate_colormap(cmr.seasons_s, minval=0.05, maxval=1.0, n=256)</span>
-<span class="c1"># cmap_delta_u = truncate_colormap(cmr.iceburn, minval=0, maxval=1.0, n=256)</span>
-<span class="c1"># cmap_delta_u = cmr.emergency_s</span>
 <span class="n">cmap_delta_theta</span> <span class="o">=</span> <span class="s1">&#39;plasma&#39;</span>
 <span class="n">cmap_topo</span> <span class="o">=</span> <span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">turbid_r</span>
 <span class="n">cmap_wind</span> <span class="o">=</span> <span class="n">truncate_colormap</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
@@ -225,6 +217,7 @@
 <span class="n">color_Era5Land</span> <span class="o">=</span> <span class="s1">&#39;tab:orange&#39;</span>
 <span class="n">color_insitu</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span>
 <span class="n">color_station_position</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span>
+<span class="n">regime_line_color</span> <span class="o">=</span> <span class="s1">&#39;tab:green&#39;</span>
 
 <span class="c1"># #### special Icons</span>
 <span class="n">Icon_day</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\faSun&#39;</span>
@@ -240,8 +233,9 @@
       </div>
     </div>
   
-    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
@@ -252,7 +246,7 @@
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     

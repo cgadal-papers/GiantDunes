@@ -18,9 +18,9 @@
 .. _sphx_glr_Processing_3_roughness_calibration_plot.py:
 
 
-===========
+============================================
 Calibration of the hydrodynamic roughness
-===========
+============================================
 
 For each station, the hydrodynamic roughness is calibrated by finding the one that minimizes the difference between the wind vectors of both datasets.
 
@@ -139,7 +139,7 @@ The chosen metric for comparison is then:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.665 seconds)
+   **Total running time of the script:** ( 0 minutes  6.321 seconds)
 
 
 .. _sphx_glr_download_Processing_3_roughness_calibration_plot.py:

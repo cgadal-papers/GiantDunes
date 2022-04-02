@@ -76,7 +76,7 @@ Figure 2
     label_var = {'U_star': r'Velocity, $u_{*}~[\textup{m}~\textup{s}^{-1}]$', 'Orientation': r'Orientation, $\theta~[^\circ]$'}
     labels = [(r'\textbf{a}', r'\textbf{b}'), (r'\textbf{c}', r'\textbf{d}'),
               (r'\textbf{e}', r'\textbf{f}'), (r'\textbf{g}', r'\textbf{h}')]
-    row_labels = ['Adamax -- summer', 'Adamax -- winter', 'North Sand Sea -- summer',
+    row_labels = ['Etosha West -- summer', 'Etosha West -- winter', 'North Sand Sea -- summer',
                   'North Sand Sea -- winter']
     years = [2015, 2016, 2017, 2017]
     months = [11, 8, 12, 6]
@@ -128,7 +128,7 @@ Figure 2
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.183 seconds)
+   **Total running time of the script:** ( 0 minutes  7.135 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Figure02.py:

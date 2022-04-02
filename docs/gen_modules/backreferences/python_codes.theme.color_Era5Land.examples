@@ -97,3 +97,22 @@ Examples using ``python_codes.theme.color_Era5Land``
 .. only:: not html
 
  * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure08_supp.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 9 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure09_supp_thumb.png
+     :alt: Figure 9 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure09_supp.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure09_supp.py`

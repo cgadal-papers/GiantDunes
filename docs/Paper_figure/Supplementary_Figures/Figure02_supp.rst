@@ -65,7 +65,7 @@ Figure 2 -- Online Resource
 
 
     Stations = ['Adamax_Station', 'Huab_Station', 'Deep_Sea_Station', 'South_Namib_Station']
-    labels = ['Adamax', 'Huab', 'North Sand Sea', 'South Sand Sea']
+    labels = ['Etosha West', 'Huab', 'North Sand Sea', 'South Sand Sea']
 
     directory_types = ['ERA5Land', 'measured_wind_data']
 
@@ -111,7 +111,7 @@ Figure 2 -- Online Resource
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.430 seconds)
+   **Total running time of the script:** ( 0 minutes  2.518 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure02_supp.py:

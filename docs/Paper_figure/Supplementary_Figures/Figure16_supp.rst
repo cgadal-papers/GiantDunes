@@ -22,7 +22,7 @@
 Figure 16 -- Online Resource
 ============================
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-134
+.. GENERATED FROM PYTHON SOURCE LINES 7-78
 
 
 
@@ -44,13 +44,7 @@ Figure 16 -- Online Resource
     import os
     sys.path.append('../../')
     import python_codes.theme as theme
-    from python_codes.general import cosd, sind
-    from python_codes.plot_functions import plot_regime_diagram
-    from python_codes.linear_theory import Cisaillement_basal_rotated_wind
-
-
-    def topo(x, y, alpha, k, xi):
-        return xi*np.cos(k*(cosd(alpha)*x + sind(alpha)*y))
+    from python_codes.plot_functions import make_nice_histogram
 
 
     # Loading figure theme
@@ -60,115 +54,65 @@ Figure 16 -- Online Resource
     path_savefig = '../../Paper/Figures'
     path_outputdata = '../../static/data/processed_data/'
 
-    # ## regime diagram properties
-    # data
-    Stations = ['South_Namib_Station', 'Deep_Sea_Station']
+    # ##### Loading meteo data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
-    numbers = {key: np.concatenate([Data[station][key] for station in Stations]) for key in ('Froude', 'kH', 'kLB')}
+    # Stations = ['South_Namib_Station', 'Deep_Sea_Station']
+    Stations = ['Deep_Sea_Station']
 
-    # Time series hydrodynamic coefficients
-    Hydro_coeffs_time = np.load(os.path.join(path_outputdata, 'time_series_hydro_coeffs.npy'), allow_pickle=True).item()
-    modulus = np.linalg.norm(np.concatenate([Hydro_coeffs_time[station] for station in Stations], axis=1), axis=0)
-
+    # #### Computing quantities
+    Orientation_era = np.concatenate([Data[station]['Orientation_era'] for station in Stations])
+    U_era = np.concatenate([Data[station]['U_star_era'] for station in Stations])
+    U_insitu = np.concatenate([Data[station]['U_star_insitu'] for station in Stations])
+    time = np.concatenate([Data[station]['time'] for station in Stations])
+    month = np.array([i.month for i in time])
+    hour = np.array([i.hour for i in time])
     #
-    couples = [('Froude', 'kH'), ('kLB', 'kH')]
-    labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}']
-    #
-    ax_labels = {'Froude': r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho_{0}) g H}$', 'kH': '$k H$', 'kLB': r'$\mathcal{F}_{\textup{I}} = k U/N$'}
-    lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
-    #
-    regime_line_color = 'tab:blue'
-    cbar_labels = [r'$\delta_{\theta}$ [deg.]', r'$\delta_{u}$']
-
-    mask = ~np.isnan(numbers['Froude'])
-
-    # ## streamline parameters
-    station = Stations[1]
-    Data_DEM = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]
-
-    #
-    alpha = Data_DEM['orientation'] - 90  # dune orientation, degrees
-    k = 1  # non dimensional wavenumber
-    AR = 0.1
-    B0 = 2
-    skip = (slice(None, None, 50), slice(None, None, 50))
-    #
-    # horizontal space
-    x = np.linspace(-12, 12, 1000)
-    y = np.linspace(-6, 6, 1000)
-    X, Y = np.meshgrid(x, y)
-
+    delta_u = (U_era - U_insitu)/U_era
+    limits = [0, -0.5]
 
     # #### Figure
-    fig = plt.figure(figsize=(theme.fig_width, 0.74*theme.fig_height_max), constrained_layout=True)
-    # ## regime diagrams
-    gs = fig.add_gridspec(2, 1, height_ratios=[1.63, 1])
-    gs.update(hspace=0.1025)
-    gs_top = gs[0].subgridspec(1, 2)
-    axarr = []
-    for i, (var1, var2) in enumerate(couples):
-        axarr.append(fig.add_subplot(gs_top[i]))
-        vars = [numbers[var1][mask], numbers[var2][mask]]
-        cmap = 'viridis'
-        lims_list = [lims[var1], lims[var2]]
-        xlabel = ax_labels[var1]
-        ylabel = ax_labels[var2] if i == 0 else None
-        #
-        bin1 = np.logspace(np.floor(np.log10(numbers[var1][mask].min())), np.ceil(np.log10(numbers[var1][mask].max())), 50)
-        bin2 = np.logspace(np.floor(np.log10(numbers[var2][mask].min())), np.ceil(np.log10(numbers[var2][mask].max())), 50)
-        bins = [bin1, bin2]
-        a = plot_regime_diagram(axarr[-1], modulus[mask], vars, lims_list, xlabel, ylabel, bins=bins, vmin=0, vmax=40, cmap='plasma', type='binned')
-        axarr[-1].text(0.05, 0.92, labels[i], transform=axarr[-1].transAxes)
+    fig, axarr = plt.subplots(2, 2, figsize=(theme.fig_width, 0.9*theme.fig_width),
+                              constrained_layout=True)
+    gs = axarr[0, 0].get_gridspec()
+    # remove the underlying axes
+    for ax in axarr[0, :]:
+        ax.remove()
+    axbig = fig.add_subplot(gs[0, :])
 
-    # #### colorbar
-    cb = fig.colorbar(a, ax=axarr, location='top', aspect=26,
-                      label=r'$\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}$')
+    for limit in limits:
+        mask = delta_u < limit
+        make_nice_histogram(Orientation_era[mask], 150, axbig, vmin=0, vmax=360, alpha=0.5, density=True)
+        make_nice_histogram(month[mask], 13, axarr[1, 0], vmin=0.5, vmax=12.5, alpha=0.5, density=True)
+        make_nice_histogram(hour[mask], 13, axarr[1, 1], vmin=-0.5, vmax=23.5, alpha=0.5, density=True)
 
-    # ## Examples
-    ax = fig.add_subplot(gs[1])
-    ax.set_xlabel('$kx$')
-    ax.set_ylabel('$ky$')
-    # ax.set_aspect('equal')
-    ax.text(0.025, 0.92, labels[2], transform=ax.transAxes)
-    #
-    cnt = ax.contourf(x, y, topo(X, Y, alpha, k, AR), levels=100, vmin=-(AR + 0.06),
-                      vmax=AR + 0.02, zorder=-5, cmap=theme.cmap_topo)
-    for c in cnt.collections:
-        c.set_edgecolor("face")
-        c.set_rasterized(True)
+    axarr[1, 0].set_xlim(0.5, 12.5)
+    axarr[1, 1].set_xlim(-0.5, 23.5)
+    axbig.set_xlim(0, 360)
+    axarr[1, 0].set_xlabel('Months of the year')
+    axarr[1, 1].set_xlabel('Hours of the day')
+    axbig.set_xlabel(r'Wind orientation, $\theta_{\textup{ERA}}$')
+    axarr[1, 1].set_ylabel('PDF')
+    axarr[1, 0].set_ylabel('PDF')
+    axbig.set_ylabel('PDF')
+    axarr[1, 0].set_xticks([1, 3, 5, 7, 9, 11])
+    axarr[1, 1].set_xticks([0, 6, 12, 18])
+    axbig.set_xticks([0, 45, 90, 135, 180, 225, 270, 315, 360])
 
-    # # #### Parameters
-    modulus = np.linalg.norm(Hydro_coeffs_time[station], axis=0)
-    indexes_tp = np.arange(Data[station]['kH'].size)
-    mask1 = (Data[station]['kH'] > 0.7) & (Data[station]['Froude'] > 0.6) & (modulus < 10)
-    mask2 = (Data[station]['kH'] > 0.7) & (Data[station]['Froude'] < 0.3) & (modulus < 10)
-    mask3 = (Data[station]['kH'] < 0.5) & (Data[station]['Froude'] > 0.6) & (modulus < 10)
-    mask4 = (Data[station]['kH'] < 0.5) & (Data[station]['Froude'] < 0.3) & (modulus < 10)
+    axarr[1, 0].text(0.04, 0.96, r'\textbf{b}', ha='left', va='top',
+                     transform=axarr[1, 0].transAxes)
+    axarr[1, 1].text(0.04, 0.96, r'\textbf{c}', ha='left', va='top',
+                     transform=axarr[1, 1].transAxes)
+    axbig.text(0.02, 0.96, r'\textbf{a}', ha='left', va='top',
+               transform=axbig.transAxes)
 
-    indexes = [2808, 35785, 6231, 11308]
-    #
-    for i, (m, A0, B0) in enumerate(sorted(zip(modulus[indexes], Hydro_coeffs_time[station][0][indexes], Hydro_coeffs_time[station][1][indexes]))):
-        # print(Data[station]['time'][indexes[i]], Data[station]['kH'][indexes[i]], Data[station]['Froude'][indexes[i]], Data[station]['kLB'][indexes[i]], A0, B0, np.sqrt(A0**2 + B0**2))
-        TAU = Cisaillement_basal_rotated_wind(X, Y, alpha, A0, B0, AR, 190)
-        ustar = np.sqrt(np.linalg.norm(np.array(TAU), axis=0))
-        theta = np.arctan2(TAU[1], TAU[0])
-        # ax.quiver(X[skip], Y[skip], TAU[0][skip], TAU[1][skip], color='grey')
-        # strm = ax.streamplot(X, Y, TAU[0], TAU[1], color=np.sqrt(TAU[0]**2 + TAU[1]**2), cmap='inferno', density=50, start_points=[[4, 5-0.5*i]])
-        strm = ax.streamplot(X, Y, ustar*np.cos(theta), ustar*np.sin(theta),
-                             color=ustar, cmap='inferno', density=50, start_points=[[4, 5-0.5*i]])
-    #
-    cb = fig.colorbar(cnt, label=r'Bed elevation $k \xi$', ax=ax, location='top', pad=0.08)
-    cb.formatter.set_powerlimits((0, 0))
-    cb.update_ticks()
-    cb = fig.colorbar(strm.lines, label=r'Shear velocity, $u_{*}/u_{*}^{0}$', ax=ax, location='right', aspect=10)
 
-    plt.savefig(os.path.join(path_savefig, 'Figure16_supp.pdf'), dpi=400)
+    plt.savefig(os.path.join(path_savefig, 'Figure16_supp.pdf'))
     plt.show()
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  8.464 seconds)
+   **Total running time of the script:** ( 0 minutes  2.974 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure16_supp.py:

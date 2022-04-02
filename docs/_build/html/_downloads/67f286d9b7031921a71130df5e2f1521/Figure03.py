@@ -29,7 +29,7 @@ Stations = sorted(Data.keys())
 station = 'Deep_Sea_Station'
 #
 theta_bins = [[0, 90], [150, 230]]
-velocity_bins = [[0.05, 0.25], [0.3, 10]]
+velocity_bins = [[0.05, 0.2], [0.3, 10]]
 Data_pattern = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]
 icon = [r'\faSun', r'\faMoon']
 

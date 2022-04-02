@@ -5,10 +5,10 @@
 
 Computation times
 =================
-**00:01.011** total execution time for **Processing** files:
+**00:01.027** total execution time for **Processing** files:
 
 +--------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_Processing_2_DEM_analysis_plot.py` (``2_DEM_analysis_plot.py``)                         | 00:01.011 | 0.0 MB |
+| :ref:`sphx_glr_Processing_2_DEM_analysis_plot.py` (``2_DEM_analysis_plot.py``)                         | 00:01.027 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------------+-----------+--------+
 | :ref:`sphx_glr_Processing_1_data_preprocessing_plot.py` (``1_data_preprocessing_plot.py``)             | 00:00.000 | 0.0 MB |
 +--------------------------------------------------------------------------------------------------------+-----------+--------+
