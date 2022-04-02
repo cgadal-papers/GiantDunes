@@ -5,7 +5,6 @@ import numpy as np
 import cmocean
 import cmasher as cmr
 import os
-from matplotlib.colors import ListedColormap
 
 
 def truncate_colormap(cmap, minval=0.0, maxval=1.0, n=100):
@@ -55,11 +54,7 @@ markersize = 5
 markersize_small = 2
 
 # #### colormaps
-# cmap_delta_u = plt.cm.twilight
 cmap_delta_u = truncate_colormap(cmr.emergency_s_r, minval=0.05, maxval=1.0, n=256)
-# cmap_delta_u = truncate_colormap(cmr.seasons_s, minval=0.05, maxval=1.0, n=256)
-# cmap_delta_u = truncate_colormap(cmr.iceburn, minval=0, maxval=1.0, n=256)
-# cmap_delta_u = cmr.emergency_s
 cmap_delta_theta = 'plasma'
 cmap_topo = cmocean.cm.turbid_r
 cmap_wind = truncate_colormap(plt.cm.viridis, 0.15, 1, 256)
@@ -72,6 +67,7 @@ color_night = '#3D134F'
 color_Era5Land = 'tab:orange'
 color_insitu = 'tab:blue'
 color_station_position = 'black'
+regime_line_color = 'tab:green'
 
 # #### special Icons
 Icon_day = r'\faSun'

@@ -32,7 +32,7 @@ path_inputdata = '../../static/data/raw_data/'
 
 
 Stations = ['Adamax_Station', 'Huab_Station', 'Deep_Sea_Station', 'South_Namib_Station']
-labels = ['Adamax', 'Huab', 'North Sand Sea', 'South Sand Sea']
+labels = ['Etosha West', 'Huab', 'North Sand Sea', 'South Sand Sea']
 
 directory_types = ['ERA5Land', 'measured_wind_data']
 

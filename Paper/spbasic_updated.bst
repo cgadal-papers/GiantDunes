@@ -706,7 +706,7 @@ FUNCTION {n.separate}
 }
 FUNCTION {n.dashify}
 {
-  n.separate
+%  n.separate
   't :=
   ""
     { t empty$ not }
@@ -1309,7 +1309,7 @@ FUNCTION {techreport}
   new.sentence
   institution "institution" bibinfo.warn output
   address "address" bibinfo.check output
-  format.tr.number output.nonnull 
+  format.tr.number output.nonnull
   format.doi output
   fin.entry
 }
@@ -1628,4 +1628,3 @@ EXECUTE {end.bib}
 %% End of customized bst file
 %%
 %% End of file `spbasic.bst'.
-

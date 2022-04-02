@@ -52,8 +52,6 @@ cbticks = [[0, 25, 50, 75], [-3, -1.5, 0, 0.5, 1]]
 
 mask = ~np.isnan(numbers['Froude'])
 log_counts_max = np.log10(2230)
-regime_line_color = 'tab:blue'
-
 
 var1, var2 = 'Froude', 'kH'
 xlabel = r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho_{0}) g H}$'
@@ -78,8 +76,8 @@ for i, (ax, quantity, cmap, norm, cbtick) in enumerate(zip(axarr.flatten(),
     ax.text(0.04, 0.94, labels[i], transform=ax.transAxes, ha='left', va='center')
     #
     # regime lines
-    ax.axvline(0.4, color=regime_line_color, linestyle='--', lw=2)
-    ax.axhline(0.32, color=regime_line_color, linestyle='--', lw=2)
+    ax.axvline(0.4, color=theme.regime_line_color, linestyle='--', lw=2)
+    ax.axhline(0.32, color=theme.regime_line_color, linestyle='--', lw=2)
     #
     # colorbar
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)

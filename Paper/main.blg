@@ -1,47 +1,53 @@
-This is BibTeX, Version 0.99d (TeX Live 2020/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: spbasic_updated.bst
 Database file #1: main.bib
+Warning--entry type for "DataPaper" isn't style-file defined
+--line 1208 of file main.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 102 entries,
-            3214 wiz_defined-function locations,
-            1346 strings with 23104 characters,
-and the built_in function-call counts, 165438 in all, are:
-= -- 19283
-> -- 3881
-< -- 46
-+ -- 1921
-- -- 1235
-* -- 11696
-:= -- 18525
-add.period$ -- 102
-call.type$ -- 102
-change.case$ -- 915
-chr.to.int$ -- 108
-cite$ -- 102
-duplicate$ -- 16753
-empty$ -- 11367
-format.name$ -- 1562
-if$ -- 34121
+`journal' is a missing field, not a string, for entry Gunn2021b
+while executing---line 1622 of file spbasic_updated.bst
+Warning--empty journal in Gunn2021b
+You've used 110 entries,
+            3213 wiz_defined-function locations,
+            1399 strings with 24936 characters,
+and the built_in function-call counts, 130526 in all, are:
+= -- 12139
+> -- 4194
+< -- 48
++ -- 1480
+- -- 1334
+* -- 11919
+:= -- 18119
+add.period$ -- 109
+call.type$ -- 110
+change.case$ -- 988
+chr.to.int$ -- 116
+cite$ -- 111
+duplicate$ -- 10990
+empty$ -- 11289
+format.name$ -- 1689
+if$ -- 27170
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 1222
-newline$ -- 316
-num.names$ -- 410
-pop$ -- 4769
+missing$ -- 1313
+newline$ -- 340
+num.names$ -- 442
+pop$ -- 2516
 preamble$ -- 1
-purify$ -- 811
+purify$ -- 876
 quote$ -- 0
-skip$ -- 6731
+skip$ -- 1930
 stack$ -- 0
-substring$ -- 16624
-swap$ -- 9700
+substring$ -- 15347
+swap$ -- 2680
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 906
-warning$ -- 0
-while$ -- 1090
+type$ -- 978
+warning$ -- 1
+while$ -- 1071
 width$ -- 0
-write$ -- 1133
+write$ -- 1220
+(There was 1 error message)
