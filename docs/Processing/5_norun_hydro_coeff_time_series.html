@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Time series of the hydrodyanmic coefficients &#8212; Local wind regime induced by giant linear dunes  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydata-custom.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="python_codes" href="../_autosummary/python_codes.html" />
+    <link rel="prev" title="Processing the meteorological data" href="4_meteo_data_analysis_plot.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../index.html">
+<p class="title">Local wind regime induced by giant linear dunes</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../index.html">
+  Home page
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../Paper_figure/index.html">
+  Paper figures
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Processing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../_autosummary/python_codes.html">
+  API reference
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/Cgadal/GiantDunes" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_data_preprocessing_plot.html">
+   Preprocessing of the wind data
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_DEM_analysis_plot.html">
+   Analysis of the DEMs
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_roughness_calibration_plot.html">
+   Calibration of the hydrodynamic roughness
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_meteo_data_analysis_plot.html">
+   Processing the meteorological data
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Time series of the hydrodyanmic coefficients
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-processing-5-norun-hydro-coeff-time-series-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="time-series-of-the-hydrodyanmic-coefficients">
+<span id="sphx-glr-processing-5-norun-hydro-coeff-time-series-py"></span><h1>Time series of the hydrodyanmic coefficients<a class="headerlink" href="#time-series-of-the-hydrodyanmic-coefficients" title="Permalink to this headline">#</a></h1>
+<p>Here, we calculate the time series of the hydrodynamic coefficients from the time series of the non dimensional parameters extracted from the meteorological and elevation data.</p>
+<p>Note that this script takes a certain amount of times to run, and as such is not run during the building of this documentation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">python_codes.linear_theory</span> <span class="kn">import</span> <a href="../_autosummary/python_codes.linear_theory.calculate_solution.html#python_codes.linear_theory.calculate_solution" title="python_codes.linear_theory.calculate_solution" class="sphx-glr-backref-module-python_codes-linear_theory sphx-glr-backref-type-py-function"><a href="../_autosummary/python_codes.linear_theory.calculate_solution.html#python_codes.linear_theory.calculate_solution" title="python_codes.linear_theory.calculate_solution" class="sphx-glr-backref-module-python_codes-linear_theory sphx-glr-backref-type-py-function"><span class="n">calculate_solution</span></a></a>
+
+<span class="c1"># Paths</span>
+<span class="n">path_outputdata</span> <span class="o">=</span> <span class="s1">&#39;../static/data/processed_data/&#39;</span>
+
+<span class="c1"># Importing non-dimensional numbers calculated</span>
+<span class="n">Data</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.load.html#numpy.load" title="numpy.load" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.load.html#numpy.load" title="numpy.load" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">load</span></a></a><span class="p">(</span><a href="https://docs.python.org/3/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><a href="https://docs.python.org/3/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span></a></a><span class="p">(</span><span class="n">path_outputdata</span><span class="p">,</span> <span class="s1">&#39;Data_final.npy&#39;</span><span class="p">),</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">Stations</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;South_Namib_Station&#39;</span><span class="p">,</span> <span class="s1">&#39;Deep_Sea_Station&#39;</span><span class="p">]</span>
+
+<span class="c1"># ##### Loading pattern characteristics</span>
+<span class="n">Data_pattern</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.load.html#numpy.load" title="numpy.load" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.load.html#numpy.load" title="numpy.load" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">load</span></a></a><span class="p">(</span><a href="https://docs.python.org/3/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><a href="https://docs.python.org/3/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span></a></a><span class="p">(</span><span class="n">path_outputdata</span><span class="p">,</span> <span class="s1">&#39;Data_DEM.npy&#39;</span><span class="p">),</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">Kappa</span> <span class="o">=</span> <span class="mf">0.4</span>  <span class="c1"># Von Kàrmàn constant</span>
+<span class="n">k</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.concatenate.html#numpy.concatenate" title="numpy.concatenate" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.concatenate.html#numpy.concatenate" title="numpy.concatenate" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span></a></a><span class="p">([</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros" title="numpy.zeros" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros" title="numpy.zeros" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a></a><span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="n">station</span><span class="p">][</span><span class="s1">&#39;Froude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><a href="https://docs.scipy.org/doc/numpy/reference/constants.html#numpy.pi" title="numpy.pi" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-data"><a href="https://docs.scipy.org/doc/numpy/reference/constants.html#numpy.pi" title="numpy.pi" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-data"><span class="n">np</span><span class="o">.</span><span class="n">pi</span></a></a><span class="o">/</span><span class="p">(</span><span class="n">Data_pattern</span><span class="p">[</span><span class="n">station</span><span class="p">][</span><span class="s1">&#39;wavelength&#39;</span><span class="p">]</span><span class="o">*</span><span class="mf">1e3</span><span class="p">)</span> <span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="n">Stations</span><span class="p">])</span>  <span class="c1"># vector of wavelength [m]</span>
+<span class="n">z0</span> <span class="o">=</span> <span class="mf">1e-3</span>  <span class="c1"># hydrodynamic roughness, [m]</span>
+<span class="n">eta_0_vals</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="mf">1e-3</span>
+<span class="n">eta</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># non dimensional position where to calculate the solution (bottom)</span>
+
+<span class="n">hydro_Coeffs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="n">Stations</span><span class="p">:</span>
+    <span class="n">hydro_Coeffs</span><span class="p">[</span><span class="n">station</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros" title="numpy.zeros" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html#numpy.zeros" title="numpy.zeros" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a></a><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">Data</span><span class="p">[</span><span class="n">station</span><span class="p">][</span><span class="s1">&#39;kH&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><a href="https://docs.scipy.org/doc/numpy/reference/constants.html#numpy.pi" title="numpy.pi" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-data"><a href="https://docs.scipy.org/doc/numpy/reference/constants.html#numpy.pi" title="numpy.pi" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-data"><span class="n">np</span><span class="o">.</span><span class="n">pi</span></a></a><span class="o">/</span><span class="p">(</span><span class="n">Data_pattern</span><span class="p">[</span><span class="n">station</span><span class="p">][</span><span class="s1">&#39;wavelength&#39;</span><span class="p">]</span><span class="o">*</span><span class="mf">1e3</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">eta_0</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">Froude</span><span class="p">,</span> <span class="n">eta_B</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">eta_0_vals</span><span class="p">,</span> <span class="n">Data</span><span class="p">[</span><span class="n">station</span><span class="p">][</span><span class="s1">&#39;kH&#39;</span><span class="p">],</span> <span class="n">Data</span><span class="p">[</span><span class="n">station</span><span class="p">][</span><span class="s1">&#39;Froude&#39;</span><span class="p">],</span> <span class="n">Data</span><span class="p">[</span><span class="n">station</span><span class="p">][</span><span class="s1">&#39;kLB&#39;</span><span class="p">])):</span>
+        <span class="n">max_z</span> <span class="o">=</span> <span class="mf">0.9999</span><span class="o">*</span><span class="n">eta_H</span>
+        <span class="k">if</span> <span class="ow">not</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html#numpy.isnan" title="numpy.isnan" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-data"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html#numpy.isnan" title="numpy.isnan" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-data"><span class="n">np</span><span class="o">.</span><span class="n">isnan</span></a></a><span class="p">([</span><span class="n">eta_H</span><span class="p">,</span> <span class="n">Froude</span><span class="p">,</span> <span class="n">eta_B</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="n">Sol</span> <span class="o">=</span> <a href="../_autosummary/python_codes.linear_theory.calculate_solution.html#python_codes.linear_theory.calculate_solution" title="python_codes.linear_theory.calculate_solution" class="sphx-glr-backref-module-python_codes-linear_theory sphx-glr-backref-type-py-function"><a href="../_autosummary/python_codes.linear_theory.calculate_solution.html#python_codes.linear_theory.calculate_solution" title="python_codes.linear_theory.calculate_solution" class="sphx-glr-backref-module-python_codes-linear_theory sphx-glr-backref-type-py-function"><span class="n">calculate_solution</span></a></a><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">eta_H</span><span class="p">,</span> <span class="n">eta_0</span><span class="p">,</span> <span class="n">eta_B</span><span class="p">,</span> <span class="n">Froude</span><span class="p">,</span> <span class="n">max_z</span><span class="p">,</span> <span class="n">Kappa</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+            <span class="c1">#</span>
+            <span class="n">Ax</span><span class="p">,</span> <span class="n">Bx</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.real.html#numpy.real" title="numpy.real" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.real.html#numpy.real" title="numpy.real" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">real</span></a></a><span class="p">(</span><span class="n">Sol</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.imag.html#numpy.imag" title="numpy.imag" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.imag.html#numpy.imag" title="numpy.imag" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">imag</span></a></a><span class="p">(</span><span class="n">Sol</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Ax</span><span class="p">,</span> <span class="n">Bx</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/numpy/reference/constants.html#numpy.nan" title="numpy.nan" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-data"><a href="https://docs.scipy.org/doc/numpy/reference/constants.html#numpy.nan" title="numpy.nan" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-data"><span class="n">np</span><span class="o">.</span><span class="n">nan</span></a></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/constants.html#numpy.nan" title="numpy.nan" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-data"><a href="https://docs.scipy.org/doc/numpy/reference/constants.html#numpy.nan" title="numpy.nan" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-data"><span class="n">np</span><span class="o">.</span><span class="n">nan</span></a></a>
+        <span class="n">hydro_Coeffs</span><span class="p">[</span><span class="n">station</span><span class="p">][:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Ax</span><span class="p">,</span> <span class="n">Bx</span><span class="p">]</span>
+<span class="c1">#</span>
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.save.html#numpy.save" title="numpy.save" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.save.html#numpy.save" title="numpy.save" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">save</span></a></a><span class="p">(</span><a href="https://docs.python.org/3/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><a href="https://docs.python.org/3/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span></a></a><span class="p">(</span><span class="n">path_outputdata</span><span class="p">,</span> <span class="s1">&#39;time_series_hydro_coeffs.npy&#39;</span><span class="p">),</span> <span class="n">hydro_Coeffs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-processing-5-norun-hydro-coeff-time-series-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/85f6550a2c81f764e7710ff6543a0948/5_norun_hydro_coeff_time_series.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">5_norun_hydro_coeff_time_series.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/37619e17732dbd3a432f573a312d35a0/5_norun_hydro_coeff_time_series.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">5_norun_hydro_coeff_time_series.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Cyril Gadal.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
