@@ -7,6 +7,7 @@ SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
+GITHUBDIR     = ../docs
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -19,22 +20,34 @@ help:
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-# cleaning directories form auto summary and sphinx-gallery
+# cleaning directories from auto summary and sphinx-gallery
 clean:
 	rm -rf $(BUILDDIR)/*
 	rm -rf _autosummary
 	rm -rf gen_modules
+	#
+	cp $(GITHUBDIR)/.nojekyll ./
+	rm -rf $(GITHUBDIR)/*
+	mv .nojekyll $(GITHUBDIR)
 
-# cleaning directories form auto summary and sphinx-gallery
+
+# cleaning directories from auto summary and sphinx-gallery
 clean_hard:
 	rm -rf $(BUILDDIR)/*
 	rm -rf Paper_figure/
 	rm -rf Processing/
 	rm -rf _autosummary
 	rm -rf gen_modules
-	# rm -rf ../static/processed_data/*
+	#
+	cp $(GITHUBDIR)/.nojekyll ./
+	rm -rf $(GITHUBDIR)/*
+	mv .nojekyll $(GITHUBDIR)
 
 # build documentation also for github pages
 github:
-	@make html
-	@cp -ar _build/html/. ../docs
+	make html
+	#
+	cp $(GITHUBDIR)/.nojekyll ./
+	rm -rf $(GITHUBDIR)/*
+	mv .nojekyll $(GITHUBDIR)
+	cp -ar _build/html/* $(GITHUBDIR)/

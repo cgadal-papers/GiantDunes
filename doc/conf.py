@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.abspath('../'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Giant dunes feedback on wind'
+project = 'Local wind regime induced by giant linear dunes'
 copyright = '2021, Cyril Gadal'
 author = 'Cyril Gadal'
 
@@ -104,15 +104,14 @@ sphinx_gallery_conf = {
 
 # Pydata theme
 html_theme = "pydata_sphinx_theme"
-html_theme_options = {"show_prev_next": False}
+html_theme_options = {"show_prev_next": False,
+                      "github_url": "https://github.com/Cgadal/GiantDunes", }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-# html_css_files = ['mne_style.css']
 html_css_files = ['pydata-custom.css']
-# html_css_files = ['numpy.css']
 
 
 # If true, links to the reST sources are added to the pages.

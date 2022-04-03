@@ -3,21 +3,19 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to python_codes's documentation!
-========================================
+===========================================================
+Codes for "Local wind regime induced by giant linear dunes"
+===========================================================
+
+This page contains the documentation of the codes used in the paper
+Local wind regime induced by giant linear dunes: comparison of ERA5-Land re-analysis with surface
+measurements.
 
 .. toctree::
     :maxdepth: 1
-    :caption: Contents:
+    :caption: Documentation:
 
     Home page <self>
     Paper figures <Paper_figure/index.rst>
     Processing <Processing/index.rst>
     API reference <_autosummary/python_codes.rst>
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
