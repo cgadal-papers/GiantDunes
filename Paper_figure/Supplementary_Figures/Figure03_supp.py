@@ -7,9 +7,8 @@ Figure 3 -- Online Resource
 
 import numpy as np
 import os
-from datetime import datetime
-import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
+from matplotlib.colors import Normalize
 import sys
 sys.path.append('../../')
 import python_codes.theme as theme
@@ -18,48 +17,43 @@ theme.load_style()
 
 # paths
 path_savefig = '../../Paper/Figures'
-path_outputdata = '../../static/data/processed_data'
-path_inputdata = '../../static/data/raw_data'
+path_outputdata = '../../static/data/processed_data/'
 
-# figure parameters
-station = 'South_Namib_Station'
-tmin, tmax = datetime(2017, 6, 3), datetime(2017, 6, 10)
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
+Data_roughness = np.load(os.path.join(path_outputdata, 'Data_calib_roughness.npy'),
+                         allow_pickle=True).item()
 
-# Loading and recomputing some raw data
-path_insitu = os.path.join(path_inputdata, 'measured_wind_data/in_situ_wind_data_' + station + '.npy')
-Data_insitu = np.load(path_insitu, allow_pickle=True).item()
+labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}']
+norm = Normalize(vmin=0.3, vmax=1, clip=True)
+
+# #### Figure
+fig, axrr = plt.subplots(2, 2, figsize=(theme.fig_width, 1.1*theme.fig_width),
+                         sharex=True, sharey=True, constrained_layout=True)
 #
-t_insitu = Data_insitu['time']
-U_insitu = Data_insitu['velocity']
-# putting angles in trigo. ref.
-Orientation_insitu = (270 - Data_insitu['direction']) % 360
+for i, (ax, p, metric, station, label) in enumerate(zip(axrr.flatten(), Data_roughness['Pvals'],
+                                                        Data_roughness['Metrics'], Data_roughness['Stations'], labels)):
+    cs = ax.contourf(Data_roughness['z0_era_vals'], Data_roughness['z0_insitu_vals'], metric, levels=50, norm=norm)
+    for c in cs.collections:
+        c.set_edgecolor("face")
+    ax.plot(Data_roughness['z0_era_vals'], Data_roughness['z0_insitu_vals'], color='tab:red', label='$y=x$')
+    ax.plot(Data_roughness['z0_era_vals'], np.exp(p[1])*Data_roughness['z0_era_vals']**p[0], 'r--', label='minimum line')
+    a, = ax.plot([Data_roughness['z0_era_vals'].min(), 1e-3], [Data[station]['z0_insitu'], Data[station]['z0_insitu']], color='tab:orange')
+    ax.plot([1e-3, 1e-3], [Data_roughness['z0_insitu_vals'].min(), Data[station]['z0_insitu']], color=a.get_color())
+    ax.plot(1e-3, Data[station]['z0_insitu'], '.', color=a.get_color())
+    #
+    ax.text(0.07, 0.93, label, ha='center', va='center', transform=ax.transAxes)
 
 
-# ### Figure
-fig, axarr = plt.subplots(2, 1, figsize=(theme.fig_width, 0.85*theme.fig_width),
-                          constrained_layout=True, sharex=True)
+plt.xlim([Data_roughness['z0_era_vals'].min(), Data_roughness['z0_era_vals'].max()])
+plt.ylim([Data_roughness['z0_insitu_vals'].min(), Data_roughness['z0_insitu_vals'].max()])
+plt.gca().set_xscale('log')
+plt.gca().set_yscale('log')
+fig.supxlabel(r'Hydrodynamic roughness - ERA, $z_{0}^{\textup{Era5Land}}$ [m]')
+fig.supylabel(r'Hydrodynamic roughness - local, $z_{0}^{\textup{local}}$ [m]')
 
-axarr[0].plot(t_insitu, Orientation_insitu, label='Raw data')
-axarr[0].plot(Data[station]['time'], Data[station]['Orientation_insitu'], label='Binned data')
-#
-axarr[1].plot(t_insitu, U_insitu, label='Raw data')
-axarr[1].plot(Data[station]['time'], Data[station]['U_insitu'], label='1hr-averaged data')
-#
-axarr[0].set_ylabel(r'Wind orientation, $\theta~[^{\circ}]$')
-axarr[0].set_ylim(0, 360)
-axarr[0].set_yticks([0, 90, 180, 270, 360])
-axarr[1].set_ylabel(r'Wind velocity at 2.6 m, $[\textup{m}~\textup{s}^{-1}]$')
-axarr[1].set_ylim(bottom=0)
-axarr[1].set_xlim(tmin, tmax)
-axarr[1].set_xlabel(r'Days in June 2017')
-myFmt = mdates.DateFormatter('%d')
-axarr[1].xaxis.set_major_formatter(myFmt)
-plt.legend(loc='upper center')
-
-# subplots labels
-axarr[0].text(0.015, 0.93, r'\textbf{a}', ha='left', va='center', transform=axarr[0].transAxes)
-axarr[1].text(0.015, 0.93, r'\textbf{b}', ha='left', va='center', transform=axarr[1].transAxes)
+# colorbar
+sm = plt.cm.ScalarMappable(cmap='viridis', norm=norm)
+plt.colorbar(sm, ax=axrr, location='top', label=r'$\delta$')
 
 plt.savefig(os.path.join(path_savefig, 'Figure3_supp.pdf'))
 plt.show()

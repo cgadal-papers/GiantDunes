@@ -34,8 +34,10 @@ def plot_wind_rose(theta, U, bins, ax, fig, label=None,
         return the axe on which the wind rose is plotted. Can be used for further modifications.
 
     """
-    ax_rose = WindroseAxes.from_ax(fig=fig)
-    ax_rose.set_position(ax.get_position(), which='both')
+    # changing ax to have to have the windrose projection
+    subplotspec = ax.get_subplotspec()
+    ax.remove()
+    ax_rose = fig.add_subplot(subplotspec, projection='windrose')
     Angle = (90 - theta) % 360
     ax_rose.bar(Angle, U, bins=bins, normed=True, zorder=20, opening=1, edgecolor=None,
                 linewidth=0.5, nsector=60, **kwargs)
@@ -47,7 +49,6 @@ def plot_wind_rose(theta, U, bins, ax, fig, label=None,
     ax_rose.set_yticklabels([])
     if label is not None:
         fig.text(0.5, 0.05, label, ha='center', va='center', transform=ax.transAxes, bbox=props)
-    ax.remove()
     return ax_rose
 
 

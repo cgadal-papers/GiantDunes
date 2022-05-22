@@ -1,88 +1,119 @@
 """
-============
+============================
 Figure 5
-============
+============================
 
 """
 
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.colors as mpcolors
+import matplotlib.dates as mdates
+import calendar
+import locale
+from datetime import datetime, timedelta
 import sys
 import os
 sys.path.append('../')
 import python_codes.theme as theme
 from python_codes.general import smallestSignedAngleBetween, find_mode_distribution
-from python_codes.plot_functions import plot_regime_diagram
+
+locale.setlocale(locale.LC_ALL, 'en_US.utf8')
+
+
+def tick_formatter(ax, fmt='%d'):
+    myFmt = mdates.DateFormatter(fmt)
+    ax.xaxis.set_major_formatter(myFmt)
+    ticklabels = ax.get_xticklabels()
+    ticklabels[0].set_ha('left')
+
 
 # Loading figure theme
 theme.load_style()
 
 # paths
-path_imgs = '../static/images/'
 path_savefig = '../Paper/Figures'
-path_outputdata = '../static/data/processed_data'
+path_outputdata = '../static/data/processed_data/'
 
-# ##### Loading meteo data
+# Loading wind data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
-Stations = ['South_Namib_Station', 'Deep_Sea_Station']
 
-# #### Computing quantities
+# Figure properties
+variables = ['U_star', 'Orientation']
+label_var = {'U_star': r'Velocity, $u_{*}~[\textup{m}~\textup{s}^{-1}]$', 'Orientation': r'Orientation, $\theta~[^\circ]$'}
+labels = [(r'\textbf{a}', r'\textbf{b}'), (r'\textbf{c}', r'\textbf{d}'),
+          (r'\textbf{e}', r'\textbf{f}'), (r'\textbf{g}', r'\textbf{h}')]
+row_labels = ['North Sand Sea -- summer', 'North Sand Sea -- winter', 'South Sand Sea -- summer',
+              'South Sand Sea -- winter']
+years = [2017, 2017, 2017, 2017]
+months = [12, 6, 11, 5]
+days = [(5, 8), (1, 4), (3, 6), (8, 11)]
+month_calendar = {index: month for index, month in enumerate(calendar.month_name) if month}
+bbox_props = dict(boxstyle='round', facecolor='wheat', alpha=0.7)
 
-Orientation_era = np.concatenate([Data[station]['Orientation_era'] for station in Stations])
-Orientation_insitu = np.concatenate([Data[station]['Orientation_insitu'] for station in Stations])
-U_era = np.concatenate([Data[station]['U_star_era'] for station in Stations])
-U_insitu = np.concatenate([Data[station]['U_star_insitu'] for station in Stations])
-numbers = {key: np.concatenate([Data[station][key] for station in Stations]) for key in ('Froude', 'kH', 'kLB')}
-#
-Delta = smallestSignedAngleBetween(Orientation_era, Orientation_insitu)
-mode_delta = np.array([find_mode_distribution(Delta, i) for i in np.arange(150, 350)]).mean()
-delta_angle = np.abs(Delta)
-delta_u = (U_era - U_insitu)/U_era
 
-# #### Figure parameters
-lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
-cmaps = [theme.cmap_delta_theta, theme.cmap_delta_u]
-norms = [mpcolors.Normalize(vmin=0, vmax=99),
-         mpcolors.TwoSlopeNorm(vmin=-3, vcenter=0, vmax=1)]
-cbar_labels = [r'$\delta_{\theta}$ [deg.]', r'$\delta_{u}$']
-quantities = [delta_angle, delta_u]
-labels = [r'\textbf{a}', r'\textbf{b}']
-cbticks = [[0, 25, 50, 75], [-3, -1.5, 0, 0.5, 1]]
-
-mask = ~np.isnan(numbers['Froude'])
-log_counts_max = np.log10(2230)
-
-var1, var2 = 'Froude', 'kH'
-xlabel = r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho_{0}) g H}$'
+stations_plot = ['Deep_Sea_Station', 'Deep_Sea_Station', 'South_Namib_Station', 'South_Namib_Station']
 
 # #### Figure
-fig, axarr = plt.subplots(1, 2, figsize=(theme.fig_width, 0.375*theme.fig_height_max),
-                          constrained_layout=True)
+fig = plt.figure(figsize=(theme.fig_width, 0.93*theme.fig_height_max), constrained_layout=True)
+subfigs = fig.subfigures(nrows=4, ncols=1)
+for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs, years, months, days, stations_plot)):
+    axarr = subfig.subplots(1, 2)
+    subfig.suptitle(row_labels[i])
+    subfig.set_facecolor('none')
+    tmin = datetime(yr, mth, dy[0])
+    tmax = datetime(yr, mth, dy[1])
+    #
+    mask = (Data[station]['time'] >= tmin) & (Data[station]['time'] < tmax)
+    delta_u = np.abs((Data[station]['U_star_era'][mask] - Data[station]['U_star_insitu'][mask])/Data[station]['U_star_era'][mask])
+    Delta = smallestSignedAngleBetween(Data[station]['Orientation_era'][mask], Data[station]['Orientation_insitu'][mask])
+    mode_delta = np.array([find_mode_distribution(Delta, i) for i in np.arange(150, 350)]).mean()
+    delta_angle = np.abs(Delta)
+    #
+    mask_u_theta = (np.abs(delta_u) < 1) & (delta_angle < 85)
+    mask_u = np.abs(delta_u) > 0.6
+    mask_theta = delta_angle > 50
 
-for i, (ax, quantity, cmap, norm, cbtick) in enumerate(zip(axarr.flatten(),
-                                                           quantities, cmaps, norms,
-                                                           cbticks)):
-    ylabel = '$k H$' if i == 0 else None
-    #
-    vars = [numbers[var1][mask], numbers[var2][mask]]
-    lims_list = [lims[var1], lims[var2]]
-    #
-    bin1 = np.logspace(np.floor(np.log10(numbers[var1][mask].min())), np.ceil(np.log10(numbers[var1][mask].max())), 50)
-    bin2 = np.logspace(np.floor(np.log10(numbers[var2][mask].min())), np.ceil(np.log10(numbers[var2][mask].max())), 50)
-    bins = [bin1, bin2]
-    a = plot_regime_diagram(ax, quantity[mask], vars, lims_list, xlabel, ylabel, bins=bins, norm=norm, cmap=cmap, type='binned')
-    #
-    ax.text(0.04, 0.94, labels[i], transform=ax.transAxes, ha='left', va='center')
-    #
-    # regime lines
-    ax.axvline(0.4, color=theme.regime_line_color, linestyle='--', lw=2)
-    ax.axhline(0.32, color=theme.regime_line_color, linestyle='--', lw=2)
-    #
-    # colorbar
-    sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
-    cb = plt.colorbar(sm, ax=ax, location='top', ticks=cbtick)
-    cb.set_label(cbar_labels[i])
+    for j, (ax, var, label) in enumerate(zip(axarr, variables, labels[i])):
+        l1, = ax.plot(Data[station]['time'], Data[station][var + '_insitu'], label='measurements', color=theme.color_insitu)
+        l2, = ax.plot(Data[station]['time'], Data[station][var + '_era'], label='Era5Land', color=theme.color_Era5Land)
+        ax.set_xlim(tmin, tmax)
+        tick_formatter(ax)
+        #
+        # #### plot nights
+        tstart = tmin - timedelta(days=1)
+        tstart = tstart.replace(hour=10)
+        x_night = [tstart + timedelta(days=i) for i in range((tmax-tmin).days + 2)]
+        for daylight in x_night:
+            a1 = ax.axvspan(daylight, daylight + timedelta(hours=12),
+                            facecolor=theme.color_day, alpha=0.1, edgecolor=None, label=theme.Icon_day)
+            a2 = ax.axvspan(daylight - timedelta(hours=12), daylight,
+                            facecolor=theme.color_night, alpha=0.1, edgecolor=None, label=theme.Icon_night)
+        #
+        ax.set_ylabel(label_var[var])
+        ax.set_xlabel('Days in {} {:d}'.format(month_calendar[tmin.month], tmin.year))
+        ax.set_xticks([tmin + timedelta(days=i) for i in range((tmax-tmin).days + 1)])
+        ax.text(0.02, 0.97, label, transform=ax.transAxes, ha='left', va='top')
+        if var == 'U_star':
+            ax.set_ylim((0, 0.5))
+            ax.text(0.5, 0.94,
+                    r"""$ f_{{u}} = {:.2f}$
+                        $\langle \delta_{{u}} \rangle = {:.2f}$""".format(
+                        mask_u.sum()/delta_angle.size,
+                        delta_u[mask_u_theta].mean()),
+                    ha='center', va='top', transform=ax.transAxes, bbox=bbox_props)
+        else:
+            ax.set_ylim((0, 360))
+            ax.set_yticks((0, 90, 180, 270, 360))
+            ax.text(0.5, 0.94,
+                    r"""$f_{{\theta}} = {:.2f}$
+                        $\langle \delta_{{\theta}} \rangle = {:.0f}$""".format(
+                        mask_theta.sum()/delta_angle.size,
+                        delta_angle[mask_u_theta].mean()),
+                    ha='center', va='top', transform=ax.transAxes, bbox=bbox_props)
 
-plt.savefig(os.path.join(path_savefig, 'Figure5.pdf'))
+#
+# a1.set_edgecolor((0, 0, 0, 1))
+first_legend = fig.legend(handles=[a1, a2], loc='center right', ncol=2, columnspacing=1, bbox_to_anchor=(1, 0.98), frameon=False)
+#
+plt.savefig(os.path.join(path_savefig, 'Figure5.pdf'),)
 plt.show()

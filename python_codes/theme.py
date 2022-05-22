@@ -56,7 +56,7 @@ markersize_small = 2
 # #### colormaps
 cmap_delta_u = truncate_colormap(cmr.emergency_s_r, minval=0.05, maxval=1.0, n=256)
 cmap_delta_theta = 'plasma'
-cmap_topo = cmocean.cm.turbid_r
+cmap_topo = truncate_colormap(cmocean.cm.turbid_r, minval=0, maxval=0.8, n=256)
 cmap_wind = truncate_colormap(plt.cm.viridis, 0.15, 1, 256)
 
 # #### colors

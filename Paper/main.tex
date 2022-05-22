@@ -109,66 +109,96 @@ In this work, we compare local wind speeds and directions measured by meteorolog
 \begin{figure}[t]
 \centering
 \includegraphics[scale=1]{Figures/Figure1.pdf}
-\caption{Wind data used in this study \textbf{a}: Location of the different sites in Namibia. \textbf{b--e}: Satellite images of these different environements (Google-Earth, Maxar Technologies, CNES/Airbus). In each subplot, the left and right wind roses represent the data from the ERA5-Land climate reanalysis and the local wind stations, respectively. Note that the bars show the direction towards which the wind blows. The black dots show the location of local wind stations.}
+\caption{Studied field sites. \textbf{a}: Location of the different sites in Namibia. \textbf{b--e}: Photographs of the meteorological stations.}
 \label{Fig1}
+\end{figure}
+%---------------------------------------------
+
+%---------------------------------------------
+\begin{figure}[t]
+\centering
+\includegraphics[scale=1]{Figures/Figure2.pdf}
+\caption{Wind data used in this study. Satellite images of these different environements (Google-Earth, Maxar Technologies, CNES/Airbus) are shown on the left. The black dots show the location of the wind measurements stations. On the center and on the right, wind roses representing the data from the ERA5-Land climate reanalysis and the local wind stations are respectively shown. Note that the bars show the direction towards which the wind blows.}
+\label{Fig2}
 \end{figure}
 %---------------------------------------------
 
 
 %---------------------------------------------------------------------------------------
 \section{Wind regimes across the Namib Sand Sea}
-We measured the wind regime at four different locations in Namibia, representative of various arid environments across the Namib desert (Fig.~\ref{Fig1}, Online Resource Fig.~\ref{Fig1_supp}). The Etosha West station was located at the Adamax waterhole to the west of Etosha Pan in northern Namibia, in a sparsely vegetated area. The Huab station was near the coast on a hyper-arid flat gravel plain lying north the ephemeral Huab river. Here, barchan dunes up to a few meters in height develop from the sediment blowing out of the river valley \citep{Nield2017, Hesp1998}. These two stations were both located in relatively flat environments. In contrast, the North Sand Sea and South Sand Sea stations were located in the interdunes between linear dunes with kilometer-scale wavelengths, hectometer-scale heights and superimposed patterns. In this section, we describe and compare winds from local measurements and climate reanalysis predictions.
+We measured the wind regime at four different locations in Namibia, representative of various arid environments across the Namib desert (Fig.~\ref{Fig1}, Fig.~\ref{Fig2}). The Etosha West station was located at the Adamax waterhole to the west of Etosha Pan in northern Namibia, in a sparsely vegetated area. The Huab station was near the coast on a hyper-arid flat gravel plain lying north the ephemeral Huab river. Here, barchan dunes up to a few meters in height develop from the sediment blowing out of the river valley \citep{Nield2017, Hesp1998}. These two stations were both located in relatively flat environments. In contrast, the North Sand Sea and South Sand Sea stations were located in the interdunes between linear dunes with kilometer-scale wavelengths, hectometer-scale heights and superimposed patterns. In this section, we describe and compare winds from local measurements and climate reanalysis predictions.
 
 %------------------------
 \subsection{Wind and elevation data}
-At each meteorological station (Fig.~\ref{Fig1}), wind speed and direction were sampled every 10 minutes using cup anemometers (Vector Instruments A100-LK) and wind vanes (Vector Instruments W200-P) at heights which varied between 2~m and 3~m depending on the station. The available period of measurements at each station ranged from 1 to 5 discontinuous years distributed between 2012 and 2020 (Online Resource Fig.~\ref{Fig2_supp}). We checked that at least one complete seasonal cycle was available for each station. Regional winds were extracted at the same locations and periods from the ERA5-Land dataset, which is a replay at a smaller spatial resolution of ERA5, the latest climate reanalysis from the ECMWWF \citep{Hersbach2020, munoz2021}. This dataset provided hourly predictions of the 10-m wind velocity and direction at a spatial resolution of $0.1^\circ\times0.1^\circ$ ($\simeq 9~\textup{km}$ in Namibia).
+At each meteorological station (Fig.~\ref{Fig1}), wind speed and direction were sampled every 10 minutes using cup anemometers (Vector Instruments A100-LK) and wind vanes (Vector Instruments W200-P) at heights which varied between 2~m and 3~m depending on the station. The available period of measurements at each station ranged from 1 to 5 discontinuous years distributed between 2012 and 2020 (Online Resource Fig.~\ref{Fig1_supp}). We checked that at least one complete seasonal cycle was available for each station. Regional winds were extracted at the same locations and periods from the ERA5-Land dataset, which is a replay at a smaller spatial resolution of ERA5, the latest climate reanalysis from the ECMWWF \citep{Hersbach2020, munoz2021}. This dataset provided hourly predictions of the 10-m wind velocity and direction at a spatial resolution of $0.1^\circ\times0.1^\circ$ ($\simeq 9~\textup{km}$ in Namibia).
 
-To enable direct comparison, the local wind measurements were averaged into 1-hr bins centered on the temporal scale of the ERA5-Land estimates (Online Resource Fig.~\ref{Fig3_supp}). As the wind velocities of both datasets were provided at different heights, we converted them into shear velocities $u_{*}$ (Online Resource section 1), characteristic of the turbulent wind profile. Wind roses in Fig.~\ref{Fig1}(b--e) show the resulting wind data.
+To enable direct comparison, the local wind measurements were averaged into 1-hr bins centered on the temporal scale of the ERA5-Land estimates (Online Resource Fig.~\ref{Fig2_supp}). As the wind velocities of both datasets were provided at different heights, we converted them into shear velocities $u_{*}$ (Online Resource section 1), characteristic of the turbulent wind profile. Wind roses in Fig.~\ref{Fig2} show the resulting wind data.
 
-Dune properties were computed using autocorrelation on the 30-m Digital Elevation Models (DEMs) of the shuttle radar topography mission \citep{Farr2007}. For the North and South Sand Sea stations, we obtain, respectively, orientations of $85^\circ$ and $125^\circ$ with respect to the North, wavelengths of $2.6~\textup{km}$ and $2.3~\textup{km}$ and amplitudes (or half-heights) of $45~\textup{m}$ and $20~\textup{m}$ (Online Resource Fig.~\ref{Fig5_supp} for more details). This agrees with direct measurements made on site.
-
-
-%---------------------------------------------
-\begin{figure}
-\centering
-\includegraphics[scale=1]{Figures/Figure2.pdf}
-\caption{Temporal comparison between the wind data coming from the ERA5-Land climate reanalysis (orange lines) and from the local measurements (blue lines). Coloured swathes indicate day (between 1000 UTC and 2200 UTC) and night (before 1000 UTC or after 2200 UTC) \textbf{a--b}: Etosha West station in summer. \textbf{b--c}: Etosha West station in winter. \textbf{d--e}: North Sand Sea station in summer. \textbf{f--g}: North Sand Sea station in winter. Time series of the two other stations are shown in Online Resource Fig.~\ref{Fig6_supp}.}
-\label{Fig2}
-\end{figure}
-%---------------------------------------------
-
-
-%------------------------
-\subsection{Comparison of local and regional winds}
-\label{section_data_feedback}
-The measured and predicted wind regimes are shown in Fig.~\ref{Fig1}. In the Namib, the regional wind patterns are essentially controlled by the sea breeze, resulting in strong northward components (sometimes slightly deviated by the large scale topography) present in all regional wind roses \citep{lancaster1985}. These daytime winds are dominant during the period October-March (Fig.~\ref{Fig2}f and Online Resource Fig.~\ref{Fig6_supp}f). During April-September, an additional (and often nocturnal) easterly component can also be recorded, induced by the combination of katabatic winds forming in the mountains, and infrequent `berg' winds, which are responsible for the high wind velocities observed \citep{lancaster1984}. The frequency of these easterly components decreases from inland to the coast. As a result, bidirectional wind regimes within the Namib Sand Sea and at the west Etosha site (Fig.~\ref{Fig1}b,d,e) and a unidirectional wind regime on the coast at the outlet of the Huab River (Fig.~\ref{Fig1}c) are observed.
-
-In the case of the Etosha West and Huab stations, the time series of wind speed and direction from the regional predictions quantitatively match those corresponding to the local measurements (Fig.~\ref{Fig2}a--d) and Online Resource Figs.~\ref{Fig6_supp}a--d,~\ref{Fig7_supp},~\ref{Fig9_supp}). For the North Sand Sea and South Sand Sea stations within the giant dune field, we observe that this agreement is also good, but limited to the October-March time period (Fig.~\ref{Fig2}e--h and and Online Resource Fig.~\ref{Fig6_supp}e--h). However, the field-measured wind roses exhibit additional wind components aligned with the giant dune orientation, as evidenced on the satellite images (Fig.~\ref{Fig1}c,d).
-
-More precisely, during the April-September period, the local and regional winds in the interdune match during daytime only, i.e when the southerly/southwesterly sea breeze dominates (Figs.~\ref{Fig2}e,f and \ref{Fig3}, Online Resource Fig.~\ref{Fig8_supp}). In the late afternoon and during the night, when the easterly `berg' and katabatic winds blow, measurements and predictions differ. In this case, the angular wind distribution of the local measurements exhibits two additional modes corresponding to reversing winds aligned with the giant dune orientation (purple frame in Fig.~\ref{Fig3}, Online Resource Figs.~\ref{Fig8_supp} and \ref{Fig10_supp}). This deviation is also associated with a general attenuation of the wind strength (Online Resource Fig.~\ref{Fig11_supp}). Remarkably, all these figures show that these wind reorientation and attenuation processes occur only at low velocities of the regional wind, typically for $u_{*, \, \textup{ERA}} \lesssim 0.2~\textrm{m}~\textrm{s}^{-1}$. For shear velocities larger than $u_{*, \, \textup{ERA}} \simeq 0.3~\textrm{m}~\textrm{s}^{-1}$, the wind reorientation is not apparent. Finally, for intermediate shear velocities, both situations of wind flow reoriented along the dune crest and not reoriented can be successively observed (Online Resource Fig.~\ref{Fig10_supp}). Importantly, these values are not precise thresholds, but indicative of a crossover between regimes, whose physical interpretation is discussed in the next section.
+Dune properties were computed using autocorrelation on the 30-m Digital Elevation Models (DEMs) of the shuttle radar topography mission \citep{Farr2007}. For the North and South Sand Sea stations, we obtain, respectively, orientations of $85^\circ$ and $125^\circ$ with respect to the North, wavelengths of $2.6~\textup{km}$ and $2.3~\textup{km}$ and amplitudes (or half-heights) of $45~\textup{m}$ and $20~\textup{m}$ (Online Resource Fig.~\ref{Fig4_supp} for more details). This agrees with direct measurements made on site.
 
 
 %---------------------------------------------
 \begin{figure}
 \centering
 \includegraphics[scale=1]{Figures/Figure3.pdf}
-\caption{Distributions of wind direction at the North Sand Sea Station for the ERA5-Land climate reanalysis (orange) and the local measurements (blue). In each subplot, both distributions are plotted from the same time steps, selected with constraints on the wind direction (columns) and/or wind velocity (rows) of the ERA5-Land dataset. The grey vertical dashed lines indicate the dune orientation. The numbers at the top right give the percentage of time steps selected in each sub-range, as well as the percentage corresponding to the daytime (between 1000 UTC and 2200 UTC). The purple frame highlights the regime (low wind velocities, nocturnal easterly wind) in which the data from both datasets differ. A similar figure can be obtained for the North Sand Sea station (Online Resource Fig.~\ref{Fig8_supp}).}
+\caption{Temporal comparison between the wind data coming from the ERA5-Land climate reanalysis (orange lines) and from the local measurements (blue lines). Coloured swathes indicate day (between 1000 UTC and 2200 UTC) and night (before 1000 UTC or after 2200 UTC) \textbf{a--b}: Etosha West station in summer. \textbf{b--c}: Etosha West station in winter. \textbf{d--e}: Huab station in summer. \textbf{f--g}: Huab station in winter. Time series of the two other stations are shown in Fig.~\ref{Fig5}.}
 \label{Fig3}
 \end{figure}
 %---------------------------------------------
-
-
-%---------------------------------------------------------------------------------------
-\section{Influence of wind speed and circadian cycle on the atmospheric boundary layer}
-The wind deflection induced by linear dunes has previously been related to the incident angle between wind direction and crest orientation, with a maximum deflection evident for incident angles between $30^{\circ}$ and $70^{\circ}$ \citep{Walker2009, Hesp2015}. In the data analysed here, the most deflected wind at both the North and South Sand Sea stations is seen to be where the incident angle is perpendicular to the giant dunes (Figs.~\ref{Fig1} and \ref{Fig3}, Online Resource Fig.~\ref{Fig8_supp}). It therefore appears that in our case, the incident wind angle is not the dominant control on maximum wind deflection. Further, and as shown in Fig.~\ref{Fig3}, winds of high and low velocities show contrasting behaviour in characteristics of deflection. This suggests a change in hydrodynamical regime between the winds. In this section, we discuss the relevant parameters associated with the dynamical mechanisms that govern the interactions between the atmospheric boundary layer flow and giant dune topographies. This analysis allows us to provide a physics-based interpretation of our measured wind data.
-
 
 %---------------------------------------------
 \begin{figure}
 \centering
 \includegraphics[scale=1]{Figures/Figure4.pdf}
-\caption{\textbf{a--b}: Vertical profiles of the virtual potential temperature at 2 different time steps (day - 03/11/2015 - 1200 UTC, night - 01/13/2013 - 0900 UTC) at the North Sand Sea station. Dots: data from the ERA5 reanalysis. Dashed lines: boundary layer height given by the ERA5 reanalysis (Online Resource section 2). Plain lines: vertical (boundary layer) and linear (free atmosphere) fits to estimate the stratification properties. \textbf{c--f}: Sketches representing the interaction between the giant dunes and the atmospheric flow for different meteorological conditions. \textbf{g}: Streamlines over a sinusoidal topography $\xi(x,y)$ qualitatively representing the effect of low, medium and strong flow confinement, in relation to the above panels (see Appendix~1 for more details). The blue arrow indicates the undisturbed wind direction.}
+\caption{Distributions of wind direction at the Huab and Etosha West stations for the
+ERA5-Land climate reanalysis (orange) and the local measurements (blue). In each subplot,
+both distributions are plotted from the same time steps, selected with constraints on the
+wind wind velocity (rows) in the ERA5-Land dataset. The numbers at the top centre give
+the percentage of time steps selected in each sub-range, as well as the percentage of them
+corresponding to the day (between 1000 UTC and 2200 UTC).}
 \label{Fig4}
+\end{figure}
+%---------------------------------------------
+
+%------------------------
+\subsection{Comparison of local and regional winds}
+\label{section_data_feedback}
+The measured and predicted wind regimes are shown in Fig.~\ref{Fig2}. In the Namib, the regional wind patterns are essentially controlled by the sea breeze, resulting in strong northward components (sometimes slightly deviated by the large scale topography) present in all regional wind roses \citep{lancaster1985}. These daytime winds are dominant during the period October-March (Fig.~\ref{Fig3}f and Online Resource Fig.~\ref{Fig4}f). During April-September, an additional (and often nocturnal) easterly component can also be recorded, induced by the combination of katabatic winds forming in the mountains, and infrequent `berg' winds, which are responsible for the high wind velocities observed \citep{lancaster1984}. The frequency of these easterly components decreases from inland to the coast. As a result, bidirectional wind regimes within the Namib Sand Sea and at the west Etosha site (Fig.~\ref{Fig2}a,c,d) and a unidirectional wind regime on the coast at the outlet of the Huab River (Fig.~\ref{Fig2}b) are observed.
+
+In the case of the Etosha West and Huab stations, the time series of wind speed and direction from the regional predictions quantitatively match those corresponding to the local measurements (Figs.~\ref{Fig3}, ~\ref{Fig4} and Online Resource Fig.~\ref{Fig5_supp}). For the North Sand Sea and South Sand Sea stations within the giant dune field, we observe that this agreement is also good, but limited to the October-March time period (Fig.~\ref{Fig4}a, b, e, f). However, the field-measured wind roses exhibit additional wind components aligned with the giant dune orientation, as evidenced on the satellite images (Fig.~\ref{Fig2}c,d).
+
+More precisely, during the April-September period, the local and regional winds in the interdune match during daytime only, i.e when the southerly/southwesterly sea breeze dominates (Figs.~\ref{Fig5}c,d,g,h and \ref{Fig6}). In the late afternoon and during the night, when the easterly `berg' and katabatic winds blow, measurements and predictions differ. In this case, the angular wind distribution of the local measurements exhibits two additional modes corresponding to reversing winds aligned with the giant dune orientation (purple frame in Fig.~\ref{Fig6}, Online Resource Fig.~\ref{Fig6_supp}). This deviation is also associated with a general attenuation of the wind strength (Online Resource Fig.~\ref{Fig7_supp}). Remarkably, all these figures show that these wind reorientation and attenuation processes occur only at low velocities of the regional wind, typically for $u_{*, \, \textup{ERA}} \lesssim 0.2~\textrm{m}~\textrm{s}^{-1}$. For shear velocities larger than $u_{*, \, \textup{ERA}} \simeq 0.3~\textrm{m}~\textrm{s}^{-1}$, the wind reorientation is not apparent. Finally, for intermediate shear velocities, both situations of wind flow reoriented along the dune crest and not reoriented can be successively observed (Online Resource Fig.~\ref{Fig6_supp}). Importantly, these values are not precise thresholds, but indicative of a crossover between regimes, whose physical interpretation is discussed in the next section.
+
+
+%---------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[scale=1]{Figures/Figure5.pdf}
+\caption{Temporal comparison between the wind data coming from the ERA5-Land climate reanalysis (orange lines) and from the local measurements (blue lines). Coloured swathes indicate day (between 1000 UTC and 2200 UTC) and night (before 1000 UTC or after 2200 UTC) \textbf{a--b}: North Sand Sea station in summer. \textbf{b--c}: North Sand Sea station in winter. \textbf{d--e}: South Sand Sea in summer. \textbf{f--g}: South Sand Sea station in winter. Time series of the two other stations are shown in Fig.~\ref{Fig3}.}
+\label{Fig5}
+\end{figure}
+%---------------------------------------------
+
+%---------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[scale=1]{Figures/Figure6.pdf}
+\caption{Distributions of wind direction at the North Sand Sea (\textbf{a}) and South Sand Sea (\textbf{b}) stations for the ERA5-Land climate reanalysis (orange) and the local measurements (blue). In each subplot, both distributions are plotted from the same time steps, selected with constraints on the wind direction (columns) and/or wind velocity (rows) of the ERA5-Land dataset. The grey vertical dashed lines indicate the dune orientation. The numbers at the top right give the percentage of time steps selected in each sub-range, as well as the percentage corresponding to the daytime (between 1000 UTC and 2200 UTC). Contrary to the Huab and Etosha West stations (Fig.~\ref{Fig4}), histograms does not match low wind velocities. More specifically, the purple frame highlights the regime (low wind velocities, nocturnal easterly wind) in which the data from both datasets differ.}
+\label{Fig6}
+\end{figure}
+%---------------------------------------------
+
+%---------------------------------------------------------------------------------------
+\section{Influence of wind speed and circadian cycle on the atmospheric boundary layer}
+The wind deflection induced by linear dunes has previously been related to the incident angle between wind direction and crest orientation, with a maximum deflection evident for incident angles between $30^{\circ}$ and $70^{\circ}$ \citep{Walker2009, Hesp2015}. In the data analysed here, the most deflected wind at both the North and South Sand Sea stations is seen to be where the incident angle is perpendicular to the giant dunes (Figs.~\ref{Fig2} and \ref{Fig6}). It therefore appears that in our case, the incident wind angle is not the dominant control on maximum wind deflection. Further, and as shown in Fig.~\ref{Fig6}, winds of high and low velocities show contrasting behaviour in characteristics of deflection. This suggests a change in hydrodynamical regime between the winds. In this section, we discuss the relevant parameters associated with the dynamical mechanisms that govern the interactions between the atmospheric boundary layer flow and giant dune topographies. This analysis allows us to provide a physics-based interpretation of our measured wind data.
+
+
+%---------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[scale=1]{Figures/Figure7.pdf}
+\caption{\textbf{a--b}: Vertical profiles of the virtual potential temperature at 2 different time steps (day - 03/11/2015 - 1200 UTC, night - 01/13/2013 - 0900 UTC) at the North Sand Sea station. Dots: data from the ERA5 reanalysis. Dashed lines: boundary layer height given by the ERA5 reanalysis (Online Resource section 2). Plain lines: vertical (boundary layer) and linear (free atmosphere) fits to estimate the stratification properties. \textbf{c--f}: Sketches representing the interaction between the giant dunes and the atmospheric flow for different meteorological conditions. \textbf{g}: Streamlines over a sinusoidal topography $\xi(x,y)$ qualitatively representing the effect of low, medium and strong flow confinement, in relation to the above panels (see Appendix~1 for more details). The blue arrow indicates the undisturbed wind direction.}
+\label{Fig7}
 \end{figure}
 %---------------------------------------------
 
@@ -178,7 +208,7 @@ The wind deflection induced by linear dunes has previously been related to the i
 \label{theoretical_framework}
 Taking as a reference the turbulent flow over a flat bed, the general framework of our study is understanding and describing the flow response to a bed modulation (e.g. a giant dune). Without loss of generality, we can consider in this context an idealised bed elevation in the form of parallel sinusoidal ridges, with wavelength $\lambda$ (or wavenumber $k = 2\pi/\lambda$) and amplitude $\xi_0$, and where the reference flow direction makes a given incident angle with respect to the ridge crest \citep{Andreotti2012}. Part of this response, on which we focus here, is the flow deflection by the ridges. In a simplified way, it can be understood from the Bernoulli principle~\citep{Hesp2015}: as the flow approaches the ridge crest, the compression of the streamlines results in larger flow velocities, and thus lower pressures \citep{Rubin1987}. An incident flow oblique to the ridge is then deflected towards lower pressure zones, i.e towards the crest. Turbulent dissipation tends to increase this effect downstream, resulting in wind deflection along the crest in the lee side~\citep{Gadal2019}.
 
-Flow confinement below a capping surface, which enhances streamline compression, has a strong effect on the hydrodynamic response and typically increases flow deflection. This is the case for bedforms forming in open channel flows such as rivers~\citep{Fourriere2010, Unsworth2018}. This is also relevant for aeolian dunes as they evolve in the turbulent atmospheric boundary layer (ABL) capped by the stratified free atmosphere (FA) \citep{Andreotti2009}. Two main mechanisms, associated with dimensionless numbers must then be considered (Fig.~\ref{Fig4}). First, topographic obstacles typically disturb the flow over a characteristic height similar to their length. As flow confinement is characterised by a thickness $H$, the interaction between the dunes and the wind in the ABL is well captured by the parameter $k H$. The height $H$ is directly related to the radiative fluxes at the Earth surface. It is typically on the order of a kilometre, but significantly varies with the circadian and seasonal cycles. Emerging and small dunes, with wavelengths in the range $20$ to $100$~m, are not affected by the confinement, corresponding to $k H \gg 1$. For giant dunes with kilometric wavelengths, however, their interaction with the FA is significant \citep{Andreotti2009}. This translates into a parameter $kH$ in the range $0.02$--$5$, depending on the moment of the day and the season. A second important mechanism is associated with the existence of a thin intermediate so-called capping layer between the ABL and the FA. It is characterised by a density jump $\Delta\rho$, which controls the `rigidity' of this interface, i.e. how much its deformation affects streamline compression. This is usually quantified using the Froude number \citep{Vosper2004, Stull2006, Sheridan2006, Hunt2006, Jiang2014}:
+Flow confinement below a capping surface, which enhances streamline compression, has a strong effect on the hydrodynamic response and typically increases flow deflection. This is the case for bedforms forming in open channel flows such as rivers~\citep{Fourriere2010, Unsworth2018}. This is also relevant for aeolian dunes as they evolve in the turbulent atmospheric boundary layer (ABL) capped by the stratified free atmosphere (FA) \citep{Andreotti2009}. Two main mechanisms, associated with dimensionless numbers must then be considered (Fig.~\ref{Fig7}). First, topographic obstacles typically disturb the flow over a characteristic height similar to their length. As flow confinement is characterised by a thickness $H$, the interaction between the dunes and the wind in the ABL is well captured by the parameter $k H$. The height $H$ is directly related to the radiative fluxes at the Earth surface. It is typically on the order of a kilometre, but significantly varies with the circadian and seasonal cycles. Emerging and small dunes, with wavelengths in the range $20$ to $100$~m, are not affected by the confinement, corresponding to $k H \gg 1$. For giant dunes with kilometric wavelengths, however, their interaction with the FA is significant \citep{Andreotti2009}. This translates into a parameter $kH$ in the range $0.02$--$5$, depending on the moment of the day and the season. A second important mechanism is associated with the existence of a thin intermediate so-called capping layer between the ABL and the FA. It is characterised by a density jump $\Delta\rho$, which controls the `rigidity' of this interface, i.e. how much its deformation affects streamline compression. This is usually quantified using the Froude number \citep{Vosper2004, Stull2006, Sheridan2006, Hunt2006, Jiang2014}:
 %
 \begin{equation}
 \mathcal{F} = \displaystyle\frac{U}{\sqrt{\displaystyle\frac{\Delta\rho}{\rho_{0}}gH}},
@@ -187,15 +217,15 @@ Flow confinement below a capping surface, which enhances streamline compression,
 %
 where $U$ is the wind velocity at the top of the ABL and $\rho_{0}$ its average density. The intensity of the stratification, i.e. the amplitude of the gradient $\left | \partial_z \rho \right|$, also impacts its ability to deform the capping layer under the presence of an underlying obstacle, and thus affects the influence of flow confinement. This can be quantified using the internal Froude number~\citep{Vosper2004, Stull2006, Sheridan2006, Hunt2006, Jiang2014} $\mathcal{F}_{\textup{I}} = k U/N$, where $N = \sqrt{-g \partial_z \rho / \rho_{0}}$ is the the Brunt-V\"ais\"al\"a frequency \citep{Stull1988}. Both Froude numbers have in practice the same qualitative effect on flow confinement, and we shall restrict the main discussion to $\mathcal{F}$ only.
 
-With this theoretical framework in mind, and in the context of the measured wind data in the North and South Sand Sea stations, the smallest wind disturbances are expected to occur during the day, when the ABL depth is the largest and comparable to the dune wavelength ($k H \gtrsim 1$), which corresponds to a weak confinement situation (Fig.~\ref{Fig4}c,d). In contrast, large wind disturbances are expected to occur during the night, when the confinement is mainly induced by a shallow ABL (Fig.~\ref{Fig4}e). However, this strong confinement can be somewhat reduced in the case of strong winds, corresponding to large values of the Froude number and a less `rigid' interface (Fig.~\ref{Fig4}f). This is in qualitative agreement with the transition from deflected to non-deflected winds related to low and high velocities observed in our data (Sec.~\ref{section_data_feedback}).
+With this theoretical framework in mind, and in the context of the measured wind data in the North and South Sand Sea stations, the smallest wind disturbances are expected to occur during the day, when the ABL depth is the largest and comparable to the dune wavelength ($k H \gtrsim 1$), which corresponds to a weak confinement situation (Fig.~\ref{Fig7}c,d). In contrast, large wind disturbances are expected to occur during the night, when the confinement is mainly induced by a shallow ABL (Fig.~\ref{Fig7}e). However, this strong confinement can be somewhat reduced in the case of strong winds, corresponding to large values of the Froude number and a less `rigid' interface (Fig.~\ref{Fig7}f). This is in qualitative agreement with the transition from deflected to non-deflected winds related to low and high velocities observed in our data (Sec.~\ref{section_data_feedback}).
 
 
 %---------------------------------------------
 \begin{figure}
 \centering
-\includegraphics[scale=1]{Figures/Figure5.pdf}
-\caption{Regime diagrams of the wind deviation $\delta_{\theta}$ (\textbf{a}) and relative attenuation/amplification $\delta_{u}$ (\textbf{b}) in the space $(\mathcal{F}, \, kH)$, containing the data from both the North Sand Sea and South Sand Sea stations. Green dashed lines empirically delimit the different regimes. The point density in each bin of the diagrams is shown in Online Resource Fig.~\ref{Fig14_supp} -- 95\% of the data occur in the range $-1 < \delta u < 1$. Similar regime diagrams in the spaces $(\mathcal{F}_{\textup{I}}, \, kH)$ and $(\mathcal{F}_{\textup{I}}, \, \mathcal{F})$ are shown in Online Resource Fig.~\ref{Fig15_supp}.}
-\label{Fig5}
+\includegraphics[scale=1]{Figures/Figure8.pdf}
+\caption{Regime diagrams of the wind deviation $\delta_{\theta}$ (\textbf{a}) and relative attenuation/amplification $\delta_{u}$ (\textbf{b}) in the space $(\mathcal{F}, \, kH)$, containing the data from both the North Sand Sea and South Sand Sea stations. Green dashed lines empirically delimit the different regimes. The point density in each bin of the diagrams is shown in Online Resource Fig.~\ref{Fig10_supp} -- 95\% of the data occur in the range $-1 < \delta u < 1$. Similar regime diagrams in the spaces $(\mathcal{F}_{\textup{I}}, \, kH)$ and $(\mathcal{F}_{\textup{I}}, \, \mathcal{F})$ are shown in Online Resource Fig.~\ref{Fig11_supp}.}
+\label{Fig8}
 \end{figure}
 %---------------------------------------------
 
@@ -208,37 +238,36 @@ We can go one step further and analyse how our data quantitatively spread over t
 \delta_{\textup{u}} = \frac{u_{*}^{\textup{ERA}} -  u_{*}^{\textup{station}}}{u_{*}^{\textup{ERA}}}.
 \end{equation}
 %
-These two quantities are represented as maps in the plane $(\mathcal{F}, \, kH)$ (Fig.~\ref{Fig5}a,b), and one can clearly identify different regions in these graphs. Small wind disturbances (small $\delta_{\theta}$ and $\delta_{\textup{u}}$) are located in the top-right part of the diagrams, corresponding to a regime with low-interaction as well as low-confinement ($k H$ and $\mathcal{F}$ large enough, Fig.~\ref{Fig4}d). Lower values of $k H$ (stronger interaction) or of Froude number (stronger confinement) both lead to an increase in wind disturbances, both in terms of orientation and velocity. Below a crossover value $k H \simeq 0.3$, wind disturbance is less sensitive to the $\mathcal{F}$-value. This is probably due to enhanced non-linear effects linked to flow modulation by the obstacle when confinement is strong. The Froude number also controls a transition from damped to amplified wind velocities in the interdune, with a crossover around $\mathcal{F} \simeq 0.4$ (Fig.~\ref{Fig5}b). Such an amplification is rather unexpected. Checking the occurrence of the corresponding data, it appears that these amplifications are associated with the southerly sea breeze, and occur dominantly during the October-March period, when the other easterly wind is not present (Online Resource Fig.~\ref{Fig16_supp}a--b). Furthermore, they occur less frequently during the afternoon, and more frequently at the end of the day (Online Resource Fig.~\ref{Fig16_supp}c). This effect may be linked to a change in the flow behaviour in the lee side of the obstacles but further measurements are needed in order to assess the different possibilities \citep{baines1995, Vosper2004}.
+These two quantities are represented as maps in the plane $(\mathcal{F}, \, kH)$ (Fig.~\ref{Fig8}a,b), and one can clearly identify different regions in these graphs. Small wind disturbances (small $\delta_{\theta}$ and $\delta_{\textup{u}}$) are located in the top-right part of the diagrams, corresponding to a regime with low-interaction as well as low-confinement ($k H$ and $\mathcal{F}$ large enough, Fig.~\ref{Fig7}d). Lower values of $k H$ (stronger interaction) or of Froude number (stronger confinement) both lead to an increase in wind disturbances, both in terms of orientation and velocity. Below a crossover value $k H \simeq 0.3$, wind disturbance is less sensitive to the $\mathcal{F}$-value. This is probably due to enhanced non-linear effects linked to flow modulation by the obstacle when confinement is strong. The Froude number also controls a transition from damped to amplified wind velocities in the interdune, with a crossover around $\mathcal{F} \simeq 0.4$ (Fig.~\ref{Fig8}b). Such an amplification is rather unexpected. Checking the occurrence of the corresponding data, it appears that these amplifications are associated with the southerly sea breeze, and occur dominantly during the October-March period, when the other easterly wind is not present (Online Resource Fig.~\ref{Fig12_supp}a--b). Furthermore, they occur less frequently during the afternoon, and more frequently at the end of the day (Online Resource Fig.~\ref{Fig12_supp}c). This effect may be linked to a change in the flow behaviour in the lee side of the obstacles but further measurements are needed in order to assess the different possibilities \citep{baines1995, Vosper2004}.
 
 
 %---------------------------------------------
 \begin{figure}
 \centering
-\includegraphics[scale=1]{Figures/Figure6.pdf}
+\includegraphics[scale=1]{Figures/Figure9.pdf}
 \caption{Implications for smaller scale patterns in (\textbf{a}) the South Sand Sea and (\textbf{b}) North Sand Sea. The ellipses indicate the different types of elongating dunes, at large (plain line) and small (dashed line) scales. Dune orientation are predicted using the model of \citet{Courrech2014} from the sand flux angular distributions, shown here (roses and resultant transport direction) for typical values (grain size $180~\mu$m, flux-up ratio of $1.6$). Code for corresponding arrows: use of ERA5-Land data (plain line), use of local measurements (dashed line), prediction for the bed instability growth mechanism (blue), prediction for the elongation growth mechanism (red). Wedges show the uncertainty on the orientation calculation when parameters are varied. The black dots indicate the location of the meteorological stations with respect to the dunes. See Appendix 2 for additional details.}
-\label{Fig6}
+\label{Fig9}
 \end{figure}
 %---------------------------------------------
 
 
 %---------------------------------------------------------------------------------------
 \section{Discussion and conclusion}
-The feedback of the giant dunes on the wind flow has important implications for smaller scales bedforms. As illustrated in Fig.~\ref{Fig6}, small linear dunes ($\sim50$~m wide) are often present in the 1--2~km interdune between giant linear dunes in the Namib Sand Sea \citep{Livingstone2010}. These smaller dunes do not exhibit the same orientation as the large ones, and are sometimes named `crossing dunes'. Whilst differences between large and small scale dune patterns are observed ubiquitously, they are largely attributed to the presence of two different dune growth mechanisms, leading to two different dune patterns (orientations and/or morphologies) for the same wind regime~\citep{Courrech2014, Runyon2017, lu2017, Song2019, Gadal2020, Hu2021}. Here, however, our arguments enable the development of differing orientations for the small and giant linear dunes whilst also imposing the same dune growth mechanism (elongating mode). Figure~\ref{Fig6} shows how the orientations for the small and giant dunes can be derived from the locally measured and regionally predicted winds respectively (red arrows in Fig.~\ref{Fig6}). These predictions require a specification for the threshold of eolian sand transport. Importantly, its value expressed as a shear velocity $u_{\textup{th}} \simeq 0.15~\textup{m}\textup{s}^{-1}$ is reached in the deflected wind regime already. The feedback of the giant dunes on the wind described in this study thus provides a potential explanation for the existence of these small linear dunes elongating across the interdune, a dynamic which has remained unresolved to date. These crossing dunes could provide additional constraints for the inference of local winds from bedforms, similarly to that currently performed on Mars using ripple orientations \citep{Liu2015, Hood2021}. Further work is needed to investigate these processes in more detail, including measurements of sediment transport and flow on the top of dunes.
+The feedback of the giant dunes on the wind flow has important implications for smaller scales bedforms. As illustrated in Fig.~\ref{Fig9}, small linear dunes ($\sim50$~m wide) are often present in the 1--2~km interdune between giant linear dunes in the Namib Sand Sea \citep{Livingstone2010}. These smaller dunes do not exhibit the same orientation as the large ones, and are sometimes named `crossing dunes'. Whilst differences between large and small scale dune patterns are observed ubiquitously, they are largely attributed to the presence of two different dune growth mechanisms, leading to two different dune patterns (orientations and/or morphologies) for the same wind regime~\citep{Courrech2014, Runyon2017, lu2017, Song2019, Gadal2020, Hu2021}. Here, however, our arguments enable the development of differing orientations for the small and giant linear dunes whilst also imposing the same dune growth mechanism (elongating mode). Figure~\ref{Fig9} shows how the orientations for the small and giant dunes can be derived from the locally measured and regionally predicted winds respectively (red arrows in Fig.~\ref{Fig9}). These predictions require a specification for the threshold of eolian sand transport. Importantly, its value expressed as a shear velocity $u_{\textup{th}} \simeq 0.15~\textup{m}\textup{s}^{-1}$ is reached in the deflected wind regime already. The feedback of the giant dunes on the wind described in this study thus provides a potential explanation for the existence of these small linear dunes elongating across the interdune, a dynamic which has remained unresolved to date. These crossing dunes could provide additional constraints for the inference of local winds from bedforms, similarly to that currently performed on Mars using ripple orientations \citep{Liu2015, Hood2021}. Further work is needed to investigate these processes in more detail, including measurements of sediment transport and flow on the top of dunes.
 
 This study presents the evidence that wind flow patterns around giant dunes are influenced by the atmospheric boundary layer, particularly during nocturnal conditions. It leaves open the debate as to whether the size of giant dunes is limited by the depth of this layer \citep{Andreotti2009}, in contrast to an unconstrained dune growth, ever-slower with size \citep{Gunn2021b}. More field evidence is needed from additional dune fields, but this mechanism would then allow for the inference of the ABL depth from giant bedform wavelengths where measurements are not feasible or available, such as Titan \citep{Lorenz2010}.
 
 
 To conclude on conditions under which the ERA5-Land reanalysis data can reliably be used to study dune morphodynamics, we summarise the comparison of local (direct measurements) and regional (climate reanalysis) wind data. In flat areas, the agreement between the two confirms the ability of the ERA5-Land climate reanalysis to predict the wind regime down to scales $\sim10$~km, i.e the model grid. When smaller scale topographies are present (giant dunes in our case), locally measured winds can significantly differ from the regionally predicted ones. This is the case when the disturbances induced by the dunes interact with the lower part of the ABL vertical structure, which presents circadian variations. During the day, when the capping layer is typically high, this interaction is small, and the ERA5-Land predictions are also quantitatively consistent with the local data. During the night, however, the presence of a shallow atmospheric boundary layer induces a strong confinement of the flow, and is associated with large wind deflection by the dunes. Importantly, we find that this effect can be counterbalanced for large wind velocities, which are capable of deforming the capping layer, thus decreasing the influence of the confinement.
 
-The theoretical computation of the wind disturbances induced by sinusoidal ridges under flow confinement has been performed in the linear limit \citep{Andreotti2009, Andreotti2012}, i.e. when the aspect ration of these ridges is small ($k\xi_0 \ll 1$). These models are able to qualitatively reproduce the observed wind deflection (Appendix 1, Online Resource Figs.~\ref{Fig15_supp} and \ref{Fig17_supp}), and thus provide the physical support for the interpretation we propose here based on hydrodynamic regimes. However, these models cannot quantitatively predict the magnitude of these observations, probably due to the presence of expected non-linearities in high confinement situations linked to strong flow modulations. Besides, these linear calculations only predict wind attenuation in the interdune, in contrast with the observed enhanced velocities associated with particular evening winds from the South during the period October-March (Online Resource Fig.~\ref{Fig16_supp}). Some other models predict different spatial flow structures in response to a modulated topography, such as lee waves and rotors \citep{baines1995, Vosper2004}. However, our measurements are located at a single point in the interdune, so we are unable to explore these types of responses. Data at different places along and across the ridges are needed to investigate and possibly map such flow structures, and for further comparisons with the models.
+The theoretical computation of the wind disturbances induced by sinusoidal ridges under flow confinement has been performed in the linear limit \citep{Andreotti2009, Andreotti2012}, i.e. when the aspect ration of these ridges is small ($k\xi_0 \ll 1$). These models are able to qualitatively reproduce the observed wind deflection (Appendix 1, Online Resource Figs.~\ref{Fig11_supp} and \ref{Fig13_supp}), and thus provide the physical support for the interpretation we propose here based on hydrodynamic regimes. However, these models cannot quantitatively predict the magnitude of these observations, probably due to the presence of expected non-linearities in high confinement situations linked to strong flow modulations. Besides, these linear calculations only predict wind attenuation in the interdune, in contrast with the observed enhanced velocities associated with particular evening winds from the South during the period October-March (Online Resource Fig.~\ref{Fig12_supp}). Some other models predict different spatial flow structures in response to a modulated topography, such as lee waves and rotors \citep{baines1995, Vosper2004}. However, our measurements are located at a single point in the interdune, so we are unable to explore these types of responses. Data at different places along and across the ridges are needed to investigate and possibly map such flow structures, and for further comparisons with the models.
 
 
 %---------------------------------------------------------------------------------------
 \begin{acknowledgements}
 We would like to acknowledge the contributors of the following open-source python librairies, Matplotlib \citep{Hunter2007}, Numpy \citep{Harris2020} and Scipy \citep{Virtanen2020}, which provide an incredibly efficient ecosystem allowing scientific research in Python.
 
-All data used in this study can be found in \citet{DataPaper}. Note that it contains modified Copernicus Climate Change Service Information (2021). Neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus Information or Data it
-contains. Fully documented codes used to analyse this study are available at https://github.com/Cgadal/GiantDunes (will be made public upon acceptance of this manuscript for publication).
+All data used in this study can be found in \citet{DataPaper}. Note that it contains modified Copernicus Climate Change Service Information (2021). Neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus Information or Data it contains. Fully documented codes used to analyse this study are available at https://github.com/Cgadal/GiantDunes (will be made public upon acceptance of this manuscript for publication).
 
 % ERA5 and ERA5-Land datasets are publicly available at the Copernicus Climate Change Service (C3S) Climate Data Store. As such, It contains modified Copernicus Climate Change
 % Service Information (2021). Neither the European Commission nor ECMWF is
@@ -262,7 +291,7 @@ Following the work of \citet{Fourriere2010}, \citet{Andreotti2012} and \citet{An
 \xi = \xi_{0}\cos\left[k\left(\cos(\alpha)y - \sin(\alpha)x\right)\right],
 \end{equation}
 %
-which is also a good approximation for the giant dunes observed in the North Sand Sea and South Sand Sea Station (Fig.~\ref{Fig1} and Online Resource Fig.~\ref{Fig5_supp}). Here, $x$ and $y$ are the streamwise and spanwise coordinates, $k=2\pi/\lambda$ the wavenumber of the sinusoidal perturbation, $\alpha$ its crest orientation with respect to the $x$-direction (anticlockwise) and $\xi_{0}$ its amplitude. The two components of the basal shear stress $\boldsymbol{\tau} = \rho_{0} u_{*}\boldsymbol{u}_{*}$, constant in the flat bottom reference case, can then be generically written as:
+which is also a good approximation for the giant dunes observed in the North Sand Sea and South Sand Sea Station (Fig.~\ref{Fig2} and Online Resource Fig.~\ref{Fig4_supp}). Here, $x$ and $y$ are the streamwise and spanwise coordinates, $k=2\pi/\lambda$ the wavenumber of the sinusoidal perturbation, $\alpha$ its crest orientation with respect to the $x$-direction (anticlockwise) and $\xi_{0}$ its amplitude. The two components of the basal shear stress $\boldsymbol{\tau} = \rho_{0} u_{*}\boldsymbol{u}_{*}$, constant in the flat bottom reference case, can then be generically written as:
 %
 \begin{align}
 \tau_{x} & = \tau_{0}\left(1 + k\xi_{0}\sqrt{\mathcal{A}_{x}^{2} + \mathcal{B}_{x}^{2}}\cos\left[k\left(\cos(\alpha)y - \sin(\alpha)x\right) + \phi_{x}\right]\right), \\
@@ -282,9 +311,9 @@ Following \citet{Andreotti2012}, the effect of the incident wind direction can b
 %
 where $\mathcal{A}_{0}$ and $\mathcal{B}_{0}$ are now two coefficients independent of the dune orientation $\alpha$, corresponding to the transverse case ($\alpha=90$). For a fully turbulent boundary layer capped by a stratified atmosphere, these coefficients depend on $k H$, $k z_{0}$, $\mathcal{F}$ and $\mathcal{F}_{\textup{I}}$ \citep{Andreotti2009}. In this study, we assume a constant hydrodynamic roughness $z_{0} \simeq 1$~mm (Online Resource section 1). For the considered giant dunes, this leads to $k z_{0} \simeq 2 \cdot 10^{-6}$, as their wavelength is $\lambda \simeq 2.4$~km (or $k \simeq 2 \cdot 10^{-3}$~m$^{-1}$). Values of $z_{0}$ extracted from field data indeed typically fall between 0.1 mm and 10 mm \citep{Sherman2008, Field2018}. Importantly, $\mathcal{A}_{0}$ and $\mathcal{B}_{0}$ do not vary much in the corresponding range of $k z_{0}$ \citep{Fourriere2010}, and the results presented here are robust with respect to this choice.
 
-With capping layer height and Froude numbers computed from the ERA5-Land time series, the corresponding $\mathcal{A}_{0}$ and $\mathcal{B}_{0}$ can be deduced, as displayed in Online Resource Fig.~\ref{Fig17_supp}. Interestingly, it shows similar regimes as in the diagrams of Fig.~\ref{Fig5} and Online Resource Fig.~\ref{Fig15_supp}a,b, supporting the underlying physics. However, the agreement is qualitative only. Further, the linearity assumption of the theoretical framework requires $\left(\vert \tau \vert - \tau_{0}\right)/\tau_{0} \ll 1$, which translates into $k\xi\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}} \ll 1$. In our case, the giant dune morphology gives $k\xi_0 \simeq 0.1$, which means that one quits the regime of validity of the linear theory when the coefficient modulus $\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}$ becomes larger than a few units. In accordance with the theoretical expectations, these coefficients present values on the order of unity ($\mathcal{A}_{0} \simeq 3$ and $\mathcal{B}_{0} \simeq 1$) in unconfined situations \citep{Claudin2013, Lu2021}. In contrast and as illustrated in Online Resource Fig.~\ref{Fig17_supp}a,b, larger values are predicted in case of strong confinement, which does not allow us to proceed to further quantitative comparison with the data.
+With capping layer height and Froude numbers computed from the ERA5-Land time series, the corresponding $\mathcal{A}_{0}$ and $\mathcal{B}_{0}$ can be deduced, as displayed in Online Resource Fig.~\ref{Fig13_supp}. Interestingly, it shows similar regimes as in the diagrams of Fig.~\ref{Fig8} and Online Resource Fig.~\ref{Fig11_supp}a,b, supporting the underlying physics. However, the agreement is qualitative only. Further, the linearity assumption of the theoretical framework requires $\left(\vert \tau \vert - \tau_{0}\right)/\tau_{0} \ll 1$, which translates into $k\xi\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}} \ll 1$. In our case, the giant dune morphology gives $k\xi_0 \simeq 0.1$, which means that one quits the regime of validity of the linear theory when the coefficient modulus $\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}$ becomes larger than a few units. In accordance with the theoretical expectations, these coefficients present values on the order of unity ($\mathcal{A}_{0} \simeq 3$ and $\mathcal{B}_{0} \simeq 1$) in unconfined situations \citep{Claudin2013, Lu2021}. In contrast and as illustrated in Online Resource Fig.~\ref{Fig13_supp}a,b, larger values are predicted in case of strong confinement, which does not allow us to proceed to further quantitative comparison with the data.
 
-Finally, the linear model is also able to reproduce the enhancement of the flow deflection over the sinusoidal ridges when $\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}$ is increased (Online Resource Fig.~\ref{Fig17_supp}). Here, using $k\xi_0 \simeq 0.1$ to be representative of the amplitude of the giant dunes at the North Sand Sea station, the coefficient modulus is bounded to $10$.
+Finally, the linear model is also able to reproduce the enhancement of the flow deflection over the sinusoidal ridges when $\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}$ is increased (Online Resource Fig.~\ref{Fig13_supp}). Here, using $k\xi_0 \simeq 0.1$ to be representative of the amplitude of the giant dunes at the North Sand Sea station, the coefficient modulus is bounded to $10$.
 
 
 %---------------------------------------------------------------------------------------
@@ -310,7 +339,7 @@ Recently, \citet{Pahtz2020} suggested an additional quadratic term in Shields to
 \frac{q_{\textup{sat, t}}}{Q} = \frac{2\sqrt{\Theta_{\textup{th}}}}{\kappa\mu}\left(\Theta - \Theta_{\textup{th}}\right)\left(1 +\frac{C_{\textup{M}}}{\mu}\left[\Theta - \Theta_{\textup{th}}\right]\right),
 \end{equation}
 %
-where $\kappa = 0.4$ is the von K\'arm\'an constant, $C_{\rm M} \simeq 1.7$ a constant and $\mu \simeq 0.6$ is a friction coefficient, taken to be the avalanche slope of the granular material. The fit of this law to the experimental data of \citet{Creyssels2009} and \citet{Ho2011} gives $\Theta_{\textup{th}} = 0.0035$. The fit of Eq.~\ref{transport_law_quadratic} on these same data similarly gives $\Omega \simeq 8$ and $\Theta_{\textup{th}} = 0.005$. The sand flux angular distributions and the dune orientations in Fig.~\ref{Fig6} are calculated using this law \eqref{transport_law_quartic}. We have checked that using the ordinary linear relationship \eqref{transport_law_quadratic} instead does not change the predicted dune orientations by more than a few degrees.
+where $\kappa = 0.4$ is the von K\'arm\'an constant, $C_{\rm M} \simeq 1.7$ a constant and $\mu \simeq 0.6$ is a friction coefficient, taken to be the avalanche slope of the granular material. The fit of this law to the experimental data of \citet{Creyssels2009} and \citet{Ho2011} gives $\Theta_{\textup{th}} = 0.0035$. The fit of Eq.~\ref{transport_law_quadratic} on these same data similarly gives $\Omega \simeq 8$ and $\Theta_{\textup{th}} = 0.005$. The sand flux angular distributions and the dune orientations in Fig.~\ref{Fig9} are calculated using this law \eqref{transport_law_quartic}. We have checked that using the ordinary linear relationship \eqref{transport_law_quadratic} instead does not change the predicted dune orientations by more than a few degrees.
 
 %------------------------
 \paragraph{Dune orientations} ---
@@ -336,7 +365,7 @@ Similarly, the dune orientation corresponding to the elongation mechanism is the
 %
 where $\langle.\rangle$ denotes a vectorial time average. The unitary vectors $\boldsymbol{e}_{WE}$, $\boldsymbol{e}_{SN}$ and $\boldsymbol{e}_{\theta}$ are in the West-East, South-North and wind directions, respectively.
 
-The resulting computed dune orientations, blue and red arrows in Fig.~\ref{Fig6}, then depend on a certain number of parameters (grain properties, flux-up ratio, etc.), for which we take typical values for aeolian sandy deserts. Due to the lack of measurements in the studied places, some uncertainties can be expected. We therefore run a sensitivity test by calculating the dune orientations for grain diameters ranging from $100~\mu\textup{m}$ to $400~\mu\textup{m}$ and for a speed-up ratio between $0.1$ and $10$ (wedges in Fig.~\ref{Fig6}).
+The resulting computed dune orientations, blue and red arrows in Fig.~\ref{Fig9}, then depend on a certain number of parameters (grain properties, flux-up ratio, etc.), for which we take typical values for aeolian sandy deserts. Due to the lack of measurements in the studied places, some uncertainties can be expected. We therefore run a sensitivity test by calculating the dune orientations for grain diameters ranging from $100~\mu\textup{m}$ to $400~\mu\textup{m}$ and for a speed-up ratio between $0.1$ and $10$ (wedges in Fig.~\ref{Fig9}).
 
 
 \clearpage
@@ -387,13 +416,13 @@ We do not have precise velocity vertical profiles to be able to deduce an accura
 %
 where $\langle.\rangle$ denotes time average. This parameter is computed for values of $z_0$ in ERA5-Land analysis ranging from $10^{-5}$~m to $10^{-2}$~m for the four different stations. Note that for the North Sand Sea and South Sand Sea stations, where the giant dunes feedback presumably affect the wind, we take into account the non-deflected winds only in the calculation of $\delta$ (with a $15^\circ$ tolerance).
 
-As shown in Online Resource Fig.~\ref{Fig4_supp}, the minimum values of $\delta$ in the space ($z_{0}^{\textup{ERA5Land}}$, $z_{0}^{\textup{local}}$) form a line. We thus set the roughness in the ERA5-Land analysis to the typical value $z_0=10^{-3}$~m, and deduce the corresponding ones for the local stations. It leads to $2.7$, $0.8$, $0.1$ and $0.5$~mm for the Etosha West, North Sand Sea, Huab and South Sand Sea stations, respectively. Importantly, this approach somewhat impacts the calculation of the shear velocities, but not that of the wind directions. As such, most of our conclusions are independent of such a choice. However, it may affect the magnitude of the wind velocity attenuation/amplification in flow confinement situations.
+As shown in Online Resource Fig.~\ref{Fig3_supp}, the minimum values of $\delta$ in the space ($z_{0}^{\textup{ERA5Land}}$, $z_{0}^{\textup{local}}$) form a line. We thus set the roughness in the ERA5-Land analysis to the typical value $z_0=10^{-3}$~m, and deduce the corresponding ones for the local stations. It leads to $2.7$, $0.8$, $0.1$ and $0.5$~mm for the Etosha West, North Sand Sea, Huab and South Sand Sea stations, respectively. Importantly, this approach somewhat impacts the calculation of the shear velocities, but not that of the wind directions. As such, most of our conclusions are independent of such a choice. However, it may affect the magnitude of the wind velocity attenuation/amplification in flow confinement situations.
 
 
 %---------------------------------------------------------------------------------------
 \section*{2. Computation of the ABL characteristics}
 
-The estimation of the non-dimensional numbers associated with the ABL requires the computation of representative meteorological quantities. In arid areas, the vertical structure of the atmosphere can be approximated by a well mixed convective boundary layer of height $H$, topped by the stratified free atmosphere \citep{Stull1988, Shao2008}. In this context, one usually introduces the virtual potential temperature $T_{\textup{vp}}$, which is a constant $T_{0}$ inside the boundary layer, and increases linearly in the FA (Online Resource Fig.~\ref{Fig12_supp}a):
+The estimation of the non-dimensional numbers associated with the ABL requires the computation of representative meteorological quantities. In arid areas, the vertical structure of the atmosphere can be approximated by a well mixed convective boundary layer of height $H$, topped by the stratified free atmosphere \citep{Stull1988, Shao2008}. In this context, one usually introduces the virtual potential temperature $T_{\textup{vp}}$, which is a constant $T_{0}$ inside the boundary layer, and increases linearly in the FA (Online Resource Fig.~\ref{Fig8_supp}a):
 %
 \begin{equation}
 T_{\textup{vp}}(z) =
@@ -404,7 +433,7 @@ T_{0}\left(1 + \displaystyle\frac{\Delta T_{\textup{vp}}}{T_{0}} + \frac{N^{2}}{
 \label{TvpVerticalProfile}
 \end{equation}
 %
-where $\Delta T_{\textup{vp}}$ is the temperature discontinuity at the capping layer and $N = \sqrt{g \partial_z T_{\textup{vp}} / T_{0}}$ is the Brunt-V\"ais\"al\"a frequency, characteristic of the stratification. Note that, under the usual Boussinesq approximation, temperature and air density variations are simply related by $\delta T_{\textup{vp}}/T_{0} \simeq - \delta\rho/\rho_{0}$ (see Online Resource of \citet{Andreotti2009}), so that $N$ can equivalently be defined from the density gradient as next to Eq.~\ref{FroudeNumber}.
+where $\Delta T_{\textup{vp}}$ is the temperature discontinuity at the capping layer and $N = \sqrt{g \partial_z T_{\textup{vp}} / T_{0}}$ is the Brunt-V\"ais\"al\"a frequency, characteristic of the stratification. Note that, under the usual Boussinesq approximation, temperature and air density variations are simply related by $\delta T_{\textup{vp}}/T_{0} \simeq - \delta\rho/\rho_{0}$ (see Online Resource of \citet{Andreotti2009}), so that $N$ can equivalently be defined from the density gradient as next to \eqref{FroudeNumber}.
 
 The ERA5 dataset provides vertical profiles of the geopotential $\phi$, the actual temperature $T$ and the specific humidity $\eta$ at given pressure levels $P$. The vertical coordinate is then calculated as:
 %
@@ -427,13 +456,13 @@ where $P_{0} = 10^{5}$~Pa is the standard pressure, $R = 8.31$~J/K is the ideal 
 
 The ERA5 dataset also provides an estimate of the ABL depth $H$, based on the behaviour of the Richardson vertical profile. This dimensionless number is defined as the ratio of buoyancy and flow shear terms, and can be expressed as $\textup{Ri} = N^2/(\partial_z u)^2$. It vanishes in the lower well-mixed layer where $T_{\textup{vp}}$ is constant, and increases in the stratified FA. Following the method and calibration of \citet{Vogelezang1996,seidel2012}, the value $\textup{Ri}(z) \simeq 0.25$ has been shown to be a good empirical criterion to give $z \simeq H$ within a precision varying from $50$\% for the shallower ABL (e.g. at night) to $20$\% for situations of stronger convection.
 
-Examples of vertical profiles of the virtual potential temperature deduced from ERA5 are shown in Online Resource Fig.~\ref{Fig12_supp}a. For each of them, an average temperature is computed below the ABL depth ($z<H$), and a linear function is fitted above, allowing us to extract the temperature jump $\Delta T_{\textup{vp}}$. Importantly, some profiles display a vertical structure that cannot be approximated by the simple form \eqref{TvpVerticalProfile} used here (Online Resource Fig.~\ref{Fig12_supp}b). In practice, we removed from the analysis all of those leading to the unphysical case $\Delta T_{\textup{vp}}<0$. We have noticed that these `ill-processed' profiles dominantly occur in winter and are evenly spread across the hours of the day. Importantly, they represent $\simeq12$\% of the data only (Online Resource Fig.~\ref{Fig12_supp}c,d), and we are thus confident that this data treatment does not affect our conclusions.
+Examples of vertical profiles of the virtual potential temperature deduced from ERA5 are shown in Online Resource Fig.~\ref{Fig8_supp}a. For each of them, an average temperature is computed below the ABL depth ($z<H$), and a linear function is fitted above, allowing us to extract the temperature jump $\Delta T_{\textup{vp}}$. Importantly, some profiles display a vertical structure that cannot be approximated by the simple form \eqref{TvpVerticalProfile} used here (Online Resource Fig.~\ref{Fig8_supp}b). In practice, we removed from the analysis all of those leading to the unphysical case $\Delta T_{\textup{vp}}<0$. We have noticed that these `ill-processed' profiles dominantly occur in winter and are evenly spread across the hours of the day. Importantly, they represent $\simeq12$\% of the data only (Online Resource Fig.~\ref{Fig8_supp}c,d), and we are thus confident that this data treatment does not affect our conclusions.
 
 %---------------------------------------------
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure1_supp.pdf}
-\caption{Photographs of the meteorological stations. \textbf{a}: South Sand Sea station. \textbf{b--c}: North Sand Sea station. \textbf{d}: Huab station. \textbf{e} Etosha West station.}
+\caption{Gant chart representing the valid time steps for the two data sets, for all stations.}
 \label{Fig1_supp}
 \end{figure}
 %---------------------------------------------
@@ -442,7 +471,7 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure2_supp.pdf}
-\caption{Gant chart representing the valid time steps for the two data sets, for all stations.}
+\caption{Comparison between raw local wind measurements, and hourly-averaged data for South Sand Sea station. \textbf{a}: wind direction. \textbf{b}: wind velocity at height $2.6$~m.}
 \label{Fig2_supp}
 \end{figure}
 %---------------------------------------------
@@ -451,34 +480,34 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure3_supp.pdf}
-\caption{Comparison between raw local wind measurements, and hourly-averaged data for South Sand Sea station. \textbf{a}: wind direction. \textbf{b}: wind velocity at height $2.6$~m.}
+\caption{Calibration of hydrodynamic roughness. The parameter $\delta$ \eqref{metric_roughness} quantifying the difference between local and predicted winds is shown in colorscale as a function of the hydrodynamic roughnesses chosen for the ERA5-Land and for local winds, for the (\textbf{a}) Etosha West, (\textbf{b}) North Sand Sea, (\textbf{c}) Huab and (\textbf{d}) South Sand Sea stations. The red dashed and plain lines shows the minima of $\delta$ and the identity line, respectively. The orange lines and dots highlight the chosen hydrodynamic roughnesses for the local winds deduced from setting $z_{0}^{\textup{ERA5Land}} = 1$~mm.}
 \label{Fig3_supp}
 \end{figure}
 %---------------------------------------------
 
 %---------------------------------------------
 \begin{figure}[p]
-\centering
-\includegraphics[scale=1]{Figures/Figure4_supp.pdf}
-\caption{Calibration of hydrodynamic roughness. The parameter $\delta$ (Eq.~\ref{metric_roughness}) quantifying the difference between local and predicted winds is shown in colorscale as a function of the hydrodynamic roughnesses chosen for the ERA5-Land and for local winds, for the (\textbf{a}) Etosha West, (\textbf{b}) North Sand Sea, (\textbf{c}) Huab and (\textbf{d}) South Sand Sea stations. The red dashed and plain lines shows the minima of $\delta$ and the identity line, respectively. The orange lines and dots highlight the chosen hydrodynamic roughnesses for the local winds deduced from setting $z_{0}^{\textup{ERA5Land}} = 1$~mm.}
-\label{Fig4_supp}
+  \centering
+  \includegraphics[scale=1]{Figures/Figure4_supp.pdf}
+  \caption{Analysis of the DEMs of the North Sand Sea (left column -- panels \textbf{a}, \textbf{b}, \textbf{c}) and South Sand Sea (right column -- panels \textbf{d}, \textbf{e}, \textbf{f}) stations. \textbf{a--d}: Bed elevation detrended by a fitted second order polynomial base-line. \textbf{b--e}: Autocorrelation matrix shown in colorscale. The black line shows the detected dune orientation, and the red line represents the autocorrelation profile along which the dune wavelength is calculated, displayed in \textbf{c--f}. The blue lines and dots show the first peak of the autocorrelation profile, whose abscissa gives the characteristic wavelength of the dune pattern.}
+  \label{Fig4_supp}
 \end{figure}
 %---------------------------------------------
 
 %---------------------------------------------
 \begin{figure}[p]
-  \centering
-  \includegraphics[scale=1]{Figures/Figure5_supp.pdf}
-  \caption{Analysis of the DEMs of the North Sand Sea (left column -- panels \textbf{a}, \textbf{b}, \textbf{c}) and South Sand Sea (right column -- panels \textbf{d}, \textbf{e}, \textbf{f}) stations. \textbf{a--d}: Bed elevation detrended by a fitted second order polynomial base-line. \textbf{b--e}: Autocorrelation matrix shown in colorscale. The black line shows the detected dune orientation, and the red line represents the autocorrelation profile along which the dune wavelength is calculated, displayed in \textbf{c--f}. The blue lines and dots show the first peak of the autocorrelation profile, whose abscissa gives the characteristic wavelength of the dune pattern.}
-  \label{Fig5_supp}
+\centering
+\includegraphics[scale=1]{Figures/Figure5_supp.pdf}
+\caption{Statistical comparison of the wind orientation (\textbf{a}) and velocity (\textbf{b}) between the ERA5-Land dataset and the local measurements for the Huab and Etosha West stations. Data point clustering around identity lines (dashed and black) provide evidence for agreement of the two sets.}
+\label{Fig5_supp}
 \end{figure}
 %---------------------------------------------
 
 %---------------------------------------------
-\begin{figure}
+\begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure6_supp.pdf}
-\caption{Temporal comparison between the wind data coming from the ERA5-Land climate reanalysis (orange lines) and from the local measurements (blue lines). Coloured swathes indicate day (between 1000 UTC and 2200 UTC) and night (before 1000 UTC or after 2200 UTC) \textbf{a--b}: Huab station in summer. \textbf{b--c}: Huab station in winter. \textbf{d--e}: South Sand Sea station in summer. \textbf{f--g}: South Sand Sea station in winter.}
+\caption{Statistical comparison of the wind orientation between the ERA5-Land dataset and the local measurements for the South Sand Sea and North Sand Sea stations, for different velocity ranges. \textbf{a}: $u_{*, \textup{\textup{ERA}}} < 0.1~\textup{m}~\textup{s}^{-1}$. \textbf{b}: $0.1 < u_{*, \textup{\textup{ERA}}} \leq 0.25~\textup{m}~\textup{s}^{-1}$. \textbf{c}: $u_{*, \textup{\textup{ERA}}} \geq 0.25~\textup{m}~\textup{s}^{-1}$. The measured dune orientations are subtracted to the wind orientation, which allows us to plot both stations on the same graph. Black dashed lines indicate locally measured orientations aligned with the dune crests (here $0^\circ$, $180^\circ$ and $360^\circ$ -- panels \textbf{a}, \textbf{b}), as well as the identity lines (panels \textbf{b}, \textbf{c}).}
 \label{Fig6_supp}
 \end{figure}
 %---------------------------------------------
@@ -487,7 +516,7 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure7_supp.pdf}
-\caption{Statistical comparison of the wind orientation (\textbf{a}) and velocity (\textbf{b}) between the ERA5-Land dataset and the local measurements for the Huab and Etosha West stations. Data point clustering around identity lines (dashed and black) provide evidence for agreement of the two sets.}
+\caption{Statistical comparison of the wind velocity between the ERA5-Land dataset and the local measurements for the South Sand Sea and North Sand Sea stations. \textbf{a}: Nocturnal summer easterly wind. \textbf{b}: Diurnal southerly wind. Black dashed lines are identity lines. The angle ranges used to select diurnal and nocturnal summer winds are the same as those in Figs.~\ref{Fig4} and Figs.~\ref{Fig6} of the main article.}
 \label{Fig7_supp}
 \end{figure}
 %---------------------------------------------
@@ -496,7 +525,7 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure8_supp.pdf}
-\caption{Distributions of wind direction at the South Sand Sea Station for the ERA5-Land climate reanalysis (orange) and the local measurements (blue) -- equivalent of Fig.~\ref{Fig3}. In each subplot, both distributions are plotted from the same time steps, selected with constraints on the wind direction (columns) and/or wind velocity (rows) in the ERA5-Land dataset. The gray vertical dashed lines indicate the dune orientation. The numbers at the top centre give the percentage of time steps selected in each sub-range, as well as the percentage of them corresponding to the day (between 1000 UTC and 2200 UTC). The purple frame highlights the regime (small wind velocities, nocturnal summer wind) during which the wind data from both datasets differ.}
+\caption{\textbf{a}: Vertical profiles of the virtual potential temperature at three different times (blue: 29/11/2012 - 1100 UTC, orange: 21/03/2017 - 1200 UTC, green: 21/03/2017 - 2000 UTC) at the South Sand Sea station. Dots: data from the ERA5 reanalysis. Dashed lines: boundary layer height given by the ERA5 reanalysis. Plain lines: vertical (ABL) and linear (FA) fits to estimate the quantities displayed in Online Resource Fig.~\ref{Fig9_supp}. \textbf{b}: Examples of ill-processed vertical profiles at three different times (blue: 2/12/2013 - 2300 UTC, orange: 20/03/2017 - 0000 UTC, green: 14/07/2017 - 1400 UTC) at the South Sand Sea station. \textbf{c}: Hourly distribution of ill-processed vertical profiles. \textbf{d}: Monthly distribution of ill-processed vertical profiles.}
 \label{Fig8_supp}
 \end{figure}
 %---------------------------------------------
@@ -505,7 +534,7 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure9_supp.pdf}
-\caption{Distributions of wind direction at the Huab and Etosha West stations for the ERA5-Land climate reanalysis (orange) and the local measurements (blue). In each subplot, both distributions are plotted from the same time steps, selected with constraints on the wind wind velocity (rows) in the ERA5-Land dataset. The numbers at the top centre give the percentage of time steps selected in each sub-range, as well as the percentage of them corresponding to the day (between 1000 UTC and 2200 UTC). Compared to the North and South Namib stations (Fig.~\ref{Fig3} and Fig.~\ref{Fig8_supp}), histograms match for high and low velocities.}
+\caption{Distributions of the meteorological parameters resulting from the processing of the ERA5-Land data for the South Sand Sea (blue) and the North Sand Sea (orange) stations.}
 \label{Fig9_supp}
 \end{figure}
 %---------------------------------------------
@@ -514,7 +543,7 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure10_supp.pdf}
-\caption{Statistical comparison of the wind orientation between the ERA5-Land dataset and the local measurements for the South Sand Sea and North Sand Sea stations, for different velocity ranges. \textbf{a}: $u_{*, \textup{\textup{ERA}}} < 0.1~\textup{m}~\textup{s}^{-1}$. \textbf{b}: $0.1 < u_{*, \textup{\textup{ERA}}} \leq 0.25~\textup{m}~\textup{s}^{-1}$. \textbf{c}: $u_{*, \textup{\textup{ERA}}} \geq 0.25~\textup{m}~\textup{s}^{-1}$. The measured dune orientations are subtracted to the wind orientation, which allows us to plot both stations on the same graph. Black dashed lines indicate locally measured orientations aligned with the dune crests (here $0^\circ$, $180^\circ$ and $360^\circ$ -- panels \textbf{a}, \textbf{b}), as well as the identity lines (panels \textbf{b}, \textbf{c}).}
+\caption{Non-dimensional parameters distributions. For the marginal distributions, the orange correspond to the South Sand Sea station, and the blue to the North Sand Sea station.}
 \label{Fig10_supp}
 \end{figure}
 %---------------------------------------------
@@ -523,7 +552,7 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure11_supp.pdf}
-\caption{Statistical comparison of the wind velocity between the ERA5-Land dataset and the local measurements for the South Sand Sea and North Sand Sea stations. \textbf{a}: Nocturnal summer easterly wind. \textbf{b}: Diurnal southerly wind. Black dashed lines are identity lines. The angle ranges used to select diurnal and nocturnal summer winds are the same as those in Fig.~\ref{Fig3} and Online Resource Fig.~\ref{Fig8_supp}.}
+\caption{Regime diagrams of the wind deviation $\delta_{\theta}$ and relative attenuation/amplification $\delta_{u}$ in the spaces $(\mathcal{F}_{\textup{I}}, \, kH)$ and $(\mathcal{F}_{\textup{I}}, \, \mathcal{F})$, containing the data from both the North Sand Sea and South Sand Sea stations. Green dashed lines empirically delimit the different regimes. The point density in each bin of the diagrams is shown in Online Resource Fig.~\ref{Fig10_supp} -- 95\% of the data occur in the range $-1 < \delta u < 1$. The similar regime diagrams in the space $(\mathcal{F}, \, kH)$ are shown in Fig.~\ref{Fig8}.}
 \label{Fig11_supp}
 \end{figure}
 %---------------------------------------------
@@ -532,7 +561,7 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure12_supp.pdf}
-\caption{\textbf{a}: Vertical profiles of the virtual potential temperature at three different times (blue: 29/11/2012 - 1100 UTC, orange: 21/03/2017 - 1200 UTC, green: 21/03/2017 - 2000 UTC) at the South Sand Sea station. Dots: data from the ERA5 reanalysis. Dashed lines: boundary layer height given by the ERA5 reanalysis. Plain lines: vertical (ABL) and linear (FA) fits to estimate the quantities displayed in Online Resource Fig.~\ref{Fig13_supp}. \textbf{b}: Examples of ill-processed vertical profiles at three different times (blue: 2/12/2013 - 2300 UTC, orange: 20/03/2017 - 0000 UTC, green: 14/07/2017 - 1400 UTC) at the South Sand Sea station. \textbf{c}: Hourly distribution of ill-processed vertical profiles. \textbf{d}: Monthly distribution of ill-processed vertical profiles.}
+\caption{Normalized distributions of amplified velocities for the North sand Sea (blue: $\delta_u < 0$, orange: $\delta_u < -0.5$). \textbf{a}: Angular distributions. \textbf{b}: Monthly distributions. \textbf{c}: Hourly distributions.}
 \label{Fig12_supp}
 \end{figure}
 %---------------------------------------------
@@ -541,7 +570,7 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure13_supp.pdf}
-\caption{Distributions of the meteorological parameters resulting from the processing of the ERA5-Land data for the South Sand Sea (blue) and the North Sand Sea (orange) stations.}
+\caption{Computation of the flow disturbance with the linear model of \citet{Andreotti2009}. \textbf{a}--\textbf{b}: Magnitude of the hydrodynamic coefficients $\mathcal{A}_0$ and $\mathcal{B}_0$, calculated from the time series of the non-dimensional numbers corresponding to the ERA5-Land wind data and ERA5 data on vertical pressure levels. \textbf{c} Shear velocity streamlines over sinusoidal ridges of amplitude $k\xi_0 = 0.1$ and for increasing values of $\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}$. From the upper to the lower streamline, values of $\left(kH,\, \mathcal{F},\, \mathcal{F}_{\rm I},\, \mathcal{A}_{0},\, \mathcal{B}_{0},\, \sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}\right)$ are (1.9, 0.6, 1.5, 3.4, 1.0, 3.5), (1.5, 0.3, 0.4, 4.8, 1.4, 5.0), (0.1, 3.5, 1.0, 8.6, 0.1, 8.6), (0.5, 0.05, 0.04, 9.6, 2.5, 9.9).}
 \label{Fig13_supp}
 \end{figure}
 %---------------------------------------------
@@ -550,36 +579,10 @@ Examples of vertical profiles of the virtual potential temperature deduced from 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Figures/Figure14_supp.pdf}
-\caption{Non-dimensional parameters distributions. For the marginal distributions, the orange correspond to the South Sand Sea station, and the blue to the North Sand Sea station.}
+\caption{Time series of the relative velocity disturbance $\delta_{u}$ corresponding to Fig.~\ref{Fig5}, for different values of the hydroydnamic roughnesses. \textbf{a}: North Sand Sea – summer, \textbf{b}: North Sand Sea – winter, \textbf{d}: South Sand Sea – summer, \textbf{e}: South Sand Sea – winter. Note that $\delta_{\theta}$ is independant of the choice of $z_{0}^{\textup{Era5Land}}$ and $z_{0}^{\textup{local}}$.}
 \label{Fig14_supp}
 \end{figure}
 %---------------------------------------------
 
-%---------------------------------------------
-\begin{figure}[p]
-\centering
-\includegraphics[scale=1]{Figures/Figure15_supp.pdf}
-\caption{Regime diagrams of the wind deviation $\delta_{\theta}$ and relative attenuation/amplification $\delta_{u}$ in the spaces $(\mathcal{F}_{\textup{I}}, \, kH)$ and $(\mathcal{F}_{\textup{I}}, \, \mathcal{F})$, containing the data from both the North Sand Sea and South Sand Sea stations. Green dashed lines empirically delimit the different regimes. The point density in each bin of the diagrams is shown in Online Resource Fig.~\ref{Fig14_supp} -- 95\% of the data occur in the range $-1 < \delta u < 1$. The similar regime diagrams in the space $(\mathcal{F}, \, kH)$ are shown in Fig.~\ref{Fig5}.}
-\label{Fig15_supp}
-\end{figure}
-%---------------------------------------------
-
-%---------------------------------------------
-\begin{figure}[p]
-\centering
-\includegraphics[scale=1]{Figures/Figure16_supp.pdf}
-\caption{Normalized distributions of amplified velocities for the North sand Sea (blue: $\delta_u < 0$, orange: $\delta_u < -0.5$). \textbf{a}: Angular distributions. \textbf{b}: Monthly distributions. \textbf{c}: Hourly distributions.}
-\label{Fig16_supp}
-\end{figure}
-%---------------------------------------------
-
-%---------------------------------------------
-\begin{figure}[p]
-\centering
-\includegraphics[scale=1]{Figures/Figure17_supp.pdf}
-\caption{Computation of the flow disturbance with the linear model of \citet{Andreotti2009}. \textbf{a} and \textbf{b} Magnitude of the hydrodynamic coefficients $\mathcal{A}_0$ and $\mathcal{B}_0$, calculated from the values of the non-dimensional numbers corresponding to the ERA5-Land time series presented in Figs.~\ref{Fig4} and \ref{Fig5}. \textbf{c} Shear velocity streamlines over sinusoidal ridges of amplitude $k\xi_0 = 0.1$ and for increasing values of $\sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}$. From the upper to the lower streamline, values of $\left(kH,\, \mathcal{F},\, \mathcal{F}_{\rm I},\, \mathcal{A}_{0},\, \mathcal{B}_{0},\, \sqrt{\mathcal{A}_{0}^{2} + \mathcal{B}_{0}^{2}}\right)$ are (1.9, 0.6, 1.5, 3.4, 1.0, 3.5), (1.5, 0.3, 0.4, 4.8, 1.4, 5.0), (0.1, 3.5, 1.0, 8.6, 0.1, 8.6), (0.5, 0.05, 0.04, 9.6, 2.5, 9.9).}
-\label{Fig17_supp}
-\end{figure}
-%---------------------------------------------
 
 \end{document}

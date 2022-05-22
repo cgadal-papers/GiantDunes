@@ -9,10 +9,10 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 import sys
-from types import SimpleNamespace
 sys.path.append('../../')
 import python_codes.theme as theme
-from python_codes.general import cosd, sind
+from python_codes.plot_functions import plot_scatter_surrounded
+
 
 theme.load_style()
 
@@ -20,59 +20,44 @@ theme.load_style()
 path_savefig = '../../Paper/Figures'
 path_outputdata = '../../static/data/processed_data/'
 
-Data_DEM = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'),
-                   allow_pickle=True).item()
+Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
+labels = [r'\textbf{a}', r'\textbf{b}']
 
-labels = [(r'\textbf{a}', r'\textbf{d}'), (r'\textbf{b}', r'\textbf{e}'), (r'\textbf{c}', r'\textbf{f}')]
+# preparing data
+Stations_ref = ['Adamax_Station', 'Huab_Station']
+#
+Theta_ERA = np.concatenate([Data[station]['Orientation_era'] for station in Stations_ref])
+Theta_Station = np.concatenate([Data[station]['Orientation_insitu'] for station in Stations_ref])
+#
+U_ERA = np.concatenate([Data[station]['U_star_era'] for station in Stations_ref])
+U_Station = np.concatenate([Data[station]['U_star_insitu'] for station in Stations_ref])
 
-fig, axrr = plt.subplots(3, 2, figsize=(theme.fig_width, 0.75*theme.fig_height_max),
-                         constrained_layout=True, gridspec_kw={'width_ratios': (0.9, 1)})
-for i, station in enumerate(Data_DEM.keys()):
-    # loading into namespace from data dictionnary to shorten call
-    n = SimpleNamespace(**Data_DEM[station])
-    # ax0: Topo
-    cs = axrr[0, i].contourf(n.lon, n.lat, n.topo, levels=50)
-    for c in cs.collections:
-        c.set_edgecolor("face")
-        c.set_rasterized(True)
-    cb = fig.colorbar(cs, ax=axrr[0, i], label='$h$~[m]', location='top')
-    cb.ax.locator_params(nbins=8)
-    axrr[0, i].set_xlabel(r'longitude [$^{\circ}$]')
-    axrr[0, i].set_ylabel(r'latitude [$^{\circ}$]')
-    axrr[0, i].set_aspect('equal')
-    #
-    # ax1: Autocorrelation map
-    x = list(-(n.lon - n.lon[0])[:: -1]) + list((n.lon - n.lon[0])[1:])
-    y = list(-(n.lat - n.lat[0])[:: -1]) + list((n.lat - n.lat[0])[1:])
-    cs = axrr[1, i].contourf(x, y, n.C, levels=50)
-    for c in cs.collections:
-        c.set_edgecolor("face")
-        c.set_rasterized(True)
-    #
-    axrr[1, i].plot([x[n.p0[0]], x[int(round(n.p1[0]))]], [y[n.p0[1]], y[int(round(n.p1[1]))]], color='tab:red', label='profile for wavelength calculation')
-    p11 = n.p0 + np.array([cosd(n.orientation), sind(n.orientation)])*min(n.topo.shape)
-    p12 = n.p0 - np.array([cosd(n.orientation), sind(n.orientation)])*min(n.topo.shape)
-    axrr[1, i].plot([x[int(round(p11[0]))], x[int(round(p12[0]))]], [y[int(round(p11[1]))], y[int(round(p12[1]))]], color='k', label='n.orientation')
-    axrr[1, i].set_xlabel(r'shift in longitude [$^{\circ}$]')
-    axrr[1, i].set_ylabel(r'shift in latitude [$^{\circ}$]')
-    axrr[1, i].set_aspect('equal')
-    #
-    # ax2: Autocorrelation profile
-    mytrans = axrr[2, i].transData + axrr[2, i].transAxes.inverted()
-    #
-    x_transect = np.arange(n.transect.size)*n.km_step
-    axrr[2, i].plot(x_transect, n.transect, color='tab:red')
-    axrr[2, i].plot(x_transect[n.wavelength_indx], n.transect[n.wavelength_indx], color='tab:blue', marker='.')
-    lims = axrr[2, i].get_ylim()
-    axrr[2, i].vlines(x_transect[n.wavelength_indx], lims[0], n.transect[n.wavelength_indx], color='tab:blue', linestyle='--')
-    axrr[2, i].set_xlabel('Distance along profile [km]')
-    axrr[2, i].set_ylabel('Autocorrelation~[m$^{2}$]')
-    axrr[2, i].set_xlim(0, x_transect.max())
-    axrr[2, i].set_ylim(lims)
-    #
-    axrr[0, i].text(0.05, 0.90, labels[0][i], ha='center', va='center', transform=axrr[0, i].transAxes, color='w')
-    axrr[1, i].text(0.05, 0.90, labels[1][i], ha='center', va='center', transform=axrr[1, i].transAxes, color='w')
-    axrr[2, i].text(0.05, 0.90, labels[2][i], ha='center', va='center', transform=axrr[2, i].transAxes)
 
-plt.savefig(os.path.join(path_savefig, 'Figure5_supp.pdf'), dpi=600)
+# #### Figure
+
+fig, axrr = plt.subplots(1, 2, figsize=(theme.fig_width, 0.5*theme.fig_width),
+                         constrained_layout=True)
+
+for ax, label, quantity in zip(axrr, labels, [[Theta_ERA, Theta_Station], [U_ERA, U_Station]]):
+    plt.sca(ax)
+    plot_scatter_surrounded(quantity[0], quantity[1], color='tab:blue', alpha=0.1)
+    ax.plot([0, 360], [0, 360], 'k--')
+    ax.text(0.05, 0.95, label, ha='center', va='center', transform=ax.transAxes)
+
+axrr[0].set_xlim(0, 360)
+axrr[0].set_ylim(0, 360)
+axrr[0].set_xticks([0, 90, 180, 270, 360])
+axrr[0].set_yticks([0, 90, 180, 270, 360])
+axrr[0].set_xlabel(r'$\theta_{\textup{ERA}}$')
+axrr[0].set_ylabel(r'$\theta_{\textup{local}}$')
+axrr[0].set_aspect('equal')
+#
+axrr[1].set_xlim(0, 0.5)
+axrr[1].set_ylim(0, 0.5)
+axrr[1].set_xlabel(r'$u_{*, \textup{ERA}}$')
+axrr[1].set_ylabel(r'$u_{*, \textup{local}}$')
+axrr[1].set_aspect('equal')
+#
+
+plt.savefig(os.path.join(path_savefig, 'Figure5_supp.pdf'), dpi=400)
 plt.show()
