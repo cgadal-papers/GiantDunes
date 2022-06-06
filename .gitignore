@@ -1,0 +1,7 @@
+# Scripts to ignore
+/_other_scripts/
+/_discussions/
+/_Analysis_old/
+/static/data/*
+/static/data.zip
+/_submissions/
