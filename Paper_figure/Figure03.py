@@ -101,20 +101,20 @@ for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs, years, months, d
         if var == 'U_star':
             ax.set_ylim((0, 0.5))
             ax.text(0.5, 0.94,
-                    r"""$ f_{{u}} = {:.2f}$
-                        $\langle \delta_{{u}} \rangle = {:.2f}$""".format(
-                        mask_u.sum()/delta_angle.size,
-                        delta_u[mask_u_theta].mean()),
+                    r"""$\langle \delta_{{u}} \rangle = {:.2f}$
+                        $f_{{u}} = {:.2f}$""".format(
+                        delta_u[mask_u_theta].mean(),
+                        mask_u.sum()/delta_angle.size),
                     ha='center', va='top', transform=ax.transAxes, bbox=bbox_props)
         else:
             ax.set_ylim((0, 360))
             ax.set_yticks((0, 90, 180, 270, 360))
             #
             ax.text(0.5, 0.94,
-                    r"""$f_{{\theta}} = {:.2f}$
-                        $\langle \delta_{{\theta}} \rangle = {:.0f}$""".format(
-                        mask_theta.sum()/delta_angle.size,
-                        delta_angle[mask_u_theta].mean()),
+                    r"""$\langle \delta_{{\theta}} \rangle = {:.0f}$
+                        $f_{{\theta}} = {:.2f}$""".format(
+                        delta_angle[mask_u_theta].mean(),
+                        mask_theta.sum()/delta_angle.size),
                     ha='center', va='top', transform=ax.transAxes, bbox=bbox_props)
 
             #

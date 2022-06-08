@@ -5,49 +5,53 @@ The style file: spbasic_updated.bst
 Database file #1: main.bib
 Warning--entry type for "DataPaper" isn't style-file defined
 --line 1208 of file main.bib
+Repeated entry---line 1286 of file main.bib
+ : @article{Andreotti2012
+ :                       ,
+I'm skipping whatever remains of this entry
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 `journal' is a missing field, not a string, for entry Gunn2021b
 while executing---line 1622 of file spbasic_updated.bst
 Warning--empty journal in Gunn2021b
-You've used 110 entries,
+You've used 133 entries,
             3213 wiz_defined-function locations,
-            1399 strings with 24936 characters,
-and the built_in function-call counts, 130526 in all, are:
-= -- 12139
-> -- 4194
-< -- 48
-+ -- 1480
-- -- 1334
-* -- 11919
-:= -- 18119
-add.period$ -- 109
-call.type$ -- 110
-change.case$ -- 988
-chr.to.int$ -- 116
-cite$ -- 111
-duplicate$ -- 10990
-empty$ -- 11289
-format.name$ -- 1689
-if$ -- 27170
-int.to.chr$ -- 1
+            1543 strings with 28380 characters,
+and the built_in function-call counts, 152435 in all, are:
+= -- 14219
+> -- 4679
+< -- 64
++ -- 1670
+- -- 1484
+* -- 13818
+:= -- 21178
+add.period$ -- 132
+call.type$ -- 133
+change.case$ -- 1151
+chr.to.int$ -- 138
+cite$ -- 134
+duplicate$ -- 12909
+empty$ -- 13301
+format.name$ -- 1896
+if$ -- 31738
+int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 1313
-newline$ -- 340
-num.names$ -- 442
-pop$ -- 2516
+missing$ -- 1543
+newline$ -- 409
+num.names$ -- 534
+pop$ -- 2902
 preamble$ -- 1
-purify$ -- 876
+purify$ -- 1018
 quote$ -- 0
-skip$ -- 1930
+skip$ -- 2283
 stack$ -- 0
-substring$ -- 15347
-swap$ -- 2680
+substring$ -- 17995
+swap$ -- 3198
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 978
+type$ -- 1179
 warning$ -- 1
-while$ -- 1071
+while$ -- 1250
 width$ -- 0
-write$ -- 1220
-(There was 1 error message)
+write$ -- 1471
+(There were 2 error messages)

@@ -49,7 +49,7 @@ month_calendar = {index: month for index, month in enumerate(calendar.month_name
 
 
 # #### Figure
-fig, axarr = plt.subplots(2, 2, figsize=(theme.fig_width, theme.fig_width),
+fig, axarr = plt.subplots(3, 2, figsize=(theme.fig_width, 1.3*theme.fig_width),
                           sharey=True)
 
 for (ax, station, yr, mth, day, label) in zip(axarr.flatten(), Stations, years,
@@ -86,7 +86,7 @@ for (ax, station, yr, mth, day, label) in zip(axarr.flatten(), Stations, years,
                         facecolor=theme.color_night, alpha=0.1, edgecolor=None, label=theme.Icon_night)
     #
 
-for ax in axarr[:, 0]:
+for ax in axarr[:-1, 0]:
     ax.set_ylabel(r'$\delta_{\textup{u}}$')
 
 custom_lines = [Line2D([0], [0], color='tab:blue'),
@@ -102,6 +102,8 @@ fig.legend(custom_lines, ['calibrated',
            title=r'Hydrodynamic roughnesses, $\left(z_{0}^{\textup{Era5Land}}, \, z_{0}^{\textup{local}}\right)$, [m]',
            ncol=4,
            handletextpad=0.4, columnspacing=1.5, loc='upper center')
+
+# ######### Froude number
 
 plt.subplots_adjust(top=0.86, right=0.98, bottom=0.08, hspace=0.3, wspace=0.1)
 plt.savefig(os.path.join(path_savefig, 'Figure14_supp.pdf'), dpi=400)
