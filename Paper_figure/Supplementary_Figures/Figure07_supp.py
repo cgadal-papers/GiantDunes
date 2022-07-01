@@ -5,10 +5,11 @@ Figure 7 -- Online Resource
 
 """
 
-import numpy as np
 import os
-import matplotlib.pyplot as plt
 import sys
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.transforms as mtransforms
 sys.path.append('../../')
 import python_codes.theme as theme
 from python_codes.plot_functions import plot_scatter_surrounded
@@ -55,17 +56,20 @@ alphas = [0.075, 0.045]
 fig, axarr = plt.subplots(1, 2, figsize=(theme.fig_width, 0.53*theme.fig_width),
                           constrained_layout=True, sharey=True)
 
-for i, (ax, label, x, y, alpha) in enumerate(zip(axarr, labels, X, Y, alphas)):
+for i, (ax, x, y, alpha) in enumerate(zip(axarr, X, Y, alphas)):
     plt.sca(ax)
     plot_scatter_surrounded(x, y, color='tab:blue', alpha=alpha)
     ax.plot([0, 0.6], [0, 0.6], 'k--')
     ax.set_xlabel(r'$u_{*, \textup{ERA}}~[\textup{m}~\textup{s}^{-1}]$')
     ax.set_xlim(0, 0.57)
     ax.set_ylim(0, 0.57)
-    ax.text(0.05, 0.95, label, ha='center', va='center', transform=ax.transAxes)
     ax.set_aspect('equal')
 
 axarr[0].set_ylabel(r'$u_{*, \textup{local}}~[\textup{m}~\textup{s}^{-1}]$')
+
+trans = mtransforms.ScaledTranslation(5/72, -5/72, fig.dpi_scale_trans)
+for label, ax in zip(labels, axarr.flatten()):
+    ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top')
 
 plt.savefig(os.path.join(path_savefig, 'Figure7_supp.pdf'), dpi=400)
 plt.show()

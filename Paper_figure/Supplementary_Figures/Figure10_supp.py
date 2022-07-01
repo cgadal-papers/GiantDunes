@@ -5,11 +5,11 @@ Figure 10 -- Online Resource
 
 """
 
-import numpy as np
 import os
+import sys
+import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm
-import sys
 sys.path.append('../../')
 import python_codes.theme as theme
 from python_codes.plot_functions import make_nice_histogram
@@ -73,8 +73,12 @@ for j, (ax, (var1, var2)) in enumerate(zip(ax_list, couples)):
 # #### Plotting marginal distributions
 for i, (ax, var) in enumerate(zip([axarr[1, 0], axarr[2, 1], axarr[3, 2]], ['Froude', 'kLB', 'kH'])):
     orientation = 'vertical' if i < 2 else 'horizontal'
-    make_nice_histogram(Data['South_Namib_Station'][var], 150, ax, alpha=0.4, density=False, scale_bins='log', orientation=orientation)
-    make_nice_histogram(Data['Deep_Sea_Station'][var], 150, ax, alpha=0.4, density=False, scale_bins='log', orientation=orientation)
+    make_nice_histogram(Data['South_Namib_Station'][var], 150, ax, alpha=0.4,
+                        density=False, scale_bins='log', orientation=orientation,
+                        color=theme.color_Era5Land_sub)
+    make_nice_histogram(Data['Deep_Sea_Station'][var], 150, ax, alpha=0.4,
+                        density=False, scale_bins='log', orientation=orientation,
+                        color=theme.color_Era5Land)
     if i == 2:
         ax.set_ylim(lims[var])
         ax.set_yticklabels([])
@@ -124,5 +128,6 @@ pos = axarr[2, 1].get_position()
 pos.y1 = pos.y0 + box1.height
 axarr[2, 1].set_position(pos)
 
+fig.align_labels()
 plt.savefig(os.path.join(path_savefig, 'Figure10_supp.pdf'))
 plt.show()

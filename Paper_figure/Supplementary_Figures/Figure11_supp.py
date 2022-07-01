@@ -5,11 +5,12 @@ Figure 11 -- Online Resource
 
 """
 
+import os
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.colors as mpcolors
-import sys
-import os
+import matplotlib.transforms as mtransforms
 sys.path.append('../../')
 import python_codes.theme as theme
 from python_codes.general import smallestSignedAngleBetween, find_mode_distribution
@@ -84,11 +85,14 @@ for i, (var1, var2) in enumerate(vars):
         #
         a = plot_regime_diagram(ax, quantity[mask], vars, lims_list, xlabel, ylabel, bins=bins, norm=norm, cmap=cmap, type='binned')
         #
-        ax.text(0.04, 0.94, labels[2*i + j], transform=ax.transAxes, ha='left', va='center')
-        #
         # regime lines
         ax.axvline(lim_regime[var1], color=theme.regime_line_color, linestyle='--', lw=2)
         ax.axhline(lim_regime[var2], color=theme.regime_line_color, linestyle='--', lw=2)
 
+trans = mtransforms.ScaledTranslation(5/72, -5/72, fig.dpi_scale_trans)
+for i, (ax, label) in enumerate(zip(axarr.flatten(), labels)):
+    ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top')
+
+fig.align_labels()
 plt.savefig(os.path.join(path_savefig, 'Figure11_supp.pdf'), dpi=400)
 plt.show()

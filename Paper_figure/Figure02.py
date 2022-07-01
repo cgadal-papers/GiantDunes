@@ -13,10 +13,11 @@ from PIL import Image
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 from matplotlib.colors import BoundaryNorm
+import matplotlib.transforms as mtransforms
 from mpl_toolkits.axes_grid1.anchored_artists import AnchoredSizeBar
 sys.path.append('../')
 import python_codes.theme as theme
-from python_codes.plot_functions import plot_wind_rose
+from python_codes.plot_functions import plot_wind_rose, north_arrow
 
 # Loading figure theme
 theme.load_style()
@@ -74,17 +75,23 @@ for i, ([ax3, ax1, ax2], station) in enumerate(zip(axarr,
     plot_wind_rose(Data[station]['Orientation_insitu'], Data[station]['U_star_insitu'], bins,
                    ax2, fig, cmap=theme.cmap_wind, props=props)
     #
-    # labelling
-    ax3.text(0.005, 0.99, numbering[i], transform=ax3.transAxes, ha='left',
-             va='top', color='k', bbox=bbox2)
     # stations
-    # ax.scatter(coords_insitu_pix[i][0], coords_insitu_pix[i][1], s=25, color=theme.color_station_position)
+    ax3.scatter(coords_insitu_pix[i][0], coords_insitu_pix[i][1], s=25,
+                color=theme.color_station_position)
+    # north arrow
+    rect = plt.Rectangle((0.90, 0.6), width=0.1, height=0.4, color='w', alpha=0.4,
+                         transform=ax3.transAxes)
+    ax3.add_patch(rect)
+    center = np.array([0.95, 0.7])
+    length = 0.15
+    north_arrow(ax3, center, length, transform=ax3.transAxes,
+                color='k', lw=0.05)
 
 
 pos1 = axarr[0, 1].get_position()
 fig.text((pos1.xmin + pos1.xmax)/2, pos1.ymax + space, 'Era5Land', ha='center', va='top')
 pos2 = axarr[0, 2].get_position()
-fig.text((pos2.xmin + pos2.xmax)/2, pos2.ymax + space, 'Local', ha='center', va='top')
+t = fig.text((pos2.xmin + pos2.xmax)/2, pos2.ymax + space, 'Local', ha='center', va='top')
 
 # #### colorbar
 pos3 = axarr[0, 0].get_position()
@@ -98,6 +105,12 @@ sm = plt.cm.ScalarMappable(cmap='viridis', norm=norm)
 cb = fig.colorbar(sm, cax=ax_colorbar, orientation='horizontal', ticks=bounds[::2])
 cb.set_label(r'Wind shear velocity, $u_{*}~[\textrm{m}~\textrm{s}^{-1}]$', labelpad=-35)
 labels = [item.get_text() for item in cb.ax.get_xticklabels()]
+
+
+trans = mtransforms.ScaledTranslation(4/72, -4/72, fig.dpi_scale_trans)
+for label, ax in zip(numbering, axarr[:, 0].flatten()):
+    ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top',
+            bbox=dict(alpha=0.5, facecolor='w', edgecolor='none', pad=3.0))
 
 
 plt.savefig(os.path.join(path_savefig, 'Figure2.pdf'), dpi=600)

@@ -7,13 +7,14 @@ Figure 14 -- Online Resource
 
 import os
 import sys
-import calendar
 import locale
+import calendar
 import numpy as np
-import matplotlib.dates as mdates
-import matplotlib.pyplot as plt
-from matplotlib.lines import Line2D
 from datetime import datetime, timedelta
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+from matplotlib.lines import Line2D
+import matplotlib.transforms as mtransforms
 sys.path.append('../../')
 import python_codes.theme as theme
 from python_codes.meteo_analysis import mu
@@ -49,11 +50,11 @@ month_calendar = {index: month for index, month in enumerate(calendar.month_name
 
 
 # #### Figure
-fig, axarr = plt.subplots(3, 2, figsize=(theme.fig_width, 1.3*theme.fig_width),
+fig, axarr = plt.subplots(2, 2, figsize=(theme.fig_width, theme.fig_width),
                           sharey=True)
 
-for (ax, station, yr, mth, day, label) in zip(axarr.flatten(), Stations, years,
-                                              months, days, labels):
+for (ax, station, yr, mth, day) in zip(axarr.flatten(), Stations, years,
+                                       months, days):
     u_star_era = Data[station]['U_era'][:, None]/mu(Data[station]['z_ERA5LAND'],
                                                     z0_values[:, 0][None, :])
     u_star_station = Data[station]['U_insitu'][:, None]/mu(Data[station]['z_insitu'],
@@ -73,7 +74,6 @@ for (ax, station, yr, mth, day, label) in zip(axarr.flatten(), Stations, years,
     #
     ax.set_xlabel('Days in {} {:d}'.format(month_calendar[tmin.month], tmin.year))
     ax.set_xticks([tmin + timedelta(days=i) for i in range((tmax-tmin).days + 1)])
-    ax.text(0.02, 0.98, label, ha='left', va='top', transform=ax.transAxes, bbox=bbox2)
     ax.axhline(y=0, ls='--', color='k', lw=1)
     #
     tstart = tmin - timedelta(days=1)
@@ -103,8 +103,12 @@ fig.legend(custom_lines, ['calibrated',
            ncol=4,
            handletextpad=0.4, columnspacing=1.5, loc='upper center')
 
-# ######### Froude number
+trans = mtransforms.ScaledTranslation(5/72, -5/72, fig.dpi_scale_trans)
+for i, (ax, label) in enumerate(zip(axarr[:2, :].flatten(), labels)):
+    ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top',
+            bbox=dict(alpha=0.5, facecolor='w', edgecolor='none', pad=3.0))
 
+fig.align_labels()
 plt.subplots_adjust(top=0.86, right=0.98, bottom=0.08, hspace=0.3, wspace=0.1)
 plt.savefig(os.path.join(path_savefig, 'Figure14_supp.pdf'), dpi=400)
 plt.show()

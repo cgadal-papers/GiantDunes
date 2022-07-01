@@ -5,10 +5,10 @@ Figure 4
 
 """
 
+import os
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
-import sys
-import os
 sys.path.append('../')
 import python_codes.theme as theme
 from python_codes.plot_functions import make_nice_histogram

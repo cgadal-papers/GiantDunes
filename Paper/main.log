@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.4.2)  8 JUN 2022 17:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.4.2)  1 JUL 2022 16:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -300,18 +300,18 @@ Underfull \vbox (badness 5637) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6 <./Figures/Figure2.pdf>]
-<Figures/Figure3.pdf, id=92, 338.58783pt x 515.99103pt>
+<Figures/Figure3.pdf, id=92, 338.58783pt x 527.0876pt>
 File: Figures/Figure3.pdf Graphic file (type pdf)
 <use Figures/Figure3.pdf>
 Package pdftex.def Info: Figures/Figure3.pdf  used on input line 150.
-(pdftex.def)             Requested size: 338.58699pt x 515.98976pt.
+(pdftex.def)             Requested size: 338.58699pt x 527.0863pt.
 
 Overfull \hbox (0.58699pt too wide) in paragraph at lines 150--151
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 46.06204pt on input line 153.
+LaTeX Warning: Float too large for page by 57.15858pt on input line 153.
 
 <Figures/Figure4.pdf, id=93, 338.58783pt x 313.19374pt>
 File: Figures/Figure4.pdf Graphic file (type pdf)
@@ -329,18 +329,18 @@ Overfull \hbox (37.334pt too wide) in paragraph at lines 177--178
  []
 
 [9 <./Figures/Figure4.pdf>]
-<Figures/Figure5.pdf, id=176, 338.58783pt x 515.99103pt>
+<Figures/Figure5.pdf, id=176, 338.58783pt x 527.0876pt>
 File: Figures/Figure5.pdf Graphic file (type pdf)
 <use Figures/Figure5.pdf>
 Package pdftex.def Info: Figures/Figure5.pdf  used on input line 183.
-(pdftex.def)             Requested size: 338.58699pt x 515.98976pt.
+(pdftex.def)             Requested size: 338.58699pt x 527.0863pt.
 
 Overfull \hbox (0.58699pt too wide) in paragraph at lines 183--184
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 46.06204pt on input line 186.
+LaTeX Warning: Float too large for page by 57.15858pt on input line 186.
 
 <Figures/Figure6.pdf, id=177, 338.58783pt x 554.82906pt>
 File: Figures/Figure6.pdf Graphic file (type pdf)
@@ -578,7 +578,7 @@ Overfull \hbox (0.58699pt too wide) in paragraph at lines 592--593
 Here is how much of TeX's memory you used:
  4121 strings out of 481239
  59245 string characters out of 5920378
- 310163 words of memory out of 5000000
+ 310161 words of memory out of 5000000
  19330 multiletter control sequences out of 15000+600000
  542230 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -586,7 +586,7 @@ Here is how much of TeX's memory you used:
 </usr/share/texlive/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (46 pages, 26148710 bytes).
+Output written on main.pdf (46 pages, 26133938 bytes).
 PDF statistics:
  852 PDF objects out of 1000 (max. 8388607)
  696 compressed objects within 7 object streams

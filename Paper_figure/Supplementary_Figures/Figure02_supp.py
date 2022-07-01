@@ -5,12 +5,13 @@ Figure 2 -- Online Resource
 
 """
 
-import numpy as np
 import os
-from datetime import datetime
-import matplotlib.dates as mdates
-import matplotlib.pyplot as plt
 import sys
+import numpy as np
+from datetime import datetime
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+import matplotlib.transforms as mtransforms
 sys.path.append('../../')
 import python_codes.theme as theme
 
@@ -40,11 +41,13 @@ Orientation_insitu = (270 - Data_insitu['direction']) % 360
 fig, axarr = plt.subplots(2, 1, figsize=(theme.fig_width, 0.85*theme.fig_width),
                           constrained_layout=True, sharex=True)
 
-axarr[0].plot(t_insitu, Orientation_insitu, label='Raw data')
-axarr[0].plot(Data[station]['time'], Data[station]['Orientation_insitu'], label='Binned data')
+axarr[0].plot(t_insitu, Orientation_insitu, label='Raw data', color=theme.color_insitu)
+axarr[0].plot(Data[station]['time'], Data[station]['Orientation_insitu'], label='Binned data',
+              color=theme.color_insitu_sub)
 #
-axarr[1].plot(t_insitu, U_insitu, label='Raw data')
-axarr[1].plot(Data[station]['time'], Data[station]['U_insitu'], label='1hr-averaged data')
+axarr[1].plot(t_insitu, U_insitu, label='Raw data', color=theme.color_insitu)
+axarr[1].plot(Data[station]['time'], Data[station]['U_insitu'], label='1hr-averaged data',
+              color=theme.color_insitu_sub)
 #
 axarr[0].set_ylabel(r'Wind orientation, $\theta~[^{\circ}]$')
 axarr[0].set_ylim(0, 360)
@@ -57,9 +60,12 @@ myFmt = mdates.DateFormatter('%d')
 axarr[1].xaxis.set_major_formatter(myFmt)
 plt.legend(loc='upper center')
 
-# subplots labels
-axarr[0].text(0.015, 0.93, r'\textbf{a}', ha='left', va='center', transform=axarr[0].transAxes)
-axarr[1].text(0.015, 0.93, r'\textbf{b}', ha='left', va='center', transform=axarr[1].transAxes)
 
+trans = mtransforms.ScaledTranslation(4/72, -4/72, fig.dpi_scale_trans)
+for label, ax in zip([r'\textbf{a}', r'\textbf{b}'], axarr.flatten()):
+    ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top')
+
+
+fig.align_labels()
 plt.savefig(os.path.join(path_savefig, 'Figure2_supp.pdf'))
 plt.show()

@@ -5,11 +5,12 @@ Figure 7
 
 """
 
+import os
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.transforms as mtransforms
 from matplotlib.patches import FancyArrowPatch
-import sys
-import os
 sys.path.append('../')
 import python_codes.theme as theme
 from python_codes.general import cosd, sind
@@ -107,7 +108,6 @@ for ax in axrr[2, :]:
 # #### Plot vertical profiles
 for i, (t, ax) in enumerate(zip(time_steps[::2], axrr[:2, 0].flatten())):
     ax.set_title(r' ')
-    ax.text(0.04, 0.96, labels[i], ha='left', va='top', transform=ax.transAxes, bbox=props)
     ax.text(0.96, 0.96, Icons[i], ha='right', va='top', transform=ax.transAxes, bbox=props)
     ax.set_ylim(0, top=zmax)
     ax.set_xlim(301, 325)
@@ -140,7 +140,6 @@ for i, (t, ax) in enumerate(zip(time_steps, axrr[:2, 1:].flatten())):
     #
     ax.set_xlabel(xlabels[i])
     ax.set_title(titles[i])
-    ax.text(0.0176, 0.91, labels[i + 2], ha='left', va='center', transform=ax.transAxes, bbox=props)
 
 axrr[0, 1].annotate('', xy=[lambda_dune, 3*hdune], xytext=[2*lambda_dune, 3*hdune], transform=axrr[0, 1].transData, arrowprops=dict(arrowstyle="<->", color='k', shrinkA=0, shrinkB=0))
 axrr[0, 1].text(1.5*lambda_dune + 0.03, 3*hdune + 0.4, r'$\lambda=2\pi/k$', ha='center', va='center')
@@ -209,5 +208,12 @@ ax.set_ylabel('$ky$')
 ax.set_aspect('equal')
 fig.text(-0.07, 1.5, labels[-1], ha='right', va='center', transform=ax.transAxes)
 
+ax_list = [axrr[0, 0], axrr[1, 0], axrr[0, 1], axrr[0, 2], axrr[1, 1], axrr[1, 2]]
+trans = mtransforms.ScaledTranslation(4/72, -4/72, fig.dpi_scale_trans)
+for label, ax in zip(labels, ax_list):
+    ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top',
+            bbox=dict(facecolor='w', edgecolor='none', pad=3.0))
+
+fig.align_labels()
 plt.savefig(os.path.join(path_savefig, 'Figure7.pdf'))
 plt.show()

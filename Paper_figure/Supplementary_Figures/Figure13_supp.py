@@ -5,10 +5,10 @@ Figure 13 -- Online Resource
 
 """
 
+import os
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
-import sys
-import os
 sys.path.append('../../')
 import python_codes.theme as theme
 from python_codes.general import cosd, sind

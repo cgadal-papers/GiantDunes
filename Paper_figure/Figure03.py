@@ -5,14 +5,15 @@ Figure 3
 
 """
 
+import os
+import sys
+import locale
+import calendar
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-import calendar
-import locale
+import matplotlib.transforms as mtransforms
 from datetime import datetime, timedelta
-import sys
-import os
 sys.path.append('../')
 import python_codes.theme as theme
 from python_codes.general import smallestSignedAngleBetween, find_mode_distribution
@@ -43,8 +44,8 @@ Stations = sorted(Data.keys())
 # Figure properties
 variables = ['U_star', 'Orientation']
 label_var = {'U_star': r'Velocity, $u_{*}~[\textup{m}~\textup{s}^{-1}]$', 'Orientation': r'Orientation, $\theta~[^\circ]$'}
-labels = [(r'\textbf{a}', r'\textbf{b}'), (r'\textbf{c}', r'\textbf{d}'),
-          (r'\textbf{e}', r'\textbf{f}'), (r'\textbf{g}', r'\textbf{h}')]
+labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}',
+          r'\textbf{e}', r'\textbf{f}', r'\textbf{g}', r'\textbf{h}']
 row_labels = ['Huab -- summer', 'Huab -- winter',
               'Etosha West -- summer', 'Etosha West -- winter']
 years = [2018, 2018, 2015, 2016]
@@ -57,10 +58,19 @@ bbox_props = dict(boxstyle='round', facecolor='wheat', alpha=0.7)
 stations_plot = ['Huab_Station', 'Huab_Station', 'Adamax_Station', 'Adamax_Station']
 
 # #### Figure
-fig = plt.figure(figsize=(theme.fig_width, 0.93*theme.fig_height_max), constrained_layout=True)
-subfigs = fig.subfigures(nrows=4, ncols=1)
-for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs, years, months, days, stations_plot)):
+fig = plt.figure(figsize=(theme.fig_width, 0.95*theme.fig_height_max),
+                 constrained_layout=True)
+subfigs = fig.subfigures(nrows=5, ncols=1,
+                         height_ratios=[0.125, 1, 1, 1, 1])
+subfigs[0].set_visible(False)
+
+ax_list = []
+for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs[1:], years, months,
+                                                       days, stations_plot)):
     axarr = subfig.subplots(1, 2)
+    ax_list.append(axarr[0])
+    ax_list.append(axarr[1])
+    #
     subfig.suptitle(row_labels[i])
     subfig.set_facecolor('none')
     tmin = datetime(yr, mth, dy[0])
@@ -89,13 +99,16 @@ for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs, years, months, d
         tstart = tstart.replace(hour=10)
         x_night = [tstart + timedelta(days=i) for i in range((tmax-tmin).days + 2)]
         for daylight in x_night:
-            a1 = ax.axvspan(daylight, daylight + timedelta(hours=12), facecolor=theme.color_day, alpha=0.1, edgecolor=None, label=theme.Icon_day)
-            a2 = ax.axvspan(daylight - timedelta(hours=12), daylight, facecolor=theme.color_night, alpha=0.1, edgecolor=None, label=theme.Icon_night)
+            a1 = ax.axvspan(daylight, daylight + timedelta(hours=12),
+                            facecolor=theme.color_day, alpha=0.1, edgecolor=None,
+                            label=theme.Icon_day)
+            a2 = ax.axvspan(daylight - timedelta(hours=12), daylight,
+                            facecolor=theme.color_night, alpha=0.1, edgecolor=None,
+                            label=theme.Icon_night)
         #
         ax.set_ylabel(label_var[var])
         ax.set_xlabel('Days in {} {:d}'.format(month_calendar[tmin.month], tmin.year))
         ax.set_xticks([tmin + timedelta(days=i) for i in range((tmax-tmin).days + 1)])
-        ax.text(0.02, 0.97, label, transform=ax.transAxes, ha='left', va='top')
         #
         # ax2 = ax.twinx()  # instantiate a second axes that shares the same x-axis
         if var == 'U_star':
@@ -119,7 +132,18 @@ for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs, years, months, d
 
             #
             # a1.set_edgecolor((0, 0, 0, 1))
-first_legend = fig.legend(handles=[a1, a2], loc='center right', ncol=2, columnspacing=1, bbox_to_anchor=(1, 0.98), frameon=False)
+first_legend = fig.legend(handles=[a1, a2], loc='upper right',
+                          ncol=2, columnspacing=1, bbox_to_anchor=(1, 0.985),
+                          frameon=False)
+second_legend = fig.legend(handles=[l1, l2], loc='upper left',
+                           ncol=1, columnspacing=1, bbox_to_anchor=(0, 0.999),
+                           frameon=False)
 #
+
+trans = mtransforms.ScaledTranslation(4/72, -4/72, fig.dpi_scale_trans)
+for label, ax in zip(labels, ax_list):
+    ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top')
+
+fig.align_labels()
 plt.savefig(os.path.join(path_savefig, 'Figure3.pdf'),)
 plt.show()

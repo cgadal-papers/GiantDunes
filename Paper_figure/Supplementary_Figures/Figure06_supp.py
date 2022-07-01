@@ -5,10 +5,10 @@ Figure 6 -- Online Resource
 
 """
 
-import numpy as np
 import os
-import matplotlib.pyplot as plt
 import sys
+import numpy as np
+import matplotlib.pyplot as plt
 sys.path.append('../../')
 import python_codes.theme as theme
 from python_codes.plot_functions import plot_scatter_surrounded

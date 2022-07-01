@@ -5,10 +5,11 @@ Figure 12 -- Online Resource
 
 """
 
+import os
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
-import sys
-import os
+import matplotlib.transforms as mtransforms
 sys.path.append('../../')
 import python_codes.theme as theme
 from python_codes.plot_functions import make_nice_histogram
@@ -45,12 +46,15 @@ gs = axarr[0, 0].get_gridspec()
 for ax in axarr[0, :]:
     ax.remove()
 axbig = fig.add_subplot(gs[0, :])
-
-for limit in limits:
+colors = [theme.color_Era5Land, theme.color_Era5Land_sub]
+for limit, color in zip(limits, colors):
     mask = delta_u < limit
-    make_nice_histogram(Orientation_era[mask], 150, axbig, vmin=0, vmax=360, alpha=0.5, density=True)
-    make_nice_histogram(month[mask], 13, axarr[1, 0], vmin=0.5, vmax=12.5, alpha=0.5, density=True)
-    make_nice_histogram(hour[mask], 13, axarr[1, 1], vmin=-0.5, vmax=23.5, alpha=0.5, density=True)
+    make_nice_histogram(Orientation_era[mask], 150, axbig, vmin=0, vmax=360,
+                        alpha=0.4, density=True, color=color)
+    make_nice_histogram(month[mask], 13, axarr[1, 0], vmin=0.5, vmax=12.5,
+                        alpha=0.4, density=True, color=color)
+    make_nice_histogram(hour[mask], 13, axarr[1, 1], vmin=-0.5, vmax=23.5,
+                        alpha=0.4, density=True, color=color)
 
 axarr[1, 0].set_xlim(0.5, 12.5)
 axarr[1, 1].set_xlim(-0.5, 23.5)
@@ -65,13 +69,12 @@ axarr[1, 0].set_xticks([1, 3, 5, 7, 9, 11])
 axarr[1, 1].set_xticks([0, 6, 12, 18])
 axbig.set_xticks([0, 45, 90, 135, 180, 225, 270, 315, 360])
 
-axarr[1, 0].text(0.04, 0.96, r'\textbf{b}', ha='left', va='top',
-                 transform=axarr[1, 0].transAxes)
-axarr[1, 1].text(0.04, 0.96, r'\textbf{c}', ha='left', va='top',
-                 transform=axarr[1, 1].transAxes)
-axbig.text(0.02, 0.96, r'\textbf{a}', ha='left', va='top',
-           transform=axbig.transAxes)
+labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}']
+ax_list = [axbig, axarr[1, 0], axarr[1, 1]]
+trans = mtransforms.ScaledTranslation(5/72, -5/72, fig.dpi_scale_trans)
+for ax, label in zip(ax_list, labels):
+    ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top')
 
-
+fig.align_labels()
 plt.savefig(os.path.join(path_savefig, 'Figure12_supp.pdf'))
 plt.show()

@@ -10,11 +10,13 @@ import os
 import sys
 import glob
 import numpy as np
-import matplotlib.gridspec as gridspec
-import matplotlib.pyplot as plt
 from PIL import Image
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+import matplotlib.transforms as mtransforms
 sys.path.append('../')
 import python_codes.theme as theme
+from python_codes.plot_functions import north_arrow
 
 # Loading figure theme
 theme.load_style()
@@ -39,7 +41,7 @@ coords_stations = np.array([(-19.034111,  15.737194), (-20.874722,  13.642), (-2
 scales = [1300, 1100, 1650, 2600]
 bbox = dict(facecolor=(1, 1, 1, 0.5), edgecolor=(1, 1, 1, 0))
 bbox2 = dict(facecolor=(1, 1, 1, 0.5), edgecolor=(1, 1, 1, 0), pad=0.25)
-numbering = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}', r'\textbf{e}']
+numbering = [r'$\quad$\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}', r'\textbf{e}']
 coords_insitu_pix = [(1141, 544), (881, 554), (755, 430), (772, 550)]
 
 # #### Figure
@@ -57,7 +59,6 @@ ax0.set_xlabel(r'Longitude~[$^\circ$]')
 ax0.set_ylabel(r'Latitude~[$^\circ$]')
 ax0.yaxis.set_label_position('right')
 ax0.yaxis.tick_right()
-ax0.text(0.005, 0.998, numbering[0], transform=ax0.transAxes, ha='left', va='top', color='k', bbox=bbox2)
 #
 ax0.scatter(coords_stations[:, 1], coords_stations[:, 0], s=25, color=theme.color_station_position)
 for point, txt in zip(coords_stations, labels):
@@ -73,6 +74,16 @@ for point, txt in zip(coords_stations, labels):
         pad_x = -0.15
     ax0.annotate(r'\textbf{' + txt + '}', (point[1] + pad_x, point[0] + pad_y), ha=ha, va=va, color='k', bbox=bbox2)
 
+# north arrow
+rect = plt.Rectangle((0.90, 0.83), width=0.1, height=0.4, color='w', alpha=0.4,
+                     transform=ax0.transAxes)
+ax0.add_patch(rect)
+center = np.array([0.95, 0.86])
+length = 0.075
+north_arrow(ax0, center, length, width=0.9*length, transform=ax0.transAxes,
+            color='k', lw=0.05)
+
+ax_list = [ax0]
 # right and bottom images
 gs_right = gs[:2, -1].subgridspec(2, 1, height_ratios=[1, 1.12])
 gs_bottom = gs[-1, :].subgridspec(1, 2)
@@ -82,8 +93,16 @@ for pos, img_index, num, label in zip(axe_pos, order_plot, numbering[1:], labels
     ax = fig.add_subplot(pos)
     ax.imshow(np.array(Image.open(list_images[img_index])))
     ax.set_axis_off()
-    ax.text(0.02, 0.98, num, ha='left', va='top', transform=ax.transAxes)
     ax.text(0.98, 0.98, label, ha='right', va='top', transform=ax.transAxes)
+    ax_list.append(ax)
+
+trans = mtransforms.ScaledTranslation(3/72, -3/72, fig.dpi_scale_trans)
+for label, ax in zip(numbering, ax_list):
+    if label != numbering[0]:
+        ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top')
+    else:
+        ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top',
+                bbox=dict(alpha=0.5, facecolor='w', edgecolor='none', pad=2.0))
 
 plt.savefig(os.path.join(path_savefig, 'Figure1.pdf'), dpi=600)
 plt.show()

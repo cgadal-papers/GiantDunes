@@ -65,7 +65,9 @@ flux_color = matplotlib.colors.ListedColormap('navajowhite')
 color_day = '#C3B632'
 color_night = '#3D134F'
 color_Era5Land = 'tab:orange'
+color_Era5Land_sub = '#cc0000'
 color_insitu = 'tab:blue'
+color_insitu_sub = '#17becf'
 color_station_position = 'black'
 regime_line_color = 'tab:green'
 

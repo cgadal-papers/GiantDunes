@@ -5,14 +5,15 @@ Figure 8
 
 """
 
+import os
+import sys
 import numpy as np
+from PIL import Image
+from datetime import datetime
 import matplotlib.pyplot as plt
 import matplotlib.patches as ptch
 from matplotlib.colors import to_rgba
-from PIL import Image
-from datetime import datetime
-import sys
-import os
+import matplotlib.transforms as mtransforms
 sys.path.append('../')
 import python_codes.theme as theme
 from python_codes.meteo_analysis import quartic_transport_law, quadratic_transport_law
@@ -113,11 +114,10 @@ labels = [r'\textbf{a}', r'\textbf{b}']
 fig, axarr = plt.subplots(2, 1, figsize=(theme.fig_width, 0.98*theme.fig_width))
 plt.subplots_adjust(bottom=0.001, top=0.999, left=0.001, right=0.999, hspace=0.05)
 
-for ax, station, label in zip(axarr.flatten(), Stations, labels):
+for ax, station in zip(axarr.flatten(), Stations):
     ax.imshow(images[station][:912, :])
     ax.set_xticks([])
     ax.set_yticks([])
-    ax.text(0.005, 0.95, label, transform=ax.transAxes, ha='left', va='center')
     #
     # ## scale bar
     backgrnd = plt.Rectangle((0, 0), width=0.23, height=0.13, transform=ax.transAxes, color='w', alpha=0.6)
@@ -221,5 +221,10 @@ axarr[0].add_artist(ellispe_big)
 axarr[0].add_artist(ellispe_small)
 
 
+trans = mtransforms.ScaledTranslation(4/72, -4/72, fig.dpi_scale_trans)
+for label, ax in zip(labels, axarr.flatten()):
+    ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top')
+
+fig.align_labels()
 plt.savefig(os.path.join(path_savefig, 'Figure9.pdf'), dpi=600)
 plt.show()

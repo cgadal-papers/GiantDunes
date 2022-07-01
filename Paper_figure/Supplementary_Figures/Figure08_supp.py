@@ -5,10 +5,11 @@ Figure 8 -- Online Resource
 
 """
 
-import numpy as np
 import os
-import matplotlib.pyplot as plt
 import sys
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.transforms as mtransforms
 sys.path.append('../../')
 import python_codes.theme as theme
 from python_codes.plot_functions import make_nice_histogram
@@ -79,11 +80,12 @@ axarr[0, 1].set_ylim(0, top=0.68*Hmax_fit/1e3)
 axarr[0, 1].set_xlim(297, 328)
 
 # ## hourly distributions of ill-processed vertical profiles
-for station in Stations:
+colors = [theme.color_Era5Land_sub, theme.color_Era5Land]
+for station, color in zip(Stations, colors):
     hr = np.array([i.hour for i in Data[station]['time']])
     make_nice_histogram(hr[np.isnan(Data[station]['Froude'])], 24, axarr[1, 0],
-                        alpha=0.5, vmin=0, vmax=23, label='South Sand Sea' if station == 'South_Namib_Station' else 'North Sand Sea',
-                        scale_bins='lin', density=False)
+                        alpha=0.4, vmin=0, vmax=23, label='South Sand Sea' if station == 'South_Namib_Station' else 'North Sand Sea',
+                        scale_bins='lin', density=False, color=color)
 axarr[1, 0].set_xlabel('Hours of the day')
 axarr[1, 0].set_ylabel(r'Counts')
 axarr[1, 0].set_xlim(0, 23)
@@ -91,20 +93,22 @@ axarr[1, 0].ticklabel_format(axis='y', style='sci', scilimits=(0, 1))
 axarr[1, 0].legend(loc='upper center')
 
 # ## monthly distributions of ill-processed vertical profiles
-for station in Stations:
+for station, color in zip(Stations, colors):
     month = np.array([i.month for i in Data[station]['time']])
-    make_nice_histogram(month[np.isnan(Data[station]['Froude'])], 24, axarr[1, 1], alpha=0.5, vmin=0, vmax=23, label=' '.join(station.split('_')[:-1]), scale_bins='lin', density=False)
+    make_nice_histogram(month[np.isnan(Data[station]['Froude'])], 24, axarr[1, 1],
+                        alpha=0.5, vmin=0, vmax=23, label=' '.join(station.split('_')[:-1]),
+                        scale_bins='lin', density=False, color=color)
 axarr[1, 1].set_xlabel('Months of the year')
 axarr[1, 1].set_ylabel(r'Counts')
 axarr[1, 1].set_xlim(0, 12)
 axarr[1, 1].ticklabel_format(axis='y', style='sci', scilimits=(0, 1))
 
 # ## labelling
-axarr[0, 0].text(0.05, 0.95, labels[0], ha='center', va='center', transform=axarr[0, 0].transAxes)
-axarr[0, 1].text(0.05, 0.95, labels[1], ha='center', va='center', transform=axarr[0, 1].transAxes)
-axarr[1, 0].text(0.05, 0.92, labels[2], ha='center', va='center', transform=axarr[1, 0].transAxes)
-axarr[1, 1].text(0.05, 0.92, labels[3], ha='center', va='center', transform=axarr[1, 1].transAxes)
+trans = mtransforms.ScaledTranslation(4/72, -4/72, fig.dpi_scale_trans)
+for label, ax in zip(labels, axarr.flatten()):
+    ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top')
 
 
+fig.align_labels()
 plt.savefig(os.path.join(path_savefig, 'Figure8_supp.pdf'))
 plt.show()

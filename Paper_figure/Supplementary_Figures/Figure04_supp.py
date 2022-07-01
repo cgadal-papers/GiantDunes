@@ -5,10 +5,11 @@ Figure 4 -- Online Resource
 
 """
 
-import numpy as np
 import os
-import matplotlib.pyplot as plt
 import sys
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.transforms as mtransforms
 from types import SimpleNamespace
 sys.path.append('../../')
 import python_codes.theme as theme
@@ -23,7 +24,8 @@ path_outputdata = '../../static/data/processed_data/'
 Data_DEM = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'),
                    allow_pickle=True).item()
 
-labels = [(r'\textbf{a}', r'\textbf{d}'), (r'\textbf{b}', r'\textbf{e}'), (r'\textbf{c}', r'\textbf{f}')]
+labels = [r'\textbf{a}', r'\textbf{b}',  r'\textbf{c}', r'\textbf{d}',
+          r'\textbf{e}', r'\textbf{f}']
 
 fig, axrr = plt.subplots(3, 2, figsize=(theme.fig_width, 0.75*theme.fig_height_max),
                          constrained_layout=True, gridspec_kw={'width_ratios': (0.9, 1)})
@@ -35,7 +37,11 @@ for i, station in enumerate(Data_DEM.keys()):
     for c in cs.collections:
         c.set_edgecolor("face")
         c.set_rasterized(True)
-    cb = fig.colorbar(cs, ax=axrr[0, i], label='$h$~[m]', location='top')
+    if i == 0:
+        ticks = [-50, 0, 50, 100]
+    else:
+        ticks = [-50, -25, 0, 25, 50]
+    cb = fig.colorbar(cs, ax=axrr[0, i], label='$h$~[m]', location='top', ticks=ticks)
     cb.ax.locator_params(nbins=8)
     axrr[0, i].set_xlabel(r'longitude [$^{\circ}$]')
     axrr[0, i].set_ylabel(r'latitude [$^{\circ}$]')
@@ -70,9 +76,16 @@ for i, station in enumerate(Data_DEM.keys()):
     axrr[2, i].set_xlim(0, x_transect.max())
     axrr[2, i].set_ylim(lims)
     #
-    axrr[0, i].text(0.05, 0.90, labels[0][i], ha='center', va='center', transform=axrr[0, i].transAxes, color='w')
-    axrr[1, i].text(0.05, 0.90, labels[1][i], ha='center', va='center', transform=axrr[1, i].transAxes, color='w')
-    axrr[2, i].text(0.05, 0.90, labels[2][i], ha='center', va='center', transform=axrr[2, i].transAxes)
 
+trans = mtransforms.ScaledTranslation(5/72, -5/72, fig.dpi_scale_trans)
+for i, (label, ax) in enumerate(zip(labels, axrr.T.flatten())):
+    if i in [0, 1, 3, 4]:
+        color = 'w'
+    else:
+        color = 'k'
+    ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top', color=color)
+
+
+fig.align_ylabels()
 plt.savefig(os.path.join(path_savefig, 'Figure4_supp.pdf'), dpi=600)
 plt.show()

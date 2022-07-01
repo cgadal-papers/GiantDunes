@@ -5,11 +5,11 @@ Figure 3 -- Online Resource
 
 """
 
-import numpy as np
 import os
+import sys
+import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import Normalize
-import sys
 sys.path.append('../../')
 import python_codes.theme as theme
 
