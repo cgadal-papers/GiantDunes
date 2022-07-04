@@ -4,54 +4,60 @@ The top-level auxiliary file: main.aux
 The style file: spbasic_updated.bst
 Database file #1: main.bib
 Warning--entry type for "DataPaper" isn't style-file defined
---line 1208 of file main.bib
-Repeated entry---line 1286 of file main.bib
+--line 1198 of file main.bib
+Repeated entry---line 1273 of file main.bib
  : @article{Andreotti2012
  :                       ,
 I'm skipping whatever remains of this entry
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Name 2 in "Hunter, Ralph E. and Richmond, Bruce M., and Tau Rho Alpha" has a comma at the end for entry Hunter1983
+while executing---line 1543 of file spbasic_updated.bst
 `journal' is a missing field, not a string, for entry Gunn2021b
 while executing---line 1622 of file spbasic_updated.bst
 Warning--empty journal in Gunn2021b
-You've used 133 entries,
+Name 2 in "Hunter, Ralph E. and Richmond, Bruce M., and Tau Rho Alpha" has a comma at the end for entry Hunter1983
+while executing---line 1622 of file spbasic_updated.bst
+Name 2 in "Hunter, Ralph E. and Richmond, Bruce M., and Tau Rho Alpha" has a comma at the end for entry Hunter1983
+while executing---line 1622 of file spbasic_updated.bst
+You've used 137 entries,
             3213 wiz_defined-function locations,
-            1543 strings with 28380 characters,
-and the built_in function-call counts, 152435 in all, are:
-= -- 14219
-> -- 4679
-< -- 64
-+ -- 1670
-- -- 1484
-* -- 13818
-:= -- 21178
-add.period$ -- 132
-call.type$ -- 133
-change.case$ -- 1151
-chr.to.int$ -- 138
-cite$ -- 134
-duplicate$ -- 12909
-empty$ -- 13301
-format.name$ -- 1896
-if$ -- 31738
+            1567 strings with 29222 characters,
+and the built_in function-call counts, 157235 in all, are:
+= -- 14683
+> -- 4858
+< -- 65
++ -- 1731
+- -- 1541
+* -- 14238
+:= -- 21884
+add.period$ -- 136
+call.type$ -- 137
+change.case$ -- 1190
+chr.to.int$ -- 142
+cite$ -- 138
+duplicate$ -- 13280
+empty$ -- 13684
+format.name$ -- 1967
+if$ -- 32749
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 1543
-newline$ -- 409
-num.names$ -- 534
-pop$ -- 2902
+missing$ -- 1594
+newline$ -- 421
+num.names$ -- 550
+pop$ -- 3031
 preamble$ -- 1
-purify$ -- 1018
+purify$ -- 1053
 quote$ -- 0
-skip$ -- 2283
+skip$ -- 2354
 stack$ -- 0
-substring$ -- 17995
-swap$ -- 3198
+substring$ -- 18585
+swap$ -- 3195
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1179
+type$ -- 1215
 warning$ -- 1
-while$ -- 1250
+while$ -- 1289
 width$ -- 0
-write$ -- 1471
-(There were 2 error messages)
+write$ -- 1516
+(There were 5 error messages)

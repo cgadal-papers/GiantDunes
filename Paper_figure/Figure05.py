@@ -16,7 +16,7 @@ import matplotlib.transforms as mtransforms
 from datetime import datetime, timedelta
 sys.path.append('../')
 import python_codes.theme as theme
-from python_codes.general import smallestSignedAngleBetween, find_mode_distribution
+from python_codes.general import smallestSignedAngleBetween
 
 
 locale.setlocale(locale.LC_ALL, 'en_US.utf8')
@@ -77,7 +77,6 @@ for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs[1:], years, month
     mask = (Data[station]['time'] >= tmin) & (Data[station]['time'] < tmax)
     delta_u = np.abs((Data[station]['U_star_era'][mask] - Data[station]['U_star_insitu'][mask])/Data[station]['U_star_era'][mask])
     Delta = smallestSignedAngleBetween(Data[station]['Orientation_era'][mask], Data[station]['Orientation_insitu'][mask])
-    mode_delta = np.array([find_mode_distribution(Delta, i) for i in np.arange(150, 350)]).mean()
     delta_angle = np.abs(Delta)
     #
     mask_u_theta = (np.abs(delta_u) < 1) & (delta_angle < 85)
