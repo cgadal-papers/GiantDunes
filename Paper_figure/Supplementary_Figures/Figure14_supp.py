@@ -86,7 +86,7 @@ for (ax, station, yr, mth, day) in zip(axarr.flatten(), Stations, years,
                         facecolor=theme.color_night, alpha=0.1, edgecolor=None, label=theme.Icon_night)
     #
 
-for ax in axarr[:-1, 0]:
+for ax in axarr[:, 0]:
     ax.set_ylabel(r'$\delta_{\textup{u}}$')
 
 custom_lines = [Line2D([0], [0], color='tab:blue'),
@@ -99,7 +99,7 @@ fig.legend(custom_lines, ['calibrated',
                           '$10^{-2}$, $10^{-4}$',
                           '$10^{-4}$, $10^{-2}$',
                           ],
-           title=r'Hydrodynamic roughnesses, $\left(z_{0}^{\textup{Era5Land}}, \, z_{0}^{\textup{local}}\right)$, [m]',
+           title=r'Hydrodynamic roughnesses, $\left(z_{0}^{\textup{ERA5-Land}}, \, z_{0}^{\textup{Local mes.}}\right)$, [m]',
            ncol=4,
            handletextpad=0.4, columnspacing=1.5, loc='upper center')
 

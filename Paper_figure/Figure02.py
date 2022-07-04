@@ -70,10 +70,10 @@ for i, ([ax3, ax1, ax2], station) in enumerate(zip(axarr,
 
     # wind roses
     plot_wind_rose(Data[station]['Orientation_era'], Data[station]['U_star_era'], bins,
-                   ax1, fig, cmap=theme.cmap_wind, props=props)
+                   ax1, fig, cmap=theme.cmap_wind, boxprops=props)
     #
     plot_wind_rose(Data[station]['Orientation_insitu'], Data[station]['U_star_insitu'], bins,
-                   ax2, fig, cmap=theme.cmap_wind, props=props)
+                   ax2, fig, cmap=theme.cmap_wind, boxprops=props)
     #
     # stations
     ax3.scatter(coords_insitu_pix[i][0], coords_insitu_pix[i][1], s=25,
@@ -89,9 +89,11 @@ for i, ([ax3, ax1, ax2], station) in enumerate(zip(axarr,
 
 
 pos1 = axarr[0, 1].get_position()
-fig.text((pos1.xmin + pos1.xmax)/2, pos1.ymax + space, 'Era5Land', ha='center', va='top')
+fig.text((pos1.xmin + pos1.xmax)/2, pos1.ymax + space, 'ERA5-Land', ha='center',
+         va='center')
 pos2 = axarr[0, 2].get_position()
-t = fig.text((pos2.xmin + pos2.xmax)/2, pos2.ymax + space, 'Local', ha='center', va='top')
+t = fig.text((pos2.xmin + pos2.xmax)/2, pos2.ymax + space, 'Local \n measurements',
+             ha='center', va='center')
 
 # #### colorbar
 pos3 = axarr[0, 0].get_position()
@@ -112,6 +114,12 @@ for label, ax in zip(numbering, axarr[:, 0].flatten()):
     ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top',
             bbox=dict(alpha=0.5, facecolor='w', edgecolor='none', pad=3.0))
 
+ax_north = axarr[2, 0].inset_axes([1.5, 0.8, 0.1, 0.45])
+ax_north.set_axis_off()
+center = np.array([0.5, 0.3])
+length = 0.4
+north_arrow(ax_north, center, length, radius=(4/7)*length, width=1.5*length,
+            transform=ax_north.transAxes, color='k', lw=0.05)
 
 plt.savefig(os.path.join(path_savefig, 'Figure2.pdf'), dpi=600)
 plt.show()

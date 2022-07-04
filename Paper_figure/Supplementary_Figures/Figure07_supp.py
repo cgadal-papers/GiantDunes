@@ -60,12 +60,12 @@ for i, (ax, x, y, alpha) in enumerate(zip(axarr, X, Y, alphas)):
     plt.sca(ax)
     plot_scatter_surrounded(x, y, color='tab:blue', alpha=alpha)
     ax.plot([0, 0.6], [0, 0.6], 'k--')
-    ax.set_xlabel(r'$u_{*, \textup{ERA}}~[\textup{m}~\textup{s}^{-1}]$')
+    ax.set_xlabel(r'$u_{*,~\textup{ERA5-Land}}~[\textup{m}~\textup{s}^{-1}]$')
     ax.set_xlim(0, 0.57)
     ax.set_ylim(0, 0.57)
     ax.set_aspect('equal')
 
-axarr[0].set_ylabel(r'$u_{*, \textup{local}}~[\textup{m}~\textup{s}^{-1}]$')
+axarr[0].set_ylabel(r'$u_{*,~\textup{Local mes.}}~[\textup{m}~\textup{s}^{-1}]$')
 
 trans = mtransforms.ScaledTranslation(5/72, -5/72, fig.dpi_scale_trans)
 for label, ax in zip(labels, axarr.flatten()):

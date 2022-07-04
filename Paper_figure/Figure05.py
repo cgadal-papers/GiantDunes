@@ -85,8 +85,10 @@ for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs[1:], years, month
     mask_theta = delta_angle > 50
 
     for j, (ax, var, label) in enumerate(zip(axarr, variables, labels[i])):
-        l1, = ax.plot(Data[station]['time'], Data[station][var + '_insitu'], label='measurements', color=theme.color_insitu)
-        l2, = ax.plot(Data[station]['time'], Data[station][var + '_era'], label='Era5Land', color=theme.color_Era5Land)
+        l1, = ax.plot(Data[station]['time'], Data[station][var + '_insitu'],
+                      label='Local measurements', color=theme.color_insitu)
+        l2, = ax.plot(Data[station]['time'], Data[station][var + '_era'],
+                      label='ERA5-Land', color=theme.color_Era5Land)
         ax.set_xlim(tmin, tmax)
         tick_formatter(ax)
         #
@@ -96,9 +98,11 @@ for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs[1:], years, month
         x_night = [tstart + timedelta(days=i) for i in range((tmax-tmin).days + 2)]
         for daylight in x_night:
             a1 = ax.axvspan(daylight, daylight + timedelta(hours=12),
-                            facecolor=theme.color_day, alpha=0.1, edgecolor=None, label=theme.Icon_day)
+                            facecolor=theme.color_day, alpha=0.1, edgecolor=None,
+                            label=theme.Icon_day)
             a2 = ax.axvspan(daylight - timedelta(hours=12), daylight,
-                            facecolor=theme.color_night, alpha=0.1, edgecolor=None, label=theme.Icon_night)
+                            facecolor=theme.color_night, alpha=0.1, edgecolor=None,
+                            label=theme.Icon_night)
         #
         ax.set_ylabel(label_var[var])
         ax.set_xlabel('Days in {} {:d}'.format(month_calendar[tmin.month], tmin.year))

@@ -48,14 +48,14 @@ axrr[0].set_xlim(0, 360)
 axrr[0].set_ylim(0, 360)
 axrr[0].set_xticks([0, 90, 180, 270, 360])
 axrr[0].set_yticks([0, 90, 180, 270, 360])
-axrr[0].set_xlabel(r'$\theta_{\textup{ERA}}$')
-axrr[0].set_ylabel(r'$\theta_{\textup{local}}$')
+axrr[0].set_xlabel(r'$\theta_{\textup{ERA5-Land}}$')
+axrr[0].set_ylabel(r'$\theta_{\textup{Local mes.}}$')
 axrr[0].set_aspect('equal')
 #
 axrr[1].set_xlim(0, 0.5)
 axrr[1].set_ylim(0, 0.5)
-axrr[1].set_xlabel(r'$u_{*, \textup{ERA}}$')
-axrr[1].set_ylabel(r'$u_{*, \textup{local}}$')
+axrr[1].set_xlabel(r'$u_{*,~\textup{ERA5-Land}}$')
+axrr[1].set_ylabel(r'$u_{*,~\textup{Local mes.}}$')
 axrr[1].set_aspect('equal')
 #
 

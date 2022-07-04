@@ -48,8 +48,8 @@ plt.xlim([Data_roughness['z0_era_vals'].min(), Data_roughness['z0_era_vals'].max
 plt.ylim([Data_roughness['z0_insitu_vals'].min(), Data_roughness['z0_insitu_vals'].max()])
 plt.gca().set_xscale('log')
 plt.gca().set_yscale('log')
-fig.supxlabel(r'Hydrodynamic roughness - ERA, $z_{0}^{\textup{Era5Land}}$ [m]')
-fig.supylabel(r'Hydrodynamic roughness - local, $z_{0}^{\textup{local}}$ [m]')
+fig.supxlabel(r'Hydrodynamic roughness - ERA5-Land, $z_{0}^{\textup{ERA5-Land}}$ [m]')
+fig.supylabel(r'Hydrodynamic roughness - Local mes., $z_{0}^{\textup{Local mes.}}$ [m]')
 
 # colorbar
 sm = plt.cm.ScalarMappable(cmap='viridis', norm=norm)

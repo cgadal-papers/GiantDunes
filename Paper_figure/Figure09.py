@@ -146,8 +146,10 @@ for ax, station in zip(axarr.flatten(), Stations):
     anchor = [pad_bord_x, 1-(pad_bord_x+size_rose_x)*ax_aspect, size_rose_x, size_rose_x*ax_aspect]
     RDD, RDP = Vector_average(Angles, PDF[station][0, index, 1, :])
     subax = ax.inset_axes(bounds=anchor, transform=ax.transAxes)
-    a = plot_flux_rose(Angles, PDF[station][0, index, 1, :], subax, fig, cmap=theme.flux_color, edgecolor='k', linewidth=0.5, label='Era5-Land', props=props)
-    plot_arrow(a, (RDD*np.pi/180, 0), (RDD*np.pi/180, 0.85*a.get_rmax()), arrowprops=dict(arrowstyle="<|-", shrinkA=0, shrinkB=0, color='saddlebrown', mutation_scale=10))
+    a = plot_flux_rose(Angles, PDF[station][0, index, 1, :], subax, fig, cmap=theme.flux_color,
+                       edgecolor='k', linewidth=0.5, label='ERA5-Land', boxprops=props)
+    plot_arrow(a, (RDD*np.pi/180, 0), (RDD*np.pi/180, 0.85*a.get_rmax()),
+               arrowprops=dict(arrowstyle="<|-", shrinkA=0, shrinkB=0, color='saddlebrown', mutation_scale=10))
     a.grid(linewidth=0.4, color='k', linestyle='--')
     a.set_axisbelow(True)
     a.patch.set_alpha(0.4)
@@ -157,9 +159,12 @@ for ax, station in zip(axarr.flatten(), Stations):
     anchor = [1-pad_bord_x-size_rose_x, 1-(pad_bord_x+size_rose_x)*ax_aspect, size_rose_x, size_rose_x*ax_aspect]
     RDD, RDP = Vector_average(Angles, PDF[station][0, index, 0, :])
     subax = ax.inset_axes(bounds=anchor, transform=ax.transAxes)
-    a = plot_flux_rose(Angles, PDF[station][0, index, 0, :], subax, fig, cmap=theme.flux_color, edgecolor='k', linewidth=0.5, label='local', props=props)
+    a = plot_flux_rose(Angles, PDF[station][0, index, 0, :], subax, fig, cmap=theme.flux_color,
+                       edgecolor='k', linewidth=0.5, label='Local \n measurements',
+                       boxprops=props, boxloc=(-0.2, 0.5))
     plot_arrow(a, (RDD*np.pi/180, 0), (RDD*np.pi/180, 0.85*a.get_rmax()),
-               arrowprops=dict(arrowstyle="<|-", shrinkA=0, shrinkB=0, color='saddlebrown', mutation_scale=10, ls='--'))
+               arrowprops=dict(arrowstyle="<|-", shrinkA=0, shrinkB=0, color='saddlebrown',
+               mutation_scale=10, ls='--'))
     a.grid(linewidth=0.4, color='k', linestyle='--')
     a.set_axisbelow(True)
     a.patch.set_alpha(0.4)

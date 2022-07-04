@@ -61,7 +61,7 @@ axarr[1, 1].set_xlim(-0.5, 23.5)
 axbig.set_xlim(0, 360)
 axarr[1, 0].set_xlabel('Months of the year')
 axarr[1, 1].set_xlabel('Hours of the day')
-axbig.set_xlabel(r'Wind orientation, $\theta_{\textup{ERA}}$')
+axbig.set_xlabel(r'Wind orientation, $\theta_{\textup{ERA5-Land}}~[^\circ]$')
 axarr[1, 1].set_ylabel('PDF')
 axarr[1, 0].set_ylabel('PDF')
 axbig.set_ylabel('PDF')
@@ -74,6 +74,7 @@ ax_list = [axbig, axarr[1, 0], axarr[1, 1]]
 trans = mtransforms.ScaledTranslation(5/72, -5/72, fig.dpi_scale_trans)
 for ax, label in zip(ax_list, labels):
     ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top')
+    ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
 
 fig.align_labels()
 plt.savefig(os.path.join(path_savefig, 'Figure12_supp.pdf'))

@@ -88,9 +88,9 @@ for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs[1:], years, month
     #
     for j, (ax, var, label) in enumerate(zip(axarr, variables, labels[i])):
         l1, = ax.plot(Data[station]['time'], Data[station][var + '_insitu'],
-                      label='measurements', color=theme.color_insitu)
+                      label='Local measurements', color=theme.color_insitu)
         l2, = ax.plot(Data[station]['time'], Data[station][var + '_era'],
-                      label='Era5Land', color=theme.color_Era5Land)
+                      label='ERA5-Land', color=theme.color_Era5Land)
         ax.set_xlim(tmin, tmax)
         tick_formatter(ax)
         #

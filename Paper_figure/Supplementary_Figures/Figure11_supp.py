@@ -46,7 +46,7 @@ lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
 cmaps = [theme.cmap_delta_theta, theme.cmap_delta_u]
 norms = [mpcolors.Normalize(vmin=0, vmax=99),
          mpcolors.TwoSlopeNorm(vmin=-3, vcenter=0, vmax=1)]
-cbar_labels = [r'$\delta_{\theta}$ [deg.]', r'$\delta_{u}$']
+cbar_labels = [r'$\delta_{\theta}~[^\circ]$', r'$\delta_{u}$']
 quantities = [delta_angle, delta_u]
 labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}']
 cbticks = [[0, 25, 50, 75], [-3, -1.5, 0, 0.5, 1]]

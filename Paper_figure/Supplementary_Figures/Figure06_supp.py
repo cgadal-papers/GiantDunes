@@ -63,7 +63,7 @@ fig, axarr = plt.subplots(3, 1, figsize=(theme.fig_width, 1.3*theme.fig_width),
 for i, (ax, label, x, y) in enumerate(zip(axarr.flatten(), labels, X, Y)):
     plt.sca(ax)
     plot_scatter_surrounded(x % 360, y % 360, color='tab:blue', alpha=0.2)
-    ax.set_ylabel(r'$\theta_{\textup{local}} - \alpha_{\textup{dune}}$')
+    ax.set_ylabel(r'$\theta_{\textup{Local mes.}} - \alpha_{\textup{dune}}$')
     ax.text(-0.1, 0.98, label, ha='center', va='center', transform=ax.transAxes)
     if i in [0, 1]:
         ax.axhline(180, color='k', linestyle='--')
@@ -74,7 +74,7 @@ for i, (ax, label, x, y) in enumerate(zip(axarr.flatten(), labels, X, Y)):
 
 ax.set_xlim(0, 360)
 ax.set_ylim(0, 360)
-ax.set_xlabel(r'$\theta_{\textup{ERA}} - \alpha_{\textup{dune}}$')
+ax.set_xlabel(r'$\theta_{\textup{ERA5-Land}} - \alpha_{\textup{dune}}$')
 
 plt.savefig(os.path.join(path_savefig, 'Figure6_supp.pdf'), dpi=400)
 plt.show()

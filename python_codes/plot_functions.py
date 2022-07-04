@@ -6,9 +6,8 @@ from windrose import WindroseAxes
 from scipy.stats import binned_statistic_2d
 
 
-def plot_wind_rose(theta, U, bins, ax, fig, label=None,
-                   props=dict(boxstyle='round', facecolor=(1, 1, 1, 0.9), edgecolor=(1, 1, 1, 1), pad=0),
-                   **kwargs):
+def plot_wind_rose(theta, U, bins, ax, fig, label=None, boxprops=None,
+                   boxloc=(0.5, 0.05), **kwargs):
     """Plot a wind rose from one dimensional time series.
 
     Parameters
@@ -25,6 +24,10 @@ def plot_wind_rose(theta, U, bins, ax, fig, label=None,
         figure on which the wind rose is plotted
     label : str or None
         if not None, label plotted below the wind rose (default is None).
+    boxprops : dict
+        Text box properties (the default is None).
+    boxloc : list, tuple
+        Text location (x,y), in ax coordinates (the default is (0.5, 0.05)).
     **kwargs :
         Optional parameters passed to :func:`windrose.WindroseAxes.bar <windrose.WindroseAxes>`.
 
@@ -34,6 +37,7 @@ def plot_wind_rose(theta, U, bins, ax, fig, label=None,
         return the axe on which the wind rose is plotted. Can be used for further modifications.
 
     """
+
     # changing ax to have to have the windrose projection
     subplotspec = ax.get_subplotspec()
     ax.remove()
@@ -48,13 +52,13 @@ def plot_wind_rose(theta, U, bins, ax, fig, label=None,
     ax_rose.set_xticklabels([])
     ax_rose.set_yticklabels([])
     if label is not None:
-        fig.text(0.5, 0.05, label, ha='center', va='center', transform=ax.transAxes, bbox=props)
+        fig.text(boxloc[0], boxloc[1], label, ha='center', va='center',
+                 transform=ax.transAxes, bbox=boxprops)
     return ax_rose
 
 
 def plot_flux_rose(angles, distribution, ax, fig, nbins=20, withaxe=0, label=None,
-                   props=dict(boxstyle='round', facecolor=(1, 1, 1, 0.9), edgecolor=(1, 1, 1, 1), pad=0),
-                   **kwargs):
+                   boxprops=None, boxloc=(0.5, 0.05), **kwargs):
     """Short summary.
 
     Parameters
@@ -73,6 +77,10 @@ def plot_flux_rose(angles, distribution, ax, fig, nbins=20, withaxe=0, label=Non
         Define if the polar axes are plotted or not (the default is 0).
     label : str
         If not None, sets a label at the bottom of the flux rose (the default is None).
+    boxprops : dict
+        Text box properties (the default is None).
+    boxloc : list, tuple
+        Text location (x,y), in ax coordinates (the default is (0.5, 0.05)).
     **kwargs :
         Optional parameters passed to :func:`windrose.WindroseAxes.bar <windrose.WindroseAxes>`.
 
@@ -83,6 +91,7 @@ def plot_flux_rose(angles, distribution, ax, fig, nbins=20, withaxe=0, label=Non
 
     """
 
+    #
     PdfQ = distribution/np.nansum(distribution)  # normalization
     # creating the new pdf with the number of bins
     Lbin = 360/nbins
@@ -111,7 +120,8 @@ def plot_flux_rose(angles, distribution, ax, fig, nbins=20, withaxe=0, label=Non
         if withaxe != 1:
             ax_rose.set_yticks([])
     if label is not None:
-        fig.text(0.5, 0.05, label, ha='center', va='center', transform=ax.transAxes, bbox=props)
+        fig.text(boxloc[0], boxloc[1], label, ha='center', va='center',
+                 transform=ax.transAxes, bbox=boxprops)
     ax.remove()
     return ax_rose
 

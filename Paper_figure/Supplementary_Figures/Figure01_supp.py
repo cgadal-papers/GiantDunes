@@ -67,8 +67,8 @@ for station in Stations:
 plt.xlabel('time [years]')
 plt.gca().set_yticks(centers)
 plt.gca().set_yticklabels(labels)
-ptch_Era5Land = mpatches.Patch(color=colors[0], label='Era5Land/Era5')
-ptch_InSitu = mpatches.Patch(color=colors[1], label='local measurements')
+ptch_Era5Land = mpatches.Patch(color=colors[0], label='ERA5-Land/ERA5')
+ptch_InSitu = mpatches.Patch(color=colors[1], label='Local measurements')
 plt.legend(handles=[ptch_Era5Land, ptch_InSitu], loc='lower left', bbox_to_anchor=(0, 0.2))
 
 

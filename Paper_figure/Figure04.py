@@ -39,7 +39,7 @@ for j, station in enumerate(Stations):
     for i in range(3):  # Loop over velocites
         if i < 2:
             mask_U = (Data[station]['U_star_era'] >= velocity_bins[i][0]) & (Data[station]['U_star_era'] <= velocity_bins[i][1])
-            label_u = r'$u_{*, \textup{ERA}} < ' + str(velocity_bins[i][1]) + '$' if i == 0 else r'$u_{*, \textup{ERA}} > ' + str(velocity_bins[i][0]) + '$'
+            label_u = r'$u_{*, \textup{ERA}} < ' + str(velocity_bins[i][1]) + '$ m~s$^{-1}$' if i == 0 else r'$u_{*, \textup{ERA}} > ' + str(velocity_bins[i][0]) + '$ m~s$^{-1}$'
         else:
             mask_U = (Data[station]['U_star_era'] < 10)  # take all velocities
             label_u = 'all velocities'
