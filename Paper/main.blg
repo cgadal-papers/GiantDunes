@@ -4,63 +4,57 @@ The top-level auxiliary file: main.aux
 The style file: spbasic_updated.bst
 Database file #1: main.bib
 Warning--entry type for "DataPaper" isn't style-file defined
---line 1198 of file main.bib
-Repeated entry---line 1273 of file main.bib
+--line 1202 of file main.bib
+Repeated entry---line 1277 of file main.bib
  : @article{Andreotti2012
  :                       ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "Zhang2014"
-Warning--I didn't find a database entry for "Rozir2019"
-Warning--I didn't find a database entry for "Geo2021"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Name 2 in "Hunter, Ralph E. and Richmond, Bruce M., and Tau Rho Alpha" has a comma at the end for entry Hunter1983
 while executing---line 1543 of file spbasic_updated.bst
-`journal' is a missing field, not a string, for entry Gunn2021b
-while executing---line 1622 of file spbasic_updated.bst
-Warning--empty journal in Gunn2021b
 Name 2 in "Hunter, Ralph E. and Richmond, Bruce M., and Tau Rho Alpha" has a comma at the end for entry Hunter1983
 while executing---line 1622 of file spbasic_updated.bst
 Name 2 in "Hunter, Ralph E. and Richmond, Bruce M., and Tau Rho Alpha" has a comma at the end for entry Hunter1983
 while executing---line 1622 of file spbasic_updated.bst
-You've used 137 entries,
+You've used 140 entries,
             3213 wiz_defined-function locations,
-            1573 strings with 29273 characters,
-and the built_in function-call counts, 157217 in all, are:
-= -- 14681
-> -- 4858
+            1586 strings with 29756 characters,
+and the built_in function-call counts, 161061 in all, are:
+= -- 15058
+> -- 4936
 < -- 65
-+ -- 1731
-- -- 1541
-* -- 14239
-:= -- 21882
-add.period$ -- 136
-call.type$ -- 137
-change.case$ -- 1190
-chr.to.int$ -- 142
-cite$ -- 138
-duplicate$ -- 13278
-empty$ -- 13682
-format.name$ -- 1967
-if$ -- 32745
-int.to.chr$ -- 2
++ -- 1757
+- -- 1565
+* -- 14600
+:= -- 22390
+add.period$ -- 140
+call.type$ -- 140
+change.case$ -- 1213
+chr.to.int$ -- 146
+cite$ -- 140
+duplicate$ -- 13619
+empty$ -- 14044
+format.name$ -- 2000
+if$ -- 33557
+int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 1594
-newline$ -- 421
-num.names$ -- 550
-pop$ -- 3028
+missing$ -- 1628
+newline$ -- 430
+num.names$ -- 562
+pop$ -- 3081
 preamble$ -- 1
-purify$ -- 1053
+purify$ -- 1073
 quote$ -- 0
-skip$ -- 2354
+skip$ -- 2405
 stack$ -- 0
-substring$ -- 18581
-swap$ -- 3195
+substring$ -- 19120
+swap$ -- 3277
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1215
-warning$ -- 1
-while$ -- 1289
+type$ -- 1242
+warning$ -- 0
+while$ -- 1316
 width$ -- 0
-write$ -- 1516
-(There were 5 error messages)
+write$ -- 1550
+(There were 4 error messages)

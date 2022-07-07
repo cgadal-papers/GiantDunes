@@ -1,4 +1,4 @@
-\begin{thebibliography}{137}
+\begin{thebibliography}{140}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -78,9 +78,9 @@ Brown S, Nickling WG, Gillies JA (2008) A wind tunnel examination of shear
   Arnold, Lorenz, Barnes, Hayes, Rodriguez, and Rittenour}]{Chand22}
 Chandler C, Radebaugh J, McBride J, Morris T, Narteau C, Arnold K, Lorenz R,
   Barnes J, Hayes A, Rodriguez S, Rittenour T (2022) Near-surface structure of
-  a large linear dune and an associated crossing dune of the northern namib
-  sand sea from ground penetrating radar: Implications for the history of large
-  linear dunes on earth and titan. Aeolian Research 57:100813,
+  a large linear dune and an associated crossing dune of the northern {Namib
+  Sand Sea} from ground penetrating radar: Implications for the history of
+  large linear dunes on {Earth} and {Titan}. Aeolian Research 57:100813,
   \doi{https://doi.org/10.1016/j.aeolia.2022.100813}
 
 \bibitem[{Chang and Simons(1970)}]{Chang1970}
@@ -130,7 +130,7 @@ Creyssels M, Dupont P, {El Moctar} AO, Valance A, Cantat I, Jenkins JT, Pasini
 \bibitem[{Dee et~al.(2011)Dee, Uppala, Simmons, Berrisford, Poli, Kobayashi,
   Andrae, Balmaseda, Balsamo, Bauer et~al.}]{Dee2011}
 Dee DP, Uppala SM, Simmons AJ, Berrisford P, Poli P, Kobayashi S, Andrae U,
-  Balmaseda M, Balsamo G, Bauer dP, et~al. (2011) The era-interim reanalysis:
+  Balmaseda M, Balsamo G, Bauer dP, et~al. (2011) The {ERA-Interim} reanalysis:
   Configuration and performance of the data assimilation system. Q J R Meteorol
   Soc 137:553--597
 
@@ -220,6 +220,11 @@ Gadal C, Delorme P, Narteau C, Wiggs G, Baddock M, Nield JM, Claudin P (2022)
   ERA5-Land re-analysis with surface measurements'}.
   \doi{10.5281/zenodo.6343138}
 
+\bibitem[{Gao et~al.(2021)Gao, Narteau, and Gadal}]{Gao2021}
+Gao X, Narteau C, Gadal C (2021) Migration of reversing dunes against the sand
+  flow path as a singular expression of the speed-up effect. Journal of
+  Geophysical Research: Earth Surface 126(5):e2020JF005913
+
 \bibitem[{Garratt(1994)}]{Garratt1994}
 Garratt JR (1994) The atmospheric boundary layer. Earth-Science Reviews
   37:89--134
@@ -242,17 +247,15 @@ Gong W, Taylor P, D\"ornbrack A (1996) {Turbulent boundary-layer flow over
 Gu{\'e}rin A, Derr J, Du~Pont SC, Berhanu M (2020) Streamwise dissolution
   patterns created by a flowing water film. Phys Rev Lett 125:194502
 
-\bibitem[{Gunn et~al.(2021{\natexlab{a}})Gunn, Casasanta, Di~Liberto, Falcini,
-  Lancaster, and Jerolmack}]{Gunn2021b}
-Gunn A, Casasanta G, Di~Liberto L, Falcini F, Lancaster N, Jerolmack DJ
-  (2021{\natexlab{a}}) What sets aeolian dune height?
-  \doi{https://doi.org/10.31223/X5QG8S}
+\bibitem[{Gunn et~al.(2021)Gunn, Wanker, Lancaster, Edmonds, Ewing, and
+  Jerolmack}]{gunn2021}
+Gunn A, Wanker M, Lancaster N, Edmonds D, Ewing R, Jerolmack D (2021) Circadian
+  rhythm of dune-field activity. Geophys Res Lett 48:e2020GL090924
 
-\bibitem[{Gunn et~al.(2021{\natexlab{b}})Gunn, Wanker, Lancaster, Edmonds,
-  Ewing, and Jerolmack}]{gunn2021}
-Gunn A, Wanker M, Lancaster N, Edmonds D, Ewing R, Jerolmack D
-  (2021{\natexlab{b}}) Circadian rhythm of dune-field activity. Geophys Res
-  Lett 48:e2020GL090924
+\bibitem[{Gunn et~al.(2022)Gunn, Casasanta, Di~Liberto, Falcini, Lancaster, and
+  Jerolmack}]{Gunn2022}
+Gunn A, Casasanta G, Di~Liberto L, Falcini F, Lancaster N, Jerolmack DJ (2022)
+  What sets aeolian dune height? Nature communications 13(1):1--8
 
 \bibitem[{Harris et~al.(2020)Harris, Millman, van~der Walt, Gommers, Virtanen,
   Cournapeau, Wieser, Taylor, Berg, Smith et~al.}]{Harris2020}
@@ -262,20 +265,21 @@ Harris CR, Millman KJ, van~der Walt SJ, Gommers R, Virtanen P, Cournapeau D,
 
 \bibitem[{Havholm and Kocurek(1988)}]{Havholm1988}
 Havholm KG, Kocurek G (1988) A preliminary study of the dynamics of a modern
-  draa, algodones, southeastern california, usa. Sedimentology 35:649--669
+  draa, {Algodones}, southeastern {California}, {USA}. Sedimentology
+  35:649--669
 
 \bibitem[{Hersbach et~al.(2020)Hersbach, Bell, Berrisford, Hirahara,
   Hor{\'a}nyi, Mu{\~n}oz-Sabater, Nicolas, Peubey, Radu, Schepers
   et~al.}]{Hersbach2020}
 Hersbach H, Bell B, Berrisford P, Hirahara S, Hor{\'a}nyi A, Mu{\~n}oz-Sabater
-  J, Nicolas J, Peubey C, Radu R, Schepers D, et~al. (2020) The era5 global
+  J, Nicolas J, Peubey C, Radu R, Schepers D, et~al. (2020) The {ERA5} global
   reanalysis. Q J R Meteorol Soc 146:1999--2049
 
 \bibitem[{Hesp et~al.(1989)Hesp, Illenberger, Rust, McLachlan, and
   Hyde}]{Hesp1989}
 Hesp P, Illenberger W, Rust I, McLachlan A, Hyde R (1989) Some aspects of
   transgressive dunefield and transverse dune geomorphology and dynamics, south
-  coast, south africa. Zeitschrift fur Geomorphologie, Supplementband
+  coast, {South Africa}. Zeitschrift fur Geomorphologie, Supplementband
   73:111--123
 
 \bibitem[{Hesp and Hastings(1998)}]{Hesp1998}
@@ -287,11 +291,9 @@ Hesp PA, Hastings K (1998) Width, height and slope relationships and
 Hesp PA, Smyth TAG, Nielsen P, Walker IJ, Bauer BO, Davidson-Arnott R (2015)
   Flow deflection over a foredune. Geomorphology 230:64--74
 
-\bibitem[{Ho et~al.(2011)Ho, Valance, Dupont, {Ould El Moctar}, {Tuan Duc},
-  Valance, Dupont, and {Ould El Moctar}}]{Ho2011}
-Ho TD, Valance A, Dupont P, {Ould El Moctar} A, {Tuan Duc} H, Valance A, Dupont
-  P, {Ould El Moctar} A (2011) {Scaling laws in aeolian sand transport}. Phys
-  Rev Lett 106:4--7
+\bibitem[{Ho et~al.(2011)Ho, Valance, Dupont, and {Ould El Moctar}}]{Ho2011}
+Ho TD, Valance A, Dupont P, {Ould El Moctar} A (2011) {Scaling laws in aeolian
+  sand transport}. Phys Rev Lett 106:4--7
 
 \bibitem[{Hood et~al.(2021)Hood, Ewing, Roback, Runyon, Avouac, and
   McEnroe}]{Hood2021}
@@ -306,7 +308,7 @@ Howard AD (1977) Effect of slope on the threshold of motion and its application
 
 \bibitem[{Hu et~al.(2021)Hu, Gao, Lei, and Zhou}]{Hu2021}
 Hu Z, Gao X, Lei J, Zhou N (2021) Geomorphology of aeolian dunes in the western
-  sahara desert. Geomorphology 392:107916
+  {Sahara Desert}. Geomorphology 392:107916
 
 \bibitem[{Hunt et~al.(1988)Hunt, Leibovich, and Richards}]{Hunt1988}
 Hunt J, Leibovich S, Richards K (1988) Turbulent shear flows over low hills. Q
@@ -323,7 +325,7 @@ Hunter JD (2007) Matplotlib: A 2d graphics environment. Computing in science \&
 
 \bibitem[{Hunter et~al.(1983)Hunter, Richmond, and Alpha}]{Hunter1983}
 Hunter RE, Richmond BM, Alpha TR (1983) Storm-controlled oblique dunes of the
-  oregon coast. Geol Soc America Bull 94:1450--1465
+  {Oregon} coast. Geol Soc America Bull 94:1450--1465
 
 \bibitem[{Iversen and Rasmussen(1999)}]{Iversen99}
 Iversen JD, Rasmussen KR (1999) {The effect of wind speed and bed slope on sand
@@ -358,11 +360,11 @@ Kroy K, Sauermann G, Herrmann HJ (2002) Minimal model for aeolian sand dunes.
 
 \bibitem[{Lancaster et~al.(1984)Lancaster, Lancaster, and
   Seely}]{lancaster1984}
-Lancaster J, Lancaster N, Seely M (1984) Climate of the central namib desert.
+Lancaster J, Lancaster N, Seely M (1984) Climate of the central {Namib} desert.
   Madoqua 1984:5--61
 
 \bibitem[{Lancaster(1985)}]{lancaster1985}
-Lancaster N (1985) Winds and sand movements in the namib sand sea. Earth Surf
+Lancaster N (1985) Winds and sand movements in the {Namib} sand sea. Earth Surf
   Process Landf 10:607--619
 
 \bibitem[{Lancaster et~al.(1996)Lancaster, Nickling, Neuman, and
@@ -384,20 +386,20 @@ Livingstone I, Warren A (2019) Aeolian geomorphology: a new introduction. Wiley
 \bibitem[{Livingstone et~al.(2010)Livingstone, Bristow, Bryant, Bullard, White,
   Wiggs, Baas, Bateman, and Thomas}]{Livingstone2010}
 Livingstone I, Bristow C, Bryant RG, Bullard J, White K, Wiggs GFS, Baas ACW,
-  Bateman MD, Thomas DSG (2010) The namib sand sea digital database of aeolian
-  dunes and key forcing variables. Aeolian Res 2:93--104
+  Bateman MD, Thomas DSG (2010) The {Namib Sand Sea} digital database of
+  aeolian dunes and key forcing variables. Aeolian Res 2:93--104
 
 \bibitem[{Lorenz et~al.(2010)Lorenz, Claudin, Andreotti, Radebaugh, and
   Tokano}]{Lorenz2010}
 Lorenz R, Claudin P, Andreotti B, Radebaugh J, Tokano T (2010) A 3 km
-  atmospheric boundary layer on titan indicated by dune spacing and huygens
+  atmospheric boundary layer on {Titan} indicated by dune spacing and {Huygens}
   data. Icarus 205:719--721
 
 \bibitem[{L{\"u} et~al.(2017)L{\"u}, Narteau, Dong, Rozier, and
   Du~Pont}]{lu2017}
 L{\"u} P, Narteau C, Dong Z, Rozier O, Du~Pont SC (2017) Unravelling raked
   linear dunes to explain the coexistence of bedforms in complex dunefields.
-  Nature communications 8:1--9
+  Nature Communications 8:1--9
 
 \bibitem[{L{\"u} et~al.(2021)L{\"u}, Narteau, Dong, Claudin, Rodriguez, An,
   Fernandez-Cascales, Gadal, and {Courrech du Pont}}]{Lu2021}
@@ -409,9 +411,9 @@ L{\"u} P, Narteau C, Dong Z, Claudin P, Rodriguez S, An Z, Fernandez-Cascales
 Mason P, Sykes R (1979) Flow over an isolated hill of moderate slope. Q J R
   Meteorol Soc 105:383--395
 
-\bibitem[{{Mckenna Neuman} et~al.(1997){Mckenna Neuman}, Lancaster, and
+\bibitem[{{McKenna Neuman} et~al.(1997){McKenna Neuman}, Lancaster, and
   Nickling}]{MckennaNeuman1997}
-{Mckenna Neuman} C, Lancaster N, Nickling WG (1997) {Relations between dune
+{McKenna Neuman} C, Lancaster N, Nickling WG (1997) {Relations between dune
   morphology, air flow, and sediment flux on reversing dunes, Silver Peak,
   Nevada}. Sedimentology 44:1103--1111, \doi{10.1046/j.1365-3091.1997.d01-61.x}
 
@@ -432,7 +434,7 @@ Mulligan KR (1988) Velocity profiles measured on the windward slope of a
   Harrigan, Hersbach et~al.}]{munoz2021}
 Mu{\~n}oz-Sabater J, Dutra E, Agust{\'\i}-Panareda A, Albergel C, Arduini G,
   Balsamo G, Boussetta S, Choulga M, Harrigan S, Hersbach H, et~al. (2021)
-  Era5-land: A state-of-the-art global reanalysis dataset for land
+  {ERA5-Land}: A state-of-the-art global reanalysis dataset for land
   applications. Earth Syst Sci Data 13:4349--4383
 
 \bibitem[{Nield et~al.(2014)Nield, King, Wiggs, Leyland, Bryant, Chiverrell,
@@ -443,7 +445,7 @@ Nield JM, King J, Wiggs GFS, Leyland J, Bryant RG, Chiverrell RC, Darby SE,
   118:12948--12961
 
 \bibitem[{Nield et~al.(2017)Nield, Wiggs, Baddock, and Hipondoka}]{Nield2017}
-Nield JM, Wiggs GF, Baddock MC, Hipondoka MH (2017) Coupling leeside grainfall
+Nield JM, Wiggs GG, Baddock MC, Hipondoka MH (2017) Coupling leeside grainfall
   to avalanche characteristics in aeolian dune dynamics. Geology 45:271--274
 
 \bibitem[{P{\"a}htz and Dur{\'a}n(2020)}]{Pahtz2020}
@@ -477,6 +479,12 @@ Rasmussen KR, Iversen JD, Rautaheimo P (1996) {Saltation and wind flow
 Raupach M (1992) Drag and drag partition on rough surfaces. Boundary-Layer
   Meteorol 60:375--395
 
+\bibitem[{Rozier et~al.(2019)Rozier, Narteau, Gadal, Claudin, and Courrech~du
+  Pont}]{Rozier2019}
+Rozier O, Narteau C, Gadal C, Claudin P, Courrech~du Pont S (2019) Elongation
+  and stability of a linear dune. Geophysical Research Letters
+  46(24):14521--14530
+
 \bibitem[{Rubin and Hunter(1987)}]{Rubin1987}
 Rubin DM, Hunter RE (1987) {Bedform alignment in directionally varying flows}.
   Science 237:276--278
@@ -484,8 +492,8 @@ Rubin DM, Hunter RE (1987) {Bedform alignment in directionally varying flows}.
 \bibitem[{Runyon et~al.(2017)Runyon, Bridges, Ayoub, Newman, and
   Quade}]{Runyon2017}
 Runyon K, Bridges N, Ayoub F, Newman C, Quade J (2017) An integrated model for
-  dune morphology and sand fluxes on mars. Earth and Planetary Science Letters
-  457:204--212
+  dune morphology and sand fluxes on {Mars}. Earth and Planetary Science
+  Letters 457:204--212
 
 \bibitem[{Sauermann et~al.(2003)Sauermann, Andrade~Jr, Maia, Costa, Ara{\'u}jo,
   and Herrmann}]{Sauermann2003}
@@ -495,8 +503,8 @@ Sauermann G, Andrade~Jr J, Maia L, Costa U, Ara{\'u}jo A, Herrmann H (2003)
 \bibitem[{Seidel et~al.(2012)Seidel, Zhang, Beljaars, Golaz, Jacobson, and
   Medeiros}]{seidel2012}
 Seidel DJ, Zhang Y, Beljaars A, Golaz JC, Jacobson AR, Medeiros B (2012)
-  Climatology of the planetary boundary layer over the continental united
-  states and europe. J Geophys Res 117:D17106
+  Climatology of the planetary boundary layer over the continental {United
+  States and Europe}. J Geophys Res 117:D17106
 
 \bibitem[{Shao(2008)}]{Shao2008}
 Shao Y (2008) Physics and modelling of wind erosion, vol~37. Springer Science
@@ -528,8 +536,8 @@ Smith AB, Jackson DWT, Cooper JAG (2017) Three-dimensional airflow and sediment
 
 \bibitem[{Song et~al.(2019)Song, Gao, Lei, and Li}]{Song2019}
 Song Q, Gao X, Lei J, Li S (2019) Spatial distribution of sand dunes and their
-  relationship with fluvial systems on the southern margin of the taklimakan
-  desert, china. Geomatics, Natural Hazards and Risk 10:2408--2428
+  relationship with fluvial systems on the southern margin of the {Taklimakan
+  Desert}, {China}. Geomatics, Natural Hazards and Risk 10:2408--2428
 
 \bibitem[{Spalding(1961)}]{Spalding1961}
 Spalding DB (1961) A single formula for the law of the wall. Journal of Applied
@@ -581,7 +589,7 @@ Unsworth C, Parsons D, Hardy R, Reesink A, Best J, Ashworth P, Keevil G (2018)
 \bibitem[{Uppala et~al.(2005)Uppala, K{\aa}llberg, Simmons, Andrae, Bechtold,
   Fiorino, Gibson, Haseler, Hernandez, Kelly et~al.}]{Uppala2005}
 Uppala SM, K{\aa}llberg P, Simmons AJ, Andrae U, Bechtold VDC, Fiorino M,
-  Gibson J, Haseler J, Hernandez A, Kelly G, et~al. (2005) The era-40
+  Gibson J, Haseler J, Hernandez A, Kelly G, et~al. (2005) The {ERA-40}
   re-analysis. Q J R Meteorol Soc 131:2961--3012
 
 \bibitem[{Valance et~al.(2015)Valance, Rasmussen, {Ould El Moctar}, and
@@ -591,8 +599,8 @@ Valance A, Rasmussen K, {Ould El Moctar} A, Dupont P (2015) The physics of
 
 \bibitem[{Venditti et~al.(2013)Venditti, Best, Church, and
   Hardy}]{Venditti2013}
-Venditti JG, Best JL, Church M, Hardy RJ (2013) Coherent Flow Structures at
-  Earth's Surface. John Wiley \& Sons
+Venditti JG, Best JL, Church M, Hardy RJ (2013) {Coherent Flow Structures at
+  Earth's Surface}. John Wiley \& Sons
 
 \bibitem[{Virtanen et~al.(2020)Virtanen, Gommers, Oliphant, Haberland, Reddy,
   Cournapeau, Burovski, Peterson, Weckesser, Bright et~al.}]{Virtanen2020}
@@ -622,15 +630,15 @@ Walker IJ, Nickling WG (2002) Dynamics of secondary airflow and sediment
 \bibitem[{Walker et~al.(2006)Walker, Hesp, Davidson-Arnott, and
   Ollerhead}]{Walker2006}
 Walker IJ, Hesp PA, Davidson-Arnott RG, Ollerhead J (2006) Topographic steering
-  of alongshore airflow over a vegetated foredune: Greenwich dunes, prince
-  edward island, canada. Journal of Coastal Research 22:1278--1291
+  of alongshore airflow over a vegetated foredune: {Greenwich Dunes}, {Prince
+  Edward Island}, {Canada}. Journal of Coastal Research 22:1278--1291
 
 \bibitem[{Walker et~al.(2009)Walker, Hesp, Davidson-Arnott, Bauer, Namikas, and
   Ollerhead}]{Walker2009}
 Walker IJ, Hesp PA, Davidson-Arnott RG, Bauer BO, Namikas SL, Ollerhead J
   (2009) Responses of three-dimensional flow to variations in the angle of
-  incident wind and profile form of dunes: Greenwich dunes, prince edward
-  island, canada. Geomorphology 105:127--138
+  incident wind and profile form of dunes: {Greenwich Dunes}, {Prince Edward
+  Island}, {Canada}. Geomorphology 105:127--138
 
 \bibitem[{Walmsley et~al.(1982)Walmsley, Salmon, and Taylor}]{Walmsley1982}
 Walmsley JL, Salmon J, Taylor P (1982) On the application of a model of
@@ -660,6 +668,10 @@ Zhang C, Li Q, Zhou N, Zhang J, Kang L, Shen Y, Jia W (2016) {Field
   observations of wind profiles and sand fluxes above the windward slope of a
   sand dune before and after the establishment of semi-buried straw
   checkerboard barriers}. Aeolian Res 20:59--70
+
+\bibitem[{Zhang et~al.(2014)Zhang, Yang, Rozier, and Narteau}]{Zhang2014}
+Zhang D, Yang X, Rozier O, Narteau C (2014) Mean sediment residence time in
+  barchan dunes. Journal of Geophysical Research: Earth Surface 119(3):451--463
 
 \bibitem[{Zilker and Hanratty(1979)}]{Zilker1979}
 Zilker DP, Hanratty TJ (1979) Influence of the amplitude of a solid wavy wall
