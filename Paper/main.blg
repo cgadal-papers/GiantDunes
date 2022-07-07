@@ -9,6 +9,9 @@ Repeated entry---line 1273 of file main.bib
  : @article{Andreotti2012
  :                       ,
 I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "Zhang2014"
+Warning--I didn't find a database entry for "Rozir2019"
+Warning--I didn't find a database entry for "Geo2021"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Name 2 in "Hunter, Ralph E. and Richmond, Bruce M., and Tau Rho Alpha" has a comma at the end for entry Hunter1983
 while executing---line 1543 of file spbasic_updated.bst
@@ -21,36 +24,36 @@ Name 2 in "Hunter, Ralph E. and Richmond, Bruce M., and Tau Rho Alpha" has a com
 while executing---line 1622 of file spbasic_updated.bst
 You've used 137 entries,
             3213 wiz_defined-function locations,
-            1567 strings with 29222 characters,
-and the built_in function-call counts, 157235 in all, are:
-= -- 14683
+            1573 strings with 29273 characters,
+and the built_in function-call counts, 157217 in all, are:
+= -- 14681
 > -- 4858
 < -- 65
 + -- 1731
 - -- 1541
-* -- 14238
-:= -- 21884
+* -- 14239
+:= -- 21882
 add.period$ -- 136
 call.type$ -- 137
 change.case$ -- 1190
 chr.to.int$ -- 142
 cite$ -- 138
-duplicate$ -- 13280
-empty$ -- 13684
+duplicate$ -- 13278
+empty$ -- 13682
 format.name$ -- 1967
-if$ -- 32749
+if$ -- 32745
 int.to.chr$ -- 2
 int.to.str$ -- 1
 missing$ -- 1594
 newline$ -- 421
 num.names$ -- 550
-pop$ -- 3031
+pop$ -- 3028
 preamble$ -- 1
 purify$ -- 1053
 quote$ -- 0
 skip$ -- 2354
 stack$ -- 0
-substring$ -- 18585
+substring$ -- 18581
 swap$ -- 3195
 text.length$ -- 4
 text.prefix$ -- 0
