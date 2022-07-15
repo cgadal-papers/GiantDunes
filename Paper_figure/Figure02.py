@@ -121,5 +121,5 @@ length = 0.4
 north_arrow(ax_north, center, length, radius=(4/7)*length, width=1.5*length,
             transform=ax_north.transAxes, color='k', lw=0.05)
 
-plt.savefig(os.path.join(path_savefig, 'Figure2.pdf'), dpi=600)
+plt.savefig(os.path.join(path_savefig, 'Figure2.pdf'), dpi=400)
 plt.show()

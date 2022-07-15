@@ -231,5 +231,5 @@ for label, ax in zip(labels, axarr.flatten()):
     ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top')
 
 fig.align_labels()
-plt.savefig(os.path.join(path_savefig, 'Figure9.pdf'), dpi=600)
+plt.savefig(os.path.join(path_savefig, 'Figure9.pdf'), dpi=400)
 plt.show()

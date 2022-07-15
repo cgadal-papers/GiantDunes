@@ -104,5 +104,5 @@ for label, ax in zip(numbering, ax_list):
         ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top',
                 bbox=dict(alpha=0.5, facecolor='w', edgecolor='none', pad=2.0))
 
-plt.savefig(os.path.join(path_savefig, 'Figure1.pdf'), dpi=600)
+plt.savefig(os.path.join(path_savefig, 'Figure1.pdf'), dpi=400)
 plt.show()
