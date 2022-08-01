@@ -157,7 +157,7 @@ Analyzing the vertical profiles of virtual potential temperature
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.883 seconds)
+   **Total running time of the script:** ( 0 minutes  6.806 seconds)
 
 
 .. _sphx_glr_download_Processing_4_meteo_data_analysis_plot.py:

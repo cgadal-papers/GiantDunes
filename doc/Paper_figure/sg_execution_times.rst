@@ -5,24 +5,24 @@
 
 Computation times
 =================
-**00:53.926** total execution time for **Paper_figure** files:
+**00:50.787** total execution time for **Paper_figure** files:
 
 +------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_Paper_figure_Figure09.py` (``Figure09.py``) | 00:14.872 | 0.0 MB |
+| :ref:`sphx_glr_Paper_figure_Figure01.py` (``Figure01.py``) | 00:14.268 | 0.0 MB |
 +------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_Paper_figure_Figure01.py` (``Figure01.py``) | 00:14.654 | 0.0 MB |
+| :ref:`sphx_glr_Paper_figure_Figure09.py` (``Figure09.py``) | 00:13.579 | 0.0 MB |
 +------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_Paper_figure_Figure02.py` (``Figure02.py``) | 00:07.708 | 0.0 MB |
+| :ref:`sphx_glr_Paper_figure_Figure02.py` (``Figure02.py``) | 00:07.365 | 0.0 MB |
 +------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_Paper_figure_Figure07.py` (``Figure07.py``) | 00:05.990 | 0.0 MB |
+| :ref:`sphx_glr_Paper_figure_Figure07.py` (``Figure07.py``) | 00:05.705 | 0.0 MB |
 +------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_Paper_figure_Figure05.py` (``Figure05.py``) | 00:03.070 | 0.0 MB |
+| :ref:`sphx_glr_Paper_figure_Figure05.py` (``Figure05.py``) | 00:02.767 | 0.0 MB |
 +------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_Paper_figure_Figure03.py` (``Figure03.py``) | 00:02.412 | 0.0 MB |
+| :ref:`sphx_glr_Paper_figure_Figure03.py` (``Figure03.py``) | 00:02.302 | 0.0 MB |
 +------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_Paper_figure_Figure06.py` (``Figure06.py``) | 00:02.283 | 0.0 MB |
+| :ref:`sphx_glr_Paper_figure_Figure06.py` (``Figure06.py``) | 00:02.183 | 0.0 MB |
 +------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_Paper_figure_Figure08.py` (``Figure08.py``) | 00:02.129 | 0.0 MB |
+| :ref:`sphx_glr_Paper_figure_Figure08.py` (``Figure08.py``) | 00:01.835 | 0.0 MB |
 +------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_Paper_figure_Figure04.py` (``Figure04.py``) | 00:00.806 | 0.0 MB |
+| :ref:`sphx_glr_Paper_figure_Figure04.py` (``Figure04.py``) | 00:00.782 | 0.0 MB |
 +------------------------------------------------------------+-----------+--------+

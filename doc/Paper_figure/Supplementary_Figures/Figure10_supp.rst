@@ -168,7 +168,7 @@ Figure 10 -- Online Resource
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.306 seconds)
+   **Total running time of the script:** ( 0 minutes  2.109 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure10_supp.py:
