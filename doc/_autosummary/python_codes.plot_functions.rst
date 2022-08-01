@@ -18,6 +18,7 @@ python\_codes.plot\_functions
    
       log_tick_formatter
       make_nice_histogram
+      north_arrow
       plot_arrow
       plot_flux_rose
       plot_regime_diagram

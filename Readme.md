@@ -4,7 +4,10 @@ This repository contains the codes used to process the data and make the figures
 
 Local wind regime induced by giant linear dunes: comparison of ERA5 re-analysis with surface measurements
 
-The corresponding data are available here:
+> **Note**:
+ - the documentation can be found [here](https://cgadal.github.io/GiantDunes/)
+ - the corresponding data are available here: <a href="https://doi.org/10.5281/zenodo.6343138"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.6343138.svg" alt="DOI"></a>
+
 
 ## Repository organisation
 
@@ -18,7 +21,7 @@ Briefly, the repository is organized as follow:
 
 ## If you want to have an overview of the article and associated codes
 
-The best is to read the article, and then to have a look at the documentation of the repository. You can find it in `docs/_build/html`, or simply here (will be uploaded soon).
+The best is to read the article, and then to have a look at the documentation of the repository. You can find it in `docs/_build/html`, or simply [here](https://cgadal.github.io/GiantDunes/).
 
 ## If you want to run the codes and re-do the analysis
 
@@ -44,4 +47,4 @@ The best is to read the article, and then to have a look at the documentation of
   ```
 3. run any python codes you want directly from the repository where it is
 
-> **Note**: You may need to install additional python librairies to do so.
+> **Note**: You may need to install additional python libraries to do so.

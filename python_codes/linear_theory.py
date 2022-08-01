@@ -1,5 +1,16 @@
 """
 Linear theory of a turbulent flow over a sinusoidal bottom.
+
+
+References
+----------
+
+.. line-block::
+    [1] Fourrière, A. (2009). Morphodynamique des rivières: Sélection de la largeur, rides et dunes (Doctoral dissertation, Université Paris-Diderot-Paris VII).
+    [2] Fourriere, A., Claudin, P., & Andreotti, B. (2010). Bedforms in a turbulent stream: formation of ripples by primary linear instability and of dunes by nonlinear pattern coarsening. Journal of Fluid Mechanics, 649, 287-328.
+    [3] Andreotti, B., Fourriere, A., Ould-Kaddour, F., Murray, B., & Claudin, P. (2009). Giant aeolian dune size determined by the average depth of the atmospheric boundary layer. Nature, 457(7233), 1120-1123.
+    [4] Andreotti, B., Claudin, P., Devauchelle, O., Durán, O., & Fourrière, A. (2012). Bedforms in a turbulent stream: ripples, chevrons and antidunes. Journal of Fluid Mechanics, 690, 94-128.
+
 """
 
 import numpy as np

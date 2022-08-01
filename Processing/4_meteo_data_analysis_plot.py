@@ -28,7 +28,7 @@ Data_pattern = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pick
 
 # %%
 # Calculating the relevant meteorological quantities
-# ------------------------
+# --------------------------------------------------
 #
 # We calculate the relevant meteorological quantities from the Era5 pressure levels data.
 
@@ -54,7 +54,7 @@ for station in Stations:
 
 # %%
 # Analyzing the vertical profiles of virtual potential temperature
-# ------------------------
+# ----------------------------------------------------------------
 
 Hmax_fit = 10000  # maximum height for fitting gradient in free atmosphere [m]
 for station in Stations:

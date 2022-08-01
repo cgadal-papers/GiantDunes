@@ -1,3 +1,7 @@
+"""
+A few functions to process time series of meteorological data.
+"""
+
 import numpy as np
 from scipy.stats import binned_statistic_2d
 from python_codes.general import cosd, sind
@@ -13,7 +17,7 @@ def compute_circadian_annual_cycle(theta, U, time):
     U : array_like
         wind velocity, same shape as `theta`.
     time : array_like
-        numpy array of `datetime.datetime` objects, same shape as `theta`.
+        numpy array of :class:`datetime.datetime <datetime.datetime>` objects, same shape as `theta`.
 
     Returns
     -------
@@ -101,7 +105,7 @@ def quadratic_transport_law(theta, theta_d, omega):
     >>> qsat = quadratic_transport_law(theta, theta_d, omega)
 
     References
-    --------
+    ----------
     [1] Durán, O., Claudin, P., & Andreotti, B. (2011). On aeolian transport: Grain-scale interactions,
     dynamical mechanisms and scaling laws. Aeolian Research, 3(3), 243-270.
 
@@ -139,7 +143,7 @@ def quartic_transport_law(theta, theta_d, Kappa=0.4, mu=0.63, cm=1.7):
     >>> qsat = quartic_transport_law(theta, theta_d)
 
     References
-    --------
+    ----------
     [1] Pähtz, T., & Durán, O. (2020). Unification of aeolian and fluvial sediment transport rate from granular physics. Physical review letters, 124(16), 168001.
 
     """

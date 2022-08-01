@@ -86,13 +86,13 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../Processing/index.html">
-  Processing
+  Processing codes
  </a>
 </li>
 
 <li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="python_codes.html">
-  API reference
+  Python functions and modules
  </a>
 </li>
 
@@ -367,6 +367,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="python_codes.plot_functions.north_arrow.html">
+     python_codes.plot_functions.north_arrow
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="python_codes.plot_functions.plot_arrow.html">
      python_codes.plot_functions.plot_arrow
     </a>
@@ -437,9 +442,24 @@
               
               <div class="toc-item">
                 
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
-    
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples-using-python-codes-plot-functions-plot-wind-rose">
+   Examples using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     python_codes.plot_functions.plot_wind_rose
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
 </nav>
               </div>
               
@@ -463,7 +483,7 @@
 <h1>python_codes.plot_functions.plot_wind_rose<a class="headerlink" href="#python-codes-plot-functions-plot-wind-rose" title="Permalink to this headline">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="python_codes.plot_functions.plot_wind_rose">
-<span class="sig-name descname"><span class="pre">plot_wind_rose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">U</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">props</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'boxstyle':</span> <span class="pre">'round',</span> <span class="pre">'edgecolor':</span> <span class="pre">(1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1),</span> <span class="pre">'facecolor':</span> <span class="pre">(1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">0.9),</span> <span class="pre">'pad':</span> <span class="pre">0}</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_codes/plot_functions.html#plot_wind_rose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_codes.plot_functions.plot_wind_rose" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">plot_wind_rose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">U</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boxprops</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boxloc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.5,</span> <span class="pre">0.05)</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_codes/plot_functions.html#plot_wind_rose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_codes.plot_functions.plot_wind_rose" title="Permalink to this definition">#</a></dt>
 <dd><p>Plot a wind rose from one dimensional time series.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -474,6 +494,8 @@
 <li><p><strong>ax</strong> (<em>matplotlib.axes</em>) – ax of the figure on which the wind rose is plotted.</p></li>
 <li><p><strong>fig</strong> (<em>matplotlib.figure</em>) – figure on which the wind rose is plotted</p></li>
 <li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>None</em>) – if not None, label plotted below the wind rose (default is None).</p></li>
+<li><p><strong>boxprops</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – Text box properties (the default is None).</p></li>
+<li><p><strong>boxloc</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a>) – Text location (x,y), in ax coordinates (the default is (0.5, 0.05)).</p></li>
 <li><p><strong>**kwargs</strong> – Optional parameters passed to <code class="xref py py-func docutils literal notranslate"><span class="pre">windrose.WindroseAxes.bar</span></code>.</p></li>
 </ul>
 </dd>
@@ -486,7 +508,16 @@
 </dl>
 </dd></dl>
 
-<span class="target" id="sphx-glr-backreferences-python-codes-plot-functions-plot-wind-rose"></span></section>
+<section id="examples-using-python-codes-plot-functions-plot-wind-rose">
+<span id="sphx-glr-backreferences-python-codes-plot-functions-plot-wind-rose"></span><h2>Examples using <code class="docutils literal notranslate"><span class="pre">python_codes.plot_functions.plot_wind_rose</span></code><a class="headerlink" href="#examples-using-python-codes-plot-functions-plot-wind-rose" title="Permalink to this headline">#</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="Figure 2"><figure class="align-default" id="id1">
+<img alt="Figure 2" src="../_images/sphx_glr_Figure02_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="../Paper_figure/Figure02.html#sphx-glr-paper-figure-figure02-py"><span class="std std-ref">Figure 2</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div><div class="sphx-glr-clear"></div></section>
+</section>
 
 
               </div>

@@ -22,7 +22,7 @@
 Figure 6 -- Online Resource
 ============================
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-93
+.. GENERATED FROM PYTHON SOURCE LINES 7-81
 
 
 
@@ -38,96 +38,84 @@ Figure 6 -- Online Resource
 .. code-block:: default
 
 
+    import os
+    import sys
     import numpy as np
     import matplotlib.pyplot as plt
-    import matplotlib.dates as mdates
-    import calendar
-    import locale
-    from datetime import datetime, timedelta
-    import sys
-    import os
     sys.path.append('../../')
     import python_codes.theme as theme
-
-    locale.setlocale(locale.LC_ALL, 'en_US.utf8')
-
-
-    def tick_formatter(ax, fmt='%d'):
-        myFmt = mdates.DateFormatter(fmt)
-        ax.xaxis.set_major_formatter(myFmt)
-        ticklabels = ax.get_xticklabels()
-        ticklabels[0].set_ha('left')
+    from python_codes.plot_functions import plot_scatter_surrounded
 
 
-    # Loading figure theme
     theme.load_style()
 
     # paths
     path_savefig = '../../Paper/Figures'
     path_outputdata = '../../static/data/processed_data/'
 
-    # Loading wind data
+    # Loading data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
-    Stations = sorted(Data.keys())
 
-    # Figure properties
-    variables = ['U_star', 'Orientation']
-    label_var = {'U_star': r'Velocity, $u_{*}~[\textup{m}~\textup{s}^{-1}]$', 'Orientation': r'Orientation, $\theta~[^\circ]$'}
-    labels = [(r'\textbf{a}', r'\textbf{b}'), (r'\textbf{c}', r'\textbf{d}'),
-              (r'\textbf{e}', r'\textbf{f}'), (r'\textbf{g}', r'\textbf{h}')]
-    row_labels = ['Huab -- summer', 'Huab -- winter', 'South Sand Sea -- summer',
-                  'South Sand Sea -- winter']
-    years = [2018, 2018, 2017, 2017]
-    months = [12, 6, 11, 5]
-    days = [(3, 6), (2, 5), (3, 6), (8, 11)]
-    month_calendar = {index: month for index, month in enumerate(calendar.month_name) if month}
+    labels = [r'\textbf{a}', r'\textbf{b}']
 
+    # preparing data
+    Stations = ['South_Namib_Station', 'Deep_Sea_Station']
 
-    stations_plot = ['Huab_Station', 'Huab_Station', 'South_Namib_Station', 'South_Namib_Station']
+    Dune_orientations = [np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]['orientation']
+                         for station in Stations]
+
+    velocity_thresholds = [0.1, 0.25]
+
+    # variables
+    x1 = np.concatenate([Data[station]['Orientation_era'][Data[station]['U_star_era'] < velocity_thresholds[0]] - Dune_orientations[Stations.index(station)]
+                         for station in Stations])
+    y1 = np.concatenate([Data[station]['Orientation_insitu'][Data[station]['U_star_era'] < velocity_thresholds[0]] - Dune_orientations[Stations.index(station)]
+                         for station in Stations])
+
+    x2 = np.concatenate([Data[station]['Orientation_era'][(Data[station]['U_star_era'] >= velocity_thresholds[0]) & (Data[station]['U_star_era'] < velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
+                         for station in Stations])
+    y2 = np.concatenate([Data[station]['Orientation_insitu'][(Data[station]['U_star_era'] >= velocity_thresholds[0]) & (Data[station]['U_star_era'] < velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
+                         for station in Stations])
+
+    x3 = np.concatenate([Data[station]['Orientation_era'][(Data[station]['U_star_era'] >= velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
+                         for station in Stations])
+    y3 = np.concatenate([Data[station]['Orientation_insitu'][(Data[station]['U_star_era'] >= velocity_thresholds[1])] - Dune_orientations[Stations.index(station)]
+                         for station in Stations])
+
+    X = [x1, x2, x3]
+    Y = [y1, y2, y3]
 
     # #### Figure
-    fig = plt.figure(figsize=(theme.fig_width, 0.93*theme.fig_height_max), constrained_layout=True)
-    subfigs = fig.subfigures(nrows=4, ncols=1)
-    for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs, years, months, days, stations_plot)):
-        axarr = subfig.subplots(1, 2)
-        subfig.suptitle(row_labels[i])
-        subfig.set_facecolor('none')
-        tmin = datetime(yr, mth, dy[0])
-        tmax = datetime(yr, mth, dy[1])
-        for j, (ax, var, label) in enumerate(zip(axarr, variables, labels[i])):
-            l1, = ax.plot(Data[station]['time'], Data[station][var + '_insitu'], label='measurements', color=theme.color_insitu)
-            l2, = ax.plot(Data[station]['time'], Data[station][var + '_era'], label='Era5Land', color=theme.color_Era5Land)
-            ax.set_xlim(tmin, tmax)
-            tick_formatter(ax)
-            #
-            # #### plot nights
-            tstart = tmin - timedelta(days=1)
-            tstart = tstart.replace(hour=10)
-            x_night = [tstart + timedelta(days=i) for i in range((tmax-tmin).days + 2)]
-            for daylight in x_night:
-                a1 = ax.axvspan(daylight, daylight + timedelta(hours=12), facecolor=theme.color_day, alpha=0.1, edgecolor=None, label=theme.Icon_day)
-                a2 = ax.axvspan(daylight - timedelta(hours=12), daylight, facecolor=theme.color_night, alpha=0.1, edgecolor=None, label=theme.Icon_night)
-            #
-            ax.set_ylabel(label_var[var])
-            ax.set_xlabel('Days in {} {:d}'.format(month_calendar[tmin.month], tmin.year))
-            ax.set_xticks([tmin + timedelta(days=i) for i in range((tmax-tmin).days + 1)])
-            ax.text(0.02, 0.97, label, transform=ax.transAxes, ha='left', va='top')
-            if var == 'U_star':
-                ax.set_ylim((0, 0.5))
-            else:
-                ax.set_ylim((0, 360))
-                ax.set_yticks((0, 90, 180, 270, 360))
-    #
-    # a1.set_edgecolor((0, 0, 0, 1))
-    first_legend = fig.legend(handles=[a1, a2], loc='center right', ncol=2, columnspacing=1, bbox_to_anchor=(1, 0.98), frameon=False)
-    #
-    plt.savefig(os.path.join(path_savefig, 'Figure6_supp.pdf'),)
+    pad_angle = 2
+    labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}']
+
+    fig, axarr = plt.subplots(3, 1, figsize=(theme.fig_width, 1.3*theme.fig_width),
+                              constrained_layout=True, sharex=True, sharey=True)
+
+
+    for i, (ax, label, x, y) in enumerate(zip(axarr.flatten(), labels, X, Y)):
+        plt.sca(ax)
+        plot_scatter_surrounded(x % 360, y % 360, color='tab:blue', alpha=0.2)
+        ax.set_ylabel(r'$\theta^{\textup{Local mes.}} - \alpha^{\textup{dune}}$')
+        ax.text(-0.1, 0.98, label, ha='center', va='center', transform=ax.transAxes)
+        if i in [0, 1]:
+            ax.axhline(180, color='k', linestyle='--')
+            ax.axhline(0 + pad_angle, color='k', linestyle='--')
+            ax.axhline(360 - pad_angle, color='k', linestyle='--')
+        if i in [1, 2]:
+            ax.plot([0, 360], [0, 360], 'k--')
+
+    ax.set_xlim(0, 360)
+    ax.set_ylim(0, 360)
+    ax.set_xlabel(r'$\theta^{\textup{ERA5-Land}} - \alpha^{\textup{dune}}$')
+
+    plt.savefig(os.path.join(path_savefig, 'Figure6_supp.pdf'), dpi=400)
     plt.show()
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.048 seconds)
+   **Total running time of the script:** ( 0 minutes  3.307 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure06_supp.py:

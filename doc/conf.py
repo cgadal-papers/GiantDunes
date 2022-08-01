@@ -70,7 +70,7 @@ intersphinx_mapping = {
     'python': ('https://docs.python.org/{.major}'.format(sys.version_info), None),
     'numpy': ('https://numpy.org/doc/stable/', None),
     'matplotlib': ('https://matplotlib.org/stable', None),
-    'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None)
+    'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None),
 }
 
 examples_dirs = ['../Paper_figure', '../Processing']
@@ -83,9 +83,10 @@ sphinx_gallery_conf = {
     'doc_module': ('python_codes'),  # Modules for which function/class level galleries are created.
     'reference_url': {
                      'python_codes': None,  # The module you locally document uses None
-                     'numpy': 'https://docs.scipy.org/doc/numpy/',
+                     'numpy': 'https://numpy.org/doc/stable/',
                      'scipy': 'https://docs.scipy.org/doc/scipy/reference/',
-                     'matplotlib': 'https://matplotlib.org/stable'
+                     'matplotlib': 'https://matplotlib.org/stable',
+                     'windrose': 'https://windrose.readthedocs.io/en/latest/'
                      },
     'matplotlib_animations': True,
     'plot_gallery': True,

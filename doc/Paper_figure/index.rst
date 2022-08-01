@@ -5,7 +5,7 @@
 .. _sphx_glr_Paper_figure:
 
 Paper figures
-==================
+=============
 
 Below is the gallery presenting the scripts used to make the figures of the paper
 
@@ -136,6 +136,69 @@ Below is the gallery presenting the scripts used to make the figures of the pape
    :hidden:
 
    /Paper_figure/Figure06
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 7">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure07_thumb.png
+     :alt: Figure 7
+
+     :ref:`sphx_glr_Paper_figure_Figure07.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /Paper_figure/Figure07
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 9">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure08_thumb.png
+     :alt: Figure 9
+
+     :ref:`sphx_glr_Paper_figure_Figure08.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /Paper_figure/Figure08
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 8">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure09_thumb.png
+     :alt: Figure 8
+
+     :ref:`sphx_glr_Paper_figure_Figure09.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /Paper_figure/Figure09
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
@@ -145,9 +208,9 @@ Below is the gallery presenting the scripts used to make the figures of the pape
 .. _sphx_glr_Paper_figure_Supplementary_Figures:
 
 Supplementary figures
-==================
+=====================
 
-Below is the gallery presenting the scripts used to make the figures of the supplementary informations of the paper
+Below is the gallery presenting the scripts used to make the figures of the supplementary information of the paper
 
 
 
@@ -444,69 +507,6 @@ Below is the gallery presenting the scripts used to make the figures of the supp
    :hidden:
 
    /Paper_figure/Supplementary_Figures/Figure14_supp
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 15-- Online Resource">
-
-.. only:: html
-
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure15_supp_thumb.png
-     :alt: Figure 15-- Online Resource
-
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure15_supp.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /Paper_figure/Supplementary_Figures/Figure15_supp
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 16 -- Online Resource">
-
-.. only:: html
-
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure16_supp_thumb.png
-     :alt: Figure 16 -- Online Resource
-
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure16_supp.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /Paper_figure/Supplementary_Figures/Figure16_supp
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Figure 17 -- Online Resource">
-
-.. only:: html
-
- .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure17_supp_thumb.png
-     :alt: Figure 17 -- Online Resource
-
-     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure17_supp.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /Paper_figure/Supplementary_Figures/Figure17_supp
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>

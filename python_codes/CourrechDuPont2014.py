@@ -8,10 +8,6 @@ References
 [1] Courrech du Pont, S., Narteau, C., & Gao, X. (2014). Two modes for dune orientation. Geology, 42(9), 743-746.
 """
 
-# Note that it is here derived is the fixed referential math:`(x,y)`
-# used by Gadal et al. 2019. The dune orientation math:`\alpha` is then calculated with respect to the `y`-axis.
-# [2] Gadal, C., Narteau, C., Du Pont, S. C., Rozier, O., & Claudin, P. (2019). Incipient bedforms in a bidirectional wind regime. Journal of Fluid Mechanics, 862, 490-516.
-
 import numpy as np
 from python_codes.general import Vector_average, cosd, sind
 

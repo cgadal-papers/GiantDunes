@@ -1,0 +1,80 @@
+
+
+Examples using ``python_codes.theme.color_night``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 3">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure03_thumb.png
+     :alt: Figure 3
+
+     :ref:`sphx_glr_Paper_figure_Figure03.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Figure03.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 5">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure05_thumb.png
+     :alt: Figure 5
+
+     :ref:`sphx_glr_Paper_figure_Figure05.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Figure05.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 7">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure07_thumb.png
+     :alt: Figure 7
+
+     :ref:`sphx_glr_Paper_figure_Figure07.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Figure07.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 14 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure14_supp_thumb.png
+     :alt: Figure 14 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure14_supp.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure14_supp.py`

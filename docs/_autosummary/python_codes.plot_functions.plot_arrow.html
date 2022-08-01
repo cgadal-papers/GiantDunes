@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="python_codes.plot_functions.plot_flux_rose" href="python_codes.plot_functions.plot_flux_rose.html" />
-    <link rel="prev" title="python_codes.plot_functions.make_nice_histogram" href="python_codes.plot_functions.make_nice_histogram.html" />
+    <link rel="prev" title="python_codes.plot_functions.north_arrow" href="python_codes.plot_functions.north_arrow.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -86,13 +86,13 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../Processing/index.html">
-  Processing
+  Processing codes
  </a>
 </li>
 
 <li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="python_codes.html">
-  API reference
+  Python functions and modules
  </a>
 </li>
 
@@ -366,6 +366,11 @@
      python_codes.plot_functions.make_nice_histogram
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python_codes.plot_functions.north_arrow.html">
+     python_codes.plot_functions.north_arrow
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      python_codes.plot_functions.plot_arrow
@@ -437,9 +442,24 @@
               
               <div class="toc-item">
                 
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
-    
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples-using-python-codes-plot-functions-plot-arrow">
+   Examples using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     python_codes.plot_functions.plot_arrow
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
 </nav>
               </div>
               
@@ -464,14 +484,14 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="python_codes.plot_functions.plot_arrow">
 <span class="sig-name descname"><span class="pre">plot_arrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrowprops</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_codes/plot_functions.html#plot_arrow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_codes.plot_functions.plot_arrow" title="Permalink to this definition">#</a></dt>
-<dd><p>Plot an arrow using matplotlib <code class="xref py py-func docutils literal notranslate"><span class="pre">FancyArrowPatch</span></code>. Note that it can plot dashed arrows without having an ugly head depending on <cite>type</cite> argument, following <a class="reference external" href="https://stackoverflow.com/questions/47180328/pyplot-dotted-line-with-fancyarrowpatch">https://stackoverflow.com/questions/47180328/pyplot-dotted-line-with-fancyarrowpatch</a>.</p>
+<dd><p>Plot an arrow using matplotlib <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.FancyArrowPatch.html#matplotlib.patches.FancyArrowPatch" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">FancyArrowPatch</span></code></a>. Note that it can plot dashed arrows without having an ugly head depending on <cite>type</cite> argument, following <a class="reference external" href="https://stackoverflow.com/questions/47180328/pyplot-dotted-line-with-fancyarrowpatch">https://stackoverflow.com/questions/47180328/pyplot-dotted-line-with-fancyarrowpatch</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ax</strong> (<em>matplotlib axe</em>) – Axe on which to plot the arrow</p></li>
 <li><p><strong>start</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><em>numpy array</em>) – starting coordinates of the arrow</p></li>
 <li><p><strong>end</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><em>tuple</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><em>numpy array</em>) – starting coordinates of the arrow</p></li>
-<li><p><strong>arrowprops</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – <cite>arrowprops</cite> dictionnary passed to matplotlib <code class="xref py py-func docutils literal notranslate"><span class="pre">FancyArrowPatch</span></code>.</p></li>
+<li><p><strong>arrowprops</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – <cite>arrowprops</cite> dictionnary passed to matplotlib <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.FancyArrowPatch.html#matplotlib.patches.FancyArrowPatch" title="(in Matplotlib v3.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">FancyArrowPatch</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -480,7 +500,16 @@
 </dl>
 </dd></dl>
 
-<span class="target" id="sphx-glr-backreferences-python-codes-plot-functions-plot-arrow"></span></section>
+<section id="examples-using-python-codes-plot-functions-plot-arrow">
+<span id="sphx-glr-backreferences-python-codes-plot-functions-plot-arrow"></span><h2>Examples using <code class="docutils literal notranslate"><span class="pre">python_codes.plot_functions.plot_arrow</span></code><a class="headerlink" href="#examples-using-python-codes-plot-functions-plot-arrow" title="Permalink to this headline">#</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="Figure 8"><figure class="align-default" id="id1">
+<img alt="Figure 8" src="../_images/sphx_glr_Figure09_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="../Paper_figure/Figure09.html#sphx-glr-paper-figure-figure09-py"><span class="std std-ref">Figure 8</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div><div class="sphx-glr-clear"></div></section>
+</section>
 
 
               </div>

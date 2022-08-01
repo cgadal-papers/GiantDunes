@@ -1,3 +1,7 @@
+"""
+Plotting functions used in various figure scripts.
+"""
+
 import numpy as np
 import matplotlib.path as path
 import matplotlib.pyplot as plt
@@ -29,7 +33,7 @@ def plot_wind_rose(theta, U, bins, ax, fig, label=None, boxprops=None,
     boxloc : list, tuple
         Text location (x,y), in ax coordinates (the default is (0.5, 0.05)).
     **kwargs :
-        Optional parameters passed to :func:`windrose.WindroseAxes.bar <windrose.WindroseAxes>`.
+        Optional parameters passed to :func:`windrose.WindroseAxes.bar <windrose.WindroseAxes.bar>`.
 
     Returns
     -------
@@ -82,7 +86,7 @@ def plot_flux_rose(angles, distribution, ax, fig, nbins=20, withaxe=0, label=Non
     boxloc : list, tuple
         Text location (x,y), in ax coordinates (the default is (0.5, 0.05)).
     **kwargs :
-        Optional parameters passed to :func:`windrose.WindroseAxes.bar <windrose.WindroseAxes>`.
+        Optional parameters passed to :func:`windrose.WindroseAxes.bar <windrose.WindroseAxes.bar>`.
 
     Returns
     -------
@@ -136,9 +140,9 @@ def plot_scatter_surrounded(x, y, color, alpha):
     y : array_like
         `x` vector, same shape as `y`.
     color : str or array_like
-        color passed to `c` argument of `plt.scatter`.
+        color passed to `c` argument of :func:`matplotlib.pyplot.scatter <matplotlib.pyplot.scatter>`.
     alpha : float
-        alpha passed to `plt.scatter`.
+        alpha passed to :func:`matplotlib.pyplot.scatter <matplotlib.pyplot.scatter>`.
 
     Returns
     -------
@@ -204,7 +208,37 @@ def plot_regime_diagram(ax, quantity, vars, lims, xlabel, ylabel, type='scatter'
     return a
 
 
-def make_nice_histogram(data, nbins, ax, vmin=None, vmax=None, scale_bins='lin', density=True, orientation='vertical', **kwargs):
+def make_nice_histogram(data, nbins, ax, vmin=None, vmax=None, scale_bins='lin',
+                        density=True, orientation='vertical', **kwargs):
+    """Function making a fancy histogram from input data.
+
+    Parameters
+    ----------
+    data : numpy array, dimensions (N,)
+        One dimensional input data array
+    nbins : int
+        Number of bins
+    ax : matplotlib.axes
+        Figure ax on which to plot the data.
+    vmin : float
+        Minimum value of the histogram (the default is None).
+    vmax : float
+        Maximum value of the histogram (the default is None).
+    scale_bins : str
+        If 'lin', the `nbins` are taken linearly, while if 'log', the bins are logarithmically spaced (the default is 'lin').
+    density : bool
+        If True, the histogram is normalized such that its integral is unity (the default is True).
+    orientation : str
+        If vertical, the histogram bars are vertical and the variable is on thr horizontal axis. If 'horizontal', its the other way around (the default is 'vertical').
+    **kwargs :
+        Optional parameters passed to :func:`matplotlib.pyplot.hist <matplotlib.pyplot.hist>`.
+
+    Returns
+    -------
+    type
+        Description of returned object.
+
+    """
     min = np.nanmin(data) if vmin is None else vmin
     max = np.nanmax(data) if vmax is None else vmax
     if scale_bins == 'log':
@@ -222,7 +256,7 @@ def make_nice_histogram(data, nbins, ax, vmin=None, vmax=None, scale_bins='lin',
 
 
 def plot_arrow(ax, start, end, arrowprops):
-    """Plot an arrow using matplotlib :func:`FancyArrowPatch <matplotlib.patch.FancyArrowPatch>`. Note that it can plot dashed arrows without having an ugly head depending on `type` argument, following https://stackoverflow.com/questions/47180328/pyplot-dotted-line-with-fancyarrowpatch.
+    """Plot an arrow using matplotlib :class:`FancyArrowPatch <matplotlib.patches.FancyArrowPatch>`. Note that it can plot dashed arrows without having an ugly head depending on `type` argument, following https://stackoverflow.com/questions/47180328/pyplot-dotted-line-with-fancyarrowpatch.
 
     Parameters
     ----------
@@ -233,7 +267,7 @@ def plot_arrow(ax, start, end, arrowprops):
     end : tuple, list, numpy array
         starting coordinates of the arrow
     arrowprops : dict
-        `arrowprops` dictionnary passed to matplotlib :func:`FancyArrowPatch <matplotlib.patch.FancyArrowPatch>`.
+        `arrowprops` dictionnary passed to matplotlib :class:`FancyArrowPatch <matplotlib.patches.FancyArrowPatch>`.
 
     Returns
     -------
@@ -285,7 +319,7 @@ def north_arrow(ax, center, length, length_small=None, width=None, radius=None,
     transform : matplotlib transform
         transform for the coordinate systen of the input length and positions (the default is ax.transData).
     **kwargs :
-        Optional parameters passed to :func:`Polygon <matplotlib.patch.Polygon>`, used to customize the arrow.
+        Optional parameters passed to :class:`Polygon <matplotlib.patches.Polygon>`, used to customize the arrow.
 
     Returns
     -------

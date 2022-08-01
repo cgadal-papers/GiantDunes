@@ -1,0 +1,99 @@
+
+
+Examples using ``python_codes.general.smallestSignedAngleBetween``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 3">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure03_thumb.png
+     :alt: Figure 3
+
+     :ref:`sphx_glr_Paper_figure_Figure03.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Figure03.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 5">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure05_thumb.png
+     :alt: Figure 5
+
+     :ref:`sphx_glr_Paper_figure_Figure05.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Figure05.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 9">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure08_thumb.png
+     :alt: Figure 9
+
+     :ref:`sphx_glr_Paper_figure_Figure08.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Figure08.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 11 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure11_supp_thumb.png
+     :alt: Figure 11 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure11_supp.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure11_supp.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="For each station, the hydrodynamic roughness is calibrated by finding the one that minimizes th...">
+
+.. only:: html
+
+ .. figure:: /Processing/images/thumb/sphx_glr_3_roughness_calibration_plot_thumb.png
+     :alt: Calibration of the hydrodynamic roughness
+
+     :ref:`sphx_glr_Processing_3_roughness_calibration_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Processing_3_roughness_calibration_plot.py`

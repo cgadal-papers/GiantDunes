@@ -1,0 +1,23 @@
+
+
+Examples using ``python_codes.theme.color_insitu_sub``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 2 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure02_supp_thumb.png
+     :alt: Figure 2 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure02_supp.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure02_supp.py`

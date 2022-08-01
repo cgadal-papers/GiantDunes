@@ -5,14 +5,29 @@ Figure 14 -- Online Resource
 
 """
 
-import numpy as np
 import os
-import matplotlib.pyplot as plt
-from matplotlib.colors import LogNorm
 import sys
+import locale
+import calendar
+import numpy as np
+from datetime import datetime, timedelta
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+from matplotlib.lines import Line2D
+import matplotlib.transforms as mtransforms
 sys.path.append('../../')
 import python_codes.theme as theme
-from python_codes.plot_functions import make_nice_histogram
+from python_codes.meteo_analysis import mu
+
+locale.setlocale(locale.LC_ALL, 'en_US.utf8')
+
+
+def tick_formatter(ax, fmt='%d'):
+    myFmt = mdates.DateFormatter(fmt)
+    ax.xaxis.set_major_formatter(myFmt)
+    ticklabels = ax.get_xticklabels()
+    ticklabels[0].set_ha('left')
+
 
 theme.load_style()
 
@@ -20,109 +35,80 @@ theme.load_style()
 path_savefig = '../../Paper/Figures'
 path_outputdata = '../../static/data/processed_data/'
 
-# Loading data
 Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
-Stations = ['South_Namib_Station', 'Deep_Sea_Station']
 
-numbers = {key: np.concatenate([Data[station][key] for station in Stations]) for key in ('Froude', 'kH', 'kLB')}
-mask = ~np.isnan(numbers['Froude'])
-ad_hoc_quantity = np.concatenate([Data[station]['U_star_era'] for station in Stations])
+Stations = ['Deep_Sea_Station', 'Deep_Sea_Station', 'South_Namib_Station', 'South_Namib_Station']
+years = [2017, 2017, 2017, 2017]
+months = [12, 6, 11, 5]
+days = [(5, 8), (1, 4), (3, 6), (8, 11)]
+#
+z0_values = np.array([(1e-3, 1e-3), (1e-3, 1e-4), (1e-4, 1e-3)])
+#
+labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}']
+bbox2 = dict(facecolor=(1, 1, 1, 0.7), edgecolor=(1, 1, 1, 0), pad=0.5)
+month_calendar = {index: month for index, month in enumerate(calendar.month_name) if month}
 
-# Figure properties
-couples = [('Froude', 'kLB'), ('Froude', 'kH'), ('kLB', 'kH')]
-lims = {'Froude': (5.8e-3, 450), 'kLB': (0.009, 7.5), 'kH': (2.2e-2, 10.8)}
-# ax_labels = {'kH': r'$kH$', 'Froude': r'$\mathcal{F} =  U/\sqrt{(\Delta\rho/\rho) g H}$',
-# 'kLB': r'$\mathcal{F}_{\textup{I}} =  kU/N$'}
-ax_labels = {'kH': r'$kH$', 'Froude': r'$\mathcal{F}$',
-             'kLB': r'$\mathcal{F}_{\textup{I}}$'}
-norm = LogNorm(vmin=1, vmax=1.5e3)
 
 # #### Figure
-fig, axarr = plt.subplots(4, 3, figsize=(theme.fig_width, 0.95*theme.fig_width),
-                          # constrained_layout=True,
-                          gridspec_kw={'height_ratios': [0.2, 1.3, 2, 2],
-                                       'width_ratios': [2, 2, 1]})
-# Plotting density diagrams
-ax_list = [axarr[2, 0], axarr[3, 0], axarr[3, 1]]
-for j, (ax, (var1, var2)) in enumerate(zip(ax_list, couples)):
-    ax.set_xscale('log')
-    ax.set_yscale('log')
-    #
-    x_var, y_var = numbers[var1][mask], numbers[var2][mask]
-    xlabel = ax_labels[var1]
-    ylabel = ax_labels[var2] if j == 0 else None
-    #
-    bin1 = np.logspace(np.floor(np.log10(numbers[var1][mask].min())), np.ceil(np.log10(numbers[var1][mask].max())), 50)
-    bin2 = np.logspace(np.floor(np.log10(numbers[var2][mask].min())), np.ceil(np.log10(numbers[var2][mask].max())), 50)
-    # #### binning data
-    counts, x_edge, y_edge = np.histogram2d(x_var, y_var, bins=[bin1, bin2])
-    # plotting histogramm
-    a = ax.pcolormesh(x_edge, y_edge, counts.T, snap=True, norm=norm)
-    #
-    ax.set_xlim(lims[var1])
-    ax.set_ylim(lims[var2])
-    if j in [1, 2]:
-        ax.set_xlabel(ax_labels[var1])
-    else:
-        ax.set_xticklabels([])
-    if j in [0, 1]:
-        ax.set_ylabel(ax_labels[var2])
-    else:
-        ax.set_yticklabels([])
+fig, axarr = plt.subplots(2, 2, figsize=(theme.fig_width, theme.fig_width),
+                          sharey=True)
 
-# #### Plotting marginal distributions
-for i, (ax, var) in enumerate(zip([axarr[1, 0], axarr[2, 1], axarr[3, 2]], ['Froude', 'kLB', 'kH'])):
-    orientation = 'vertical' if i < 2 else 'horizontal'
-    make_nice_histogram(Data['South_Namib_Station'][var], 150, ax, alpha=0.4, density=False, scale_bins='log', orientation=orientation)
-    make_nice_histogram(Data['Deep_Sea_Station'][var], 150, ax, alpha=0.4, density=False, scale_bins='log', orientation=orientation)
-    if i == 2:
-        ax.set_ylim(lims[var])
-        ax.set_yticklabels([])
-        ax.set_xlabel('Counts')
-        # ax.ticklabel_format(style='sci', axis='x', scilimits=(0, 0))
-    elif i == 0:
-        ax.set_ylabel('Counts')
-        ax.set_xticklabels([])
-        ax.set_xlim(lims[var])
-        ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
-    elif i == 1:
-        ax.set_xticklabels([])
-        ax.set_ylabel('Counts')
-        ax.set_xlim(lims[var])
-        ax.yaxis.tick_right()
-        ax.yaxis.set_label_position('right')
-        ax.yaxis.set_ticks_position('both')
-        ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
+for (ax, station, yr, mth, day) in zip(axarr.flatten(), Stations, years,
+                                       months, days):
+    u_star_era = Data[station]['U_era'][:, None]/mu(Data[station]['z_ERA5LAND'],
+                                                    z0_values[:, 0][None, :])
+    u_star_station = Data[station]['U_insitu'][:, None]/mu(Data[station]['z_insitu'],
+                                                           z0_values[:, 1][None, :])
+    #
+    u_star_era = np.concatenate([Data[station]['U_star_era'][:, None], u_star_era], axis=1)
+    u_star_station = np.concatenate([Data[station]['U_star_insitu'][:, None], u_star_station], axis=1)
+    delta_u = (u_star_era - u_star_station)/u_star_era
+    #
+    tmin = datetime(yr, mth, day[0])
+    tmax = datetime(yr, mth, day[1])
+    for i, d_u in enumerate(delta_u.T):
+        ax.plot(Data[station]['time'], d_u, zorder=-i)
+    ax.set_xlim(tmin, tmax)
+    ax.set_ylim(-1.5, 1)
+    tick_formatter(ax)
+    #
+    ax.set_xlabel('Days in {} {:d}'.format(month_calendar[tmin.month], tmin.year))
+    ax.set_xticks([tmin + timedelta(days=i) for i in range((tmax-tmin).days + 1)])
+    ax.axhline(y=0, ls='--', color='k', lw=1)
+    #
+    tstart = tmin - timedelta(days=1)
+    tstart = tstart.replace(hour=10)
+    x_night = [tstart + timedelta(days=i) for i in range((tmax-tmin).days + 2)]
+    for daylight in x_night:
+        a1 = ax.axvspan(daylight, daylight + timedelta(hours=12),
+                        facecolor=theme.color_day, alpha=0.1, edgecolor=None, label=theme.Icon_day)
+        a2 = ax.axvspan(daylight - timedelta(hours=12), daylight,
+                        facecolor=theme.color_night, alpha=0.1, edgecolor=None, label=theme.Icon_night)
+    #
 
-# remove the underlying axes for cb
-gs = axarr[0, 0].get_gridspec()
-for ax in axarr[0, :]:
-    ax.remove()
-cax = fig.add_subplot(gs[0, :])
-#
-cb = fig.colorbar(a, cax=cax, label='Counts', orientation='horizontal')
-cb.ax.xaxis.set_ticks_position('top')
-cb.ax.xaxis.set_label_position('top')
-#
-# removing unused axes
-axarr[1, 1].remove()
-axarr[1, 2].remove()
-axarr[2, -1].remove()
-#
-plt.subplots_adjust(bottom=0.09, top=0.91, left=0.13, right=0.99, hspace=0.2, wspace=0.15)
-#
-# Adjusting final ax positions
-# cb
-pos = cax.get_position()
-cb_h = pos.height
-pos.y0 = 0.9
-pos.y1 = pos.y0 + cb_h
-cax.set_position(pos)
-# distrib 2
-box1 = axarr[1, 0].get_position()
-pos = axarr[2, 1].get_position()
-pos.y1 = pos.y0 + box1.height
-axarr[2, 1].set_position(pos)
+for ax in axarr[:, 0]:
+    ax.set_ylabel(r'$\delta_{\textup{u}}$')
 
-plt.savefig(os.path.join(path_savefig, 'Figure14_supp.pdf'))
+custom_lines = [Line2D([0], [0], color='tab:blue'),
+                Line2D([0], [0], color='tab:orange'),
+                Line2D([0], [0], color='tab:green'),
+                Line2D([0], [0], color='tab:red')]
+
+fig.legend(custom_lines, ['calibrated',
+                          '$10^{-3}$, $10^{-3}$',
+                          '$10^{-2}$, $10^{-4}$',
+                          '$10^{-4}$, $10^{-2}$',
+                          ],
+           title=r'Hydrodynamic roughnesses, $\left(z_{0}^{\textup{ERA5-Land}}, \, z_{0}^{\textup{Local mes.}}\right)$, [m]',
+           ncol=4,
+           handletextpad=0.4, columnspacing=1.5, loc='upper center')
+
+trans = mtransforms.ScaledTranslation(5/72, -5/72, fig.dpi_scale_trans)
+for i, (ax, label) in enumerate(zip(axarr[:2, :].flatten(), labels)):
+    ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top',
+            bbox=dict(alpha=0.5, facecolor='w', edgecolor='none', pad=3.0))
+
+fig.align_labels()
+plt.subplots_adjust(top=0.86, right=0.98, bottom=0.08, hspace=0.3, wspace=0.1)
+plt.savefig(os.path.join(path_savefig, 'Figure14_supp.pdf'), dpi=400)
 plt.show()

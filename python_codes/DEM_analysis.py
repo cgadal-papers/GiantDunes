@@ -1,3 +1,8 @@
+"""
+Functions used in the analysis of elevation data.
+
+"""
+
 import numpy as np
 from scipy.signal import find_peaks, correlate
 from scipy.ndimage import map_coordinates

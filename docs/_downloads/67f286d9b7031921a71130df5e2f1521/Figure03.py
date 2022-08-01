@@ -5,13 +5,29 @@ Figure 3
 
 """
 
+import os
+import sys
+import locale
+import calendar
 import numpy as np
 import matplotlib.pyplot as plt
-import sys
-import os
+import matplotlib.dates as mdates
+import matplotlib.transforms as mtransforms
+from datetime import datetime, timedelta
 sys.path.append('../')
 import python_codes.theme as theme
-from python_codes.plot_functions import make_nice_histogram
+from python_codes.general import smallestSignedAngleBetween, find_mode_distribution
+
+
+locale.setlocale(locale.LC_ALL, 'en_US.utf8')
+
+
+def tick_formatter(ax, fmt='%d'):
+    myFmt = mdates.DateFormatter(fmt)
+    ax.xaxis.set_major_formatter(myFmt)
+    ticklabels = ax.get_xticklabels()
+    ticklabels[0].set_ha('left')
+
 
 # Loading figure theme
 theme.load_style()
@@ -26,58 +42,108 @@ Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=Tru
 Stations = sorted(Data.keys())
 
 # Figure properties
-station = 'Deep_Sea_Station'
-#
-theta_bins = [[0, 90], [150, 230]]
-velocity_bins = [[0.05, 0.2], [0.3, 10]]
-Data_pattern = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]
-icon = [r'\faSun', r'\faMoon']
+variables = ['U_star', 'Orientation']
+label_var = {'U_star': r'Velocity, $u_{*}~[\textup{m}~\textup{s}^{-1}]$', 'Orientation': r'Orientation, $\theta~[^\circ]$'}
+labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}',
+          r'\textbf{e}', r'\textbf{f}', r'\textbf{g}', r'\textbf{h}']
+row_labels = ['Huab -- summer', 'Huab -- winter',
+              'Etosha West -- summer', 'Etosha West -- winter']
+years = [2018, 2018, 2015, 2016]
+months = [12, 6, 11, 8]
+days = [(3, 6), (2, 5), (9, 12), (17, 20)]
+month_calendar = {index: month for index, month in enumerate(calendar.month_name) if month}
+bbox_props = dict(boxstyle='round', facecolor='wheat', alpha=0.7)
 
-color_ax = 'purple'
 
-# ################ Figure
-fig, axarr = plt.subplots(3, 3, figsize=(theme.fig_width, 0.925*theme.fig_width), constrained_layout=True, sharex=True)
-for i in range(3):  # Loop over velocites
-    if i < 2:
-        mask_U = (Data[station]['U_star_era'] >= velocity_bins[i][0]) & (Data[station]['U_star_era'] <= velocity_bins[i][1])
-        label_u = r'$u_{*, \, \textup{ERA}} < ' + str(velocity_bins[i][1]) + '$' if i == 0 else r'$u_{*, \, \textup{ERA}} > ' + str(velocity_bins[i][0]) + '$'
-    else:
-        mask_U = (Data[station]['U_star_era'] < 10)  # take all velocities
-        label_u = 'all velocities'
-    axarr[i, -1].set_ylabel(label_u)
-    axarr[i, -1].yaxis.set_label_position("right")
-    for j in range(3):  # loop over angles
-        if j < 2:
-            mask_theta = (Data[station]['Orientation_era'] >= theta_bins[j][0]) & (Data[station]['Orientation_era'] <= theta_bins[j][1])
-            label_theta = icon[j] + '\n' + r'${:d} < \theta_{{\textup{{ERA}}}} < {:d}$'.format(theta_bins[j][0], theta_bins[j][-1])
+stations_plot = ['Huab_Station', 'Huab_Station', 'Adamax_Station', 'Adamax_Station']
+
+# #### Figure
+fig = plt.figure(figsize=(theme.fig_width, 0.95*theme.fig_height_max),
+                 constrained_layout=True)
+subfigs = fig.subfigures(nrows=5, ncols=1,
+                         height_ratios=[0.125, 1, 1, 1, 1])
+subfigs[0].set_visible(False)
+
+ax_list = []
+for i, (subfig, yr, mth, dy, station) in enumerate(zip(subfigs[1:], years, months,
+                                                       days, stations_plot)):
+    axarr = subfig.subplots(1, 2)
+    ax_list.append(axarr[0])
+    ax_list.append(axarr[1])
+    #
+    subfig.suptitle(row_labels[i])
+    subfig.set_facecolor('none')
+    tmin = datetime(yr, mth, dy[0])
+    tmax = datetime(yr, mth, dy[1])
+    #
+    mask = (Data[station]['time'] >= tmin) & (Data[station]['time'] < tmax)
+    delta_u = np.abs((Data[station]['U_star_era'][mask] - Data[station]['U_star_insitu'][mask])/Data[station]['U_star_era'][mask])
+    Delta = smallestSignedAngleBetween(Data[station]['Orientation_era'][mask], Data[station]['Orientation_insitu'][mask])
+    mode_delta = np.array([find_mode_distribution(Delta, i) for i in np.arange(150, 350)]).mean()
+    delta_angle = np.abs(Delta)
+    #
+    mask_u_theta = (np.abs(delta_u) < 1) & (delta_angle < 80)
+    mask_u = np.abs(delta_u) > 0.6
+    mask_theta = delta_angle > 50
+    #
+    for j, (ax, var, label) in enumerate(zip(axarr, variables, labels[i])):
+        l1, = ax.plot(Data[station]['time'], Data[station][var + '_insitu'],
+                      label='Local measurements', color=theme.color_insitu)
+        l2, = ax.plot(Data[station]['time'], Data[station][var + '_era'],
+                      label='ERA5-Land', color=theme.color_Era5Land)
+        ax.set_xlim(tmin, tmax)
+        tick_formatter(ax)
+        #
+        # #### plot nights
+        tstart = tmin - timedelta(days=1)
+        tstart = tstart.replace(hour=10)
+        x_night = [tstart + timedelta(days=i) for i in range((tmax-tmin).days + 2)]
+        for daylight in x_night:
+            a1 = ax.axvspan(daylight, daylight + timedelta(hours=12),
+                            facecolor=theme.color_day, alpha=0.1, edgecolor=None,
+                            label=theme.Icon_day)
+            a2 = ax.axvspan(daylight - timedelta(hours=12), daylight,
+                            facecolor=theme.color_night, alpha=0.1, edgecolor=None,
+                            label=theme.Icon_night)
+        #
+        ax.set_ylabel(label_var[var])
+        ax.set_xlabel('Days in {} {:d}'.format(month_calendar[tmin.month], tmin.year))
+        ax.set_xticks([tmin + timedelta(days=i) for i in range((tmax-tmin).days + 1)])
+        #
+        # ax2 = ax.twinx()  # instantiate a second axes that shares the same x-axis
+        if var == 'U_star':
+            ax.set_ylim((0, 0.5))
+            ax.text(0.5, 0.94,
+                    r"""$\langle \delta_{{u}} \rangle = {:.2f}$
+                        $f_{{u}} = {:.2f}$""".format(
+                        delta_u[mask_u_theta].mean(),
+                        mask_u.sum()/delta_angle.size),
+                    ha='center', va='top', transform=ax.transAxes, bbox=bbox_props)
         else:
-            mask_theta = Data[station]['Orientation_era'] < 400  # take all orientations
-            label_theta = 'all angles'
-        make_nice_histogram(Data[station]['Orientation_insitu'][mask_theta & mask_U], 80, axarr[i, j], alpha=0.5, color=theme.color_insitu)
-        make_nice_histogram(Data[station]['Orientation_era'][mask_theta & mask_U], 80, axarr[i, j], alpha=0.5, color=theme.color_Era5Land)
-        #
-        axarr[i, j].axvline(Data_pattern['orientation'], color=theme.color_dune_orientation, ls='--', lw=2)
-        axarr[i, j].axvline((Data_pattern['orientation'] + 180) % 360, color=theme.color_dune_orientation, ls='--', lw=2)
-        #
-        perc = (mask_theta & mask_U).sum()/mask_theta.size
-        hours = np.array([t.hour for t in Data[station]['time'][(mask_theta & mask_U)]])
-        mask_day = (hours > 10) & (hours <= 10 + 12)
-        perc_day = mask_day.sum()/(mask_theta & mask_U).sum()
-        axarr[i, j].text(0.98, 0.96, '{:.1f} \n {:.1f}'.format(perc, perc_day), ha='right', va='top', transform=axarr[i, j].transAxes)
-        if i == 0:
-            axarr[i, j].set_xlabel(label_theta)
-            axarr[i, j].xaxis.set_label_position("top")
-            if j == 1:
-                for axis in ['top', 'bottom', 'left', 'right']:
-                    axarr[i, j].spines[axis].set_color(color_ax)
-                    axarr[i, j].spines[axis].set_linewidth(2)
+            ax.set_ylim((0, 360))
+            ax.set_yticks((0, 90, 180, 270, 360))
+            #
+            ax.text(0.5, 0.94,
+                    r"""$\langle \delta_{{\theta}} \rangle = {:.0f}$
+                        $f_{{\theta}} = {:.2f}$""".format(
+                        delta_angle[mask_u_theta].mean(),
+                        mask_theta.sum()/delta_angle.size),
+                    ha='center', va='top', transform=ax.transAxes, bbox=bbox_props)
 
-plt.xlim(0, 360)
-plt.xticks([45, 125, 215, 305])
-for ax in axarr.flatten():
-    ax.set_yticks([])
-fig.supxlabel(r'Wind direction, $\theta~[^\circ]$')
-fig.supylabel('Counts')
+            #
+            # a1.set_edgecolor((0, 0, 0, 1))
+first_legend = fig.legend(handles=[a1, a2], loc='upper right',
+                          ncol=2, columnspacing=1, bbox_to_anchor=(1, 0.985),
+                          frameon=False)
+second_legend = fig.legend(handles=[l1, l2], loc='upper left',
+                           ncol=1, columnspacing=1, bbox_to_anchor=(0, 0.999),
+                           frameon=False)
+#
 
-plt.savefig(os.path.join(path_savefig, 'Figure3.pdf'))
+trans = mtransforms.ScaledTranslation(4/72, -4/72, fig.dpi_scale_trans)
+for label, ax in zip(labels, ax_list):
+    ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top')
+
+fig.align_labels()
+plt.savefig(os.path.join(path_savefig, 'Figure3.pdf'),)
 plt.show()

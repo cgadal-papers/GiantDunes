@@ -1,0 +1,23 @@
+
+
+Examples using ``python_codes.meteo_analysis.mu``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Processing the meteorological data">
+
+.. only:: html
+
+ .. figure:: /Processing/images/thumb/sphx_glr_4_meteo_data_analysis_plot_thumb.png
+     :alt: Processing the meteorological data
+
+     :ref:`sphx_glr_Processing_4_meteo_data_analysis_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Processing_4_meteo_data_analysis_plot.py`

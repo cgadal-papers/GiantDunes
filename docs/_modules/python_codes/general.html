@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>python_codes.general &#8212; Giant dunes feedback on wind  documentation</title>
+    <title>python_codes.general &#8212; Local wind regime induced by giant linear dunes  documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,7 +53,7 @@
     
     
 <a class="navbar-brand" href="../../index.html">
-<p class="title">Giant dunes feedback on wind</p>
+<p class="title">Local wind regime induced by giant linear dunes</p>
 </a>
 
     
@@ -83,13 +83,13 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../Processing/index.html">
-  Processing
+  Processing codes
  </a>
 </li>
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../_autosummary/python_codes.html">
-  API reference
+  Python functions and modules
  </a>
 </li>
 
@@ -103,6 +103,10 @@
       
       <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/Cgadal/GiantDunes" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
       </ul>
       </div>
       
@@ -148,25 +152,87 @@
               <div>
                 
   <h1>Source code for python_codes.general</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A few general functions used in many scripts.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">xhistogram.core</span> <span class="kn">import</span> <span class="n">histogram</span>
 
 
-<div class="viewcode-block" id="cosd"><a class="viewcode-back" href="../../_autosummary/python_codes.general.cosd.html#python_codes.general.cosd">[docs]</a><span class="k">def</span> <span class="nf">cosd</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span></div>
+<div class="viewcode-block" id="tand"><a class="viewcode-back" href="../../_autosummary/python_codes.general.tand.html#python_codes.general.tand">[docs]</a><span class="k">def</span> <span class="nf">tand</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute tangent element-wise using :func:`np.tan &lt;numpy.tan&gt;` with an input in degree.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : array_like</span>
+<span class="sd">        Input array in degree.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    y : array_like</span>
+<span class="sd">        The corresponding tangent values. This is a scalar if x is a scalar.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="sind"><a class="viewcode-back" href="../../_autosummary/python_codes.general.sind.html#python_codes.general.sind">[docs]</a><span class="k">def</span> <span class="nf">sind</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span></div>
+<div class="viewcode-block" id="sind"><a class="viewcode-back" href="../../_autosummary/python_codes.general.sind.html#python_codes.general.sind">[docs]</a><span class="k">def</span> <span class="nf">sind</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Trigonometric sine using :func:`np.sin &lt;numpy.sin&gt;`, element-wise with an input in degree.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : array_like</span>
+<span class="sd">        Input array in degree.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    y : array_like</span>
+<span class="sd">        The corresponding tangent values. This is a scalar if x is a scalar.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="tand"><a class="viewcode-back" href="../../_autosummary/python_codes.general.tand.html#python_codes.general.tand">[docs]</a><span class="k">def</span> <span class="nf">tand</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">theta</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span></div>
+<div class="viewcode-block" id="cosd"><a class="viewcode-back" href="../../_autosummary/python_codes.general.cosd.html#python_codes.general.cosd">[docs]</a><span class="k">def</span> <span class="nf">cosd</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Cosine element-wise :func:`np.cos &lt;numpy.cos&gt;` with an input in degree.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : array_like</span>
+<span class="sd">        Input array in degree.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    y : array_like</span>
+<span class="sd">        The corresponding tangent values. This is a scalar if x is a scalar.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="Vector_average"><a class="viewcode-back" href="../../_autosummary/python_codes.general.Vector_average.html#python_codes.general.Vector_average">[docs]</a><span class="k">def</span> <span class="nf">Vector_average</span><span class="p">(</span><span class="n">Direction</span><span class="p">,</span> <span class="n">Norm</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">average</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">Norm</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">Direction</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">average</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">average</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Vector_average"><a class="viewcode-back" href="../../_autosummary/python_codes.general.Vector_average.html#python_codes.general.Vector_average">[docs]</a><span class="k">def</span> <span class="nf">Vector_average</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the average vector from series of angles and norms.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    angles : array_like</span>
+<span class="sd">        angles.</span>
+<span class="sd">    norm : array_like</span>
+<span class="sd">        norms.</span>
+<span class="sd">    axis : None or int</span>
+<span class="sd">        axis along wich the averaging is performed (the default is -1). None compute the average on the flattened array.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    angle : array_like</span>
+<span class="sd">        the counterclockwise angle of the resultant vector in the range [-180, 180].</span>
+<span class="sd">    norm : array_like</span>
+<span class="sd">        norm of the resultant vector.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">average</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">norm</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">angles</span><span class="p">)),</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">average</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">average</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="smallestSignedAngleBetween"><a class="viewcode-back" href="../../_autosummary/python_codes.general.smallestSignedAngleBetween.html#python_codes.general.smallestSignedAngleBetween">[docs]</a><span class="k">def</span> <span class="nf">smallestSignedAngleBetween</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -212,6 +278,27 @@
 
 
 <div class="viewcode-block" id="Make_angular_PDF"><a class="viewcode-back" href="../../_autosummary/python_codes.general.Make_angular_PDF.html#python_codes.general.Make_angular_PDF">[docs]</a><span class="k">def</span> <span class="nf">Make_angular_PDF</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">bin_edges</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mi">361</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the angular PDF (normalized) from input arrays.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    angles : np.array</span>
+<span class="sd">        array of angles.</span>
+<span class="sd">    weight : np.array</span>
+<span class="sd">        array of weights. Its dimensions must match those of angles.</span>
+<span class="sd">    bin_edges : np.array</span>
+<span class="sd">        array containing the bins used to calculate the distribution (the default is np.linspace(0, 360, 361)).</span>
+<span class="sd">    axis : int</span>
+<span class="sd">        axis of the input aray along which the distribution is calculated (the default is -1).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    hist: np.array</span>
+<span class="sd">        array containing the distribution.</span>
+<span class="sd">    bin_centers: np.array</span>
+<span class="sd">        array containing the bin centers of the distribution.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">hist</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weight</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
     <span class="n">bin_centers</span> <span class="o">=</span> <span class="n">bin_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="p">(</span><span class="n">bin_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">bin_edges</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
     <span class="k">return</span> <span class="n">hist</span><span class="p">,</span> <span class="n">bin_centers</span></div>

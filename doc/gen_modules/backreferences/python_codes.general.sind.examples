@@ -1,0 +1,118 @@
+
+
+Examples using ``python_codes.general.sind``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 7">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure07_thumb.png
+     :alt: Figure 7
+
+     :ref:`sphx_glr_Paper_figure_Figure07.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Figure07.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 8">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/images/thumb/sphx_glr_Figure09_thumb.png
+     :alt: Figure 8
+
+     :ref:`sphx_glr_Paper_figure_Figure09.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Figure09.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 4 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure04_supp_thumb.png
+     :alt: Figure 4 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure04_supp.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure04_supp.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Figure 13 -- Online Resource">
+
+.. only:: html
+
+ .. figure:: /Paper_figure/Supplementary_Figures/images/thumb/sphx_glr_Figure13_supp_thumb.png
+     :alt: Figure 13 -- Online Resource
+
+     :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure13_supp.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Paper_figure_Supplementary_Figures_Figure13_supp.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="For each station, we follow these preprocessing steps:">
+
+.. only:: html
+
+ .. figure:: /Processing/images/thumb/sphx_glr_1_data_preprocessing_plot_thumb.png
+     :alt: Preprocessing of the wind data
+
+     :ref:`sphx_glr_Processing_1_data_preprocessing_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Processing_1_data_preprocessing_plot.py`
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="For each station, the hydrodynamic roughness is calibrated by finding the one that minimizes th...">
+
+.. only:: html
+
+ .. figure:: /Processing/images/thumb/sphx_glr_3_roughness_calibration_plot_thumb.png
+     :alt: Calibration of the hydrodynamic roughness
+
+     :ref:`sphx_glr_Processing_3_roughness_calibration_plot.py`
+
+.. raw:: html
+
+    </div>
+
+.. only:: not html
+
+ * :ref:`sphx_glr_Processing_3_roughness_calibration_plot.py`

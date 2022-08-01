@@ -36,7 +36,7 @@
     <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="python_codes.plot_functions.plot_arrow" href="python_codes.plot_functions.plot_arrow.html" />
+    <link rel="next" title="python_codes.plot_functions.north_arrow" href="python_codes.plot_functions.north_arrow.html" />
     <link rel="prev" title="python_codes.plot_functions.log_tick_formatter" href="python_codes.plot_functions.log_tick_formatter.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -86,13 +86,13 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../Processing/index.html">
-  Processing
+  Processing codes
  </a>
 </li>
 
 <li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="python_codes.html">
-  API reference
+  Python functions and modules
  </a>
 </li>
 
@@ -367,6 +367,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="python_codes.plot_functions.north_arrow.html">
+     python_codes.plot_functions.north_arrow
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="python_codes.plot_functions.plot_arrow.html">
      python_codes.plot_functions.plot_arrow
     </a>
@@ -437,9 +442,24 @@
               
               <div class="toc-item">
                 
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
-    
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples-using-python-codes-plot-functions-make-nice-histogram">
+   Examples using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     python_codes.plot_functions.make_nice_histogram
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
 </nav>
               </div>
               
@@ -464,9 +484,70 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="python_codes.plot_functions.make_nice_histogram">
 <span class="sig-name descname"><span class="pre">make_nice_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lin'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'vertical'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_codes/plot_functions.html#make_nice_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_codes.plot_functions.make_nice_histogram" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Function making a fancy histogram from input data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>numpy array</em><em>, </em><em>dimensions</em><em> (</em><em>N</em><em>,</em><em>)</em>) – One dimensional input data array</p></li>
+<li><p><strong>nbins</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Number of bins</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes</em>) – Figure ax on which to plot the data.</p></li>
+<li><p><strong>vmin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Minimum value of the histogram (the default is None).</p></li>
+<li><p><strong>vmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Maximum value of the histogram (the default is None).</p></li>
+<li><p><strong>scale_bins</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – If ‘lin’, the <cite>nbins</cite> are taken linearly, while if ‘log’, the bins are logarithmically spaced (the default is ‘lin’).</p></li>
+<li><p><strong>density</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – If True, the histogram is normalized such that its integral is unity (the default is True).</p></li>
+<li><p><strong>orientation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – If vertical, the histogram bars are vertical and the variable is on thr horizontal axis. If ‘horizontal’, its the other way around (the default is ‘vertical’).</p></li>
+<li><p><strong>**kwargs</strong> – Optional parameters passed to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib.pyplot.hist" title="(in Matplotlib v3.5.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.hist</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Description of returned object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.10)">type</a></p>
+</dd>
+</dl>
+</dd></dl>
 
-<span class="target" id="sphx-glr-backreferences-python-codes-plot-functions-make-nice-histogram"></span></section>
+<section id="examples-using-python-codes-plot-functions-make-nice-histogram">
+<span id="sphx-glr-backreferences-python-codes-plot-functions-make-nice-histogram"></span><h2>Examples using <code class="docutils literal notranslate"><span class="pre">python_codes.plot_functions.make_nice_histogram</span></code><a class="headerlink" href="#examples-using-python-codes-plot-functions-make-nice-histogram" title="Permalink to this headline">#</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="Figure 4"><figure class="align-default" id="id1">
+<img alt="Figure 4" src="../_images/sphx_glr_Figure04_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="../Paper_figure/Figure04.html#sphx-glr-paper-figure-figure04-py"><span class="std std-ref">Figure 4</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Figure 6"><figure class="align-default" id="id2">
+<img alt="Figure 6" src="../_images/sphx_glr_Figure06_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="../Paper_figure/Figure06.html#sphx-glr-paper-figure-figure06-py"><span class="std std-ref">Figure 6</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Figure 8 -- Online Resource"><figure class="align-default" id="id3">
+<img alt="Figure 8 -- Online Resource" src="../_images/sphx_glr_Figure08_supp_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="../Paper_figure/Supplementary_Figures/Figure08_supp.html#sphx-glr-paper-figure-supplementary-figures-figure08-supp-py"><span class="std std-ref">Figure 8 – Online Resource</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Figure 9 -- Online Resource"><figure class="align-default" id="id4">
+<img alt="Figure 9 -- Online Resource" src="../_images/sphx_glr_Figure09_supp_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="../Paper_figure/Supplementary_Figures/Figure09_supp.html#sphx-glr-paper-figure-supplementary-figures-figure09-supp-py"><span class="std std-ref">Figure 9 – Online Resource</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Figure 10 -- Online Resource"><figure class="align-default" id="id5">
+<img alt="Figure 10 -- Online Resource" src="../_images/sphx_glr_Figure10_supp_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="../Paper_figure/Supplementary_Figures/Figure10_supp.html#sphx-glr-paper-figure-supplementary-figures-figure10-supp-py"><span class="std std-ref">Figure 10 – Online Resource</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Figure 12 -- Online Resource"><figure class="align-default" id="id6">
+<img alt="Figure 12 -- Online Resource" src="../_images/sphx_glr_Figure12_supp_thumb.png" />
+<figcaption>
+<p><span class="caption-text"><a class="reference internal" href="../Paper_figure/Supplementary_Figures/Figure12_supp.html#sphx-glr-paper-figure-supplementary-figures-figure12-supp-py"><span class="std std-ref">Figure 12 – Online Resource</span></a></span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div><div class="sphx-glr-clear"></div></section>
+</section>
 
 
               </div>

@@ -22,7 +22,7 @@
 Figure 8 -- Online Resource
 ============================
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-82
+.. GENERATED FROM PYTHON SOURCE LINES 7-115
 
 
 
@@ -38,85 +38,118 @@ Figure 8 -- Online Resource
 .. code-block:: default
 
 
+    import os
+    import sys
     import numpy as np
     import matplotlib.pyplot as plt
-    import sys
-    import os
+    import matplotlib.transforms as mtransforms
     sys.path.append('../../')
     import python_codes.theme as theme
     from python_codes.plot_functions import make_nice_histogram
 
-    # Loading figure theme
+
+    def plot_vertical_profile(ax, height, Virtual_potential_temperature, grad_free_atm, theta_free_atm, blh, theta_ground, Hmax_fit, color='tab:blue', label=None):
+        Hfit = np.linspace(blh, Hmax_fit, 100)
+        #
+        line = ax.vlines(theta_ground, 0, blh/1e3, color=color, label=label, zorder=-3)
+        ax.axhline(blh/1e3, alpha=0.5, color=color, ls='--')
+        ax.plot(np.poly1d([grad_free_atm, theta_free_atm])(Hfit), Hfit/1e3, color=line.get_color(), zorder=-2)
+        ax.plot(Virtual_potential_temperature, height/1e3, '.', color=line.get_color(), zorder=-1)
+        # ax.scatter(theta_ground, blh/1e3, s=30, facecolors=line.get_color(), edgecolors='k', linewidth=2, zorder=0)
+
+
     theme.load_style()
 
     # paths
     path_savefig = '../../Paper/Figures'
     path_outputdata = '../../static/data/processed_data/'
 
-    # Loading wind data
+    # Loading data
     Data = np.load(os.path.join(path_outputdata, 'Data_final.npy'), allow_pickle=True).item()
-    Stations = sorted(Data.keys())
 
-    # Figure properties
-    station = 'South_Namib_Station'
-    #
-    theta_bins = [[0, 140], [150, 260]]
-    velocity_bins = [[0.05, 0.2], [0.3, 10]]
-    Data_pattern = np.load(os.path.join(path_outputdata, 'Data_DEM.npy'), allow_pickle=True).item()[station]
-    icon = [r'\faSun', r'\faMoon']
+    labels = [r'\textbf{a}', r'\textbf{b}', r'\textbf{c}', r'\textbf{d}']
 
-    color_ax = 'purple'
+    # ## vertical profiles parameters
+    station = 'Deep_Sea_Station'
+    time_steps_bad = [10856, 30266, 33463]
+    time_steps_good = [2012, 30302, 30310]
+    colors = ['tab:blue', 'tab:orange', 'tab:green']
+    Hmax_fit = 10000  # [m]
 
-    # ################ Figure
-    fig, axarr = plt.subplots(3, 3, figsize=(theme.fig_width, 0.925*theme.fig_width), constrained_layout=True, sharex=True)
-    for i in range(3):  # Loop over velocites
-        if i < 2:
-            mask_U = (Data[station]['U_star_era'] >= velocity_bins[i][0]) & (Data[station]['U_star_era'] <= velocity_bins[i][1])
-            label_u = r'$u_{*, \textup{ERA}} < ' + str(velocity_bins[i][1]) + '$' if i == 0 else r'$u_{*, \textup{ERA}} > ' + str(velocity_bins[i][0]) + '$'
-        else:
-            mask_U = (Data[station]['U_star_era'] < 10)  # take all velocities
-            label_u = 'all velocities'
-        axarr[i, -1].set_ylabel(label_u)
-        axarr[i, -1].yaxis.set_label_position("right")
-        for j in range(3):  # loop over angles
-            if j < 2:
-                mask_theta = (Data[station]['Orientation_era'] >= theta_bins[j][0]) & (Data[station]['Orientation_era'] <= theta_bins[j][1])
-                label_theta = icon[j] + '\n' + r'${:d} < \theta_{{\textup{{ERA}}}} < {:d}$'.format(theta_bins[j][0], theta_bins[j][-1])
-            else:
-                mask_theta = Data[station]['Orientation_era'] < 400  # take all orientations
-                label_theta = 'all angles'
-            make_nice_histogram(Data[station]['Orientation_insitu'][mask_theta & mask_U], 80, axarr[i, j], alpha=0.5, color=theme.color_insitu)
-            make_nice_histogram(Data[station]['Orientation_era'][mask_theta & mask_U], 80, axarr[i, j], alpha=0.5, color=theme.color_Era5Land)
-            #
-            axarr[i, j].axvline(Data_pattern['orientation'], color=theme.color_dune_orientation, ls='--', lw=2)
-            axarr[i, j].axvline((Data_pattern['orientation'] + 180) % 360, color=theme.color_dune_orientation, ls='--', lw=2)
-            #
-            perc = (mask_theta & mask_U).sum()/mask_theta.size
-            hours = np.array([t.hour for t in Data[station]['time'][(mask_theta & mask_U)]])
-            mask_day = (hours > 10) & (hours <= 10 + 12)
-            perc_day = mask_day.sum()/(mask_theta & mask_U).sum()
-            axarr[i, j].text(0.5, 0.95, '{:.1f} \n {:.1f}'.format(perc, perc_day), ha='center', va='top', transform=axarr[i, j].transAxes)
-            if i == 0:
-                axarr[i, j].set_xlabel(label_theta)
-                axarr[i, j].xaxis.set_label_position("top")
-                if j == 1:
-                    for axis in ['top', 'bottom', 'left', 'right']:
-                        axarr[i, j].spines[axis].set_color(color_ax)
-                        axarr[i, j].spines[axis].set_linewidth(2)
-    plt.xlim(0, 360)
-    plt.xticks([45, 125, 215, 305])
-    for ax in axarr.flatten():
-        ax.set_yticks([])
-    fig.supxlabel(r'Wind direction, $\theta~[^\circ]$')
-    fig.supylabel('Distributions')
+    # ## Distribution parameters
+    Stations = ['South_Namib_Station', 'Deep_Sea_Station']
 
+    fig, axarr = plt.subplots(2, 2, figsize=(theme.fig_width, 1*theme.fig_width),
+                              constrained_layout=True, gridspec_kw={'height_ratios': [2, 1]})
+
+
+    # ## well-processed vertical profiles
+    for i, t in enumerate(time_steps_good):
+        plot_vertical_profile(axarr[0, 0], Data[station]['height'][:, t], Data[station]['Virtual_potential_temperature'][:, t],
+                              Data[station]['gradient_free_atm'][t], Data[station]['theta_free_atm'][t],
+                              Data[station]['Boundary layer height'][t], Data[station]['theta_ground'][t], Hmax_fit,
+                              color=colors[i])
+
+    axarr[0, 0].set_xlabel('Virtual potential temp. [K]')
+    axarr[0, 0].set_ylabel('Height [km]')
+    axarr[0, 0].set_ylim(0, top=0.68*Hmax_fit/1e3)
+    axarr[0, 0].set_xlim(297, 328)
+    # Labelling some quantities
+    axarr[0, 0].text(axarr[0, 0].get_xlim()[0]-1, Data[station]['Boundary layer height'][time_steps_good[1]]/1e3, '$H$', ha='right', va='top', color='tab:orange')
+    axarr[0, 0].text(Data[station]['theta_ground'][time_steps_good[1]], axarr[0, 0].get_ylim()[0]-0.15, '$T_{0}$', ha='center', va='top', color='tab:orange')
+    axarr[0, 0].annotate('', xy=(313, 4), xytext=(316, 4), arrowprops=dict(arrowstyle="<->", shrinkA=0, shrinkB=0, color='tab:orange'))
+    axarr[0, 0].text((313 + 316)/2 - 1, 4.05, r'$\Delta T_{\textup{vp}}$', ha='center', va='bottom', color='tab:orange')
+
+    # ## ill-processed vertical profiles
+    for i, t in enumerate(time_steps_bad):
+        plot_vertical_profile(axarr[0, 1], Data[station]['height'][:, t], Data[station]['Virtual_potential_temperature'][:, t],
+                              Data[station]['gradient_free_atm'][t], Data[station]['theta_free_atm'][t],
+                              Data[station]['Boundary layer height'][t], Data[station]['theta_ground'][t], Hmax_fit,
+                              color=colors[i])
+
+    axarr[0, 1].set_xlabel('Virtual potential temp. [K]')
+    axarr[0, 1].set_ylabel('Height [km]')
+    axarr[0, 1].set_ylim(0, top=0.68*Hmax_fit/1e3)
+    axarr[0, 1].set_xlim(297, 328)
+
+    # ## hourly distributions of ill-processed vertical profiles
+    colors = [theme.color_Era5Land_sub, theme.color_Era5Land]
+    for station, color in zip(Stations, colors):
+        hr = np.array([i.hour for i in Data[station]['time']])
+        make_nice_histogram(hr[np.isnan(Data[station]['Froude'])], 24, axarr[1, 0],
+                            alpha=0.4, vmin=0, vmax=23, label='South Sand Sea' if station == 'South_Namib_Station' else 'North Sand Sea',
+                            scale_bins='lin', density=False, color=color)
+    axarr[1, 0].set_xlabel('Hours of the day')
+    axarr[1, 0].set_ylabel(r'Counts')
+    axarr[1, 0].set_xlim(0, 23)
+    axarr[1, 0].ticklabel_format(axis='y', style='sci', scilimits=(0, 1))
+    axarr[1, 0].legend(loc='upper center')
+
+    # ## monthly distributions of ill-processed vertical profiles
+    for station, color in zip(Stations, colors):
+        month = np.array([i.month for i in Data[station]['time']])
+        make_nice_histogram(month[np.isnan(Data[station]['Froude'])], 24, axarr[1, 1],
+                            alpha=0.5, vmin=0, vmax=23, label=' '.join(station.split('_')[:-1]),
+                            scale_bins='lin', density=False, color=color)
+    axarr[1, 1].set_xlabel('Months of the year')
+    axarr[1, 1].set_ylabel(r'Counts')
+    axarr[1, 1].set_xlim(0, 12)
+    axarr[1, 1].ticklabel_format(axis='y', style='sci', scilimits=(0, 1))
+
+    # ## labelling
+    trans = mtransforms.ScaledTranslation(4/72, -4/72, fig.dpi_scale_trans)
+    for label, ax in zip(labels, axarr.flatten()):
+        ax.text(0.0, 1.0, label, transform=ax.transAxes + trans, va='top')
+
+
+    fig.align_labels()
     plt.savefig(os.path.join(path_savefig, 'Figure8_supp.pdf'))
     plt.show()
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.120 seconds)
+   **Total running time of the script:** ( 0 minutes  1.122 seconds)
 
 
 .. _sphx_glr_download_Paper_figure_Supplementary_Figures_Figure08_supp.py:

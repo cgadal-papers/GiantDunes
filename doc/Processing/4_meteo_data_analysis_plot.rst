@@ -57,7 +57,7 @@ Processing the meteorological data
 .. GENERATED FROM PYTHON SOURCE LINES 30-34
 
 Calculating the relevant meteorological quantities
-------------------------
+--------------------------------------------------
 
 We calculate the relevant meteorological quantities from the Era5 pressure levels data.
 
@@ -96,7 +96,7 @@ We calculate the relevant meteorological quantities from the Era5 pressure level
 .. GENERATED FROM PYTHON SOURCE LINES 56-58
 
 Analyzing the vertical profiles of virtual potential temperature
-------------------------
+----------------------------------------------------------------
 
 .. GENERATED FROM PYTHON SOURCE LINES 58-103
 
@@ -157,7 +157,7 @@ Analyzing the vertical profiles of virtual potential temperature
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  7.438 seconds)
+   **Total running time of the script:** ( 0 minutes  6.883 seconds)
 
 
 .. _sphx_glr_download_Processing_4_meteo_data_analysis_plot.py:

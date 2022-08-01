@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>python_codes.meteo_analysis &#8212; Giant dunes feedback on wind  documentation</title>
+    <title>python_codes.meteo_analysis &#8212; Local wind regime induced by giant linear dunes  documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,7 +53,7 @@
     
     
 <a class="navbar-brand" href="../../index.html">
-<p class="title">Giant dunes feedback on wind</p>
+<p class="title">Local wind regime induced by giant linear dunes</p>
 </a>
 
     
@@ -83,13 +83,13 @@
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../Processing/index.html">
-  Processing
+  Processing codes
  </a>
 </li>
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../_autosummary/python_codes.html">
-  API reference
+  Python functions and modules
  </a>
 </li>
 
@@ -103,6 +103,10 @@
       
       <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/Cgadal/GiantDunes" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
       </ul>
       </div>
       
@@ -148,7 +152,11 @@
               <div>
                 
   <h1>Source code for python_codes.meteo_analysis</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A few functions to process time series of meteorological data.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binned_statistic_2d</span>
 <span class="kn">from</span> <span class="nn">python_codes.general</span> <span class="kn">import</span> <span class="n">cosd</span><span class="p">,</span> <span class="n">sind</span>
 
@@ -163,7 +171,7 @@
 <span class="sd">    U : array_like</span>
 <span class="sd">        wind velocity, same shape as `theta`.</span>
 <span class="sd">    time : array_like</span>
-<span class="sd">        numpy array of `datetime.datetime` objects, same shape as `theta`.</span>
+<span class="sd">        numpy array of :class:`datetime.datetime &lt;datetime.datetime&gt;` objects, same shape as `theta`.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -251,7 +259,7 @@
 <span class="sd">    &gt;&gt;&gt; qsat = quadratic_transport_law(theta, theta_d, omega)</span>
 
 <span class="sd">    References</span>
-<span class="sd">    --------</span>
+<span class="sd">    ----------</span>
 <span class="sd">    [1] Durán, O., Claudin, P., &amp; Andreotti, B. (2011). On aeolian transport: Grain-scale interactions,</span>
 <span class="sd">    dynamical mechanisms and scaling laws. Aeolian Research, 3(3), 243-270.</span>
 
@@ -289,7 +297,7 @@
 <span class="sd">    &gt;&gt;&gt; qsat = quartic_transport_law(theta, theta_d)</span>
 
 <span class="sd">    References</span>
-<span class="sd">    --------</span>
+<span class="sd">    ----------</span>
 <span class="sd">    [1] Pähtz, T., &amp; Durán, O. (2020). Unification of aeolian and fluvial sediment transport rate from granular physics. Physical review letters, 124(16), 168001.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
